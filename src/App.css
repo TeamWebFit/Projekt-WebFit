@@ -233,7 +233,6 @@ hr {
  }
 /*End Buttons*/
 
-
 /*2. Form*/
 /*Formular-Komponente*/
 /*Formular allgemein*/
@@ -580,7 +579,6 @@ input {
 
 /*End Add Button*/
 
-
 /*5. Menu*/
 /*5.1 Header-Menu*/
 .main{
@@ -591,7 +589,7 @@ input {
 header{
   position: fixed;
   z-index: 999;
-  margin-top: -100px;
+  /*margin-top: -100px;*/
 }
 
 #nav-header{
@@ -721,9 +719,7 @@ footer{
 /*End Footer-Menu*/
 /*End Menu*/
 
-
 /*WebFit Home*/
-
 .graph-box{
     width: 613px;
     height: 392px;
@@ -732,9 +728,4 @@ footer{
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
     text-align: center;
 }
-
-
-
 /*End WebFit Home*/
-
-
