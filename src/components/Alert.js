@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import {} from 'react-bootstrap';
 import $ from 'jquery';
 
+// Properties: type, title, message
+
 class Alert extends Component{
     componentDidMount() {
      $(".close-alert").click(function(){
-         var test = $(this).closest("div");
-         test.hide();
+         var alertelement = $(this).closest("div");
+         alertelement.hide();
      })
     }
     render(){
