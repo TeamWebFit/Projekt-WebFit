@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import {} from 'react-bootstrap';
 import $ from 'jquery';
 
-// Properties: type, title, message
+// ===================
+// Alert Component
+// Properties: type[alertgrad, alertyellow, alertblue, alertred], title, message
+// ===================
 
 class Alert extends Component{
     componentDidMount() {
