@@ -8,7 +8,6 @@ import Footer from './components/Footer';
 import Demo from './pages/Demo';
 import Welcome from './components/Welcome';
 import Notfound from './pages/404';
-import User from './pages/User';
 import Login from './pages/Login';
 import Register from './pages/Register'
 
@@ -27,7 +26,6 @@ class App extends Component {
               <Route exact path="/" component={Welcome} />
               <Route path="/demo" component={Demo} />
               <Route path="/login" component={Login} />
-              <Route path="/user" component={User} />
               <Route path="/register" component={Register} />
             {/* React-Router - Route End */}
             </div>
