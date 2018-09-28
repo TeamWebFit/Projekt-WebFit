@@ -1,10 +1,9 @@
 //react basis
 import React, { Component } from 'react';
 import '../App.css';
-import PropTypes from 'prop-types';
 //Router
 import { withRouter, Link } from 'react-router-dom';
-//Component
+//Apollo
 
 class Register extends Component {
 
@@ -19,8 +18,9 @@ class Register extends Component {
       tag: '',
       monat: '',
       jahr: '',
-      gender: '',
+      gender: ''
     };
+
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -32,19 +32,32 @@ class Register extends Component {
   onSubmit(e){
     e.preventDefault();
 
-    const user = {
+    {/*const user = {
       name: this.state.name,
-      nachname: this.state.nachname,
       email: this.state.email,
-      passwort: this.state.passwort,
-      tag: this.state.tag,
-      monat: this.state.monat,
-      jahr: this.state.jahr,
-      gender: this.state.gender
+      password: this.state.password
     };
 
-    this.props.createUser(user);
-    //this.props.history.push("/home");
+    const createUser = gql`
+      mutation createUser($name: String!, $email: String!, $password: String!)
+      {  createTestUser(name: $name, email: $email, password: $password)
+        { id name email password }
+      }`;
+
+    this.client.mutate({
+        mutation: createUser,
+        variables: {
+          name: user.name,
+          email: user.email,
+          password: user.password
+        }
+      }).then(result => {
+        let newUser = {...user};
+        newUser.id = result.data.createUser.id);
+        console.log(newUser.id);
+        //const nutzer =  { userId: cookie.load('user_cookie') }
+        //console.log(nutzer.userId)
+      });*/}
   }
 
   render(){
@@ -65,7 +78,7 @@ class Register extends Component {
                   <input type="email" className="form-control" id="InputEmail" placeholder="email" name="email" onChange={this.onChange} value={this.state.email} />
                 </div>
                 <div className="form-group">
-                  <input type="password" className="form-control" id="InputPassword" placeholder="passwort" name="passwort" onChange={this.onChange} value={this.state.passwort} />
+                  <input type="password" className="form-control" id="InputPassword" placeholder="passwort" name="password" onChange={this.onChange} value={this.state.password} />
                 </div>
                 <div>
                   <label>geburtstag</label>
@@ -110,9 +123,5 @@ class Register extends Component {
     )
   }
 }
-
-//Register.propTypes = {
-  //createUser: PropTypes.func.isRequired
-//};
 
 export default Register
