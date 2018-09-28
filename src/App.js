@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 //components
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Register from './components/Register';
+import Register from './pages/Register';
 
 class App extends Component {
   render() {
