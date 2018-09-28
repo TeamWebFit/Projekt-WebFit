@@ -10,7 +10,6 @@ import Welcome from './components/Welcome';
 import notfound from './pages/404';
 import profil from './pages/user';
 import login from './pages/Login';
-import PrivateRoute from '../../containers/PrivateRoute';
 
 // Don't link any component (except Header & Footer)
 // Please include new pages through react-router here
@@ -28,6 +27,7 @@ class App extends Component {
               <Route path="/demo" component={Demo} />
               <Route path="/login" component={login} />
               <Route path="/user" component={profil} />
+              
             {/* React-Router - Route End */}
             </div>
         <Footer />

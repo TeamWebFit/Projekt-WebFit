@@ -1,48 +1,30 @@
-import React, { Component } from 'react'
-import { AUTH_TOKEN } from '../constants'
+import React, { Component } from 'react';
+import {} from 'react-bootstrap';
+import Alert from '../components/Alert';
+import Auth from '../App';
+import { BrowserRouter as Redirect } from 'react-router-dom';
 
-class Login extends Component {
-  state = {
-    email: '',
-    password: '',
-  }
+// ===================
+// Login Page
+// Login Page for Customers
+// ===================
 
-  render() {
-    const { login, email, password, name } = this.state
-    return (
-      <div>
-        <h4 className="mv3">Login</h4>
-        <div className="flex flex-column">
-           <input
-            value={email}
-            onChange={e => this.setState({ email: e.target.value })}
-            type="text"
-            placeholder="Your email address"
-          />
-          <input
-            value={password}
-            onChange={e => this.setState({ password: e.target.value })}
-            type="password"
-            placeholder="Your password"
-          />
-        </div>
-        <div className="flex mt3">
-          <div className="pointer mr2 button" onClick={() => this._confirm()}>
-            login
-          </div>
-          
-        </div>
-      </div>
-    )
-  }
-
-  _confirm = async () => {
-    // ... you'll implement this 🔜
-  }
-
-  _saveUserData = token => {
-    localStorage.setItem(AUTH_TOKEN, token)
-  }
+class login extends Component{
+    render(){
+      
+    
+        return (
+            <div>
+                <div className="container">
+                    <Alert 
+                        title="Guten Tag" 
+                        message="bitte logge dich hier ein" 
+                        type="alertgrad"
+                    ></Alert>
+                </div>
+            </div>
+        )
+    }
 }
 
-export default Login
+export default login;
