@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import './App.css';
-import Alert from './components/Alert'
-import Button from './components/Button'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-// import { Navbar, Jumbotron, Button } from 'react-bootstrap'; Beispiel - Import in Komponenten einfügen
-//components
+import { BrowserRouter as Router, Route} from 'react-router-dom';
+
+// Router imports
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Register from './pages/Register';
+import Demo from './pages/Demo';
+import Welcome from './components/Welcome';
+import notfound from './pages/404';
+import profil from './pages/user';
+import login from './pages/Login';
+import PrivateRoute from '../../containers/PrivateRoute';
+
+// Don't link any component (except Header & Footer)
+// Please include new pages through react-router here
+
 
 class App extends Component {
   render() {
@@ -15,40 +22,20 @@ class App extends Component {
       <Router>
         <div className="App">
           <Header />
-          <div className="main"> {/*Weitere Seiteninhalte innerhalb des divs "main" !!!*/}
-            <Register />
-             <div className="container">
-                <Alert 
-                  title="Es ist ein Fehler aufgetreten :(" 
-                  message="Der Prof. von neben an hat leider einen Fehler in den Code eingebaut. Versuch's später nochmal." 
-                  type="alertred"
-                ></Alert>
-                 <Alert 
-                  title="Das hat geklappt!" 
-                  message="Deine Einstellungen sind erfolgreich gesetzt worden." 
-                  type="alertyellow"
-                ></Alert>
-                <Alert 
-                  title="Das hat geklappt!" 
-                  message="Deine Einstellungen sind erfolgreich gesetzt worden." 
-                  type="alertgrad"
-                ></Alert>
-                <Button
-                  message="Klick mich hart"
-                  type="btn-basic"
-                  >
-                </Button>
-                <Button
-                  message="+"
-                  type="btn-round"
-                ></Button>
+            <div className="main">
+            {/* React-Router - Route */}
+              <Route exact path="/" component={Welcome} />
+              <Route path="/demo" component={Demo} />
+              <Route path="/login" component={login} />
+              <Route path="/user" component={profil} />
+            {/* React-Router - Route End */}
             </div>
-        </div>
         <Footer />
         </div>
       </Router>
     );
   }
 }
+
 
 export default App;
