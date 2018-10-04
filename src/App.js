@@ -9,10 +9,11 @@ import Demo from './pages/Demo';
 import Welcome from './components/Welcome';
 import notfound from './pages/404';
 import profil from './pages/user';
-import login from './pages/Login';
-import Register from './pages/Register';
 import * as qs from 'query-string';
 import Alert from './components/Alert';
+import Notfound from './pages/404';
+import Login from './pages/Login';
+import Register from './pages/Register'
 
 // Don't link any component (except Header & Footer)
 // Please include new pages through react-router here
@@ -53,7 +54,10 @@ class App extends Component {
               <Route path="/login" component={login} />
               <Route path="/user" component={profil} />
               <Route path="/register" component={Register} />
-              <div id="registrationTrue"></div>
+              <Route path="/login" component={Login} />
+              <Route path="/register" component={Register} />
+      
+      <div id="registrationTrue"></div>
             {/* React-Router - Route End */}
             </div>
         <Footer />

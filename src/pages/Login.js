@@ -1,30 +1,87 @@
-import React, { Component } from 'react';
-import {} from 'react-bootstrap';
+import React, { Component } from 'react'
+import { AUTH_TOKEN } from '../constants/constants'
+import { Mutation } from 'react-apollo'
+import gql from 'graphql-tag'
 import Alert from '../components/Alert';
-import Auth from '../App';
-import { BrowserRouter as Redirect } from 'react-router-dom';
 
-// ===================
-// Login Page
-// Login Page for Customers
-// ===================
+const LOGIN_MUTATION = gql`
+  mutation LoginMutation($email: String!, $password: String!) {
+    signinUser(
+        email: {
+            email: $email, 
+            password: $password
+        }) 
+    {            
+      token
+    }
+  }
+`
 
-class login extends Component{
-    render(){
-      
-    
-        return (
-            <div>
-                <div className="container">
-                    <Alert 
-                        title="Guten Tag" 
-                        message="bitte logge dich hier ein" 
-                        type="alertgrad"
-                    ></Alert>
-                </div>
-            </div>
-        )
+
+class Login extends Component {
+
+
+constructor(){
+    super()
+    this.state ={
+    email: '',
+    password: '',
+    error: '',
+
     }
 }
 
-export default login;
+
+
+  render() {
+    const { email, password, error } = this.state
+    return (
+      <div className="container">
+        <div id="login-error">{this.state.error}
+        </div>
+        <h4 className="mv3">Login</h4>
+        <div className="flex flex-column">
+          <input className="form-control"
+            value={email}
+            onChange={e => this.setState({ email: e.target.value })}
+            type="text"
+            placeholder="Your email address"
+          />
+          <input className="form-control"
+            value={password}
+            onChange={e => this.setState({ password: e.target.value })}
+            type="password"
+            placeholder="your password"
+          />
+        </div>
+        <br />
+        <div className="flex mt3">
+            <Mutation
+                mutation={LOGIN_MUTATION}
+                variables={{ email, password }}
+                onCompleted={data => this._confirm(data)}
+                onError={error_handler => this.setState({error: <Alert type="alertred" title="Huch.....!" message="Scheinbar ist das eingegebene Passwort falsch oder unter der angegebenen EMail-Adresse kann kein Nutzer gefunden werden :("></Alert>})}
+            >
+                {mutation => (
+                <div className="btn btn-basic" onClick={mutation}>
+                    login
+                </div>
+                )}
+            </Mutation>
+            </div>
+      </div>
+    )
+  }
+
+  _confirm = async data => {
+    const { token } = data.signinUser
+    this._saveUserData(token)
+    this.props.history.push(`/`)
+  }
+
+  _saveUserData = token => {
+    localStorage.setItem(AUTH_TOKEN, token)
+  }
+}
+
+export default Login

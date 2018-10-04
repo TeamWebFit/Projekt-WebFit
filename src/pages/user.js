@@ -3,11 +3,11 @@ import {} from 'react-bootstrap';
 import Alert from '../components/Alert'
 
 // ===================
-// 404 Page
+// User Page
 // A page for testing all components
 // ===================
 
-class profil extends Component{
+class User extends Component{
     render(){
         return (
             <div>
@@ -24,4 +24,4 @@ class profil extends Component{
     }
 }
 
-export default profil;
+export default User;
