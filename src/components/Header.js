@@ -22,7 +22,7 @@ render(){
     <div>
       <header>
         <nav id="nav-header">
-          <NavLink to="/"><img id="logo" alt="WebFit Application Logo" src={logo} width="20%"/></NavLink>
+          <NavLink to="/"><img id="logo" alt="WebFit Application Logo" src={logo} width="5%"/></NavLink>
           <div id="toggle-menu">
             <i id="x-icon" className="close-round fa fa-times"></i>
             <div id="btns-toggle">
