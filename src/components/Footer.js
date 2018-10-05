@@ -8,12 +8,12 @@ render(){
       <footer>
         <nav id="nav-footer">
           <ul id="ul-left-footer">
-            <li className="li-footer li-footer-left"><i className="fa fa-flag-o icons-footer"></i></li>
-            <li className="li-footer li-footer-left"><i className="fa fa-soccer-ball-o icons-footer"></i></li>
+            <li id="" className="li-footer li-footer-left"><a href="#"><i className="fa fa-flag-o icons-footer"></i></a></li>
+            <li id="" className="li-footer li-footer-left"><a href="#"><i className="fa fa-soccer-ball-o icons-footer"></i></a></li>
           </ul>
           <ul id="ul-right-footer">
-            <li className="li-footer li-footer-right"><i className="fa fa-envelope icons-footer"></i></li>
-            <li className="li-footer li-footer-right"><i className="fa fa-users icons-footer"></i></li>
+            <li id="" className="li-footer li-footer-right"><a href="#"><i className="fa fa-envelope icons-footer"></i></a></li>
+            <li id="" className="li-footer li-footer-right"><a href="#"><i className="fa fa-users icons-footer"></i></a></li>
           </ul>
         </nav>
       </footer>
