@@ -42,6 +42,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <Router>
         <div className="App">
@@ -62,6 +63,5 @@ class App extends Component {
     );
   }
 }
-
 
 export default App;
