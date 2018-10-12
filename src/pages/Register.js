@@ -7,7 +7,6 @@ import '../App.css';
 import { withRouter, Link } from 'react-router-dom';
 //Apollo
 
-
 class Register extends Component {
 
   constructor(props){
@@ -17,12 +16,13 @@ class Register extends Component {
       name: '',
       email: '',
       password: '',
-      //tag: '',
-      //monat: '',
-      //jahr: '',
-      gender: ''
-    };
-
+      tag: '',
+      monat: '',
+      jahr: '',
+      gender: '',
+      dateOfBirth: '',
+      registrationStatus: ''
+    }
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -31,25 +31,50 @@ class Register extends Component {
     this.setState({[e.target.name]: e.target.value});
   }
 
+  update(state) {
+        this.setState(state);
+
+        const { date, month, year } = { ...this.state, ...state };
+        const { onChange, value } = this.props.input;
+
+        if(date && month && year) {
+            onChange(new Date(year, month - 1, date));
+        } else if(value) {
+            onChange(null);
+        }
+    }
+
   onSubmit(e){
     e.preventDefault();
-    console.log("OnSubmit funktioniert");
+
+    var tag = this.state.tag;
+    var monat = this.state.monat;
+    var jahr = this.state.jahr;
+    var gebDat = new Date(jahr, monat-1, tag);
+
     var gen = parseInt(this.state.gender);
+
     this.props.newUserMutation({
       variables: {
         firstName: this.state.firstName,
         name: this.state.name,
         email: this.state.email,
         password: this.state.password,
-        gender: gen
+        gender: gen,
+        dateOfBirth: gebDat,
+        registrationStatus: true
       }
     })
     console.log("Submit fertiiiig");
-    this.props.history.push("/?registration=true");
+
+    this.props.history.push("/login");
+
   }
 
   render(){
-    console.log(this.props);
+    const { date, month, year } = this.state;
+    const thisYear = new Date().getFullYear();
+
     {/*const userToRender = this.props.allUsersQuery.allTestUsers
     console.log(userToRender);*/}
 
@@ -61,30 +86,32 @@ class Register extends Component {
             <br />
             <form onSubmit={this.onSubmit}> {/*onSubmit={this.onSubmit}*/}
                 <div className="form-group">
-                  <input type="text" className="form-control" id="InputName" placeholder="vorname" name="firstName" onChange={this.onChange} value={this.state.firstName} />
+                  <input type="text" className="form-control" id="InputName" placeholder="Vorname" name="firstName" onChange={this.onChange} value={this.state.firstName} />
                 </div>
                 <div className="form-group">
-                  <input type="text" className="form-control" id="InputNachname" placeholder="nachname" name="name" onChange={this.onChange} value={this.state.name} />
+                  <input type="text" className="form-control" id="InputNachname" placeholder="Nachname" name="name" onChange={this.onChange} value={this.state.name} />
                 </div>
                 <div className="form-group">
-                  <input type="email" className="form-control" id="InputEmail" placeholder="email" name="email" onChange={this.onChange} value={this.state.email} />
+                  <input type="email" className="form-control" id="InputEmail" placeholder="E-Mail" name="email" onChange={this.onChange} value={this.state.email} />
                 </div>
                 <div className="form-group">
-                  <input type="password" className="form-control" id="InputPassword" placeholder="passwort" name="password" onChange={this.onChange} value={this.state.password} />
+                  <input type="password" className="form-control" id="InputPassword" placeholder="Passwort" name="password" onChange={this.onChange} value={this.state.password} />
                 </div>
-                {/*}<div>
-                  <label>geburtstag</label>
-                  <br />
-                  <select className="custom-select my-1 mr-sm-2 col-md-3" name="tag" onChange={this.onChange} value={1}>
-                    <option>01</option>
-                  </select>
-                  <select className="custom-select my-1 mr-sm-2 col-md-3" name="monat" onChange={this.onChange} value={2}>
-                    <option>januar</option>
-                  </select>
-                  <select className="custom-select my-1 mr-sm-2 col-md-4" name="jahr" onChange={this.onChange} value={3}>
-                    <option>1990</option>
-                  </select>
-                </div>*/}
+                <div>
+                  <label>Geburtstag</label>
+                </div>
+                <select className="selectBoxDate" onChange={this.onChange} value={date} name="tag">
+                  <option>Tag</option>
+                  {getOptions(1, 31)}
+                </select>
+                <select className="selectBoxDate" onChange={this.onChange} value={month} name="monat">
+                  <option>Monat</option>
+                  {getOptions(1, 12)}
+                </select>
+                <select className="selectBoxDate" onChange={this.onChange} value={year} name="jahr">
+                  <option>Jahr</option>
+                  {getOptions(thisYear - 60, thisYear-12)}
+                </select>
                 <br />
                 <div className="form-check">
                   <input className="form-check-input" type="radio" name="gender" onChange={this.onChange} value={1} />
@@ -112,27 +139,24 @@ class Register extends Component {
           </div>
         </div>
       </div>
+
     )//end return
+
+
 
   }//End Render
 
-  _createUser = async () => {
-    console.log("Start Datenübertragung");
-    const { firstName, name, email, password, gender } = this.state
-    await this.props.newUserMutation({
-      variables: {
-        firstName,
-        name,
-        email,
-        password,
-        gender
-      }
-    })
-    console.log("Daten übertragen");
-  }
-
 }//End Register Component
 
+function getOptions(start, end) {
+    const options = [];
+
+    for(let i = start; i <= end; i++) {
+        options.push(<option key={i}>{i}</option>)
+    }
+
+    return options;
+}
 
 
 const ALL_USERS_QUERY = gql`
@@ -147,11 +171,12 @@ const ALL_USERS_QUERY = gql`
 `
 
 const newUserMutation = gql`
-  mutation NewUserMutation($firstName: String!, $name: String!, $email: String!, $password: String!, $gender: Int)
+  mutation NewUserMutation($firstName: String!, $name: String!, $email: String!, $password: String!, $gender: Int, $dateOfBirth: DateTime)
   {  createUser (
       firstName: $firstName,
       name: $name,
       gender: $gender,
+      dateOfBirth: $dateOfBirth,
       authProvider: {
           email: {
             email: $email,
@@ -167,38 +192,9 @@ const newUserMutation = gql`
       email
       password
       gender
+      dateOfBirth
     }
   }
 `
 //export default graphql(ALL_USERS_QUERY, { name: 'allUsersQuery'})(Register)
 export default graphql(newUserMutation, { name: 'newUserMutation'})(Register)
-
-{/*mutation NewUserMutation($firstName: String!, $name: String!, $email: String, $password: String)
- {  createUser (
-    firstName: $firstName,
-    name: $name,
-    authProvider: {
-          email: {
-            email: $email,
-            password: $password
-          }
-        }
-    )
-    {
-      createdAt
-      id
-      firstName
-      name
-      email
-      password
-    }
-  }*/}
-
-  {/*mutation NewUserMutation ($name: String!, $email: String!, $password: String!)
-  {  createTestUser ( name: $name, email: $email, password: $password)
-    {
-      id
-      name
-      email
-      password }
-  }*/}

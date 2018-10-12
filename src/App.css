@@ -260,6 +260,7 @@ form {
   border-radius: 0;
   background-color: transparent;
   border-bottom: 1px solid #333333;
+  max-width: 20em;
 }
 
 input::-webkit-input-placeholder {
@@ -270,8 +271,15 @@ input::-webkit-input-placeholder {
   color: #7db9e8;
 }
 
-select {
-  border-radius: 0;
+.selectBoxDate{
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  margin-right: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 1em;
+  min-width: 5em;
 }
 
 .form-check {
