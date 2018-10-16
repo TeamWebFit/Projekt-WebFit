@@ -10,12 +10,13 @@ import Welcome from './components/Welcome';
 import profil from './pages/user';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import Verify from './pages/Verify';
 
 // Don't link any component (except Header & Footer)
 // Please include new pages through react-router here
 
 const checkRegistrationStatus = () => {
-  if(status.registration == "true"){
+  if(status.registration === "true"){
     alert("Registrierung erfolgreich")
   }
 }
@@ -49,11 +50,10 @@ class App extends Component {
               <Route exact path="/" component={Welcome} />
               <Route path="/demo" component={Demo} />
               <Route path="/user" component={profil} />
-              <Route path="/register" component={Register} />
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
-      
-      <div id="registrationTrue"></div>
+              <Route path="/verify" component={Verify} />
+              {/*<div id="registrationTrue"></div>*/}
             {/* React-Router - Route End */}
             </div>
         <Footer />

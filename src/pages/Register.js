@@ -1,11 +1,13 @@
 //react basis
 import React, { Component } from 'react';
-import { graphql } from 'react-apollo';
-import gql from 'graphql-tag';
 import '../App.css';
+//axios
+import axios from 'axios';
 //Router
 import { withRouter, Link } from 'react-router-dom';
 //Apollo
+import { graphql, compose } from 'react-apollo';
+import gql from 'graphql-tag';
 
 class Register extends Component {
 
@@ -21,7 +23,9 @@ class Register extends Component {
       jahr: '',
       gender: '',
       dateOfBirth: '',
-      registrationStatus: ''
+      registrationStatus: '',
+      message: 'Say Helloooo :-)',
+      authToken: '',
     }
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -44,8 +48,10 @@ class Register extends Component {
         }
     }
 
-  onSubmit(e){
-    e.preventDefault();
+  async onSubmit(e){
+    e.preventDefault
+    console.log("Submit start");
+    var token = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 
     var tag = this.state.tag;
     var monat = this.state.monat;
@@ -62,29 +68,38 @@ class Register extends Component {
         password: this.state.password,
         gender: gen,
         dateOfBirth: gebDat,
-        registrationStatus: true
+        registrationStatus: true,
+        authToken: token
       }
     })
+
+    console.log("Submit eingetragen > email");
+
+    const { firstName, email, authToken } = this.state;
+
+    const form = await axios.post('/api/form', {
+      firstName,
+      email,
+      authToken: token
+    })
     console.log("Submit fertiiiig");
-
     this.props.history.push("/login");
-
   }
 
   render(){
     const { date, month, year } = this.state;
     const thisYear = new Date().getFullYear();
 
+
     {/*const userToRender = this.props.allUsersQuery.allTestUsers
     console.log(userToRender);*/}
 
     return(
       <div>
-        <div className="card" >
-          <div className="card-body">
+
             <h3>Jetzt bei WebFit registrieren!</h3>
             <br />
-            <form onSubmit={this.onSubmit}> {/*onSubmit={this.onSubmit}*/}
+            <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                   <input type="text" className="form-control" id="InputName" placeholder="Vorname" name="firstName" onChange={this.onChange} value={this.state.firstName} />
                 </div>
@@ -134,10 +149,9 @@ class Register extends Component {
                   <input type="checkbox" className="form-check-input" id="Check2" required={true} />
                   <label className="form-check-label">Datenschutzbedingungen</label>
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button> {/*onClick={() => this._createUser()}*/}
+                <button type="submit" className="btn btn-basic">Registrieren</button>
             </form>
-          </div>
-        </div>
+
       </div>
 
     )//end return
@@ -171,12 +185,13 @@ const ALL_USERS_QUERY = gql`
 `
 
 const newUserMutation = gql`
-  mutation NewUserMutation($firstName: String!, $name: String!, $email: String!, $password: String!, $gender: Int, $dateOfBirth: DateTime)
+  mutation NewUserMutation($firstName: String!, $name: String!, $email: String!, $password: String!, $gender: Int, $dateOfBirth: DateTime, $authToken: String)
   {  createUser (
       firstName: $firstName,
       name: $name,
       gender: $gender,
       dateOfBirth: $dateOfBirth,
+      authToken: $authToken,
       authProvider: {
           email: {
             email: $email,
@@ -193,8 +208,13 @@ const newUserMutation = gql`
       password
       gender
       dateOfBirth
+      authToken
     }
   }
 `
 //export default graphql(ALL_USERS_QUERY, { name: 'allUsersQuery'})(Register)
-export default graphql(newUserMutation, { name: 'newUserMutation'})(Register)
+
+export default compose(
+  graphql(newUserMutation, { name: 'newUserMutation'}),
+  withRouter
+)(Register);
