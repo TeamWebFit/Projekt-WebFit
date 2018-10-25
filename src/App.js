@@ -11,6 +11,8 @@ import profil from './pages/user';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Verify from './pages/Verify';
+import ResetPassword from './pages/ResetPassword';
+import NewPassword from './pages/NewPassword';
 
 // Don't link any component (except Header & Footer)
 // Please include new pages through react-router here
@@ -53,6 +55,8 @@ class App extends Component {
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
               <Route path="/verify" component={Verify} />
+              <Route path="/resetPassword" component={ResetPassword} />
+              <Route path="/newPassword" component={NewPassword} />
               {/*<div id="registrationTrue"></div>*/}
             {/* React-Router - Route End */}
             </div>

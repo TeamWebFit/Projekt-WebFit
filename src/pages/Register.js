@@ -23,8 +23,6 @@ class Register extends Component {
       jahr: '',
       gender: '',
       dateOfBirth: '',
-      registrationStatus: '',
-      message: 'Say Helloooo :-)',
       authToken: '',
     }
     this.onChange = this.onChange.bind(this);
@@ -56,7 +54,7 @@ class Register extends Component {
     var tag = this.state.tag;
     var monat = this.state.monat;
     var jahr = this.state.jahr;
-    var gebDat = new Date(jahr, monat-1, tag);
+    var gebDat = tag +"."+ monat + "." + jahr;
 
     var gen = parseInt(this.state.gender);
 
@@ -68,10 +66,10 @@ class Register extends Component {
         password: this.state.password,
         gender: gen,
         dateOfBirth: gebDat,
-        registrationStatus: true,
+        //registrationStatus: true,
         authToken: token
       }
-    })
+    });
 
     console.log("Submit eingetragen > email");
 
@@ -81,12 +79,13 @@ class Register extends Component {
       firstName,
       email,
       authToken: token
-    })
+    });
     console.log("Submit fertiiiig");
     this.props.history.push("/login");
   }
 
   render(){
+    console.log(this.props);
     const { date, month, year } = this.state;
     const thisYear = new Date().getFullYear();
 
@@ -185,30 +184,25 @@ const ALL_USERS_QUERY = gql`
 `
 
 const newUserMutation = gql`
-  mutation NewUserMutation($firstName: String!, $name: String!, $email: String!, $password: String!, $gender: Int, $dateOfBirth: DateTime, $authToken: String)
+  mutation NewUserMutation($firstName: String!, $name: String!, $email: String!, $password: String!, $gender: Int, $authToken: String!, $dateOfBirth: String)
   {  createUser (
       firstName: $firstName,
       name: $name,
       gender: $gender,
-      dateOfBirth: $dateOfBirth,
       authToken: $authToken,
-      authProvider: {
-          email: {
-            email: $email,
-            password: $password
-          }
-      }
+      email: $email,
+      password: $password,
+      dateOfBirth: $dateOfBirth
     )
     {
-      createdAt
       id
       firstName
       name
       email
       password
       gender
-      dateOfBirth
       authToken
+      dateOfBirth
     }
   }
 `

@@ -16,10 +16,6 @@ import { withRouter, Link } from 'react-router-dom';
 // for Double-Opt-In: after confirmation Link
 // ===================
 
-const queryString = require('query-string');
-var parsed = queryString.parse(window.location.search);
-var token = parsed.token;
-
 class Verify extends Component{
 
   constructor(props){
@@ -33,20 +29,17 @@ class Verify extends Component{
 
 
     render(){
+      const queryString = require('query-string');
+      var parsed = queryString.parse(window.location.search);
+      var token = parsed.token;
 
-      var userToRender = this.props.FetchVerifiedUser.allUsers;
-      console.log(userToRender);
+      this.props.updateVerifiedUser({
+        variables: {
+          authToken: token,
+          active: true
+        }
+      });
 
-      if(userToRender){
-        var id = this.props.FetchVerifiedUser.allUsers["0"].id;
-        console.log(id);
-        this.props.UpdateVerifiedUser({
-          variables: {
-            id: id,
-            active: true
-          }
-        })
-      }
 
         return (
             <div className="text-center">
@@ -59,22 +52,9 @@ class Verify extends Component{
 }
 
 
-const FetchVerifiedUser = gql`
-  query FetchVerifiedUser($authToken: String){
-      allUsers(filter: {
-        authToken: $authToken
-      })
-      {
-        id
-        name
-        email
-      }
-  }
-`
-
-const UpdateVerifiedUser = gql`
-  mutation UpdateVerifiedUser($id: ID!, $active: Boolean! ){
-      updateUser(id: $id, active: $active)
+const updateVerifiedUser = gql`
+  mutation UpdateVerifiedUser($authToken: String!, $active: Boolean ){
+      verifyUser(authToken: $authToken, active: $active)
       {
         active
       }
@@ -82,7 +62,6 @@ const UpdateVerifiedUser = gql`
 `
 
 export default compose(
-  graphql(FetchVerifiedUser, { name: 'FetchVerifiedUser',options: { variables: { authToken: token } }}),
-  graphql(UpdateVerifiedUser, { name: 'UpdateVerifiedUser' }),
+  graphql(updateVerifiedUser, { name: 'updateVerifiedUser' }),
   withRouter
 )(Verify);

@@ -3,15 +3,16 @@ import { AUTH_TOKEN } from '../constants/constants'
 import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 import Alert from '../components/Alert';
+import { Link } from 'react-router-dom';
 
 const LOGIN_MUTATION = gql`
   mutation LoginMutation($email: String!, $password: String!) {
     signinUser(
         email: {
-            email: $email, 
+            email: $email,
             password: $password
-        }) 
-    {            
+        })
+    {
       token
     }
   }
@@ -19,7 +20,6 @@ const LOGIN_MUTATION = gql`
 
 
 class Login extends Component {
-
 
 constructor(){
     super()
@@ -30,8 +30,6 @@ constructor(){
 
     }
 }
-
-
 
   render() {
     const { email, password, error } = this.state
@@ -68,6 +66,9 @@ constructor(){
                 </div>
                 )}
             </Mutation>
+            <br />
+            <br />
+            <Link to={"/resetPassword"}>Passwort vergessen?</Link>
             </div>
       </div>
     )
