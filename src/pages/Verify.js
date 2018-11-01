@@ -33,10 +33,13 @@ class Verify extends Component{
       var parsed = queryString.parse(window.location.search);
       var token = parsed.token;
 
+      var date = new Date();
+
       this.props.updateVerifiedUser({
         variables: {
           authToken: token,
-          active: true
+          updatedAt: date,
+          lastLogin: date
         }
       });
 
@@ -53,10 +56,12 @@ class Verify extends Component{
 
 
 const updateVerifiedUser = gql`
-  mutation UpdateVerifiedUser($authToken: String!, $active: Boolean ){
-      verifyUser(authToken: $authToken, active: $active)
+  mutation UpdateVerifiedUser($authToken: String!, $lastLogin: DateTime, $updatedAt: DateTime){
+      verifyUser(authToken: $authToken, lastLogin: $lastLogin, updatedAt: $updatedAt)
       {
         active
+        lastLogin
+        updatedAt
       }
   }
 `

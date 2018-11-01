@@ -55,8 +55,11 @@ class Register extends Component {
     var monat = this.state.monat;
     var jahr = this.state.jahr;
     var gebDat = tag +"."+ monat + "." + jahr;
+    var birthDay = new Date(jahr, monat-1, tag);
 
     var gen = parseInt(this.state.gender);
+
+    var actDate = new Date();
 
     this.props.newUserMutation({
       variables: {
@@ -65,7 +68,7 @@ class Register extends Component {
         email: this.state.email,
         password: this.state.password,
         gender: gen,
-        dateOfBirth: gebDat,
+        dateOfBirth: birthDay,
         //registrationStatus: true,
         authToken: token
       }
@@ -85,7 +88,8 @@ class Register extends Component {
   }
 
   render(){
-    console.log(this.props);
+    var heute = new Date();
+    console.log(heute);
     const { date, month, year } = this.state;
     const thisYear = new Date().getFullYear();
 
@@ -184,7 +188,7 @@ const ALL_USERS_QUERY = gql`
 `
 
 const newUserMutation = gql`
-  mutation NewUserMutation($firstName: String!, $name: String!, $email: String!, $password: String!, $gender: Int, $authToken: String!, $dateOfBirth: String)
+  mutation NewUserMutation($firstName: String!, $name: String!, $email: String!, $password: String!, $gender: Int, $authToken: String!, $dateOfBirth: DateTime)
   {  createUser (
       firstName: $firstName,
       name: $name,

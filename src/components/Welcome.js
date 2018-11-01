@@ -45,6 +45,7 @@ const ALL_USERS_QUERY = gql`
       firstName
       email
       password
+      dateOfBirth
     }
   }
 `

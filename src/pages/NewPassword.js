@@ -34,10 +34,13 @@ onSubmit(e){
     var email = parsed.email;
     console.log(email);
 
+    var date = new Date();
+
     this.props.updatePassword({
       variables: {
         email: email,
-        password: this.state.password
+        password: this.state.password,
+        updatedAt: date
       }
     });
     console.log(this.props);
@@ -63,14 +66,16 @@ onSubmit(e){
 }
 
 const updatePassword = gql`
-  mutation UpdatePassword($email: String!, $password: String!)
+  mutation UpdatePassword($email: String!, $password: String!, $updatedAt: DateTime)
   {  userNewPW (
       email: $email,
-      password: $password
+      password: $password,
+      updatedAt: $updatedAt
     )
     {
       id
       email
+      updatedAt
     }
   }
 `
