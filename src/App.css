@@ -11,7 +11,6 @@
 */
 body {
   font-family: 'Lato', sans-serif;
-  background-image: url("/img/Desktop_background.png");
   background-repeat: no-repeat;
   background-size: 100%;
   background-attachment: fixed;
@@ -251,6 +250,12 @@ form {
   background-attachment: fixed;
   background-size: 100%;
   background-repeat: no-repeat;
+}
+
+.card{
+  background-color: white !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 #inputState, .form-control {
@@ -939,7 +944,6 @@ img.kacheln {
 /* Extra small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
   body {
-    background-image: url("/img/WebFit_background.png");
     background-repeat: no-repeat;
     background-size: 100%;
     background-attachment: fixed;
@@ -993,7 +997,6 @@ img.kacheln {
 /* Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) and (max-width: 767.98px) {
   body {
-    background-image: url("/img/WebFit_background.png");
     background-repeat: no-repeat;
     background-size: 100%;
     background-attachment: fixed;
@@ -1045,7 +1048,6 @@ img.kacheln {
 @media (min-width: 768px) and (max-width: 991.98px) {
 
   body {
-    background-image: url("/img/Tablet_Background.png");
     background-repeat: no-repeat;
     background-size: 100%;
     background-attachment: fixed;
@@ -1069,7 +1071,6 @@ img.kacheln {
 @media (min-width: 992px) and (max-width: 1199.98px) {
 
   body {
-    background-image: url("/img/Desktop_background.png");
     background-repeat: no-repeat;
     background-size: 100%;
     background-attachment: fixed;
@@ -1099,7 +1100,6 @@ img.kacheln {
 @media (min-width: 1200px) {
 
   body {
-    background-image: url("/img/Desktop_background.png");
     background-repeat: no-repeat;
     background-size: 100%;
     background-attachment: fixed;
