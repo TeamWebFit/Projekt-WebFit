@@ -2,6 +2,7 @@
   "name": "webfit",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "apollo-cache-inmemory": "^1.2.10",
     "apollo-client": "^2.4.2",
@@ -22,8 +23,7 @@
     "react-dom": "^16.5.2",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.5",
-    "react-select": "^2.1.0"
+    "react-scripts": "1.1.5"
   },
   "scripts": {
     "start": "react-scripts start",

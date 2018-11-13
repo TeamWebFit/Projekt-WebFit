@@ -11,12 +11,16 @@ import profil from './pages/user';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Home from './components/Home';
+import Verify from './pages/Verify';
+import ResetPassword from './pages/ResetPassword';
+import NewPassword from './pages/NewPassword';
+
 
 // Don't link any component (except Header & Footer)
 // Please include new pages through react-router here
 
 const checkRegistrationStatus = () => {
-  if(status.registration == "true"){
+  if(status.registration === "true"){
     alert("Registrierung erfolgreich")
   }
 }
@@ -50,12 +54,13 @@ class App extends Component {
               <Route exact path="/" component={Welcome} />
               <Route path="/demo" component={Demo} />
               <Route path="/user" component={profil} />
-              <Route path="/register" component={Register} />
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
               <Route path="/home" component={Home} />
-      
-      <div id="registrationTrue"></div>
+              <Route path="/verify" component={Verify} />
+              <Route path="/resetPassword" component={ResetPassword} />
+              <Route path="/newPassword" component={NewPassword} />
+              {/*<div id="registrationTrue"></div>*/}
             {/* React-Router - Route End */}
             </div>
         <Footer />

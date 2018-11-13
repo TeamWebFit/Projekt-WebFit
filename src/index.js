@@ -14,7 +14,7 @@ import { setContext } from 'apollo-link-context'
 import { AUTH_TOKEN } from './constants/constants'
 
 const httpLink = createHttpLink({
-  uri: 'https://api.graph.cool/simple/v1/cjmg855sn7qnj01169mifawhy'
+  uri: 'http://localhost:4000/graphql'
 })
 
 
