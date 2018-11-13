@@ -10,6 +10,7 @@ import Welcome from './components/Welcome';
 import profil from './pages/user';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import Home from './components/Home';
 
 // Don't link any component (except Header & Footer)
 // Please include new pages through react-router here
@@ -52,6 +53,7 @@ class App extends Component {
               <Route path="/register" component={Register} />
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
+              <Route path="/home" component={Home} />
       
       <div id="registrationTrue"></div>
             {/* React-Router - Route End */}

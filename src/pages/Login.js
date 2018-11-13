@@ -3,6 +3,7 @@ import { AUTH_TOKEN } from '../constants/constants'
 import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 import Alert from '../components/Alert';
+import { Link } from 'react-router-dom';
 
 const LOGIN_MUTATION = gql`
   mutation LoginMutation($email: String!, $password: String!) {
@@ -39,7 +40,7 @@ constructor(){
       <div className="container">
         <div id="login-error">{this.state.error}
         </div>
-        <h4 className="mv3">Login</h4>
+        <h2 className="mv3">Welcome back!</h2>
         <div className="flex flex-column">
           <input className="form-control"
             value={email}
@@ -53,6 +54,12 @@ constructor(){
             type="password"
             placeholder="your password"
           />
+        </div>
+        <br />
+        <div>
+          <Link to="/PW-Forget">Uups.....? Passwort vergessen?</Link>
+          <br />
+          <Link to="/PW-Reset">Hoppala..! Passwort zurücksetzen!</Link>
         </div>
         <br />
         <div className="flex mt3">
