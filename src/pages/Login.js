@@ -8,12 +8,11 @@ import { Link } from 'react-router-dom';
 const LOGIN_MUTATION = gql`
   mutation LoginMutation($email: String!, $password: String!) {
     signinUser(
-        email: {
             email: $email,
             password: $password
-        })
+        )
     {
-      token
+      firstName
     }
   }
 `
@@ -33,6 +32,9 @@ constructor(){
 
   render() {
     const { email, password, error } = this.state
+    /*var createHash = require("create-hash");
+    var hash = createHash("sha224");
+    var hashPassword = hash.update(this.state.password).digest("hex");*/
     return (
       <div className="container">
         <div id="login-error">{this.state.error}
@@ -49,20 +51,15 @@ constructor(){
             value={password}
             onChange={e => this.setState({ password: e.target.value })}
             type="password"
-            placeholder="your password"
+            placeholder="Your password"
           />
         </div>
         <br />
-        <div>
-          <Link to="/PW-Forget">Uups.....? Passwort vergessen?</Link>
-          <br />
-          <Link to="/PW-Reset">Hoppala..! Passwort zurücksetzen!</Link>
-        </div>
         <br />
         <div className="flex mt3">
             <Mutation
                 mutation={LOGIN_MUTATION}
-                variables={{ email, password }}
+                variables={{ email, /*hashPassword*/ password }}
                 onCompleted={data => this._confirm(data)}
                 onError={error_handler => this.setState({error: <Alert type="alertred" title="Huch.....!" message="Scheinbar ist das eingegebene Passwort falsch oder unter der angegebenen EMail-Adresse kann kein Nutzer gefunden werden :("></Alert>})}
             >
@@ -74,8 +71,12 @@ constructor(){
             </Mutation>
             <br />
             <br />
-            <Link to={"/resetPassword"}>Passwort vergessen?</Link>
+            <div>
+              <Link to="/resetPassword">Passwort vergessen?</Link>
+              <br />
+              <Link to="/newPassword">Hoppala..! Passwort zurücksetzen!</Link>
             </div>
+        </div>
       </div>
     )
   }
