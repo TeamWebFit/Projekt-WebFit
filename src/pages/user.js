@@ -12,13 +12,13 @@ class User extends Component{
         return (
             <div>
                 <div className="container">
-                    <Alert 
-                        title="Dein Profil" 
-                        message="Hier wird in Kürze eine tolle Profil-Seite erstellt." 
+                    <Alert
+                        title="Dein Profil"
+                        message="Hier wird in Kürze eine tolle Profil-Seite erstellt."
                         type="alertgrad"
                     ></Alert>
                 </div>
-                
+
             </div>
         )
     }

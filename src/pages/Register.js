@@ -56,10 +56,9 @@ class Register extends Component {
     var jahr = this.state.jahr;
     var gebDat = tag +"."+ monat + "." + jahr;
     var birthDay = new Date(jahr, monat-1, tag);
+    var birthDayString = birthDay.toString();
 
     var gen = parseInt(this.state.gender);
-
-    var actDate = new Date();
 
     this.props.newUserMutation({
       variables: {
@@ -68,7 +67,7 @@ class Register extends Component {
         email: this.state.email,
         password: this.state.password,
         gender: gen,
-        dateOfBirth: birthDay,
+        dateOfBirth: birthDayString,
         //registrationStatus: true,
         authToken: token
       }
@@ -188,7 +187,7 @@ const ALL_USERS_QUERY = gql`
 `
 
 const newUserMutation = gql`
-  mutation NewUserMutation($firstName: String!, $name: String!, $email: String!, $password: String!, $gender: Int, $authToken: String!, $dateOfBirth: DateTime)
+  mutation NewUserMutation($firstName: String!, $name: String!, $email: String!, $password: String!, $gender: Int, $authToken: String!, $dateOfBirth: String)
   {  createUser (
       firstName: $firstName,
       name: $name,
