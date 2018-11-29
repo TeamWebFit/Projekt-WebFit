@@ -7,13 +7,12 @@ import { Link } from 'react-router-dom';
 
 const LOGIN_MUTATION = gql`
   mutation LoginMutation($email: String!, $password: String!) {
-    signinUser(
-        email: {
-            email: $email,
-            password: $password
-        })
+    signinUser(email: $email, password: $password)
     {
-      token
+      id
+      name
+      firstName
+      password
     }
   }
 `
