@@ -26,12 +26,13 @@ constructor(){
     email: '',
     password: '',
     error: '',
-
+    //active: false,  -> email bestätigt
+    //loggedin: false -> bezieht sich auf login/logout/cookies
     }
 }
 
   render() {
-    const { email, password, error } = this.state
+    const { email, password, error /*, active, loggedin*/ } = this.state
     /*var createHash = require("create-hash");
     var hash = createHash("sha224");
     var hashPassword = hash.update(this.state.password).digest("hex");*/
@@ -39,7 +40,7 @@ constructor(){
       <div className="container">
         <div id="login-error">{this.state.error}
         </div>
-        <h2 className="mv3">Welcome back!</h2>
+        <h3 className="mv3 welcome">Welcome back!</h3>
         <div className="flex flex-column">
           <input className="form-control"
             value={email}
@@ -81,8 +82,8 @@ constructor(){
     )
   }
 
-  _confirm = async data => {
-    const { token } = data.signinUser
+  _confirm = async data => {	
+    const { token } = /*this.state.active ?*/ data.signinUser
     this._saveUserData(token)
     this.props.history.push(`/`)
   }
