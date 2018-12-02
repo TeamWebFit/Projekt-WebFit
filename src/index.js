@@ -14,7 +14,7 @@ import { setContext } from 'apollo-link-context'
 import { AUTH_TOKEN } from './constants/constants'
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:4000/graphql'
+  uri: 'http://projekt-webfit.de:4000/graphql'
 })
 
 

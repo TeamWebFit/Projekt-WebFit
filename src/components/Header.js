@@ -27,7 +27,7 @@ render(){
             <i id="x-icon" className="close-round fa fa-times"></i>
             <div id="btns-toggle">
               <NavLink to="/user" className="close-round"><div id="btn-toggle-left" className="btn-round btn-toggle"><i className="fa fa-user icon-toggle"></i></div></NavLink>
-              <NavLink to="/demo" className="close-round"><div id="btn-toggle-middle" className="btn-round btn-toggle"><i className="fa fa-cog icon-toggle"></i></div></NavLink>
+              <NavLink to="/trackermanager" className="close-round"><div id="btn-toggle-middle" className="btn-round btn-toggle"><i className="fa fa-cog icon-toggle"></i></div></NavLink>
               <NavLink to="/demo" className="close-round"><div id="btn-toggle-right" className="btn-round btn-toggle"><i className="fa fa-unlock icon-toggle"></i></div></NavLink>
             </div>
           </div>
