@@ -13,7 +13,7 @@ import ReactLoading from 'react-loading';
 
 // DEMO ONLY 
 // Hier wird normalerweise der User aus den Cookies ausgelesen
-let user = "5bf6d1f1ec80155fbc35ec84"
+let user = "5c041286971bfd76055cbd80"
 // DEMO ONLY END
 
 const getTracker = gql`

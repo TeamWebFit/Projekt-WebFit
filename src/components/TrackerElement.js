@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Panel, Grid, Row, Col, Button, ButtonToolbar, Label, Alert} from 'react-bootstrap';
 import axios from 'axios';
+import RemoveButton from './TrackerRemoveButton';
+import Modal from 'react-awesome-modal';
 
 // ===================
 // Tracker Manager
@@ -14,10 +16,23 @@ class TrackerElement extends Component{
         this.state = {
                data: '',
                isLoading: false,
-               error: undefined
+               error: undefined,
+               visible : false
          };
          this.click = this.click.bind(this);
   }
+
+  openModal() {
+    this.setState({
+        visible : true
+    });
+}
+
+closeModal() {
+    this.setState({
+        visible : false
+    });
+}
 
 click() {
 
@@ -75,10 +90,19 @@ click() {
                                         {this.props.errorcolor === "danger" &&
                                         <Button bsStyle="warning">Problem beheben</Button>
                                     }
-                                    <Button bsStyle="danger">Entfernen</Button>
+                                    {console.log(this.props.trackerid)}
+                                   
+                                    <Button type="button" onClick={() => this.openModal()}>Entfernen</Button>
                                 </ButtonToolbar>
                                 
-                            
+                                <Modal visible={this.state.visible} width="400px" height="280px" effect="fadeInUp" onClickAway={() => this.closeModal()}>
+                                    <Col xs={12} className="text-center top-abstand">
+                                        <h3>Verbindung zum Tracker entfernen?</h3>
+                                        <p>Möchtest Du wirklich die Verbindung zwischen {this.props.manufacturer} {this.props.trackername} und WebFit entfernen?</p>
+                                        <div class="top-abstand"></div>
+                                        <RemoveButton id={this.props.trackerid} /> <Button onClick={() => this.closeModal()}>Nein</Button>
+                                    </Col>
+                            </Modal>
                                
                             </Panel.Footer>
                         </Panel>
