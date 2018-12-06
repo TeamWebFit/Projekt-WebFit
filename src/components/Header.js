@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../assets/img/logo.png';
-
-import $ from 'jquery'
+import CheckLogin from './CheckLogin';
+import $ from 'jquery';
 import { BrowserRouter as Link, NavLink } from 'react-router-dom';
 
 class Header extends Component {
@@ -20,7 +20,7 @@ class Header extends Component {
 render(){
   return(
     <div>
-      <header>
+     <header>
         <nav id="nav-header">
           <NavLink to="/"><img id="logo" alt="WebFit Application Logo" src={logo} width="5%"/></NavLink>
           <div id="toggle-menu">

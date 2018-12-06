@@ -3,6 +3,9 @@ import {} from 'react-bootstrap';
 //Apollo
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
+import CheckLogin from './CheckLogin';
+import { Link } from 'react-router-dom';
+
 
 
 // ===================
@@ -11,7 +14,7 @@ import gql from 'graphql-tag';
 // ===================
 
 class Welcome extends Component{
-
+  
   constructor(props){
     super(props);
     this.state = {
@@ -21,6 +24,7 @@ class Welcome extends Component{
       password: ''
     }
     this.onClick = this.onClick.bind(this);
+    
   }
 
   onClick(e){
@@ -28,12 +32,16 @@ class Welcome extends Component{
     console.log(userToRender);
   }
 
+
     render(){
         return (
             <div className="text-center">
+              <CheckLogin />
                 <h1>Hi there :)</h1>
                 <h4>Have a nice day ♥</h4>
                 <button onClick={this.onClick}>Fetching Users</button>
+                <br /><br />
+                <Link to={"/logout"}>Jetzt ausloggen</Link>
             </div>
         )
     }
