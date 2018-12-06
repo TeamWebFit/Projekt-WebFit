@@ -14,8 +14,9 @@ import { setContext } from 'apollo-link-context'
 import { AUTH_TOKEN } from './constants/constants'
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:4000/graphql'
-})
+  uri: 'http://localhost:4000/graphql',
+  
+});
 
 
 const authLink = setContext((_, { headers }) => {
@@ -35,8 +36,9 @@ const client = new ApolloClient({
 
 
 ReactDOM.render(
+
   <ApolloProvider client={client}>
-    <App />
+      <App />
   </ApolloProvider>,
   document.getElementById('root'));
 registerServiceWorker();

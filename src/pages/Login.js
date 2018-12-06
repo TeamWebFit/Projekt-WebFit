@@ -4,6 +4,10 @@ import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 import Alert from '../components/Alert';
 import { Link } from 'react-router-dom';
+import Cookies from 'universal-cookie';
+
+
+
 
 const LOGIN_MUTATION = gql`
   mutation LoginMutation($email: String!, $password: String!) {
@@ -13,6 +17,7 @@ const LOGIN_MUTATION = gql`
       name
       firstName
       password
+      authToken
     }
   }
 `
@@ -26,14 +31,42 @@ constructor(){
     email: '',
     password: '',
     error: '',
+  };
 
-    }
 }
 
+
   render() {
-    const { email, password, error } = this.state
+    const { email, password, error } = this.state;
+
+    //funktion die überprüft ist in dem Cookie eine id gespeichert?
+    //Wenn ja überprüfe ob id in Datenbank vorhanden;
+    //Wenn beides nicht dann weiter zu login;
+
+    //Id muss bei singIn rauskommen
+    //jede komponente muss überprüfen ob der user eingeloggt ist
+    //nach jedem Pagereload muss überprüft werden ob der Cookie noch vorhanden ist
+
+    //Funktion die beim Seitenreload in console log den aktuellen cookie ausgibt
+    //Cookie wird eingetragen, Cookie wird ausgegeben (Consolge log, Alert)
+    //-> man kann auf den cookie zugreifen
+    //nimm den wert des cookies -> Query gibts den User ist der aktiv, und gerade eingeloggt wenn nicht leite zu login
+
+    const cookies = new Cookies();
+
+    var id = "5bff235bcb414d0f704f70eb";
+
+    if (id == "5bff235bcb414d0f704f70eb") {
+        console.log(cookies.get('User'));
+    } else {
+        console.log('Cookie Error!');
+    }
+
     return (
+
+
       <div className="container">
+
         <div id="login-error">{this.state.error}
         </div>
         <h4 className="mv3">Login</h4>
@@ -68,20 +101,37 @@ constructor(){
             <br />
             <br />
             <Link to={"/resetPassword"}>Passwort vergessen?</Link>
+            <br />
+            <br />
+            <Link to={"/register"}>Noch kein WebFit Mitglied? Gleich hier Registrieren! </Link>
             </div>
+
+
       </div>
     )
   }
 
   _confirm = async data => {
+
     const { token } = data.signinUser
     this._saveUserData(token)
-    this.props.history.push(`/`)
+console.log("ich bin jetzt eingeloggts")
+    const cookies = new Cookies();
+
+    this.props.history.push(`/user`)
+
+    var id = "5bff235bcb414d0f704f70eb"
+    cookies.set('User', id,  {path: '/'});
+    //console.log(cookies.get('User')); // Pacman
+    console.log("push to User");
+
+
   }
 
   _saveUserData = token => {
     localStorage.setItem(AUTH_TOKEN, token)
+
   }
 }
 
-export default Login
+export default Login;
