@@ -15,6 +15,10 @@ import ResetPassword from './pages/ResetPassword';
 import NewPassword from './pages/NewPassword';
 import Trackermanager from './pages/Trackermanager';
 import Logout from './pages/Logout';
+import BarChart from './components/BarChart'
+import AreaChart from './components/AreaChart'
+import PieChart from './components/PieChart'
+
 
 // Don't link any component (except Header & Footer)
 // Please include new pages through react-router here
@@ -61,6 +65,9 @@ class App extends Component {
               <Route path="/newPassword" component={NewPassword} />
               <Route path="/trackermanager" component={Trackermanager} />
               <Route path="/logout" component={Logout} />
+              <Route path="/BarChart" component={BarChart} />
+              <Route path="/AreaChart" component={AreaChart} />
+              <Route path="/PieChart" component={PieChart} />
               {/*<div id="registrationTrue"></div>*/}
             {/* React-Router - Route End */}
             </div>

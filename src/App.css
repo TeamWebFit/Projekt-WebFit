@@ -1089,6 +1089,66 @@ img.kacheln {
   }
 }
 
+/*7. Charts*/
+
+.chartbox{
+  background-color: rgba(243, 244, 245, 0.5);
+  border-radius: 10px;
+  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
+  padding: 5px;
+  margin: 10px;
+}
+
+.ct-chart1 {
+  font-family: Lato;
+  margin: 5px;
+}
+.ct-chart2 {
+  font-family: Lato;
+  margin: 5px;
+}
+.ct-chart3 {
+  font-family: Lato;
+  margin: 5px;
+}
+
+.headlinecharts{
+  text-align: center;
+  margin: 5px;
+}
+
+.ct-series-a .ct-bar {
+  stroke: #FFCC66;
+  stroke-width: 30px;
+}
+
+.ct-series-a .ct-area {
+  fill: #ffcc66;
+  stroke: none;
+  fill-opacity: .3;
+}
+.ct-series-b .ct-area {
+  fill: #ffcc66;
+  stroke: none;
+  fill-opacity: .3;
+}
+
+.ct-series-a .ct-pie {
+  stroke: #FFCC66;
+}
+.ct-series-a .ct-slice-donut {
+  stroke: #ffcc66;
+}
+.ct-series-b .ct-slice-donut {
+  stroke: #333333;
+}
+.midtextpie {
+  text-align: center;
+  padding: 50%;
+}
+
+/* Charts End */
+
 /* Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) and (max-width: 991.98px) {
 
