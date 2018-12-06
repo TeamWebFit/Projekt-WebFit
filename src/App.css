@@ -938,6 +938,51 @@ img.kacheln {
 }
 
 
+.kachel1{
+  border-color: #9FC9EB;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 10px;
+  width: 200px;
+  height: 80px;
+  display : inline-block;
+  margin: 30px;
+  text-align: center;
+ }
+.kachel2{
+  border-color: #FFCC66;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 10px;
+  width: 200px;
+  height: 80px;
+  display : inline-block;
+  margin: 30px;
+  text-align: center;
+ }
+.kachel3{
+  border-color: #FF6666;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 10px;
+  width: 200px;
+  height: 80px;
+  display : inline-block;
+  margin: 30px;
+  text-align: center;
+}
+ .kachel_header{
+  padding-top: 15px;
+  font-size: 15px;
+  font-weight: bold;
+}
+ .userInfo{
+   border-bottom: 1px solid #000;
+   width: 200px;
+}
+
+
+
 
 /*End WebFit Home*/
 /* --------- Media Queries --------- */

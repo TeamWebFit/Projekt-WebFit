@@ -5,6 +5,7 @@ import gql from "graphql-tag";
 import { Query } from 'react-apollo';
 import TrackerNull from './TrackerNull';
 import ReactLoading from 'react-loading';
+import {withCookies, Cookies} from 'react-cookie';
 // ===================
 // Tracker Manager
 // List all Trackers from a user
@@ -13,6 +14,7 @@ import ReactLoading from 'react-loading';
 
 // DEMO ONLY 
 // Hier wird normalerweise der User aus den Cookies ausgelesen
+var Cookie = new Cookies();
 let user = "5c041286971bfd76055cbd80"
 // DEMO ONLY END
 

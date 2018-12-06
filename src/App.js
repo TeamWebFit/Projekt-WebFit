@@ -14,6 +14,7 @@ import Verify from './pages/Verify';
 import ResetPassword from './pages/ResetPassword';
 import NewPassword from './pages/NewPassword';
 import Trackermanager from './pages/Trackermanager';
+import Logout from './pages/Logout';
 
 // Don't link any component (except Header & Footer)
 // Please include new pages through react-router here
@@ -59,6 +60,7 @@ class App extends Component {
               <Route path="/resetPassword" component={ResetPassword} />
               <Route path="/newPassword" component={NewPassword} />
               <Route path="/trackermanager" component={Trackermanager} />
+              <Route path="/logout" component={Logout} />
               {/*<div id="registrationTrue"></div>*/}
             {/* React-Router - Route End */}
             </div>
