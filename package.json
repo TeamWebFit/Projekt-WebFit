@@ -22,13 +22,14 @@
     "react-awesome-modal": "^2.0.5",
     "react-axios": "^2.0.3",
     "react-bootstrap": "^0.32.4",
-    "react-cookie": "^3.0.8",
     "react-chartist": "^0.13.1",
+    "react-cookie": "^3.0.8",
     "react-dom": "^16.6.3",
     "react-loading": "^2.0.3",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.5"
+    "react-scripts": "1.1.5",
+    "react-transition-group": "^2.5.0"
   },
   "scripts": {
     "start": "react-scripts start",
