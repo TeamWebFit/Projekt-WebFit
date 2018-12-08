@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // Router imports
 import Header from './components/Header';
@@ -19,12 +19,13 @@ import BarChart from './components/BarChart'
 import AreaChart from './components/AreaChart'
 import PieChart from './components/PieChart'
 
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 // Don't link any component (except Header & Footer)
 // Please include new pages through react-router here
 
 const checkRegistrationStatus = () => {
-  if(status.registration === "true"){
+  if (status.registration === "true") {
     alert("Registrierung erfolgreich")
   }
 }
@@ -35,14 +36,14 @@ console.log(status.registration);
 
 class App extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       registrationStatus: ''
     };
   }
 
-  componentWillMount(){
+  componentWillMount() {
     console.log('componentWillMount');
     checkRegistrationStatus();
   }
@@ -53,25 +54,40 @@ class App extends Component {
       <Router>
         <div className="App">
           <Header />
-            <div className="main">
+          <div className="main">
             {/* React-Router - Route */}
-              <Route exact path="/" component={Welcome} />
-              <Route path="/demo" component={Demo} />
-              <Route path="/user" component={profil} />
-              <Route path="/login" component={Login} />
-              <Route path="/register" component={Register} />
-              <Route path="/verify" component={Verify} />
-              <Route path="/resetPassword" component={ResetPassword} />
-              <Route path="/newPassword" component={NewPassword} />
-              <Route path="/trackermanager" component={Trackermanager} />
-              <Route path="/logout" component={Logout} />
-              <Route path="/BarChart" component={BarChart} />
-              <Route path="/AreaChart" component={AreaChart} />
-              <Route path="/PieChart" component={PieChart} />
-              {/*<div id="registrationTrue"></div>*/}
-            {/* React-Router - Route End */}
-            </div>
-        <Footer />
+
+            <Route render={({ location }) => (
+              <TransitionGroup>
+                <CSSTransition
+                  key={location.key}
+                  timeout={400}
+                  classNames="fade"
+                >
+                  <Switch location={location}>
+
+                    <Route exact path="/" component={Welcome} />
+                    <Route path="/demo" component={Demo} />
+                    <Route path="/user" component={profil} />
+                    <Route path="/login" component={Login} />
+                    <Route path="/register" component={Register} />
+                    <Route path="/verify" component={Verify} />
+                    <Route path="/resetPassword" component={ResetPassword} />
+                    <Route path="/newPassword" component={NewPassword} />
+                    <Route path="/trackermanager" component={Trackermanager} />
+                    <Route path="/logout" component={Logout} />
+                    <Route path="/BarChart" component={BarChart} />
+                    <Route path="/AreaChart" component={AreaChart} />
+                    <Route path="/PieChart" component={PieChart} />
+
+                    {/*<div id="registrationTrue"></div>*/}
+                    {/* React-Router - Route End */}
+                  </Switch>
+                </CSSTransition>
+              </TransitionGroup>
+            )} />
+          </div>
+          <Footer />
         </div>
       </Router>
     );
