@@ -27,7 +27,7 @@ query cookieuser($cookieuser: ID){
 `;
 const cookies = new Cookies ();
 var cookieuser = cookies.get('webfit_user');
-console.log(cookieuser)
+//console.log(cookieuser)
     
         return (
             <div>

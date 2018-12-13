@@ -15,12 +15,13 @@ import {withCookies, Cookies} from 'react-cookie';
 // DEMO ONLY 
 // Hier wird normalerweise der User aus den Cookies ausgelesen
 var Cookie = new Cookies();
-let user = "5c041286971bfd76055cbd80"
+let user = Cookie.get('webfit_user')
 // DEMO ONLY END
 
 const getTracker = gql`
-query tracker($user: ID){
+query user($user: ID){
     user(id: $user){
+    id
       tracker{
         id,
         lastSync,
@@ -37,27 +38,31 @@ query tracker($user: ID){
 class Trackerlist extends Component{
 
     render(){
-        console.log(user)
+        console.log("Aktueller User:" + user)
         return (
             <Grid>
                 <Row className="top-abstand">
+                {console.log('jetzt query')}
                     <Query query={getTracker} variables={{ user }}>
                             {({ loading, error, data }) => {
                             if (loading) return (
                                 <ReactLoading type="spinningBubbles" color="#000000" height={'10%'} width={'10%'} />
                             );
-                            if (error) return `Error! ${error.message}`;
+                            if (error) return `GRAPHQL FEHLER! ${error.message}`;
                             
                             console.log(data)
 
                             // Abfrage ob Tracker vorhanden sind
-                            if (data.user.tracker.length === 0){
+                            if (data == undefined || data == null){
+                                console.log('kein Tracker vorhanden')
                               return(
                                     <div>
+                                        
                                         <TrackerNull />
                                     </div>
                                 )
                             }else{
+                                console.log('Tracker ist vorhanden')
                                 console.log(data.user.tracker[0].id)
                                 return (
                                     <div>
