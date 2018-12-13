@@ -12,7 +12,7 @@ class Trackermanager extends Component{
     render(){
         return (
             <div>
-                <CheckLogin />
+              <CheckLogin />
                 <div className="container">
                     <h1>Tracker-Manager</h1>
                     <h5>Alle Tracker einfach und schnell verwalten.</h5>
