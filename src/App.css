@@ -295,6 +295,7 @@ form {
  
 }
 
+/*Register*/
 .registerPic{
   background: url(./assets/img/register.jpg) top left/cover no-repeat;
   border-top-left-radius: 15px;
@@ -341,6 +342,43 @@ form {
     display: block;
     padding: 60px 50px;
   }
+}
+
+
+/*login*/
+
+.loginPic{
+  background: url(./assets/img/register.jpg) top left/cover no-repeat;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  width: 40%;
+  display: table-cell;
+  height: 100%;
+}
+
+.card{
+  background-color: white !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.karte{
+  background: #ffffff;
+  border-radius: 15px;
+  margin: 70px;
+  
+}
+
+.karte2{
+  border-radius: 10px;
+  width: 100%;
+  display: table;
+}
+
+.login_body{
+  display: table-cell;
+  padding-left: 50px;
+
 }
 
 
@@ -412,7 +450,7 @@ input {
 }
 
 .form-check-input{
-  width: 0; 
+  width: 10px; 
 }
 
 .input-group-text {
