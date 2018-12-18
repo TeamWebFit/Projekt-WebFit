@@ -9,8 +9,11 @@
 6. Home
 7. Charts
 8. Page Transitions
+9. User Profile
 --------- Media Queries ---------
 */
+
+
 body {
   font-family: 'Lato', sans-serif;
   background-color: #9fc9eb;
@@ -19,6 +22,7 @@ body {
   background-attachment: fixed;
   z-index: 0;
   overflow: scroll;
+ background-color: 
 }
 
 h3 {
@@ -45,6 +49,41 @@ h2 {
 
 hr {
   margin: 5%;
+}
+
+.App{
+  height: 100%
+}
+
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.row-space {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.col-2 {
+  width: -webkit-calc((100% - 60px) / 2);
+  width: -moz-calc((100% - 60px) / 2);
+  width: calc((100% - 60px) / 2);
+}
+
+@media (max-width: 767px) {
+  .col-2 {
+    width: 100%;
+  }
 }
 
 /*1. Buttons*/
@@ -253,6 +292,16 @@ form {
   background-attachment: fixed;
   background-size: 100%;
   background-repeat: no-repeat;
+ 
+}
+
+.registerPic{
+  background: url(./assets/img/register.jpg) top left/cover no-repeat;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  width: 40%;
+  display: table-cell;
+  height: 100%;
 }
 
 .card{
@@ -261,7 +310,41 @@ form {
   box-shadow: none !important;
 }
 
-#inputState, .form-control {
+.karte{
+  background: #ffffff;
+  border-radius: 15px;
+  margin: 70px;
+  
+}
+
+.karte2{
+  border-radius: 10px;
+  width: 100%;
+  display: table;
+}
+
+.register_body{
+  display: table-cell;
+  padding-left: 50px;
+
+}
+
+@media (max-width: 767px) {
+
+  .karte-2 .registerPic {
+    width: 100%;
+    display: block;
+    padding-top: 300px;
+    background-position: left center;
+  }
+  .karte-2 .register_body {
+    display: block;
+    padding: 60px 50px;
+  }
+}
+
+
+/*#inputState, .form-control {
   border-top: none;
   border-left: none;
   border-right: none;
@@ -269,7 +352,10 @@ form {
   background-color: transparent;
   border-bottom: 1px solid #333333;
   max-width: 20em;
-}
+  outline: 0;
+  background: transparent;
+}*/
+
 
 input::-webkit-input-placeholder {
   color: #7db9e8 !important;
@@ -288,6 +374,7 @@ input::-webkit-input-placeholder {
   margin-bottom: 1em;
   padding: 1em;
   min-width: 5em;
+  border-radius: 0;
 }
 
 .form-check {
@@ -300,6 +387,15 @@ input::-webkit-input-placeholder {
 
 input {
   color: #9FC9EB;
+  outline: none;
+  margin: 0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #d8d8d8;
+  width: 100%;
+  padding: 10px;
+  background: transparent;
 }
 
 .custom-select {
@@ -312,6 +408,11 @@ input {
 
 .form-check-label {
   padding-right: 40px;
+  padding-left: 20px;
+}
+
+.form-check-input{
+  width: 0; 
 }
 
 .input-group-text {
@@ -321,6 +422,14 @@ input {
   border-top: none;
   border-left: none;
   border-right: none;
+}
+
+.card-backgrd{
+  background-color: #FFCC66;
+  height: 100%;
+  border-radius: 10px;
+  padding: 80px 90px;
+ 
 }
 
 /*Login Formular Icons*/
@@ -630,6 +739,7 @@ input {
 .main {
   margin-top: 100px;
   margin-bottom: 80px;
+  overflow-y: scroll;
 }
 
 header {
@@ -651,6 +761,7 @@ img#logo {
   right: 50%;
   left: 25%;
 }
+
 
 
 #menu-icon {
@@ -759,6 +870,7 @@ footer {
   bottom: 0;
   width: 100%;
   margin-bottom: -0.7em;
+  height: 70px;
 }
 
 #nav-footer {
@@ -814,6 +926,7 @@ i.icons-footer{
 
 .main{
   margin-bottom: 0;
+  overflow: auto;
 }
 
 .card {
@@ -986,6 +1099,7 @@ img.kacheln {
   margin-top: 1%;
 }
 
+/*9. User Profile*/
 
 .kachel1{
   border-color: #9FC9EB;
@@ -1030,113 +1144,28 @@ img.kacheln {
    width: 200px;
 }
 
-
-
-
-/*End WebFit Home*/
-/* --------- Media Queries --------- */
-/* Extra small devices (portrait phones, less than 576px)*/
-@media (max-width: 575.98px) {
-  body {
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-attachment: fixed;
-    z-index: 0;
-    overflow: scroll;
-  }
-
-  /*5.1. Home-Menu*/
-  #ul-left-header {
-    display: none;
-  }
-
-  img#logo {
-    position: static;
-    float: left;
-    margin-left: 2%;
-    margin-top: 2%;
-    width: 18%
-  }
-
-  /*6. Home*/
-
-
-    .card {
-      width: 90%;
-      height: 200px;
-      border-radius: 10px;
-      background-color: rgba(243, 244, 245, 0.5);
-      box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
-      text-align: center;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-
-
-    .react-calendar {
-      display: none;
-    }
-
-    .kachelnSquare {
-      display: none;
-    }
-
-    #myform.calendar_form{
-     display: none;
-    }
+.userContainer{
+  padding-left: 100px;
+  padding-top: 300px;
+  z-index: 2;
+  position: absolute;
 }
 
-/* Small devices (landscape phones, 576px and up)*/
-@media (min-width: 576px) and (max-width: 767.98px) {
-  body {
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-attachment: fixed;
-    z-index: 0;
-    overflow: scroll;
-  }
+.headerImage{
+  z-index: 1;
+  position: absolute;
+}
 
-  /*5.1. Home-Menu*/
-  #ul-left-header {
-    display: none;
-  }
-
-  img#logo {
-    position: static;
-    float: left;
-    margin-left: 2%;
-    margin-top: 2%;
-    width: 18%
-  }
-
-  /*6. Home*/
-
-  .card {
-    width: 90%;
-    height: 200px;
-    border-radius: 10px;
-    background-color: rgba(243, 244, 245, 0.5);
-    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    display: block;
-    margin-left: auto;
+.profileImage{
+  z-index: 1;
+  position: absolute;
+  margin-left: auto;
     margin-right: auto;
-  }
-
-  .react-calendar {
-    display: none;
-  }
-
-  .kachelnSquare {
-    display: none;
-  }
-
-  #myform.calendar_form{
-    display: none;
-  }
 }
+
+/* End User Profile*/
+
+
 
 /*7. Charts*/
 
@@ -1230,6 +1259,115 @@ img.kacheln {
 /* Page Transitions End*/
 
 
+
+
+/*End WebFit Home*/
+/* --------- Media Queries --------- */
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+  body {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+    z-index: 0;
+    overflow: scroll;
+  }
+
+   /*5.1. Home-Menu*/
+   #ul-left-header {
+    display: none;
+  }
+
+  img#logo {
+    position: static;
+    float: left;
+    margin-left: 2%;
+    margin-top: 1.5%;
+    width: 20%;
+  }
+
+
+  /*6. Home*/
+
+
+    .card {
+      width: 90%;
+      height: 200px;
+      border-radius: 10px;
+      background-color: rgba(243, 244, 245, 0.5);
+      box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+
+
+    .react-calendar {
+      display: none;
+    }
+
+    .kachelnSquare {
+      display: none;
+    }
+
+    #myform.calendar_form{
+     display: none;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  body {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+    z-index: 0;
+    overflow: scroll;
+  }
+
+  /*5.1. Home-Menu*/
+  #ul-left-header {
+    display: none;
+  }
+
+  img#logo {
+    position: static;
+    float: left;
+    margin-left: 2%;
+    margin-top: .5%;
+    width: 11%;
+  }
+
+
+  /*6. Home*/
+
+  .card {
+    width: 90%;
+    height: 200px;
+    border-radius: 10px;
+    background-color: rgba(243, 244, 245, 0.5);
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .react-calendar {
+    display: none;
+  }
+
+  .kachelnSquare {
+    display: none;
+  }
+
+  #myform.calendar_form{
+    display: none;
+  }
+}
+
 /* Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) and (max-width: 991.98px) {
 
@@ -1241,6 +1379,7 @@ img.kacheln {
     overflow: scroll;
   }
 
+  
   /*5.2 Footer-Menu*/
   footer {
     display: none;
@@ -1268,6 +1407,8 @@ img.kacheln {
     float: center;
     margin-left: auto;
     margin-right: auto;
+    width: 8%;
+    margin-top: .2%;
   }
 
   /*5.2 Footer-Menu*/
@@ -1293,12 +1434,16 @@ img.kacheln {
     overflow: scroll;
   }
 
-  /*5.1 Header-Menu*/
+/*5.1 Header-Menu*/
   #logo {
     float: center;
     margin-left: auto;
     margin-right: auto;
+    width: 7%;
+    margin-top: .2%;
   }
+
+
 
   /*5.2 Footer-Menu*/
   footer {
