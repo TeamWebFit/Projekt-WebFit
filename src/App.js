@@ -15,9 +15,17 @@ import ResetPassword from './pages/ResetPassword';
 import NewPassword from './pages/NewPassword';
 import Trackermanager from './pages/Trackermanager';
 import Logout from './pages/Logout';
-import BarChart from './components/BarChart'
-import AreaChart from './components/AreaChart'
-import PieChart from './components/PieChart'
+import BarChart from './components/BarChart';
+import AreaChart from './components/AreaChart';
+import PieChart from './components/PieChart';
+import Edit from './pages/Edit';
+import Datenschutz from './pages/Datenschutz';
+import Goals from './pages/Goals';
+import Workouts from './pages/Workouts';
+import Community from './pages/Community';
+import Messages from './pages/Messages';
+
+
 
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
@@ -79,6 +87,14 @@ class App extends Component {
                     <Route path="/BarChart" component={BarChart} />
                     <Route path="/AreaChart" component={AreaChart} />
                     <Route path="/PieChart" component={PieChart} />
+                    <Route path="/edit" component={Edit} />
+                    <Route path="/datenschutz" component={Datenschutz} />
+                    <Route path="/goals" component={Goals} />
+                    <Route path="/messages" component={Messages} />
+                    <Route path="/community" component={Community} />
+                    <Route path="/workouts" component={Workouts} />
+
+
 
                     {/*<div id="registrationTrue"></div>*/}
                     {/* React-Router - Route End */}
