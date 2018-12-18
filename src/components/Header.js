@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../assets/img/logo.png';
-
-import $ from 'jquery'
+import CheckLogin from './CheckLogin';
+import $ from 'jquery';
 import { BrowserRouter as Link, NavLink } from 'react-router-dom';
 
 class Header extends Component {
@@ -20,14 +20,14 @@ class Header extends Component {
 render(){
   return(
     <div>
-      <header>
+     <header>
         <nav id="nav-header">
           <NavLink to="/"><img id="logo" alt="WebFit Application Logo" src={logo} width="5%"/></NavLink>
           <div id="toggle-menu">
             <i id="x-icon" className="close-round fa fa-times"></i>
             <div id="btns-toggle">
               <NavLink to="/user" className="close-round"><div id="btn-toggle-left" className="btn-round btn-toggle"><i className="fa fa-user icon-toggle"></i></div></NavLink>
-              <NavLink to="/demo" className="close-round"><div id="btn-toggle-middle" className="btn-round btn-toggle"><i className="fa fa-cog icon-toggle"></i></div></NavLink>
+              <NavLink to="/trackermanager" className="close-round"><div id="btn-toggle-middle" className="btn-round btn-toggle"><i className="fa fa-cog icon-toggle"></i></div></NavLink>
               <NavLink to="/demo" className="close-round"><div id="btn-toggle-right" className="btn-round btn-toggle"><i className="fa fa-unlock icon-toggle"></i></div></NavLink>
             </div>
           </div>

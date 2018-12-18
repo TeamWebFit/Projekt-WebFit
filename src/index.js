@@ -13,8 +13,11 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { setContext } from 'apollo-link-context'
 import { AUTH_TOKEN } from './constants/constants'
 
+// Cookies
+import {CookiesProvider} from 'react-cookie';
+
 const httpLink = createHttpLink({
-  uri: 'http://localhost:4000/graphql'
+  uri: 'http://projekt-webfit.de:4000/graphql'
 })
 
 
@@ -36,7 +39,9 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <App />
+    <CookiesProvider>
+        <App />
+    </CookiesProvider>
   </ApolloProvider>,
   document.getElementById('root'));
 registerServiceWorker();

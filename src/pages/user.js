@@ -1,138 +1,115 @@
 import React, { Component } from 'react';
 import {} from 'react-bootstrap';
-import Alert from '../components/Alert';
-import { withRouter, Link } from 'react-router-dom';
-import { graphql, compose } from 'react-apollo';
-import { Query } from 'react-apollo';
+import Alert from '../components/Alert'
 import gql from 'graphql-tag';
+import { Query } from 'react-apollo';
+import { graphql, compose } from 'react-apollo';
+import { Link } from 'react-router-dom';
+import { AUTH_TOKEN } from '../constants/constants'
+import header_profil from '../assets/img/header_profil.png';
+import CheckLogin from '../components/CheckLogin'
+
 
 // ===================
 // User Page
 // A page for testing all components
 // ===================
 
+/*const GET_USERS = gql`
+          {
+          allUsers{
+          id
+          firstName
+        }
+      }
+    `;*/
+
 class User extends Component{
 
-    constructor(props){
-      super(props);
-      this.state = {
-        manufacturer: '',
-        type: '',
-        trackerID: ''
-      }
-      this.onChange = this.onChange.bind(this);
-      this.onClick = this.onClick.bind(this);
-      this.onClick2 = this.onClick2.bind(this);
+  /*displayUser(){
+    var data = this.props.data;
+    if(data.loading){
+      return(<div>Loading User...</div>)
+    }else{
+      return data.allUsers.map(user => {
+        return(
+          <li key={user.id}>{user.firstName}</li>
+        );
+      })
     }
-
-    onChange(e) {
-      this.setState({[e.target.name]: e.target.value});
-    }
-
-    onClick(e){
-      console.log("Submit geht");
-      var trackerherstellerLink = this.state.trackerHersteller;
-      console.log(trackerherstellerLink);
-      window.open(trackerherstellerLink);
-    }
-
-    onClick2(e){
-      const queryString = require('query-string');
-      var parsed = queryString.parse(window.location.hash);
-      if(parsed){
-        var access_token = parsed.access_token;
-        var user_id = parsed.user_id;
-        var token_type = parsed.token_type;
-        //var token_type = "Test"
-        var expires_in = parseInt(parsed.expires_in);
-        var trackerModelID = "5bfeabf014770a36348528c6";
-        var userId = "5bf6d1f1ec80155fbc35ec84";
-
-        this.props.createTrackerMutation({
-          variables: {
-            trackerModelID: trackerModelID,
-            userId: userId,
-            access_token: access_token,
-            token_type: token_type,
-            expires_in: expires_in,
-            user_id: user_id,
-          }
-        });
-        console.log("new Tracker");
-      }
-    }
+  }*/
 
     render(){
-      const { trackerModell } = this.state;
-      const trackermodelsToRender = this.props.allTrackermodelsQuery.allTrackerModels;
-      console.log(trackermodelsToRender);
+
+      console.log(this.props);
+      const authToken = localStorage.getItem(AUTH_TOKEN)
 
         return (
             <div>
-                <div className="container">
-                    <Alert
-                        title="Dein Profil"
-                        message="Hier wird in Kürze eine tolle Profil-Seite erstellt."
-                        type="alertgrad"
-                    ></Alert>
-                  <h3>Neuen Tracker hinzufügen</h3>
-                    <select onChange={this.onChange} value={trackerModell} name="trackerHersteller">
-                      <option>Bitte auswählen</option>
-                      {getOptions(trackermodelsToRender)}
-                    </select><br /><br />
-                  <button onClick={this.onClick} className="btn btn-basic">Autorisieren</button>
-                    <button onClick={this.onClick2} className="btn btn-basic">Tracker speichern</button>
+              <CheckLogin />
+              <section className="userHeader">
+              <img src={header_profil} width="100%"/>
+                <p></p>
+              </section>
+              <div className="container">
+              <div className="form-row" style={{display : 'inline-block'}} >
 
-              </div>
+                  <div className="userName" style={{display : 'inline-block'}}>
+                <label style={{display : 'inline-block'}}>Name</label>
+                  <p className="userInfo">Name</p>
+                </div>
+
+                  <div className="userName" style={{display : 'inline-block'}}>
+                <label style={{display : 'inline-block'}}>Nachname</label>
+                  <p className="userInfo">Nachname</p>
+                <br />
+                </div>
+                </div>
+                <div className="form-row">
+                    <div className="kachel kachel1">
+                    <div className="kachel_header">Gewicht</div>
+                        <h5 className="">60kg</h5>
+                      </div>
+                      <div className="kachel kachel2" >
+                      <div className="kachel_header">Größe</div>
+                          <h5 className="">175cm</h5>
+                        </div>
+                        <div className="kachel kachel3" >
+                        <div className="kachel_header">Geschlecht</div>
+                            <h5 className="">weiblich</h5>
+                          </div>
+                        </div>
+                  <div>
+                      <label>Geburtstag</label>
+                        <p className="userInfo">Geburtstag</p>
+                  </div>
+                    <br />
+                  <div className="form-row">
+                    <div className="form-group">
+                    <label>Email</label>
+                      <p className="userInfo">Email</p>
+                    </div>
+                  </div>
+                    <br />
+                  <div className="form-row">
+                    <div className="form-group" style={{display : 'inline-block'}}>
+                      <label style={{display : 'inline-block'}}>Land</label>
+                        <p className="userInfo">Land</p>
+                    </div>
+                      <br />
+                    <div className="form-group" style={{display : 'inline-block'}}>
+                      <label style={{display : 'inline-block'}}>PLZ</label>
+                        <p className="userInfo">PLZ</p>
+                    </div>
+                  </div>
+                  <br /><br />
+
+
+  <br /><br />
+            </div>
             </div>
         )
     }
 }
 
-function getOptions(array) {
-    const options = [];
-    if (array) {
-      array.forEach(function(element) {
-        console.log(element.id, element.manufacturer);
-        options.push(<option key={element.id} value={element.authLink}>{element.manufacturer}, {element.type}</option>)
-      });
-    }
-    return options;
-}
-
-const ALL_TRACKERMODELS_QUERY = gql`
-  query AllTrackermodelsQuery {
-    allTrackerModels {
-      id
-      manufacturer
-      type
-      authLink
-    }
-  }
-`
-
-const createTrackerMutation = gql`
-  mutation CreateTrackerMutation($trackerModelID: ID!, $userId: ID!, $access_token: String, $token_type: String, $expires_in: Int, $user_id: String)
-  {  createTracker (
-      trackerModelID: $trackerModelID,
-      userId: $userId,
-      access_token: $access_token,
-      token_type: $token_type,
-      expires_in: $expires_in,
-      user_id: $user_id
-    )
-    {
-      id
-      access_token
-      token_type
-      expires_in
-    }
-  }
-`
-
-
-export default compose(
-  graphql(ALL_TRACKERMODELS_QUERY, { name: 'allTrackermodelsQuery'}),
-  graphql(createTrackerMutation, { name: 'createTrackerMutation'}),
-  withRouter
-)(User);
+export default User;

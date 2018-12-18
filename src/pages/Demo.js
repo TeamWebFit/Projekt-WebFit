@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {} from 'react-bootstrap';
 import Alert from '../components/Alert'
 import Button from '../components/Button'
+import CheckLogin from '../components/CheckLogin'
 
 // ===================
 // Demo Page
@@ -11,7 +12,9 @@ import Button from '../components/Button'
 class Demo extends Component{
     render(){
         return (
+         
             <div>
+               <CheckLogin />  
                 <div className="container">
                 <Alert 
                   title="Es ist ein Fehler aufgetreten :(" 

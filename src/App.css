@@ -7,6 +7,8 @@
 5. Menu
 5.1 Header-Menu
 6. Home
+7. Charts
+8. Page Transitions
 --------- Media Queries ---------
 */
 body {
@@ -983,6 +985,51 @@ img.kacheln {
 }
 
 
+.kachel1{
+  border-color: #9FC9EB;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 10px;
+  width: 200px;
+  height: 80px;
+  display : inline-block;
+  margin: 30px;
+  text-align: center;
+ }
+.kachel2{
+  border-color: #FFCC66;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 10px;
+  width: 200px;
+  height: 80px;
+  display : inline-block;
+  margin: 30px;
+  text-align: center;
+ }
+.kachel3{
+  border-color: #FF6666;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 10px;
+  width: 200px;
+  height: 80px;
+  display : inline-block;
+  margin: 30px;
+  text-align: center;
+}
+ .kachel_header{
+  padding-top: 15px;
+  font-size: 15px;
+  font-weight: bold;
+}
+ .userInfo{
+   border-bottom: 1px solid #000;
+   width: 200px;
+}
+
+
+
 
 /*End WebFit Home*/
 /* --------- Media Queries --------- */
@@ -1088,6 +1135,98 @@ img.kacheln {
     display: none;
   }
 }
+
+/*7. Charts*/
+
+.chartbox{
+  background-color: rgba(243, 244, 245, 0.5);
+  border-radius: 10px;
+  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
+  padding: 5px;
+  margin: 10px;
+}
+
+.ct-chart1 {
+  font-family: Lato;
+  margin: 5px;
+}
+.ct-chart2 {
+  font-family: Lato;
+  margin: 5px;
+}
+.ct-chart3 {
+  font-family: Lato;
+  margin: 5px;
+}
+
+.headlinecharts{
+  text-align: center;
+  margin: 5px;
+}
+
+.ct-series-a .ct-bar {
+  stroke: #FFCC66;
+  stroke-width: 30px;
+}
+
+.ct-series-a .ct-area {
+  fill: #ffcc66;
+  stroke: none;
+  fill-opacity: .3;
+}
+.ct-series-b .ct-area {
+  fill: #ffcc66;
+  stroke: none;
+  fill-opacity: .3;
+}
+
+.ct-series-a .ct-pie {
+  stroke: #FFCC66;
+}
+.ct-series-a .ct-slice-donut {
+  stroke: #ffcc66;
+}
+.ct-series-b .ct-slice-donut {
+  stroke: #333333;
+}
+.midtextpie {
+  text-align: center;
+  padding: 50%;
+}
+
+/* Charts End */
+
+/*8. Page Transitions*/
+
+.container {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+}
+
+.fade-appear,
+.fade-enter {
+    opacity: 0;
+    z-index: 1;
+}
+.fade-appear-active,
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 400ms linear 150ms;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+    opacity: 0;
+    transition: opacity 15s0ms linear;
+}
+
+/* Page Transitions End*/
+
 
 /* Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) and (max-width: 991.98px) {
