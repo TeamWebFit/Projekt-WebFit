@@ -35,50 +35,57 @@ class Login extends Component {
     const { email, password, error } = this.state
     return (
       <div className="container text-center">
-        <div className="card-backgrd">
-          <div id="login-error">
-            {this.state.error}
-          </div>
-          <h2>Login</h2>
-          <p>Willkommen bei WebFit! <br /> Bitte logge Dich ein um Deine Daten zu sehen.</p>
-          <br />
-          <div className="col-md-4"></div>
-          <div className="col-md-4">
-            <input className=""
-              value={email}
-              onChange={e => this.setState({ email: e.target.value })}
-              type="text"
-              placeholder="Email"
-            />
-            <input className=""
-              value={password}
-              onChange={e => this.setState({ password: e.target.value })}
-              type="password"
-              placeholder="Password"
-            />
-          </div>
-          <div className="col-md-4"></div>
-          <br /><br />
-          <div className="col-md-12">
-            <br /><br />
-            <Mutation
-              mutation={LOGIN_MUTATION}
-              variables={{ email, password }}
-              onCompleted={data => this._confirm(data)}
-              onError={error_handler => this.setState({ error: <Alert type="alertred" title="Huch.....!" message="Scheinbar ist das eingegebene Passwort falsch oder unter der angegebenen EMail-Adresse kann kein Nutzer gefunden werden :("></Alert> })}
-            >
-              {mutation => (
-                <div className="btn btn-basic" onClick={mutation}>
-                  login
+        <div className="karte2">
+          <section className="karte">
+            <div class="registerPic"></div>
+            <div class="register_body">
+              <div className="">
+                <div id="login-error">
+                  {this.state.error}
                 </div>
-              )}
-            </Mutation>
-            <br />
-            <br />
-            <Link to={"/resetPassword"}>Passwort vergessen?</Link>
-            <br />
-            <Link to={"/register"}>Noch kein WebFit-Mitglied? Jetzt Registrieren!</Link>
-          </div>
+                <h2>Login</h2>
+                <p>Willkommen bei WebFit! <br /> Bitte logge Dich ein um Deine Daten zu sehen.</p>
+                <br />
+                <div className="col-md-4"></div>
+                <div className="col-md-4">
+                  <input className=""
+                    value={email}
+                    onChange={e => this.setState({ email: e.target.value })}
+                    type="text"
+                    placeholder="Email"
+                  />
+                  <input className=""
+                    value={password}
+                    onChange={e => this.setState({ password: e.target.value })}
+                    type="password"
+                    placeholder="Password"
+                  />
+                </div>
+                <div className="col-md-4"></div>
+                <br /><br />
+                <div className="col-md-12">
+                  <br /><br />
+                  <Mutation
+                    mutation={LOGIN_MUTATION}
+                    variables={{ email, password }}
+                    onCompleted={data => this._confirm(data)}
+                    onError={error_handler => this.setState({ error: <Alert type="alertred" title="Huch.....!" message="Scheinbar ist das eingegebene Passwort falsch oder unter der angegebenen EMail-Adresse kann kein Nutzer gefunden werden :("></Alert> })}
+                  >
+                    {mutation => (
+                      <div className="btn btn-basic" onClick={mutation}>
+                        login
+                </div>
+                    )}
+                  </Mutation>
+                  <br />
+                  <br />
+                  <Link to={"/resetPassword"}>Passwort vergessen?</Link>
+                  <br />
+                  <Link to={"/register"}>Noch kein WebFit-Mitglied? Jetzt Registrieren!</Link>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     )
@@ -95,7 +102,7 @@ class Login extends Component {
       path: '/'
     })
 
-    this.props.history.push(`/`);
+    this.props.history.push(`/home`);
   }
 
   _saveUserData = token => {
