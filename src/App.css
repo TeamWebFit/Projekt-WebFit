@@ -13,6 +13,7 @@
 */
 body {
   font-family: 'Lato', sans-serif;
+  background-color: #9fc9eb;
   background-repeat: no-repeat;
   background-size: 100%;
   background-attachment: fixed;
@@ -863,6 +864,7 @@ img.kacheln {
   margin-left: auto;
   margin-right: auto;
   border: none !important;
+  background: transparent !important;
 }
 
 .react-calendar__navigation{
