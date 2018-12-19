@@ -81,9 +81,7 @@ class Register extends Component {
       firstName,
       email,
       authToken: token
-    });
-    console.log("Submit fertiiiig");
-    this.props.history.push('/login');
+    }, console.log("nach email"),this.props.history.push(`/login`));
   }
 
   render() {
