@@ -8,6 +8,7 @@ import kachelsquare from '../assets/img/ActivityCard.png';
 import Header from './Header';
 import Footer from './Footer';
 import CheckLogin from '../components/CheckLogin'
+import BarChart from './BarChart';
 
 class Home extends Component{
     state = {
@@ -50,13 +51,13 @@ class Home extends Component{
                         <Col xs={12} sm={6} md={6}>
                             <Carousel>
                                 <Carousel.Item>
-                                    <div className="card"/>
+                                    <BarChart />
                                 </Carousel.Item>
                                 <Carousel.Item>
-                                    <div className="card"/>
+                                        <BarChart />
                                 </Carousel.Item>
                                 <Carousel.Item>
-                                    <div className="card"/>
+                                        <BarChart />
                                 </Carousel.Item>
                             </Carousel>
                         </Col>
