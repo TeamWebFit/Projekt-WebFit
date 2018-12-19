@@ -99,19 +99,18 @@ class Register extends Component {
     return (
       <div className="register-main">
       <div className="karte2">
-        <section className="karte">
+        <section className="karteRegister">
           <div class="registerPic"></div>
           <div class="register_body">
             <h3>Jetzt bei WebFit registrieren!</h3>
             <form onSubmit={this.onSubmit}>
-              <div class="row row-space">
-                <div className="col-2">
+              
                   <input type="text" placeholder="Vorname" name="firstName" onChange={this.onChange} value={this.state.firstName} />
-                </div>
-                <div className="col-2">
+                
+               
                   <input type="text" placeholder="Nachname" name="name" onChange={this.onChange} value={this.state.name} />
-                </div>
-              </div>
+                
+            
               <input type="email" placeholder="E-Mail" name="email" onChange={this.onChange} value={this.state.email} />
               <input type="password" placeholder="Passwort" name="password" onChange={this.onChange} value={this.state.password} />
               <div>
@@ -154,7 +153,7 @@ class Register extends Component {
                 <label className="form-check-label">Datenschutzbedingungen</label>
               </div>
               <button type="submit" className="btn btn-basic">Registrieren</button>
-              <br /><br /><br /><br />
+              <br /><br /><br />
             </form>
           </div>
 

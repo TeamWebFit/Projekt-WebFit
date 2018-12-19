@@ -7,6 +7,7 @@ import kachel from '../assets/img/Group2.png';
 import kachelsquare from '../assets/img/ActivityCard.png';
 import Header from './Header';
 import Footer from './Footer';
+import CheckLogin from '../components/CheckLogin'
 
 class Home extends Component{
     state = {
@@ -42,7 +43,8 @@ class Home extends Component{
     render(){
         return (
             <div className = "Home">
-                <Header />
+            
+             <CheckLogin />
                 <div className="container">
                     <Row className="row">
                         <Col xs={12} sm={6} md={6}>

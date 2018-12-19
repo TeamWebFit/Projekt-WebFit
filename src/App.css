@@ -21,8 +21,12 @@ body {
   background-size: 100%;
   background-attachment: fixed;
   z-index: 0;
-  overflow: scroll;
- background-color: 
+  overflow: scroll; 
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 h3 {
@@ -297,7 +301,7 @@ form {
 
 /*Register*/
 .registerPic{
-  background: url(./assets/img/register.jpg) top left/cover no-repeat;
+  background: url(./assets/img/register.jpg) bottom left/cover no-repeat;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   width: 40%;
@@ -314,7 +318,27 @@ form {
 .karte{
   background: #ffffff;
   border-radius: 15px;
-  margin: 70px;
+  margin: 20px;
+  margin-top: 0px;
+  
+}
+
+.karteRegister{
+  background: #ffffff;
+  border-radius: 15px;
+  margin: 20px;
+  margin-top: 0px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+
+
+.karteUser{
+  background: #ffffff;
+  border-radius: 15px;
+  margin: 20px;
+  margin-top: 0px;
   
 }
 
@@ -326,7 +350,8 @@ form {
 
 .register_body{
   display: table-cell;
-  padding-left: 50px;
+  padding-left: 70px;
+
 
 }
 
@@ -348,7 +373,7 @@ form {
 /*login*/
 
 .loginPic{
-  background: url(./assets/img/register.jpg) top left/cover no-repeat;
+  background: url(./assets/img/login.jpg) top left/cover no-repeat;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   width: 40%;
@@ -369,6 +394,15 @@ form {
   
 }
 
+.karteLogin{
+  background: #ffffff;
+  border-radius: 15px;
+  margin: 20px;
+  margin-top: 0px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
 .karte2{
   border-radius: 10px;
   width: 100%;
@@ -378,8 +412,68 @@ form {
 .login_body{
   display: table-cell;
   padding-left: 50px;
+  padding-right: 50px;
 
 }
+
+.edit_body{
+  display: table-cell;
+  padding-left: 100px;
+  padding-right: 190px;
+}
+
+
+/*User Profile*/
+
+.userPic{
+  background: url(./assets/img/user.jpg) top left/cover no-repeat;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  width: 40%;
+  display: table-cell;
+  height: 100%;
+}
+
+.card{
+  background-color: white !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.karte{
+  background: #ffffff;
+  border-radius: 15px;
+  margin: 70px;
+  
+}
+
+.karteLogin{
+  background: #ffffff;
+  border-radius: 15px;
+  margin: 20px;
+  margin-top: 0px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.karte2{
+  border-radius: 10px;
+  width: 100%;
+  display: table;
+}
+
+.login_body{
+  display: table-cell;
+  padding-left: 50px;
+  padding-right: 50px;
+
+}
+
+
+
+
+
+
 
 
 /*#inputState, .form-control {
@@ -1140,38 +1234,44 @@ img.kacheln {
 /*9. User Profile*/
 
 .kachel1{
-  border-color: #9FC9EB;
+  border-image: linear-gradient(to right, #9FC9EB, #FF6666, #FFCC66);
+  border-image-slice: 1;
   border-width: 2px;
   border-style: solid;
   border-radius: 10px;
-  width: 200px;
+  width: 150px;
   height: 80px;
   display : inline-block;
-  margin: 30px;
+  margin: 5px;
   text-align: center;
  }
 .kachel2{
-  border-color: #FFCC66;
+  border-image: linear-gradient(to right, #9FC9EB, #FF6666, #FFCC66);
+  border-image-slice: 1;
   border-width: 2px;
   border-style: solid;
   border-radius: 10px;
-  width: 200px;
+  width: 150px;
   height: 80px;
   display : inline-block;
-  margin: 30px;
+  margin: 5px;
   text-align: center;
  }
 .kachel3{
-  border-color: #FF6666;
+  /*border-color: #FF6666;*/
+  border-image: linear-gradient(to right, #9FC9EB, #FF6666, #FFCC66);
+  border-image-slice: 1;
   border-width: 2px;
   border-style: solid;
   border-radius: 10px;
-  width: 200px;
+  width: 150px;
   height: 80px;
   display : inline-block;
-  margin: 30px;
+  margin: 5px;
   text-align: center;
 }
+
+
  .kachel_header{
   padding-top: 15px;
   font-size: 15px;
@@ -1324,6 +1424,98 @@ img.kacheln {
     width: 20%;
   }
 
+  .karteLogin {
+    background: #ffffff;
+    border-radius: 15px;
+    margin: 20px;
+    margin-top: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 100px;
+}
+
+.karte {
+  display: block;
+}
+.karte2 .loginPic {
+  width: 100%;
+  display: block;
+  padding-top: 150px;
+  background-position: left center;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 15px;
+  
+}
+.loginPic{
+  height: 20%;
+}
+.karte2 .login_body {
+  display: block;
+
+}
+
+.karteRegister {
+  background: #ffffff;
+  border-radius: 15px;
+  margin: 20px;
+  margin-top: 0px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 100px;
+}
+
+.karte {
+display: block;
+}
+.karte2 .registerPic {
+width: 100%;
+display: block;
+padding-top: 150px;
+background-position: left center;
+border-top-left-radius: 15px;
+border-bottom-left-radius: 0px;
+border-top-right-radius: 15px;
+background: url(./assets/img/register2.jpg) top left/cover no-repeat;
+
+}
+.registerPic{
+height: 20%;
+}
+.karte2 .register_body {
+display: block;
+
+}
+
+
+.register_body {
+    display: table-cell;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.karte2 .userPic {
+  width: 100%;
+  display: block;
+  padding-top: 150px;
+  background-position: left center;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 15px;
+  background: url(./assets/img/user2.jpg) top left/cover no-repeat;
+
+  
+  }
+
+  .karteUser{
+    margin-bottom: 100px;
+  }
+
+  .edit_body{
+    display: table-cell;
+    padding-left: 50px;
+    padding-right: 30px;
+  }
 
   /*6. Home*/
 
@@ -1353,6 +1545,8 @@ img.kacheln {
     #myform.calendar_form{
      display: none;
     }
+
+    
 }
 
 /* Small devices (landscape phones, 576px and up)*/
@@ -1378,6 +1572,99 @@ img.kacheln {
     width: 11%;
   }
 
+
+  .karteLogin {
+    background: #ffffff;
+    border-radius: 15px;
+    margin: 20px;
+    margin-top: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 100px;
+}
+
+  .karte {
+    display: block;
+  }
+
+  .karte2 .loginPic {
+    width: 100%;
+    display: block;
+    padding-top: 150px;
+    background-position: left center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 15px;
+    
+  }
+
+  .loginPic{
+    height: 20%;
+  }
+
+  .karte2 .login_body {
+    display: block;
+
+  }
+
+  .karteRegister {
+    background: #ffffff;
+    border-radius: 15px;
+    margin: 20px;
+    margin-top: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 100px;
+  }
+  
+  .karte {
+  display: block;
+  }
+  .karte2 .registerPic {
+  width: 100%;
+  display: block;
+  padding-top: 150px;
+  background-position: left center;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 15px;
+  background: url(./assets/img/register2.jpg) bottom left/cover no-repeat;
+
+  }
+  .registerPic{
+  height: 20%;
+  }
+  .karte2 .register_body {
+  display: block;
+  
+  }
+  .register_body {
+    display: table-cell;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+  
+.karte2 .userPic {
+  width: 100%;
+  display: block;
+  padding-top: 150px;
+  background-position: left center;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 15px;
+  background: url(./assets/img/user2.jpg) top left/cover no-repeat;
+
+  }
+
+  .karteUser{
+    margin-bottom: 100px;
+  }
+
+  .edit_body{
+    display: table-cell;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 
   /*6. Home*/
 
@@ -1428,7 +1715,95 @@ img.kacheln {
   .kacheln{
     display: none;
   }
+
+
+  .karteLogin {
+    background: #ffffff;
+    border-radius: 15px;
+    margin: 20px;
+    margin-top: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 100px;
 }
+
+  .karte {
+    display: block;
+  }
+  .karte2 .loginPic {
+    width: 100%;
+    display: block;
+    padding-top: 150px;
+    background-position: left center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 15px;
+    
+  }
+  .loginPic{
+    height: 20%;
+  }
+  .karte2 .login_body {
+    display: block;
+
+  }
+
+  .karteRegister {
+    background: #ffffff;
+    border-radius: 15px;
+    margin: 20px;
+    margin-top: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 100px;
+  }
+  
+  .karte {
+  display: block;
+  }
+  .karte2 .registerPic {
+  width: 100%;
+  display: block;
+  padding-top: 150px;
+  background-position: left center;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 15px;
+  background: url(./assets/img/register2.jpg) top left/cover no-repeat;
+
+  }
+  .registerPic{
+  height: 20%;
+  }
+  .karte2 .register_body {
+  display: block;
+  
+  }
+  .register_body {
+    display: table-cell;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.karte2 .userPic {
+  width: 100%;
+  display: block;
+  padding-top: 150px;
+  background-position: left center;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 15px;
+  background: url(./assets/img/user2.jpg) top left/cover no-repeat;
+
+  }
+
+  .karteUser{
+    margin-bottom: 100px;
+  }
+
+  }
+
+  
 
 /* Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) and (max-width: 1199.98px) {
@@ -1459,6 +1834,7 @@ img.kacheln {
   .kacheln{
     display: none;
   }
+  
 }
 
 /* Extra large devices (large desktops, 1200px and up)*/

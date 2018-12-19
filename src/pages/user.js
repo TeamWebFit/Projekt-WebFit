@@ -47,6 +47,7 @@ class User extends Component {
 
     return (
       <div>
+
         <CheckLogin />
         <Query query={getUser} variables={{ cookieuser }}>
           {({ loading, error, data }) => {
@@ -57,81 +58,102 @@ class User extends Component {
 
             if (data['user'] === null) {
               return (
+
                 <div>
+                  <div className="karte2">
+                    <section className="karte">
+                      <div class="userPic"></div>
+                      <div class="login_body"></div>
+
+                    </section>
+                  </div>
                 </div>
               )
             } else {
               if (data['user'].id === cookieuser) {
                 return (
                   <div>
-                    <section className="userHeader">
-                      <img className="headerImage" src={header} width="100%" />
-                      <img className="profileImage" src={profilbild} width="20%" />
-                      <p></p>
-                    </section>
-                    <div className="userContainer">
-                      <div className="form-row" style={{ display: 'inline-block' }} >
+                    <div className="karte2">
+                      <section className="karteUser">
+                        <div class="userPic"></div>
+                        <div class="login_body">
+                          {/*<section className="userHeader">
+                            <img className="headerImage" src={header} width="100%" />
+                            <img className="profileImage" src={profilbild} width="20%" />
+                            <p></p>
+                            </section>*/}
+                          <div className="">
 
-                        <div className="userName" style={{ display: 'inline-block' }}>
-                          <label style={{ display: 'inline-block' }}>Name</label>
-                          <p className="userInfo">{data.user.firstName}</p>
-                        </div>
+                            <br /><br /><br />
+                            <div className="userName">
+                              <label >Name</label>
+                              <p className="userInfo">{data.user.firstName}</p>
+                            </div>
 
-                        <div className="userName" style={{ display: 'inline-block' }}>
-                          <label style={{ display: 'inline-block' }}>Nachname</label>
-                          <p className="userInfo">{data.user.name}</p>
-                          <br />
+                            <div className="userName" >
+                              <label >Nachname</label>
+                              <p className="userInfo">{data.user.name}</p>
+                              <br />
+                            </div>
+
+                            <div className="kachel1">
+                              <div className="kachel_header">Gewicht</div>
+                              <h5 className="">-</h5>
+                            </div>
+                            <div className="kachel2" >
+                              <div className="kachel_header">Größe</div>
+                              <h5 className="">-</h5>
+                            </div>
+                            <div className="kachel3" >
+                              <div className="kachel_header">Geschlecht</div>
+                              <h5 className="">{data.user.gender}</h5>
+                            </div>
+                            <br /><br />
+                            <div>
+                              <label>Geburtstag</label>
+                              <p className="userInfo">{data.user.dateOfBirth}</p>
+                            </div>
+                            <br />
+                            <div className="form-row">
+                              <div className="form-group">
+                                <label>Email</label>
+                                <p className="userInfo">{data.user.email}</p>
+                              </div>
+                            </div>
+                            <br />
+                            <div className="form-row">
+                              <div className="form-group" style={{ display: 'inline-block' }}>
+                                <label style={{ display: 'inline-block' }}>Land</label>
+                                <p className="userInfo">Land</p>
+                              </div>
+                              <br />
+                              <div className="form-group" style={{ display: 'inline-block' }}>
+                                <label style={{ display: 'inline-block' }}>PLZ</label>
+                                <p className="userInfo">{data.user.zipcode}</p>
+                              </div>
+                              <div className="form-group" style={{ display: 'inline-block' }}>
+                              </div>
+                              <br /><br />
+                              <button className="btn btn-basic" onClick={this.handlePageChange}>Bearbeiten</button>
+                            </div>
+                            <br /><br />
+                          </div>
+                          <br /><br />
                         </div>
-                      </div>
-                      <div className="form-row">
-                        <div className="kachel kachel1">
-                          <div className="kachel_header">Gewicht</div>
-                          <h5 className="">60kg</h5>
-                        </div>
-                        <div className="kachel kachel2" >
-                          <div className="kachel_header">Größe</div>
-                          <h5 className="">{data.user.height}</h5>
-                        </div>
-                        <div className="kachel kachel3" >
-                          <div className="kachel_header">Geschlecht</div>
-                          <h5 className="">{data.user.gender}</h5>
-                        </div>
-                      </div>
-                      <div>
-                        <label>Geburtstag</label>
-                        <p className="userInfo">{data.user.dateOfBirth}</p>
-                      </div>
-                      <br />
-                      <div className="form-row">
-                        <div className="form-group">
-                          <label>Email</label>
-                          <p className="userInfo">{data.user.email}</p>
-                        </div>
-                      </div>
-                      <br />
-                      <div className="form-row">
-                        <div className="form-group" style={{ display: 'inline-block' }}>
-                          <label style={{ display: 'inline-block' }}>Land</label>
-                          <p className="userInfo">Land</p>
-                        </div>
-                        <br />
-                        <div className="form-group" style={{ display: 'inline-block' }}>
-                          <label style={{ display: 'inline-block' }}>PLZ</label>
-                          <p className="userInfo">{data.user.zipcode}</p>
-                        </div>
-                        <div className="form-group" style={{ display: 'inline-block' }}>
-                        </div>
-                        <br /><br />
-                        <button className="btn btn-basic" onClick={this.handlePageChange}>Bearbeiten</button>
-                      </div>
-                      <br /><br />
+                      </section>
                     </div>
-                    <br /><br />
                   </div>
                 )
               } else {
                 return (
+
                   <div>
+                    <div className="karte2">
+                      <section className="karte">
+                        <div class="userPic"></div>
+                        <div class="login_body"></div>
+                      </section>
+                    </div>
                   </div>
                 )
               }
