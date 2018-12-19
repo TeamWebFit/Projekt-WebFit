@@ -36,7 +36,7 @@ class Login extends Component {
     return (
       <div className="container text-center">
         <div className="karte2">
-          <section className="karte">
+          <section className="karteLogin">
             <div class="loginPic"></div>
             <div class="login_body">
               <div className="">
@@ -46,8 +46,8 @@ class Login extends Component {
                 <h2>Login</h2>
                 <p>Willkommen bei WebFit! <br /> Bitte logge Dich ein um Deine Daten zu sehen.</p>
                 <br />
-                <div className="col-md-4"></div>
-                <div className="col-md-4">
+
+                <div className="">
                   <input className=""
                     value={email}
                     onChange={e => this.setState({ email: e.target.value })}
@@ -61,7 +61,7 @@ class Login extends Component {
                     placeholder="Password"
                   />
                 </div>
-                <div className="col-md-4"></div>
+
                 <br /><br />
                 <div className="col-md-12">
                   <br /><br />
@@ -82,6 +82,7 @@ class Login extends Component {
                   <Link to={"/resetPassword"}>Passwort vergessen?</Link>
                   <br />
                   <Link to={"/register"}>Noch kein WebFit-Mitglied? Jetzt Registrieren!</Link>
+                  <br /><br /><br />
                 </div>
               </div>
             </div>
@@ -103,6 +104,7 @@ class Login extends Component {
     })
 
     this.props.history.push(`/home`);
+
   }
 
   _saveUserData = token => {

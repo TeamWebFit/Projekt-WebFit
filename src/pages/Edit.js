@@ -129,58 +129,53 @@ class EditUser extends Component {
             } else {
               if (data['user'].id === cookieuser) {
                 return (
-                  <div className="userContainer">
-                    <div className="form-row" >
-                      <ImageUpload />
-                      <div className="userName" >
-                        <label style={{ display: 'inline-block' }}>Name</label>
-                        <input type="text" className="form-control" id="InputNachname" placeholder={data.user.firstName} name="name" onChange={this.onChange} value={this.state.firstName} />
+                  <div className="">
+                   <div className="karte2">
+                      <section className="karteUser">
+                        <div class="userPic"></div>
+                        <div class="edit_body">
+                        <br /><br />
+                        <h4>Bearbeite Dein Profil:</h4>
+                      {/*<ImageUpload />*/}
+                      <br /> 
+                      <div className="userName">
+                        <label >Name</label>
+                        <input type="text" className="" id="InputNachname" placeholder={data.user.firstName} name="name" onChange={this.onChange} value={this.state.firstName} />
                       </div>
-
-                      <div className="userName" style={{ display: 'inline-block' }}>
-                        <label style={{ display: 'inline-block' }}>Nachname</label>
-                        <input type="text" className="form-control" id="InputNachname" placeholder={data.user.name} name="name" onChange={this.onChange} />
+                      <br />
+                      <div className="userName">
+                        <label>Nachname</label>
+                        <input type="text" className="" id="InputNachname" placeholder={data.user.name} name="name" onChange={this.onChange} />
 
                         <br />
                       </div>
-                    </div>
-                    <div className="form-row">
                       <div>
                         <div className="kachel_header">Gewicht</div>
-                        <input type="text" className="form-control" id="InputNachname" placeholder="-" name="name" onChange={this.onChange} />
+                        <input type="text" className="" id="InputNachname" placeholder="-" name="name" onChange={this.onChange} />
                       </div>
                       <div>
                         <div className="kachel_header">Größe</div>
-                        <input type="text" className="form-control" id="InputNachname" placeholder="-" name="name" onChange={this.onChange} />
+                        <input type="text" className="f" id="InputNachname" placeholder="-" name="name" onChange={this.onChange} />
                       </div>
                       <div>
                         <div className="kachel_header">Geschlecht</div>
-                        <input type="text" className="form-control" id="InputNachname" placeholder={data.user.gender} name="name" onChange={this.onChange} />
-                      </div>
+                        <input type="text" className="" id="InputNachname" placeholder={data.user.gender} name="name" onChange={this.onChange} />
                     </div>
+                    <br />
                     <div>
                       <label>Geburtstag</label>
-                      <input type="text" className="form-control" id="InputNachname" placeholder={data.user.dateOfBirth} name="name" onChange={this.onChange} />
+                      <input type="text" className="" id="InputNachname" placeholder={data.user.dateOfBirth} name="name" onChange={this.onChange} />
                     </div>
                     <br />
-                    <div className="form-row">
-                      <div className="form-group">
                         <label>Email</label>
-                        <input type="text" className="form-control" id="InputNachname" placeholder={data.user.email} name="name" onChange={this.onChange} />
-                      </div>
-                    </div>
-                    <br />
-                    <div className="form-row">
-                      <div className="form-group" style={{ display: 'inline-block' }}>
-                        <label style={{ display: 'inline-block' }}>Land</label>
-                        <input type="text" className="form-control" id="InputNachname" placeholder="-" name="name" onChange={this.onChange} />
-                      </div>
-                      <br />
-                      <div className="form-group" style={{ display: 'inline-block' }}>
-                        <label style={{ display: 'inline-block' }}>PLZ</label>
-                        <input type="text" className="form-control" id="InputNachname" placeholder="-" name="name" onChange={this.onChange} />
-                      </div>
-                      <div className="form-group" style={{ display: 'inline-block' }}>
+                        <input type="text" className="" id="InputNachname" placeholder={data.user.email} name="name" onChange={this.onChange} />
+                    <br /><br />
+                        <label>Land</label>
+                        <input type="text" className="" id="InputNachname" placeholder="-" name="name" onChange={this.onChange} />
+                      <br /><br />
+                        <label>PLZ</label>
+                        <input type="text" className="" id="InputNachname" placeholder="-" name="name" onChange={this.onChange} />
+                      <div className="form-group">
 
 
                       </div>
@@ -188,11 +183,14 @@ class EditUser extends Component {
                       <br />
 
                       <button className="btn btn-basic" onClick={this.handlePageChange}>Speichern</button>
-                    </div>
                     <br /><br />
 
 
                     <br /><br />
+                  </div>
+                  
+                  </section>
+                  </div>
                   </div>
                 )
               } else {
