@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {} from 'react-bootstrap';
-import Button from './Button'
+import Button from '../Button'
 
 // ===================
 // TrackerNull
@@ -20,7 +20,7 @@ class TrackerNull extends Component{
                     <div className="col-md-4">
                     </div>
                     <div className="col-md-4 offset-md-4">
-                        <Button type="btn-basic" message="Tracker hinzufügen" />
+                        
                     </div>
                 </div>
             </div>

@@ -12,11 +12,8 @@ import {withCookies, Cookies} from 'react-cookie';
 // ===================
 
 
-// DEMO ONLY 
-// Hier wird normalerweise der User aus den Cookies ausgelesen
 var Cookie = new Cookies();
 let user = Cookie.get('webfit_user')
-// DEMO ONLY END
 
 const getTracker = gql`
 query user($user: ID){
@@ -50,10 +47,10 @@ class Trackerlist extends Component{
                             );
                             if (error) return `GRAPHQL FEHLER! ${error.message}`;
                             
-                            console.log(data)
+                            console.log(data.user.tracker)
 
                             // Abfrage ob Tracker vorhanden sind
-                            if (data == undefined || data == null){
+                            if (data.user.tracker.length === 0){
                                 console.log('kein Tracker vorhanden')
                               return(
                                     <div>

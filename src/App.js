@@ -16,9 +16,14 @@ import ResetPassword from './pages/ResetPassword';
 import NewPassword from './pages/NewPassword';
 import Trackermanager from './pages/Trackermanager';
 import Logout from './pages/Logout';
-import BarChart from './components/BarChart';
-import AreaChart from './components/AreaChart';
-import PieChart from './components/PieChart';
+
+import BarChart from './components/BarChart'
+import AreaChart from './components/AreaChart'
+import PieChart from './components/PieChart'
+import TrackerManagerAdd from './components/trackermanager/Add'
+import TrackerManagerAddSuccess from './components/trackermanager/Add-Success'
+import TrackerManagerConnectorFitbit from './components/trackermanager/connector/fitbit'
+
 import Edit from './pages/Edit';
 import Datenschutz from './pages/Datenschutz';
 import Goals from './pages/Goals';
@@ -74,7 +79,7 @@ class App extends Component {
                   timeout={400}
                   classNames="fade"
                 >
-                  <Switch location={location}>
+                  <Switch>
 
                     <Route exact path="/" component={Home} />
                     <Route path="/demo" component={Demo} />
@@ -85,7 +90,14 @@ class App extends Component {
                     <Route path="/verify" component={Verify} />
                     <Route path="/resetPassword" component={ResetPassword} />
                     <Route path="/newPassword" component={NewPassword} />
-                    <Route path="/trackermanager" component={Trackermanager} />
+
+                    {/* Tracker-Manager */}
+                    <Route exact path="/trackermanager" component={Trackermanager} />
+                    <Route exact path="/trackermanager/add" component={TrackerManagerAdd} />
+                    <Route exact path="/trackermanager/connector/fitbit" component={TrackerManagerConnectorFitbit} />
+                    <Route exact path="/trackermanager/add/success" component={TrackerManagerAddSuccess} />
+                  
+                    {/* Tracker-Manager ENDE */}
                     <Route path="/logout" component={Logout} />
                     <Route path="/BarChart" component={BarChart} />
                     <Route path="/AreaChart" component={AreaChart} />
@@ -97,6 +109,7 @@ class App extends Component {
                     <Route path="/community" component={Community} />
                     <Route path="/workouts" component={Workouts} />
                     <Route path="/button" component={AddButton} />
+
 
 
 

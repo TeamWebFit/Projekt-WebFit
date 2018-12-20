@@ -11,10 +11,12 @@
     "axios": "^0.18.0",
     "bootstrap": "^3.3.7",
     "chartist": "^0.11.0",
+    "decode-uri-component": "^0.2.0",
     "graphql": "^14.0.2",
     "graphql-tag": "^2.10.0",
     "history": "^4.7.2",
     "jquery": "^3.3.1",
+    "npm": "^6.5.0",
     "prop-types": "^15.6.2",
     "query-string": "^5.1.1",
     "react": "^16.6.3",
@@ -30,7 +32,9 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
-    "react-transition-group": "^2.5.0"
+    "react-stepzilla": "^4.8.0",
+    "react-transition-group": "^2.5.0",
+    "strict-uri-encode": "^2.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
