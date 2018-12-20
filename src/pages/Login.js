@@ -103,6 +103,8 @@ class Login extends Component {
       path: '/'
     })
 
+
+
     this.props.history.push(`/home`);
 
   }
