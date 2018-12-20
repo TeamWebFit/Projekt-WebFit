@@ -48,6 +48,7 @@ class BarChart extends Component {
     };
 
     var options = {
+      height:'220px',
       axisX: {
         labelInterpolationFnc: function (value, index) {
           return value;

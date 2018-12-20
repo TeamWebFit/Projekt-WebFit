@@ -1338,6 +1338,10 @@ img.kacheln {
   margin: 15px !important;
 }
 
+.ct-chart {
+  margin-top: 20px;
+}
+
 .ct-chart1 {
   font-family: Lato;
   margin: 5px;
@@ -1352,6 +1356,7 @@ img.kacheln {
 }
 
 .headlinecharts{
+  font-size: 15px;
   text-align: center;
   margin: 5px;
 }
@@ -1364,7 +1369,7 @@ img.kacheln {
 .ct-series-a .ct-area {
   fill: #ffcc66;
   stroke: none;
-  fill-opacity: .3;
+  fill-opacity: .7;
 }
 .ct-series-b .ct-area {
   fill: #ffcc66;
