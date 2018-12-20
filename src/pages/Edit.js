@@ -140,7 +140,7 @@ class EditUser extends Component {
                       <br /> 
                       <div className="userName">
                         <label >Name</label>
-                        <input type="text" className="" id="InputNachname" placeholder={data.user.firstName} name="name" onChange={this.onChange} value={this.state.firstName} />
+                        <input type="text" className="" id="InputNachname" placeholder={data.user.firstName} name="name" onChange={this.onChange} />
                       </div>
                       <br />
                       <div className="userName">
