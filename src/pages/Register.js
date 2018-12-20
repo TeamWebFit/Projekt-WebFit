@@ -77,7 +77,7 @@ class Register extends Component {
 
     const { firstName, email, authToken } = this.state;
 
-    let form = await axios.post('/api/form', {
+    const form = await axios.post('/api/form', {
       firstName,
       email,
       authToken: token
