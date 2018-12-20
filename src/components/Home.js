@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {CarouselItem, Carousel, Row, Col} from 'react-bootstrap';
+import { CarouselItem, Carousel, Row, Col } from 'react-bootstrap';
 import Calendar from 'react-calendar';
 import '../App.css';
 import Desktopbg from '../assets/img/Desktop_background.png';
@@ -9,12 +9,13 @@ import Header from './Header';
 import Footer from './Footer';
 import CheckLogin from '../components/CheckLogin'
 import BarChart from './BarChart';
+import AreaChart from './AreaChart';
 
-class Home extends Component{
+class Home extends Component {
     state = {
         date: new Date(),
     }
-    
+
     onChange = date => this.setState({ date })
 
     constructor(props) {
@@ -22,12 +23,12 @@ class Home extends Component{
         this.state = { values: [] };
     }
 
-    createUI(){
-        return this.state.values.map((el, i) => 
+    createUI() {
+        return this.state.values.map((el, i) =>
             <div key={i}>
-               <input type="textarea" value={el||'Add workouts'} onChange={this.handleChange.bind(this, i)} />
-               <input type="submit" value="Submit" />
-            </div>          
+                <input type="textarea" value={el || 'Add workouts'} onChange={this.handleChange.bind(this, i)} />
+                <input type="submit" value="Submit" />
+            </div>
         )
     }
 
@@ -36,16 +37,16 @@ class Home extends Component{
         values[i] = event.target.value;
         this.setState({ values });
     }
-  
-    addClick(){
-        this.setState(prevState => ({ values: [...prevState.values, '']}))
+
+    addClick() {
+        this.setState(prevState => ({ values: [...prevState.values, ''] }))
     }
-      
-    render(){
+
+    render() {
         return (
-            <div className = "Home">
-            
-             <CheckLogin />
+            <div className="Home">
+
+                <CheckLogin />
                 <div className="container">
                     <Row className="row">
                         <Col xs={12} sm={6} md={6}>
@@ -54,10 +55,10 @@ class Home extends Component{
                                     <BarChart />
                                 </Carousel.Item>
                                 <Carousel.Item>
-                                        <BarChart />
+                                    <AreaChart />
                                 </Carousel.Item>
                                 <Carousel.Item>
-                                        <BarChart />
+                                    <BarChart />
                                 </Carousel.Item>
                             </Carousel>
                         </Col>
@@ -81,23 +82,23 @@ class Home extends Component{
                     <Row className="row rmobile">
                         <Col xs={12} sm={6} md={6} className="col kSquare">
                             <div className="kachelnSquare">
-                                <img src={kachelsquare} width="20%" height="auto" alt="Card image"/>
-                                <img src={kachelsquare} width="20%" height="auto" alt="Card image"/>
-                                <img src={kachelsquare} width="20%" height="auto" alt="Card image"/>
-                                <img src={kachelsquare} width="20%" height="auto" alt="Card image"/>
+                                <img src={kachelsquare} width="20%" height="auto" alt="Card image" />
+                                <img src={kachelsquare} width="20%" height="auto" alt="Card image" />
+                                <img src={kachelsquare} width="20%" height="auto" alt="Card image" />
+                                <img src={kachelsquare} width="20%" height="auto" alt="Card image" />
                             </div>
-                        
+
                             <div className="kacheln">
-                                <img src={kachel} width="35%" height="auto" alt="Card image"/>
-                                <img src={kachel} width="35%" height="auto" alt="Card image"/>
-                                <img src={kachel} width="35%" height="auto" alt="Card image"/>
-                                <img src={kachel} width="35%" height="auto" alt="Card image"/>
+                                <img src={kachel} width="35%" height="auto" alt="Card image" />
+                                <img src={kachel} width="35%" height="auto" alt="Card image" />
+                                <img src={kachel} width="35%" height="auto" alt="Card image" />
+                                <img src={kachel} width="35%" height="auto" alt="Card image" />
                             </div>
                         </Col>
 
-                        <Col  sm={6} md={6} className="col">
+                        <Col sm={6} md={6} className="col">
                             <form className="calendar_form" id="myform">
-                            {this.createUI()}  
+                                {this.createUI()}
                                 <p>
                                     <button type="button" className="btn_calendar" onClick={this.addClick.bind(this)} data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                                         <i className="fa fa-plus-circle addWorkout"></i>

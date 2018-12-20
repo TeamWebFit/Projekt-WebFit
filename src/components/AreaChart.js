@@ -17,8 +17,8 @@ class AreaChart extends Component {
 
     const heartrate = this.props.allHeartrateQuery.allSteps;
     console.log(heartrate);
-    const time = [];
-    const value = [];
+    const time = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
+    const value = [100, 80, 44, 50, 60, 88, 69, 100, 111, 66, 77, 55, 50, 60, 70, 66, 64, 55, 44, 46, 55, 60, 44, 53];
     if(heartrate){
       heartrate.forEach(function(element){
         time.push(element.time);
@@ -48,6 +48,7 @@ class AreaChart extends Component {
       showLine: false,
       showPoint: false,
       fullWidth: true,
+      height:'220px',
       axisX: {
         showLabel: false,
         showGrid: false
@@ -58,7 +59,7 @@ class AreaChart extends Component {
 
     return (
       <div class="chartbox">
-        <h6 class="headlinecharts">Line Chart</h6>
+        <h6 class="headlinecharts">Heartrate</h6>
         <Chart2 data={data} options={options} type={type} />
       </div>
     )
