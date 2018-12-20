@@ -60,12 +60,12 @@ class Trackerlist extends Component{
                                 )
                             }else{
                                 console.log('Tracker ist vorhanden')
-                                console.log(data.user.tracker[0].id)
+                                console.log(data.user.tracker.id)
                                 return (
                                     <div>
                                         
                                         {data.user.tracker.map(tracker => (
-                                        <TrackerElement key={data.user.tracker[0].id} trackername={data.user.tracker[0].trackerModel.type} manufacturer={data.user.tracker[0].trackerModel.manufacturer} adddate={data.user.tracker[0].createdAt} lastsyncdate={data.user.tracker[0].lastSync} errortext="0 Fehler" errorcolor="success" user={user} trackerid={data.user.tracker[0].id} />
+                                        <TrackerElement key={tracker.id} trackername={tracker.trackerModel.type} manufacturer={tracker.trackerModel.manufacturer} adddate={tracker.createdAt} lastsyncdate={tracker.lastSync} errortext="0 Fehler" errorcolor="success" user={user} trackerid={tracker.id} />
                                         ))}
                                     </div>
                                 );
