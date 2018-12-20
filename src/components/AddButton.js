@@ -50,13 +50,14 @@ class AddButton extends Component {
         const { date, month, year, sport, time } = this.state;
         const thisYear = new Date().getFullYear();
         return (
-            <div class="container">
-                <div class="btn-round fab"></div>
-                <div class="overlay-fab">
-                    <div class="container">
-                        <div class="col-md-12">
-                            <p class="fab-title">Workout hinzufügen</p>
-                            <p class="fab-subtitle">Welche Art von Training möchtest Du hinzufügen?</p>
+            <div className="addbutton">
+            <div className="container">
+                <div className="btn-round fab"></div>
+                {/*<div className="overlay-fab">
+                    <div className="container">
+                        <div className="col-md-12">
+                            <p className="fab-title">Workout hinzufügen</p>
+                            <p className="fab-subtitle">Welche Art von Training möchtest Du hinzufügen?</p>
                             <form>
                                 <select className="selectBoxDate" onChange={this.onChange} value={sport} name="sportart">
                                     <option>Sportart</option>
@@ -88,8 +89,9 @@ class AddButton extends Component {
                                 </div>
                             </form>
                         </div>
-                    </div>
-                </div>
+        </div>
+                </div>*/}
+            </div>
             </div>
         )
     }
