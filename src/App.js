@@ -25,6 +25,7 @@ import Goals from './pages/Goals';
 import Workouts from './pages/Workouts';
 import Community from './pages/Community';
 import Messages from './pages/Messages';
+import AddButton from './components/AddButton';
 
 
 
@@ -95,6 +96,8 @@ class App extends Component {
                     <Route path="/messages" component={Messages} />
                     <Route path="/community" component={Community} />
                     <Route path="/workouts" component={Workouts} />
+                    <Route path="/button" component={AddButton} />
+
 
 
 

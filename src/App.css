@@ -822,8 +822,19 @@ input {
 
 /*Alerts-Ende*/
 /*4. Add Button*/
+
+.addbutton{
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  width: 100%;
+  top: 72%;
+
+}
+
+
 .fab {
-  position: absolute;
+  
   left: 43%;
   top: 90%;
 }
@@ -1003,6 +1014,7 @@ footer {
   width: 100%;
   margin-bottom: -0.7em;
   height: 70px;
+  z-index: 1;
 }
 
 #nav-footer {
@@ -1408,8 +1420,6 @@ img.kacheln {
 /* Page Transitions End*/
 
 
-
-
 /*End WebFit Home*/
 /* --------- Media Queries --------- */
 /* Extra small devices (portrait phones, less than 576px)*/
@@ -1557,6 +1567,22 @@ display: block;
      display: none;
     }
 
+    .addbutton{
+      position: fixed;
+      z-index: 2;
+      left: 0;
+      width: 100%;
+      top: 72%;
+    
+    }
+    
+    
+    .fab {
+      
+      left: 43%;
+      top: 90%;
+    }
+
     
 }
 
@@ -1677,6 +1703,22 @@ display: block;
     padding-right: 30px;
   }
 
+
+  .addbutton{
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    width: 100%;
+    top: 72%;
+  
+  }
+  
+  
+  .fab {
+    
+    left: 43%;
+    top: 90%;
+  }
   /*6. Home*/
 
   .card {
@@ -1812,6 +1854,22 @@ display: block;
     margin-bottom: 100px;
   }
 
+  .addbutton{
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    width: 100%;
+    top: 72%;
+  
+  }
+  
+  
+  .fab {
+    
+    left: 43%;
+    top: 90%;
+  }
+
   }
 
   
@@ -1846,6 +1904,10 @@ display: block;
     display: none;
   }
   
+  .fab {
+    left: 97%;
+    top: 90%;
+}
 }
 
 /* Extra large devices (large desktops, 1200px and up)*/
@@ -1880,4 +1942,9 @@ display: block;
   .kacheln{
     display: none;
   }
+
+  .fab {
+    left: 97%;
+    top: 90%;
+}
 }
