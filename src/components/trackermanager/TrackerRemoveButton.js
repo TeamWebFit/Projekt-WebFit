@@ -22,7 +22,8 @@ const RemoveButton = ({id}) => {
 
       
     <Mutation
-      mutation={DELETE_TRACKER}>
+      mutation={DELETE_TRACKER}
+      >
       {(deleteTracker, { data }) => (
         <Button bsStyle="danger"
           onClick={e => {
@@ -31,7 +32,7 @@ const RemoveButton = ({id}) => {
                 id
               }
             });
-          }}
+          window.location.reload()}}
         >Ja, Tracker entfernen</Button>            
       )}
     </Mutation>
