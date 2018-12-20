@@ -83,7 +83,6 @@ class User extends Component {
                             <p></p>
                             </section>*/}
                           <div className="">
-
                             <br /><br /><br />
                             <div className="userName">
                               <label >Name</label>
