@@ -10,11 +10,13 @@ import Welcome from './components/Welcome';
 import profil from './pages/user';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import Home from './components/Home';
 import Verify from './pages/Verify';
 import ResetPassword from './pages/ResetPassword';
 import NewPassword from './pages/NewPassword';
 import Trackermanager from './pages/Trackermanager';
 import Logout from './pages/Logout';
+
 import BarChart from './components/BarChart'
 import AreaChart from './components/AreaChart'
 import PieChart from './components/PieChart'
@@ -22,7 +24,18 @@ import TrackerManagerAdd from './components/trackermanager/Add'
 import TrackerManagerAddSuccess from './components/trackermanager/Add-Success'
 import TrackerManagerConnectorFitbit from './components/trackermanager/connector/fitbit'
 
+import Edit from './pages/Edit';
+import Datenschutz from './pages/Datenschutz';
+import Goals from './pages/Goals';
+import Workouts from './pages/Workouts';
+import Community from './pages/Community';
+import Messages from './pages/Messages';
+import AddButton from './components/AddButton';
+
+
+
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+
 
 // Don't link any component (except Header & Footer)
 // Please include new pages through react-router here
@@ -59,7 +72,6 @@ class App extends Component {
           <Header />
           <div className="main">
             {/* React-Router - Route */}
-
             <Route render={({ location }) => (
               <TransitionGroup>
                 <CSSTransition
@@ -69,8 +81,9 @@ class App extends Component {
                 >
                   <Switch>
 
-                    <Route exact path="/" component={Welcome} />
+                    <Route exact path="/" component={Home} />
                     <Route path="/demo" component={Demo} />
+                    <Route path="/home" component={Home} />
                     <Route path="/user" component={profil} />
                     <Route path="/login" component={Login} />
                     <Route path="/register" component={Register} />
@@ -89,6 +102,16 @@ class App extends Component {
                     <Route path="/BarChart" component={BarChart} />
                     <Route path="/AreaChart" component={AreaChart} />
                     <Route path="/PieChart" component={PieChart} />
+                    <Route path="/edit" component={Edit} />
+                    <Route path="/datenschutz" component={Datenschutz} />
+                    <Route path="/goals" component={Goals} />
+                    <Route path="/messages" component={Messages} />
+                    <Route path="/community" component={Community} />
+                    <Route path="/workouts" component={Workouts} />
+                    <Route path="/button" component={AddButton} />
+
+
+
 
 
                     {/*<div id="registrationTrue"></div>*/}

@@ -9,15 +9,24 @@
 6. Home
 7. Charts
 8. Page Transitions
+9. User Profile
 --------- Media Queries ---------
 */
+
+
 body {
   font-family: 'Lato', sans-serif;
+  background-color: #9fc9eb;
   background-repeat: no-repeat;
   background-size: 100%;
   background-attachment: fixed;
   z-index: 0;
-  overflow: scroll;
+  overflow: scroll; 
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 h3 {
@@ -44,6 +53,41 @@ h2 {
 
 hr {
   margin: 5%;
+}
+
+.App{
+  height: 100%
+}
+
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.row-space {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.col-2 {
+  width: -webkit-calc((100% - 60px) / 2);
+  width: -moz-calc((100% - 60px) / 2);
+  width: calc((100% - 60px) / 2);
+}
+
+@media (max-width: 767px) {
+  .col-2 {
+    width: 100%;
+  }
 }
 
 /*1. Buttons*/
@@ -252,6 +296,17 @@ form {
   background-attachment: fixed;
   background-size: 100%;
   background-repeat: no-repeat;
+ 
+}
+
+/*Register*/
+.registerPic{
+  background: url(./assets/img/register.jpg) bottom left/cover no-repeat;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  width: 40%;
+  display: table-cell;
+  height: 100%;
 }
 
 .card{
@@ -260,7 +315,168 @@ form {
   box-shadow: none !important;
 }
 
-#inputState, .form-control {
+.karte{
+  background: #ffffff;
+  border-radius: 15px;
+  margin: 20px;
+  margin-top: 0px;
+  
+}
+
+.karteRegister{
+  background: #ffffff;
+  border-radius: 15px;
+  margin: 20px;
+  margin-top: 0px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+
+
+.karteUser{
+  background: #ffffff;
+  border-radius: 15px;
+  margin: 20px;
+  margin-top: 0px;
+  
+}
+
+.karte2{
+  border-radius: 10px;
+  width: 100%;
+  display: table;
+}
+
+.register_body{
+  display: table-cell;
+  padding-left: 70px;
+
+
+}
+
+@media (max-width: 767px) {
+
+  .karte-2 .registerPic {
+    width: 100%;
+    display: block;
+    padding-top: 300px;
+    background-position: left center;
+  }
+  .karte-2 .register_body {
+    display: block;
+    padding: 60px 50px;
+  }
+}
+
+
+/*login*/
+
+.loginPic{
+  background: url(./assets/img/login.jpg) top left/cover no-repeat;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  width: 40%;
+  display: table-cell;
+  height: 100%;
+}
+
+.card{
+  background-color: white !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.karte{
+  background: #ffffff;
+  border-radius: 15px;
+  margin: 70px;
+  
+}
+
+.karteLogin{
+  background: #ffffff;
+  border-radius: 15px;
+  margin: 20px;
+  margin-top: 0px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.karte2{
+  border-radius: 10px;
+  width: 100%;
+  display: table;
+}
+
+.login_body{
+  display: table-cell;
+  padding-left: 50px;
+  padding-right: 50px;
+
+}
+
+.edit_body{
+  display: table-cell;
+  padding-left: 100px;
+  padding-right: 190px;
+}
+
+
+/*User Profile*/
+
+.userPic{
+  background: url(./assets/img/user.jpg) top left/cover no-repeat;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  width: 40%;
+  display: table-cell;
+  height: 100%;
+}
+
+.card{
+  background-color: white !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.karte{
+  background: #ffffff;
+  border-radius: 15px;
+  margin: 70px;
+  
+}
+
+.karteLogin{
+  background: #ffffff;
+  border-radius: 15px;
+  margin: 20px;
+  margin-top: 0px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.karte2{
+  border-radius: 10px;
+  width: 100%;
+  display: table;
+}
+
+.login_body{
+  display: table-cell;
+  padding-left: 50px;
+  padding-right: 50px;
+
+}
+
+
+
+
+
+
+
+
+/*#inputState, .form-control {
   border-top: none;
   border-left: none;
   border-right: none;
@@ -268,7 +484,10 @@ form {
   background-color: transparent;
   border-bottom: 1px solid #333333;
   max-width: 20em;
-}
+  outline: 0;
+  background: transparent;
+}*/
+
 
 input::-webkit-input-placeholder {
   color: #7db9e8 !important;
@@ -287,6 +506,7 @@ input::-webkit-input-placeholder {
   margin-bottom: 1em;
   padding: 1em;
   min-width: 5em;
+  border-radius: 0;
 }
 
 .form-check {
@@ -299,6 +519,15 @@ input::-webkit-input-placeholder {
 
 input {
   color: #9FC9EB;
+  outline: none;
+  margin: 0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #d8d8d8;
+  width: 100%;
+  padding: 10px;
+  background: transparent;
 }
 
 .custom-select {
@@ -311,6 +540,11 @@ input {
 
 .form-check-label {
   padding-right: 40px;
+  padding-left: 20px;
+}
+
+.form-check-input{
+  width: 10px; 
 }
 
 .input-group-text {
@@ -320,6 +554,14 @@ input {
   border-top: none;
   border-left: none;
   border-right: none;
+}
+
+.card-backgrd{
+  background-color: #FFCC66;
+  height: 100%;
+  border-radius: 10px;
+  padding: 80px 90px;
+ 
 }
 
 /*Login Formular Icons*/
@@ -580,8 +822,19 @@ input {
 
 /*Alerts-Ende*/
 /*4. Add Button*/
+
+.addbutton{
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  width: 100%;
+  top: 72%;
+
+}
+
+
 .fab {
-  position: absolute;
+  
   left: 43%;
   top: 90%;
 }
@@ -629,6 +882,7 @@ input {
 .main {
   margin-top: 100px;
   margin-bottom: 80px;
+  overflow-y: scroll;
 }
 
 header {
@@ -650,6 +904,7 @@ img#logo {
   right: 50%;
   left: 25%;
 }
+
 
 
 #menu-icon {
@@ -758,6 +1013,8 @@ footer {
   bottom: 0;
   width: 100%;
   margin-bottom: -0.7em;
+  height: 70px;
+  z-index: 1;
 }
 
 #nav-footer {
@@ -813,7 +1070,9 @@ i.icons-footer{
 
 .main{
   margin-bottom: 0;
+  overflow: auto;
 }
+
 .card {
   width: 100%;
   height: 280px;
@@ -827,20 +1086,21 @@ i.icons-footer{
   margin-right: auto;
 }
 
-.carousel-indicators li{
-  width: 6px;
-  height: 6px;
+.carousel-control.right, .carousel-control.left{
+  background: none;
 }
 
 .carousel-indicators{
   bottom: -50px;
 }
 
-.card-img {
-  float: left;
-  margin-left: auto;
-  margin-right: auto;
+.carousel-indicators li{
+  width: 6px;
+  height: 6px;
+  background-color: #333;
 }
+
+
 
 img.kacheln {
   display: block;
@@ -853,36 +1113,103 @@ img.kacheln {
 }
 
 /*Kalender*/
-.calendar_link {
+.react-calendar{
+  width: 450px !important;
+  max-width: 450px;
+  float: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: none !important;
+  background: transparent !important;
+}
+
+.react-calendar__navigation{
+  font-size: 30px;
   text-align: center;
   color: #F3F4F5;
   text-decoration: none;
+  line-height: 1.5;
+  margin-bottom: 0px !important;
 }
 
-.calendar_head {
-  font-weight: bold;
-  text-align: center;
+.react-calendar__navigation__arrow{
+  font-weight: bold !important;
+  border: none !important;
+  background-color: transparent;
   width: 60px;
 }
 
-.calendar_head_month {
-  font-size: 30px;
-  text-align: center;
-  width: 60px;
-  color: #F3F4F5;
+.react-calendar__navigation__arrow:hover, .react-calendar__navigation__arrow:focus, .react-calendar__navigation__label:hover, .react-calendar__navigation__label:focus{
+  background: transparent !important;
 }
 
-.calendar_day {
+.react-calendar__navigation__label{
+  border: none !important;
+  background-color: transparent;
+  width: 60px;
+}
+
+.react-calendar__navigation__prev2-button, .react-calendar__navigation__next2-button{
+  display: none;
+}
+
+.react-calendar__month-view__weekdays{
+  text-transform: none !important;
+  font-weight: normal !important;
+  font-size: 30px !important;
+}
+
+.react-calendar__month-view__weekdays__weekday{
   font-size: 30px;
   text-align: center;
   width: 60px;
   color: #333333;
+  line-height: 1.5;
+  padding: 0px !important;
 }
 
-.calendar_entry {
+.react-calendar__month-view__days__day--weekend, .react-calendar__month-view__days__day--neighboringMonth{
+  color: #F3F4F5 !important;
+}
+
+.react-calendar__tile{
   font-size: 25px;
   text-align: center;
+  width: 60px;
+  max-width: 60px;
+  height: 39px;
+  color: #F3F4F5;
+  text-decoration: none;
   border: none !important;
+  background-color: transparent;
+  line-height: 1.5;
+  padding: 0px !important;
+}
+
+.react-calendar__tile--active{
+  background: none !important;
+  color: #F3F4F5 !important;
+  font-weight: bold !important;
+  padding: 0px !important;
+}
+
+.react-calendar__tile:focus {
+  color: #333333 !important;
+  font-weight: normal !important;
+  width: 35px;
+  height: 35px;
+  border-radius: 70%;
+  background-color: #F3F4F5 !important;
+  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
+}
+
+.button.react-calendar__tile--active{
+  font-weight: bold;
+}
+
+.react-calendar__tile:hover{
+  background: transparent !important;
 }
 
 #myform {
@@ -903,33 +1230,10 @@ img.kacheln {
   overflow-y: scroll;
 }
 
-#datum {
-  background-color: transparent;
-  border-right: none;
-  border-left: none;
-  border-top: none;
-  float: left;
-}
-
-.calendar_link:hover {
-  color: #F3F4F5;
-  text-decoration: none;
-}
-
-.calendar_link:focus {
-  color: #333333;
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  background-color: rgba(243, 244, 245, 0.5);
-  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
-}
-
-#calendar {
-  float: center;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.btn_calendar{
+  border: none;
+  background: none;
+  float: right;
 }
 
 .addWorkout{
@@ -939,40 +1243,47 @@ img.kacheln {
   margin-top: 1%;
 }
 
+/*9. User Profile*/
 
 .kachel1{
-  border-color: #9FC9EB;
+  border-image: linear-gradient(to right, #9FC9EB, #FF6666, #FFCC66);
+  border-image-slice: 1;
   border-width: 2px;
   border-style: solid;
   border-radius: 10px;
-  width: 200px;
+  width: 150px;
   height: 80px;
   display : inline-block;
-  margin: 30px;
+  margin: 5px;
   text-align: center;
  }
 .kachel2{
-  border-color: #FFCC66;
+  border-image: linear-gradient(to right, #9FC9EB, #FF6666, #FFCC66);
+  border-image-slice: 1;
   border-width: 2px;
   border-style: solid;
   border-radius: 10px;
-  width: 200px;
+  width: 150px;
   height: 80px;
   display : inline-block;
-  margin: 30px;
+  margin: 5px;
   text-align: center;
  }
 .kachel3{
-  border-color: #FF6666;
+  /*border-color: #FF6666;*/
+  border-image: linear-gradient(to right, #9FC9EB, #FF6666, #FFCC66);
+  border-image-slice: 1;
   border-width: 2px;
   border-style: solid;
   border-radius: 10px;
-  width: 200px;
+  width: 150px;
   height: 80px;
   display : inline-block;
-  margin: 30px;
+  margin: 5px;
   text-align: center;
 }
+
+
  .kachel_header{
   padding-top: 15px;
   font-size: 15px;
@@ -983,122 +1294,52 @@ img.kacheln {
    width: 200px;
 }
 
-
-
-
-/*End WebFit Home*/
-/* --------- Media Queries --------- */
-/* Extra small devices (portrait phones, less than 576px)*/
-@media (max-width: 575.98px) {
-  body {
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-attachment: fixed;
-    z-index: 0;
-    overflow: scroll;
-  }
-
-  /*5.1. Home-Menu*/
-  #ul-left-header {
-    display: none;
-  }
-
-  img#logo {
-    position: static;
-    float: left;
-    margin-left: 2%;
-    margin-top: 2%;
-    width: 18%
-  }
-
-  /*6. Home*/
-
-
-    .card {
-      width: 90%;
-      height: 200px;
-      border-radius: 10px;
-      background-color: rgba(243, 244, 245, 0.5);
-      box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
-      text-align: center;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-
-
-  table#calendar {
-    display: none;
-  }
-
-  .kachelnSquare {
-    display: none;
-  }
-
-  #myform.calendar_form{
-    display: none;
-  }
+.userContainer{
+  padding-left: 100px;
+  padding-top: 300px;
+  z-index: 2;
+  position: absolute;
 }
 
-/* Small devices (landscape phones, 576px and up)*/
-@media (min-width: 576px) and (max-width: 767.98px) {
-  body {
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-attachment: fixed;
-    z-index: 0;
-    overflow: scroll;
-  }
+.headerImage{
+  z-index: 1;
+  position: absolute;
+}
 
-  /*5.1. Home-Menu*/
-  #ul-left-header {
-    display: none;
-  }
-
-  img#logo {
-    position: static;
-    float: left;
-    margin-left: 2%;
-    margin-top: 2%;
-    width: 18%
-  }
-
-  /*6. Home*/
-
-  .card {
-    width: 90%;
-    height: 200px;
-    border-radius: 10px;
-    background-color: rgba(243, 244, 245, 0.5);
-    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    display: block;
-    margin-left: auto;
+.profileImage{
+  z-index: 1;
+  position: absolute;
+  margin-left: auto;
     margin-right: auto;
-  }
-
-  table#calendar {
-    display: none;
-  }
-
-  .kachelnSquare {
-    display: none;
-  }
-
-  #myform.calendar_form{
-    display: none;
-  }
 }
+
+/* End User Profile*/
+
+
 
 /*7. Charts*/
 
 .chartbox{
+  width: 100%;
+  height: 280px;
   background-color: rgba(243, 244, 245, 0.5);
-  border-radius: 10px;
   box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
   padding: 5px;
   margin: 10px;
+  border-radius: 10px;
+  float: left;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.headlinecharts {
+  margin: 15px !important;
+}
+
+.ct-chart {
+  margin-top: 20px;
 }
 
 .ct-chart1 {
@@ -1115,6 +1356,7 @@ img.kacheln {
 }
 
 .headlinecharts{
+  font-size: 15px;
   text-align: center;
   margin: 5px;
 }
@@ -1127,7 +1369,7 @@ img.kacheln {
 .ct-series-a .ct-area {
   fill: #ffcc66;
   stroke: none;
-  fill-opacity: .3;
+  fill-opacity: .7;
 }
 .ct-series-b .ct-area {
   fill: #ffcc66;
@@ -1183,6 +1425,332 @@ img.kacheln {
 /* Page Transitions End*/
 
 
+/*End WebFit Home*/
+/* --------- Media Queries --------- */
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+  body {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+    z-index: 0;
+    overflow: scroll;
+  }
+
+   /*5.1. Home-Menu*/
+   #ul-left-header {
+    display: none;
+  }
+
+  img#logo {
+    position: static;
+    float: left;
+    margin-left: 2%;
+    margin-top: 1.5%;
+    width: 20%;
+  }
+
+  .karteLogin {
+    background: #ffffff;
+    border-radius: 15px;
+    margin: 20px;
+    margin-top: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 100px;
+}
+
+.karte {
+  display: block;
+}
+.karte2 .loginPic {
+  width: 100%;
+  display: block;
+  padding-top: 150px;
+  background-position: left center;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 15px;
+  
+}
+.loginPic{
+  height: 20%;
+}
+.karte2 .login_body {
+  display: block;
+
+}
+
+.karteRegister {
+  background: #ffffff;
+  border-radius: 15px;
+  margin: 20px;
+  margin-top: 0px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 100px;
+}
+
+.karte {
+display: block;
+}
+.karte2 .registerPic {
+width: 100%;
+display: block;
+padding-top: 150px;
+background-position: left center;
+border-top-left-radius: 15px;
+border-bottom-left-radius: 0px;
+border-top-right-radius: 15px;
+background: url(./assets/img/register2.jpg) top left/cover no-repeat;
+
+}
+.registerPic{
+height: 20%;
+}
+.karte2 .register_body {
+display: block;
+
+}
+
+
+.register_body {
+    display: table-cell;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.karte2 .userPic {
+  width: 100%;
+  display: block;
+  padding-top: 150px;
+  background-position: left center;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 15px;
+  background: url(./assets/img/user2.jpg) top left/cover no-repeat;
+
+  
+  }
+
+  .karteUser{
+    margin-bottom: 100px;
+  }
+
+  .edit_body{
+    display: table-cell;
+    padding-left: 50px;
+    padding-right: 30px;
+  }
+
+  /*6. Home*/
+
+
+    .card {
+      width: 90%;
+      height: 200px;
+      border-radius: 10px;
+      background-color: rgba(243, 244, 245, 0.5);
+      box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+
+
+    .react-calendar {
+      display: none;
+    }
+
+    .kachelnSquare {
+      display: none;
+    }
+
+    #myform.calendar_form{
+     display: none;
+    }
+
+    .addbutton{
+      position: fixed;
+      z-index: 2;
+      left: 0;
+      width: 100%;
+      top: 72%;
+    
+    }
+    
+    
+    .fab {
+      
+      left: 43%;
+      top: 90%;
+    }
+
+    
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  body {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+    z-index: 0;
+    overflow: scroll;
+  }
+
+  /*5.1. Home-Menu*/
+  #ul-left-header {
+    display: none;
+  }
+
+  img#logo {
+    position: static;
+    float: left;
+    margin-left: 2%;
+    margin-top: .5%;
+    width: 11%;
+  }
+
+
+  .karteLogin {
+    background: #ffffff;
+    border-radius: 15px;
+    margin: 20px;
+    margin-top: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 100px;
+}
+
+  .karte {
+    display: block;
+  }
+
+  .karte2 .loginPic {
+    width: 100%;
+    display: block;
+    padding-top: 150px;
+    background-position: left center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 15px;
+    
+  }
+
+  .loginPic{
+    height: 20%;
+  }
+
+  .karte2 .login_body {
+    display: block;
+
+  }
+
+  .karteRegister {
+    background: #ffffff;
+    border-radius: 15px;
+    margin: 20px;
+    margin-top: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 100px;
+  }
+  
+  .karte {
+  display: block;
+  }
+  .karte2 .registerPic {
+  width: 100%;
+  display: block;
+  padding-top: 150px;
+  background-position: left center;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 15px;
+  background: url(./assets/img/register2.jpg) bottom left/cover no-repeat;
+
+  }
+  .registerPic{
+  height: 20%;
+  }
+  .karte2 .register_body {
+  display: block;
+  
+  }
+  .register_body {
+    display: table-cell;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+  
+.karte2 .userPic {
+  width: 100%;
+  display: block;
+  padding-top: 150px;
+  background-position: left center;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 15px;
+  background: url(./assets/img/user2.jpg) top left/cover no-repeat;
+
+  }
+
+  .karteUser{
+    margin-bottom: 100px;
+  }
+
+  .edit_body{
+    display: table-cell;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+
+  .addbutton{
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    width: 100%;
+    top: 72%;
+  
+  }
+  
+  
+  .fab {
+    
+    left: 43%;
+    top: 90%;
+  }
+  /*6. Home*/
+
+  .card {
+    width: 90%;
+    height: 200px;
+    border-radius: 10px;
+    background-color: rgba(243, 244, 245, 0.5);
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .react-calendar {
+    display: none;
+  }
+
+  .kachelnSquare {
+    display: none;
+  }
+
+  #myform.calendar_form{
+    display: none;
+  }
+}
+
 /* Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) and (max-width: 991.98px) {
 
@@ -1194,6 +1762,7 @@ img.kacheln {
     overflow: scroll;
   }
 
+  
   /*5.2 Footer-Menu*/
   footer {
     display: none;
@@ -1204,7 +1773,111 @@ img.kacheln {
   .kacheln{
     display: none;
   }
+
+
+  .karteLogin {
+    background: #ffffff;
+    border-radius: 15px;
+    margin: 20px;
+    margin-top: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 100px;
 }
+
+  .karte {
+    display: block;
+  }
+  .karte2 .loginPic {
+    width: 100%;
+    display: block;
+    padding-top: 150px;
+    background-position: left center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 15px;
+    
+  }
+  .loginPic{
+    height: 20%;
+  }
+  .karte2 .login_body {
+    display: block;
+
+  }
+
+  .karteRegister {
+    background: #ffffff;
+    border-radius: 15px;
+    margin: 20px;
+    margin-top: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 100px;
+  }
+  
+  .karte {
+  display: block;
+  }
+  .karte2 .registerPic {
+  width: 100%;
+  display: block;
+  padding-top: 150px;
+  background-position: left center;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 15px;
+  background: url(./assets/img/register2.jpg) top left/cover no-repeat;
+
+  }
+  .registerPic{
+  height: 20%;
+  }
+  .karte2 .register_body {
+  display: block;
+  
+  }
+  .register_body {
+    display: table-cell;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.karte2 .userPic {
+  width: 100%;
+  display: block;
+  padding-top: 150px;
+  background-position: left center;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 15px;
+  background: url(./assets/img/user2.jpg) top left/cover no-repeat;
+
+  }
+
+  .karteUser{
+    margin-bottom: 100px;
+  }
+
+  .addbutton{
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    width: 100%;
+    top: 72%;
+  
+  }
+  
+  
+  .fab {
+    
+    left: 43%;
+    top: 90%;
+  }
+
+  }
+
+  
 
 /* Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) and (max-width: 1199.98px) {
@@ -1221,6 +1894,8 @@ img.kacheln {
     float: center;
     margin-left: auto;
     margin-right: auto;
+    width: 8%;
+    margin-top: .2%;
   }
 
   /*5.2 Footer-Menu*/
@@ -1233,6 +1908,11 @@ img.kacheln {
   .kacheln{
     display: none;
   }
+  
+  .fab {
+    left: 97%;
+    top: 90%;
+}
 }
 
 /* Extra large devices (large desktops, 1200px and up)*/
@@ -1246,12 +1926,16 @@ img.kacheln {
     overflow: scroll;
   }
 
-  /*5.1 Header-Menu*/
+/*5.1 Header-Menu*/
   #logo {
     float: center;
     margin-left: auto;
     margin-right: auto;
+    width: 7%;
+    margin-top: .2%;
   }
+
+
 
   /*5.2 Footer-Menu*/
   footer {
@@ -1263,4 +1947,9 @@ img.kacheln {
   .kacheln{
     display: none;
   }
+
+  .fab {
+    left: 97%;
+    top: 90%;
+}
 }

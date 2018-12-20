@@ -11,7 +11,7 @@ import gql from 'graphql-tag';
 
 class Register extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       firstName: '',
@@ -30,23 +30,23 @@ class Register extends Component {
   }
 
   onChange(e) {
-    this.setState({[e.target.name]: e.target.value});
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   update(state) {
-        this.setState(state);
+    this.setState(state);
 
-        const { date, month, year } = { ...this.state, ...state };
-        const { onChange, value } = this.props.input;
+    const { date, month, year } = { ...this.state, ...state };
+    const { onChange, value } = this.props.input;
 
-        if(date && month && year) {
-            onChange(new Date(year, month - 1, date));
-        } else if(value) {
-            onChange(null);
-        }
+    if (date && month && year) {
+      onChange(new Date(year, month - 1, date));
+    } else if (value) {
+      onChange(null);
     }
+  }
 
-  async onSubmit(e){
+  async onSubmit(e) {
     e.preventDefault
     console.log("Submit start");
     var token = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
@@ -54,8 +54,8 @@ class Register extends Component {
     var tag = this.state.tag;
     var monat = this.state.monat;
     var jahr = this.state.jahr;
-    var gebDat = tag +"."+ monat + "." + jahr;
-    var birthDay = new Date(jahr, monat-1, tag);
+    var gebDat = tag + "." + monat + "." + jahr;
+    var birthDay = new Date(jahr, monat - 1, tag);
     var birthDayString = birthDay.toString();
 
     var gen = parseInt(this.state.gender);
@@ -81,12 +81,11 @@ class Register extends Component {
       firstName,
       email,
       authToken: token
-    });
-    console.log("Submit fertiiiig");
-    this.props.history.push("/login");
+    }, console.log("form"),this.props.history.push(`/login`));
+    return form;
   }
 
-  render(){
+  render() {
     var heute = new Date();
     console.log(heute);
     const { date, month, year } = this.state;
@@ -96,65 +95,126 @@ class Register extends Component {
     {/*const userToRender = this.props.allUsersQuery.allTestUsers
     console.log(userToRender);*/}
 
-    return(
-      <div>
-
+    return (
+      <div className="register-main">
+      <div className="karte2">
+        <section className="karteRegister">
+          <div class="registerPic"></div>
+          <div class="register_body">
             <h3>Jetzt bei WebFit registrieren!</h3>
-            <br />
             <form onSubmit={this.onSubmit}>
-                <div className="form-group">
-                  <input type="text" className="form-control" id="InputName" placeholder="Vorname" name="firstName" onChange={this.onChange} value={this.state.firstName} />
-                </div>
-                <div className="form-group">
-                  <input type="text" className="form-control" id="InputNachname" placeholder="Nachname" name="name" onChange={this.onChange} value={this.state.name} />
-                </div>
-                <div className="form-group">
-                  <input type="email" className="form-control" id="InputEmail" placeholder="E-Mail" name="email" onChange={this.onChange} value={this.state.email} />
-                </div>
-                <div className="form-group">
-                  <input type="password" className="form-control" id="InputPassword" placeholder="Passwort" name="password" onChange={this.onChange} value={this.state.password} />
-                </div>
-                <div>
-                  <label>Geburtstag</label>
-                </div>
-                <select className="selectBoxDate" onChange={this.onChange} value={date} name="tag">
-                  <option>Tag</option>
-                  {getOptions(1, 31)}
-                </select>
-                <select className="selectBoxDate" onChange={this.onChange} value={month} name="monat">
-                  <option>Monat</option>
-                  {getOptions(1, 12)}
-                </select>
-                <select className="selectBoxDate" onChange={this.onChange} value={year} name="jahr">
-                  <option>Jahr</option>
-                  {getOptions(thisYear - 60, thisYear-12)}
-                </select>
-                <br />
-                <div className="form-check">
-                  <input className="form-check-input" type="radio" name="gender" onChange={this.onChange} value={1} />
-                  <label className="form-check-label"> weiblich </label>
-                </div>
-                <div className="form-check">
-                  <input className="form-check-input" type="radio" name="gender" onChange={this.onChange} value={0} />
-                  <label className="form-check-label"> männlich </label>
-                </div>
-                <div className="form-check">
-                  <input className="form-check-input" type="radio" name="gender" onChange={this.onChange} value={2} />
-                  <label className="form-check-label"> divers </label>
-                </div>
-                <br /><br />
-                <div className="form-group form-check">
-                  <input type="checkbox" className="form-check-input" id="Check1" required={true} />
-                  <label className="form-check-label">AGBs</label>
-                </div>
-                <div className="form-group form-check">
-                  <input type="checkbox" className="form-check-input" id="Check2" required={true} />
-                  <label className="form-check-label">Datenschutzbedingungen</label>
-                </div>
-                <button type="submit" className="btn btn-basic">Registrieren</button>
-            </form>
 
+                  <input type="text" placeholder="Vorname" name="firstName" onChange={this.onChange} value={this.state.firstName} />
+
+
+                  <input type="text" placeholder="Nachname" name="name" onChange={this.onChange} value={this.state.name} />
+
+
+              <input type="email" placeholder="E-Mail" name="email" onChange={this.onChange} value={this.state.email} />
+              <input type="password" placeholder="Passwort" name="password" onChange={this.onChange} value={this.state.password} />
+              <div>
+                <label>Geburtstag</label>
+              </div>
+              <select className="selectBoxDate" onChange={this.onChange} value={date} name="tag">
+                <option>Tag</option>
+                {getOptions(1, 31)}
+              </select>
+              <select className="selectBoxDate" onChange={this.onChange} value={month} name="monat">
+                <option>Monat</option>
+                {getOptions(1, 12)}
+              </select>
+              <select className="selectBoxDate" onChange={this.onChange} value={year} name="jahr">
+                <option>Jahr</option>
+                {getOptions(thisYear - 60, thisYear - 12)}
+              </select>
+              <div>
+                <label>Geschlecht</label>
+              </div>
+              <div className="form-check">
+                <input className="form-check-input" type="radio" name="gender" onChange={this.onChange} value={1} />
+                <label className="form-check-label"> weiblich </label>
+              </div>
+              <div className="form-check">
+                <input className="form-check-input" type="radio" name="gender" onChange={this.onChange} value={0} />
+                <label className="form-check-label">männlich </label>
+              </div>
+              <div className="form-check">
+                <input className="form-check-input" type="radio" name="gender" onChange={this.onChange} value={2} />
+                <label className="form-check-label"> divers </label>
+              </div>
+              <br /><br />
+              <div className="form-group form-check">
+                <input type="checkbox" className="form-check-input" id="Check1" required={true} />
+                <label className="form-check-label">AGB</label>
+              </div>
+              <div className="form-group form-check">
+                <input type="checkbox" className="form-check-input" id="Check2" required={true} />
+                <label className="form-check-label">Datenschutzbedingungen</label>
+              </div>
+              <button type="submit" className="btn btn-basic">Registrieren</button>
+              <br /><br /><br />
+            </form>
+          </div>
+
+          {/*<h3>Jetzt bei WebFit registrieren!</h3>
+        <br />
+        <form onSubmit={this.onSubmit}>
+          <div className="form-group">
+            <input type="text" className="form-control" id="InputName" placeholder="Vorname" name="firstName" onChange={this.onChange} value={this.state.firstName} />
+          </div>
+          <div className="form-group">
+            <input type="text" className="form-control" id="InputNachname" placeholder="Nachname" name="name" onChange={this.onChange} value={this.state.name} />
+          </div>
+          <div className="form-group">
+            <input type="email" className="form-control" id="InputEmail" placeholder="E-Mail" name="email" onChange={this.onChange} value={this.state.email} />
+          </div>
+          <div className="form-group">
+            <input type="password" className="form-control" id="InputPassword" placeholder="Passwort" name="password" onChange={this.onChange} value={this.state.password} />
+          </div>
+          <div>
+            <label>Geburtstag</label>
+          </div>
+          <select className="selectBoxDate" onChange={this.onChange} value={date} name="tag">
+            <option>Tag</option>
+            {getOptions(1, 31)}
+          </select>
+          <select className="selectBoxDate" onChange={this.onChange} value={month} name="monat">
+            <option>Monat</option>
+            {getOptions(1, 12)}
+          </select>
+          <select className="selectBoxDate" onChange={this.onChange} value={year} name="jahr">
+            <option>Jahr</option>
+            {getOptions(thisYear - 60, thisYear - 12)}
+          </select>
+          <br />
+          <div className="form-check">
+            <input className="form-check-input" type="radio" name="gender" onChange={this.onChange} value={1} />
+            <label className="form-check-label"> weiblich </label>
+          </div>
+          <div className="form-check">
+            <input className="form-check-input" type="radio" name="gender" onChange={this.onChange} value={0} />
+            <label className="form-check-label">     männlich </label>
+          </div>
+          <div className="form-check">
+            <input className="form-check-input" type="radio" name="gender" onChange={this.onChange} value={2} />
+            <label className="form-check-label"> divers </label>
+          </div>
+          <br /><br />
+          <div className="form-group form-check">
+            <input type="checkbox" className="form-check-input" id="Check1" required={true} />
+            <label className="form-check-label">AGB</label>
+          </div>
+          <div className="form-group form-check">
+            <input type="checkbox" className="form-check-input" id="Check2" required={true} />
+            <label className="form-check-label">Datenschutzbedingungen</label>
+          </div>
+          <button type="submit" className="btn btn-basic">Registrieren</button>
+        </form>*/}
+        </section>
       </div>
+      </div>
+
+
 
     )//end return
 
@@ -165,13 +225,13 @@ class Register extends Component {
 }//End Register Component
 
 function getOptions(start, end) {
-    const options = [];
+  const options = [];
 
-    for(let i = start; i <= end; i++) {
-        options.push(<option key={i}>{i}</option>)
-    }
+  for (let i = start; i <= end; i++) {
+    options.push(<option key={i}>{i}</option>)
+  }
 
-    return options;
+  return options;
 }
 
 
@@ -212,6 +272,6 @@ const newUserMutation = gql`
 //export default graphql(ALL_USERS_QUERY, { name: 'allUsersQuery'})(Register)
 
 export default compose(
-  graphql(newUserMutation, { name: 'newUserMutation'}),
+  graphql(newUserMutation, { name: 'newUserMutation' }),
   withRouter
 )(Register);
