@@ -77,11 +77,12 @@ class Register extends Component {
 
     const { firstName, email, authToken } = this.state;
 
-    const form = await axios.post('/api/form', {
+    let form = await axios.post('/api/form', {
       firstName,
       email,
       authToken: token
-    }, console.log("nach email"),this.props.history.push(`/login`));
+    }, console.log("form"),this.props.history.push(`/login`));
+    return form;
   }
 
   render() {
@@ -102,13 +103,13 @@ class Register extends Component {
           <div class="register_body">
             <h3>Jetzt bei WebFit registrieren!</h3>
             <form onSubmit={this.onSubmit}>
-              
+
                   <input type="text" placeholder="Vorname" name="firstName" onChange={this.onChange} value={this.state.firstName} />
-                
-               
+
+
                   <input type="text" placeholder="Nachname" name="name" onChange={this.onChange} value={this.state.name} />
-                
-            
+
+
               <input type="email" placeholder="E-Mail" name="email" onChange={this.onChange} value={this.state.email} />
               <input type="password" placeholder="Passwort" name="password" onChange={this.onChange} value={this.state.password} />
               <div>
