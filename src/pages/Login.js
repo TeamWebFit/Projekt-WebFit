@@ -37,8 +37,8 @@ class Login extends Component {
       <div className="container text-center">
         <div className="karte2">
           <section className="karteLogin">
-            <div class="loginPic"></div>
-            <div class="login_body">
+            <div className="loginPic"></div>
+            <div className="login_body">
               <div className="">
                 <div id="login-error">
                   {this.state.error}

@@ -23,10 +23,10 @@ class Header extends Component {
         <header>
           <nav id="nav-header">
             <ul id="ul-left-header">
-              <li id="" className="li-header li-header-left"><NavLink to="/goals"><i class="fa fa-flag-o icons-header"></i></NavLink></li>
-              <li id="" className="li-header li-header-left"><NavLink to="/workouts"><i class="fa fa-soccer-ball-o icons-header"></i></NavLink></li>
-              <li id="" className="li-header li-header-left"><NavLink to="/messages"><i class="fa fa-envelope icons-header"></i></NavLink></li>
-              <li id="" className="li-header li-header-left"><NavLink to="/community"><i class="fa fa-users icons-header"></i></NavLink></li>
+              <li id="" className="li-header li-header-left"><NavLink to="/goals"><i className="fa fa-flag-o icons-header"></i></NavLink></li>
+              <li id="" className="li-header li-header-left"><NavLink to="/workouts"><i className="fa fa-soccer-ball-o icons-header"></i></NavLink></li>
+              <li id="" className="li-header li-header-left"><NavLink to="/messages"><i className="fa fa-envelope icons-header"></i></NavLink></li>
+              <li id="" className="li-header li-header-left"><NavLink to="/community"><i className="fa fa-users icons-header"></i></NavLink></li>
             </ul>
 
             <NavLink to="/"><img id="logo" alt="WebFit Application Logo" src={logo} width="10%" /></NavLink>

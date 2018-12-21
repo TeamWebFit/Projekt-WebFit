@@ -132,8 +132,8 @@ class EditUser extends Component {
                   <div className="">
                    <div className="karte2">
                       <section className="karteUser">
-                        <div class="userPic"></div>
-                        <div class="edit_body">
+                        <div className="userPic"></div>
+                        <div className="edit_body">
                         <br /><br />
                         <h4>Bearbeite Dein Profil:</h4>
                       {/*<ImageUpload />*/}

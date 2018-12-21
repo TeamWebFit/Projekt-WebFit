@@ -17,7 +17,7 @@ const DELETE_TRACKER = gql`
 `;
 
 const RemoveButton = ({id}) => {
-    console.log(id)
+    //console.log(id)
   return (
 
       
