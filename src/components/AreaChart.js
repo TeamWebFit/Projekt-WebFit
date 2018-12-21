@@ -58,8 +58,8 @@ class AreaChart extends Component {
     var type = 'Line'
 
     return (
-      <div class="chartbox">
-        <h6 class="headlinecharts">Heartrate</h6>
+      <div className="chartbox">
+        <h6 className="headlinecharts">Heartrate</h6>
         <Chart2 data={data} options={options} type={type} />
       </div>
     )

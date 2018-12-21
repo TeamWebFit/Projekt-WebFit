@@ -34,12 +34,28 @@ query user($user: ID){
 
 class Trackerlist extends Component{
 
+    formData(tracker){
+        var dateFormat = require('dateformat');
+        var intlastSync = parseInt(tracker.lastSync);
+        var badsyncdate = new Date(intlastSync);
+        var cooldate = dateFormat(badsyncdate, "dd.mm.yyyy HH:MM:ss");
+        
+        var intcreatedAt = Date.parse(tracker.createdAt);
+        var badcreatedate = new Date(intcreatedAt)
+        var adddate = dateFormat(badcreatedate, "dd.mm.yyyy");
+        //console.log("cooldate" + cooldate)
+
+        return(
+            <TrackerElement key={tracker.id} trackername={tracker.trackerModel.type} manufacturer={tracker.trackerModel.manufacturer} adddate={adddate} lastsyncdate={cooldate} errortext="0 Fehler" errorcolor="success" user={user} trackerid={tracker.id} />
+        )
+    }
+
     render(){
         console.log("Aktueller User:" + user)
         return (
             <Grid>
                 <Row className="top-abstand">
-                {console.log('jetzt query')}
+                
                     <Query query={getTracker} variables={{ user }}>
                             {({ loading, error, data }) => {
                             if (loading) return (
@@ -47,7 +63,9 @@ class Trackerlist extends Component{
                             );
                             if (error) return `GRAPHQL FEHLER! ${error.message}`;
                             
-                            console.log(data.user.tracker)
+                            if(data.user.tracker == null){
+                                window.location.reload();
+                            }
 
                             // Abfrage ob Tracker vorhanden sind
                             if (data.user.tracker.length === 0){
@@ -59,13 +77,11 @@ class Trackerlist extends Component{
                                     </div>
                                 )
                             }else{
-                                console.log('Tracker ist vorhanden')
-                                console.log(data.user.tracker.id)
                                 return (
                                     <div>
-                                        
                                         {data.user.tracker.map(tracker => (
-                                        <TrackerElement key={tracker.id} trackername={tracker.trackerModel.type} manufacturer={tracker.trackerModel.manufacturer} adddate={tracker.createdAt} lastsyncdate={tracker.lastSync} errortext="0 Fehler" errorcolor="success" user={user} trackerid={tracker.id} />
+                                            this.formData(tracker)
+                                            
                                         ))}
                                     </div>
                                 );

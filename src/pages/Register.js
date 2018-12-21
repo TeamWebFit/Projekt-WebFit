@@ -99,8 +99,8 @@ class Register extends Component {
       <div className="register-main">
       <div className="karte2">
         <section className="karteRegister">
-          <div class="registerPic"></div>
-          <div class="register_body">
+          <div className="registerPic"></div>
+          <div className="register_body">
             <h3>Jetzt bei WebFit registrieren!</h3>
             <form onSubmit={this.onSubmit}>
 

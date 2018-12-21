@@ -18,10 +18,10 @@ class PieChart extends Component {
     var type = 'Pie'
 
     return (
-      <div class="chartbox">
-        <h6 class="headlinecharts">Step Goal</h6>
+      <div className="chartbox">
+        <h6 className="headlinecharts">Step Goal</h6>
         <Chart3 data={data} options={options} type={type} />
-        <p class="midtextpie">5000/10000</p>
+        <p className="midtextpie">5000/10000</p>
       </div>
     )
   }

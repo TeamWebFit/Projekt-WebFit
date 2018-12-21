@@ -59,8 +59,8 @@ class BarChart extends Component {
     var type = 'Bar';
 
     return (
-        <div class="chartbox">
-          <h6 class="headlinecharts">Wöchentliche Schrittanzahl</h6>
+        <div className="chartbox">
+          <h6 className="headlinecharts">Wöchentliche Schrittanzahl</h6>
           <Chart1 data={data} options={options} type={type} />
         </div>
     )

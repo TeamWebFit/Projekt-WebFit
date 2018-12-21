@@ -62,8 +62,8 @@ class User extends Component {
                 <div>
                   <div className="karte2">
                     <section className="karte">
-                      <div class="userPic"></div>
-                      <div class="login_body"></div>
+                      <div className="userPic"></div>
+                      <div className="login_body"></div>
 
                     </section>
                   </div>
@@ -75,8 +75,8 @@ class User extends Component {
                   <div>
                     <div className="karte2">
                       <section className="karteUser">
-                        <div class="userPic"></div>
-                        <div class="login_body">
+                        <div className="userPic"></div>
+                        <div className="login_body">
                           {/*<section className="userHeader">
                             <img className="headerImage" src={header} width="100%" />
                             <img className="profileImage" src={profilbild} width="20%" />
@@ -149,8 +149,8 @@ class User extends Component {
                   <div>
                     <div className="karte2">
                       <section className="karte">
-                        <div class="userPic"></div>
-                        <div class="login_body"></div>
+                        <div className="userPic"></div>
+                        <div className="login_body"></div>
                       </section>
                     </div>
                   </div>

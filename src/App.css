@@ -10,13 +10,14 @@
 7. Charts
 8. Page Transitions
 9. User Profile
+10. TrackerManager
 --------- Media Queries ---------
 */
 
 
 body {
   font-family: 'Lato', sans-serif;
-  background-color: #9fc9eb;
+  /*background-color: #9fc9eb; */
   background-repeat: no-repeat;
   background-size: 100%;
   background-attachment: fixed;
@@ -1423,9 +1424,19 @@ img.kacheln {
 }
 
 /* Page Transitions End*/
-
-
 /*End WebFit Home*/
+
+/* 10. TrackerManager */
+.tracker-element{
+  min-width: 30em;
+}
+
+.trackermanager-back-button{
+  margin-top: 5%;
+}
+
+/* END TRACKERMANAGER */
+
 /* --------- Media Queries --------- */
 /* Extra small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
