@@ -34,6 +34,7 @@ query user($user: ID){
 
 class Trackerlist extends Component{
 
+
     formData(tracker){
         var dateFormat = require('dateformat');
         var intlastSync = parseInt(tracker.lastSync);
@@ -63,7 +64,7 @@ class Trackerlist extends Component{
                             );
                             if (error) return `GRAPHQL FEHLER! ${error.message}`;
                             
-                            if(data.user.tracker == null){
+                            if(data.user == null){
                                 window.location.reload();
                             }
 

@@ -36,9 +36,26 @@ var cookieuser = cookies.get('webfit_user');
         <Query query={getUser} variables={{ cookieuser }}>
                             {({ loading, error, data }) => {
                             if (loading) return (
-                                <ReactLoading type="spinningBubbles" color="#000000" height={'10%'} width={'10%'} />
+                                <div className="loading-screen">
+                                    <div className="container top-abstand">
+                                        <div className="row">
+                                            <div className="col-md-12 text-center ">
+                                                <div class="col-md-4">
+                                                        <ReactLoading className="loading-screen-animation" type="spinningBubbles" color="#000000" height={'50%'} width={'50%'} />
+                                                </div>
+                                                <div class="col-md-8">
+                                                        <h2>WebFit wird geladen</h2> 
+                                                        Bitte stelle sicher, dass Du Dich im VPN der Hochschule Furtwangen befindest.
+                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             );
-                            if (error) return `Error! ${error.message}`;
+                            if (error) return (
+                                <div>
+                                    <Redirect to='/login' />
+                               </div>);
 
                             if (data['user'] === null){
                                 return(
