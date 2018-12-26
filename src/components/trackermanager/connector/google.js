@@ -64,7 +64,7 @@ class TrackerManagerConnectorGoogle extends Component{
             var renew_token = response.data.renew_token
             console.log("Now push to addTracker")
 
-            graphql(AddTrackerMutation, { name: 'CreateTracker' });
+//            graphql(AddTrackerMutation, { name: 'CreateTracker' });
 
           })
     }
@@ -107,11 +107,6 @@ class TrackerManagerConnectorGoogle extends Component{
     }
 
 
-    const AddTrackerMutation = gql`
-    mutation CreateTracker {
-        createTracker(userId: "5c1279abf174fa54e3bc687f", trackerModelID:"5c12653218ca184f7404523f"){id}
-      }
-      
-  `;
+    
 
 export default TrackerManagerConnectorGoogle
