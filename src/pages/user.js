@@ -174,7 +174,7 @@ const getUser = gql`
             firstName,
             email,
             dateOfBirth,
-            gender,
+            gender
 
           }
         }
