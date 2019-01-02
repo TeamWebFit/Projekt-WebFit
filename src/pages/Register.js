@@ -49,6 +49,7 @@ class Register extends Component {
   async onSubmit(e) {
     e.preventDefault
     console.log("Submit start");
+
     var token = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 
     var tag = this.state.tag;
@@ -81,8 +82,9 @@ class Register extends Component {
       firstName,
       email,
       authToken: token
-    }, console.log("form"),this.props.history.push(`/login`));
-    return form;
+    }, console.log("axios"));
+    //entweder mit .then oder 
+
   }
 
   render() {
