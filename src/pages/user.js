@@ -77,11 +77,6 @@ class User extends Component {
                       <section className="karteUser">
                         <div className="userPic"></div>
                         <div className="login_body">
-                          {/*<section className="userHeader">
-                            <img className="headerImage" src={header} width="100%" />
-                            <img className="profileImage" src={profilbild} width="20%" />
-                            <p></p>
-                            </section>*/}
                           <div className="">
                             <br /><br /><br />
                             <div className="userName">
@@ -123,7 +118,7 @@ class User extends Component {
                             <div className="form-row">
                               <div className="form-group" style={{ display: 'inline-block' }}>
                                 <label style={{ display: 'inline-block' }}>Land</label>
-                                <p className="userInfo">Land</p>
+                                <p className="userInfo">{data.user.country}</p>
                               </div>
                               <br />
                               <div className="form-group" style={{ display: 'inline-block' }}>
@@ -174,7 +169,8 @@ const getUser = gql`
             firstName,
             email,
             dateOfBirth,
-            gender
+            gender,
+            country
 
           }
         }
