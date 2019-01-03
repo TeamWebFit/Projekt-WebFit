@@ -35,17 +35,18 @@ onSubmit(e){
     console.log(email);
 
     var date = new Date();
+    var dateString = date.toString();
 
     this.props.updatePassword({
       variables: {
         email: email,
         password: this.state.password,
-        updatedAt: date
+        updatedAt: dateString
       }
     });
-    console.log(this.props);
     console.log('Neues Passwort eingegeben');
 
+    this.props.history.push(`/home`);
   }
 
     render(){
@@ -66,7 +67,7 @@ onSubmit(e){
 }
 
 const updatePassword = gql`
-  mutation UpdatePassword($email: String!, $password: String!, $updatedAt: DateTime)
+  mutation UpdatePassword($email: String, $password: String, $updatedAt: String)
   {  userNewPW (
       email: $email,
       password: $password,

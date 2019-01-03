@@ -5,6 +5,7 @@ import gql from 'graphql-tag'
 import Alert from '../components/Alert';
 import { Link } from 'react-router-dom';
 import { withCookies, Cookies } from 'react-cookie';
+import $ from 'jquery';
 
 const LOGIN_MUTATION = gql`
   mutation LoginMutation($email: String!, $password: String!) {
@@ -18,6 +19,8 @@ const LOGIN_MUTATION = gql`
   }
 `
 
+let MessageBox;
+
 
 class Login extends Component {
 
@@ -27,12 +30,13 @@ class Login extends Component {
       email: '',
       password: '',
       error: '',
-
     }
   }
 
   render() {
     const { email, password, error } = this.state
+
+
     return (
       <div className="container text-center">
         <div className="karte2">
@@ -43,6 +47,7 @@ class Login extends Component {
                 <div id="login-error">
                   {this.state.error}
                 </div>
+                {MessageBox}
                 <h2>Login</h2>
                 <p>Willkommen bei WebFit! <br /> Bitte logge Dich ein um Deine Daten zu sehen.</p>
                 <br />
@@ -69,12 +74,14 @@ class Login extends Component {
                     mutation={LOGIN_MUTATION}
                     variables={{ email, password }}
                     onCompleted={data => this._confirm(data)}
-                    onError={error_handler => this.setState({ error: <Alert type="alertred" title="Huch.....!" message="Scheinbar ist das eingegebene Passwort falsch oder unter der angegebenen EMail-Adresse kann kein Nutzer gefunden werden :("></Alert> })}
+                    onError={error_handler => (
+                      <Alert type="alertred" title="Huch.....!" message="Scheinbar gibt es ein Verbindungsproblem, bitte versuche es zu einem späteren Zeitpunkt nochmal."></Alert>
+                      )}
                   >
                     {mutation => (
                       <div className="btn btn-basic" onClick={mutation}>
                         login
-                </div>
+                      </div>
                     )}
                   </Mutation>
                   <br />
@@ -82,6 +89,7 @@ class Login extends Component {
                   <Link to={"/resetPassword"}>Passwort vergessen?</Link>
                   <br />
                   <Link to={"/register"}>Noch kein WebFit-Mitglied? Jetzt Registrieren!</Link>
+
                   <br /><br /><br />
                 </div>
               </div>
@@ -93,19 +101,23 @@ class Login extends Component {
   }
 
   _confirm = async data => {
-    const { token } = data.signinUser
-    this._saveUserData(token)
-    console.log("Ich bin eingeloggt")
-    console.log(data['signinUser'].id)
-    var UserID = data['signinUser'].id
-    const cookies = new Cookies();
-    cookies.set('webfit_user', UserID, {
-      path: '/'
-    })
-
-
-
-    this.props.history.push(`/home`);
+    if(data.signinUser){
+      const { token } = data.signinUser
+      this._saveUserData(token)
+      console.log("Ich bin eingeloggt")
+      console.log(data['signinUser'].id)
+      var UserID = data['signinUser'].id
+      const cookies = new Cookies();
+      cookies.set('webfit_user', UserID, {
+        path: '/'
+      })
+      this.props.history.push(`/home`);
+    }else{
+      console.log("PW falsch");
+      MessageBox = <Alert bsStyle="danger">
+                      <strong>Ein Fehler ist aufgetreten :(</strong><br />
+                  </Alert>
+  }
 
   }
 
