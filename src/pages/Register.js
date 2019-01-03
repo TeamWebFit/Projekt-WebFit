@@ -46,7 +46,7 @@ class Register extends Component {
     }
   }
 
-  async onSubmit(e) {
+  onSubmit(e) {
     e.preventDefault
     console.log("Submit start");
 
@@ -61,6 +61,8 @@ class Register extends Component {
 
     var gen = parseInt(this.state.gender);
 
+    const { firstName, email, authToken } = this.state;
+
     this.props.newUserMutation({
       variables: {
         firstName: this.state.firstName,
@@ -72,18 +74,24 @@ class Register extends Component {
         //registrationStatus: true,
         authToken: token
       }
+    }).then(() => {
+      return axios.post('/api/form', {
+        firstName,
+        email,
+        authToken: token
+      });
     });
 
-    console.log("Submit eingetragen > email");
+    this.props.history.push(`/login`);
 
-    const { firstName, email, authToken } = this.state;
+    console.log("Submit eingetragen + email");
 
-    const form = await axios.post('/api/form', {
-      firstName,
-      email,
-      authToken: token
-    }, console.log("axios"));
-    //entweder mit .then oder 
+    //const form = await axios.post('/api/form', {
+      //firstName,
+      //email,
+      //authToken: token
+    //}, console.log("axios"));
+    //entweder mit .then oder
 
   }
 
