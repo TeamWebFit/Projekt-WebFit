@@ -4,15 +4,12 @@ import Alert from '../components/Alert'
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import { graphql, compose } from 'react-apollo';
-import { Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { AUTH_TOKEN } from '../constants/constants'
 import header_profil from '../assets/img/header_profil.png';
 import CheckLogin from '../components/CheckLogin'
 import { withCookies, Cookies } from 'react-cookie';
 import ImageUpload from '../components/ImageUpload'
-//axios
-import axios from 'axios';
-
 
 
 // ===================
@@ -43,50 +40,36 @@ class EditUser extends Component {
     }
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.handlePageChange = this.handlePageChange.bind(this);
+  }
+
+  handlePageChange() {
+    window.location = "/user";
   }
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  update(state) {
-    this.setState(state);
 
-    const { date, month, year } = { ...this.state, ...state };
-    const { onChange, value } = this.props.input;
-
-    if (date && month && year) {
-      onChange(new Date(year, month - 1, date));
-    } else if (value) {
-      onChange(null);
-    }
-  }
-
-  async onSubmit(e) {
+  onSubmit(e) {
     e.preventDefault
     console.log("Submit start");
-    var token = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 
-    var tag = this.state.tag;
-    var monat = this.state.monat;
-    var jahr = this.state.jahr;
-    var gebDat = tag + "." + monat + "." + jahr;
-    var birthDay = new Date(jahr, monat - 1, tag);
-    var birthDayString = birthDay.toString();
-
-    var gen = parseInt(this.state.gender);
+    const cookies = new Cookies();
+    var userid = cookies.get('webfit_user');
 
     this.props.editUserMutation({
       variables: {
+        id: userid,
         firstName: this.state.firstName,
         name: this.state.name,
         email: this.state.email,
-        gender: gen,
-        dateOfBirth: birthDayString,
+        //gender: gen,
+        //dateOfBirth: birthDayString,
         height: this.state.height,
         country: this.state.country,
         zipcode: this.state.zipcode,
-
       }
     });
 
@@ -98,12 +81,6 @@ class EditUser extends Component {
   render() {
 
     console.log(this.props);
-    const authToken = localStorage.getItem(AUTH_TOKEN)
-
-    var heute = new Date();
-    console.log(heute);
-    const { date, month, year } = this.state;
-    const thisYear = new Date().getFullYear();
 
     const cookies = new Cookies();
     var cookieuser = cookies.get('webfit_user');
@@ -112,8 +89,12 @@ class EditUser extends Component {
     return (
       <div>
         <CheckLogin />
-        <Query query={getUser} variables={{ cookieuser }}>
+        <Query
+          query={getUser}
+          variables={{ cookieuser }}
+        >
           {({ loading, error, data }) => {
+
             if (loading) return (
               <div>Loading User...</div>
             );
@@ -125,72 +106,66 @@ class EditUser extends Component {
 
                 </div>
               )
-
             } else {
               if (data['user'].id === cookieuser) {
                 return (
                   <div className="">
-                   <div className="karte2">
-                      <section className="karteUser">
-                        <div className="userPic"></div>
-                        <div className="edit_body">
-                        <br /><br />
-                        <h4>Bearbeite Dein Profil:</h4>
-                      {/*<ImageUpload />*/}
-                      <br /> 
-                      <div className="userName">
-                        <label >Name</label>
-                        <input type="text" className="" id="InputNachname" placeholder={data.user.firstName} name="name" onChange={this.onChange} />
+                    <form onSubmit={this.onSubmit}>
+                      <div className="karte2">
+                        <section className="karteUser">
+                          <div className="userPic"></div>
+                          <div className="edit_body">
+                            <br /><br />
+                            <h4>Bearbeite Dein Profil:</h4>
+                            {/*<ImageUpload />*/}
+                            <br />
+                            <div className="userName">
+                              <label >Name</label>
+                              <input type="text" className="" id="InputNachname" name="firstName" placeholder={this.state.firstName} onChange={this.onChange} value={this.state.firstName} />
+                            </div>
+                            <br />
+                            <div className="userName">
+                              <label>Nachname</label>
+                              <input type="text" className="" id="InputNachname" name="name" onChange={this.onChange} value={this.state.name} />
+
+                              <br />
+                            </div>
+                            <div>
+                              <div className="kachel_header">Gewicht</div>
+                              <input type="text" className="" id="InputNachname" placeholder="-" name="weight" onChange={this.onChange} />
+                            </div>
+                            <div>
+                              <div className="kachel_header">Größe</div>
+                              <input type="text" className="f" id="InputNachname" placeholder="-" name="height" onChange={this.onChange} />
+                            </div>
+                            <br />
+                            <div>
+                              <label>Geburtstag</label>
+                              <input type="text" className="" id="InputNachname" name="dateOfBirth" onChange={this.onChange} />
+                            </div>
+                            <br />
+                            <label>Land</label>
+                            <input type="text" className="" id="InputNachname" name="country" onChange={this.onChange} placeholder={this.state.country} />
+                            <br /><br />
+                            <label>PLZ</label>
+                            <input type="text" className="" id="InputNachname" name="zipcode" onChange={this.onChange} />
+                            <div className="form-group">
+
+
+                            </div>
+                            <br />
+                            <br />
+
+                            <button className="btn btn-basic" type="submit">Speichern</button>
+                            <br /><br />
+
+
+                            <br /><br />
+                          </div>
+
+                        </section>
                       </div>
-                      <br />
-                      <div className="userName">
-                        <label>Nachname</label>
-                        <input type="text" className="" id="InputNachname" placeholder={data.user.name} name="name" onChange={this.onChange} />
-
-                        <br />
-                      </div>
-                      <div>
-                        <div className="kachel_header">Gewicht</div>
-                        <input type="text" className="" id="InputNachname" placeholder="-" name="name" onChange={this.onChange} />
-                      </div>
-                      <div>
-                        <div className="kachel_header">Größe</div>
-                        <input type="text" className="f" id="InputNachname" placeholder="-" name="name" onChange={this.onChange} />
-                      </div>
-                      <div>
-                        <div className="kachel_header">Geschlecht</div>
-                        <input type="text" className="" id="InputNachname" placeholder={data.user.gender} name="name" onChange={this.onChange} />
-                    </div>
-                    <br />
-                    <div>
-                      <label>Geburtstag</label>
-                      <input type="text" className="" id="InputNachname" placeholder={data.user.dateOfBirth} name="name" onChange={this.onChange} />
-                    </div>
-                    <br />
-                        <label>Email</label>
-                        <input type="text" className="" id="InputNachname" placeholder={data.user.email} name="name" onChange={this.onChange} />
-                    <br /><br />
-                        <label>Land</label>
-                        <input type="text" className="" id="InputNachname" placeholder="-" name="name" onChange={this.onChange} />
-                      <br /><br />
-                        <label>PLZ</label>
-                        <input type="text" className="" id="InputNachname" placeholder="-" name="name" onChange={this.onChange} />
-                      <div className="form-group">
-
-
-                      </div>
-                      <br />
-                      <br />
-
-                      <button className="btn btn-basic" onClick={this.handlePageChange}>Speichern</button>
-                    <br /><br />
-
-
-                    <br /><br />
-                  </div>
-                  
-                  </section>
-                  </div>
+                    </form>
                   </div>
                 )
               } else {
@@ -206,17 +181,10 @@ class EditUser extends Component {
       </div>
     )
   }
+
+ 
 }// End Edit Component
 
-function getOptions(start, end) {
-  const options = [];
-
-  for (let i = start; i <= end; i++) {
-    options.push(<option key={i}>{i}</option>)
-  }
-
-  return options;
-}
 
 const getUser = gql`
       query cookieuser($cookieuser: ID)
@@ -229,8 +197,9 @@ const getUser = gql`
           email,
           dateOfBirth,
           gender,
+          country
         }
-      }`;
+      }`
 
 const editUserMutation = gql`
   mutation EditUserMutation($id: ID, $firstName: String, $name: String, $email: String, $gender: Int, $dateOfBirth: String, $height: String, $country: String, $zipcode: String)
@@ -256,13 +225,13 @@ const editUserMutation = gql`
       country,
       zipcode,
     }
-  }
-`
-//export default graphql(ALL_USERS_QUERY, { name: 'allUsersQuery'})(Register)
+  }`
+
 
 /*export default compose(
-  graphql(newUserMutation, { name: 'newUserMutation'}),
+  graphql(editUserMutation, { name: 'editUserMutation' }),
   withRouter
-)(Register);*/
+)(EditUser);*/
 
 export default EditUser;
+

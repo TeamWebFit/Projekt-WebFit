@@ -131,7 +131,7 @@ hr {
   bottom: -4px;
   left: -4px;
   right: -4px;
-  background: linear-gradient(to right, #9FC9EB, #FF6666, #FFCC66);
+  background: linear-gradient(to right, #9FC9EB, #FF6666, #FFCC66) !u;
   content: '';
   z-index: -1;
   border-radius: 25px;
