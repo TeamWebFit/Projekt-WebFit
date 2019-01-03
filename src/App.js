@@ -41,28 +41,18 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 // Don't link any component (except Header & Footer)
 // Please include new pages through react-router here
 
-const checkRegistrationStatus = () => {
-  if (status.registration === "true") {
-    alert("Registrierung erfolgreich")
-  }
-}
-
-const queryString = require('query-string');
-const status = queryString.parse(window.location.search);
-console.log(status.registration);
 
 class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      registrationStatus: ''
+      error: ''
     };
   }
 
   componentWillMount() {
     console.log('componentWillMount');
-    checkRegistrationStatus();
   }
 
   render() {
@@ -98,7 +88,7 @@ class App extends Component {
                     <Route exact path="/trackermanager/connector/fitbit" component={TrackerManagerConnectorFitbit} />
                     <Route exact path="/trackermanager/connector/google" component={TrackerManagerConnectorGoogle} />
                     <Route exact path="/trackermanager/add/success" component={TrackerManagerAddSuccess} />
-                  
+
                     {/* Tracker-Manager ENDE */}
                     <Route path="/logout" component={Logout} />
                     <Route path="/BarChart" component={BarChart} />

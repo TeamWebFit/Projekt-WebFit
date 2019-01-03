@@ -27,7 +27,6 @@ class Verify extends Component{
     }
   }
 
-
     render(){
       const queryString = require('query-string');
       var parsed = queryString.parse(window.location.search);
@@ -49,6 +48,7 @@ class Verify extends Component{
             <div className="text-center">
                 <h1>Email-Adresse bestätigt!</h1>
                 <h4>Vielen Dank, du hast Deine Email-Adresse erfolgreich bestätigt.</h4>
+                <p>In fünf Sekunden wirst Du zum Login weitergeleitet.</p>
             </div>
         )
 
