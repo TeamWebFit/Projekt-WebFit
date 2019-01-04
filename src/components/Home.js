@@ -82,17 +82,17 @@ class Home extends Component {
                     <Row className="row rmobile">
                         <Col xs={12} sm={6} md={6} className="col kSquare">
                             <div className="kachelnSquare">
-                                <img src={kachelsquare} width="20%" height="auto" alt="Card image" />
-                                <img src={kachelsquare} width="20%" height="auto" alt="Card image" />
-                                <img src={kachelsquare} width="20%" height="auto" alt="Card image" />
-                                <img src={kachelsquare} width="20%" height="auto" alt="Card image" />
+                                <img src={kachelsquare} width="20%" height="auto" alt="Card" />
+                                <img src={kachelsquare} width="20%" height="auto" alt="Card" />
+                                <img src={kachelsquare} width="20%" height="auto" alt="Card" />
+                                <img src={kachelsquare} width="20%" height="auto" alt="Card" />
                             </div>
 
                             <div className="kacheln">
-                                <img src={kachel} width="35%" height="auto" alt="Card image" />
-                                <img src={kachel} width="35%" height="auto" alt="Card image" />
-                                <img src={kachel} width="35%" height="auto" alt="Card image" />
-                                <img src={kachel} width="35%" height="auto" alt="Card image" />
+                                <img src={kachel} width="35%" height="auto" alt="Card" />
+                                <img src={kachel} width="35%" height="auto" alt="Card" />
+                                <img src={kachel} width="35%" height="auto" alt="Card" />
+                                <img src={kachel} width="35%" height="auto" alt="Card" />
                             </div>
                         </Col>
 
