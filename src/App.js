@@ -7,7 +7,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Demo from './pages/Demo';
 import Welcome from './components/Welcome';
-import profil from './pages/user';
+import User from './pages/User';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Home from './components/Home';
@@ -85,7 +85,7 @@ class App extends Component {
                     <Route exact path="/" component={Home} />
                     <Route path="/demo" component={Demo} />
                     <Route path="/home" component={Home} />
-                    <Route path="/user" component={profil} />
+                    <Route path="/user" component={User} />
                     <Route path="/login" component={Login} />
                     <Route path="/register" component={Register} />
                     <Route path="/verify" component={Verify} />

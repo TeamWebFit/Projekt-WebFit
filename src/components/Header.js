@@ -38,7 +38,7 @@ class Header extends Component {
                 <NavLink to="/datenschutz" className="close-round"><div id="btn-toggle-right" className="btn-round btn-toggle"><i className="fa fa-unlock icon-toggle"></i></div></NavLink>
               </div>
             </div>
-            <i id="menu-icon" className="fa fa-user"></i>
+            <i id="menu-icon" className="fa fa-navicon"></i>
           </nav>
         </header>
       </div>
