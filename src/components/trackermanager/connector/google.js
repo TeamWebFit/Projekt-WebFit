@@ -85,6 +85,7 @@ class TrackerManagerConnectorGoogle extends Component{
           expires_i = parseInt(response.data.expires_in)
           refresh = response.data.renew_token
           console.log("Now push to addTracker")
+         // document.location.href="/trackermanager/add/success";
 
         })//end .then response
     }//end googleAuth
@@ -120,8 +121,10 @@ class TrackerManagerConnectorGoogle extends Component{
                expires_in: expires_i,
                refreshtoken: refresh,
              }
-          });
-          console.log("Tracker eingetragen");
+          }).then(({ data }) => {
+            document.location.href="/trackermanager/add/success";
+            console.log("Tracker wurde eingetragen")
+           })
           return(
                 <div>
                    <Grid>
