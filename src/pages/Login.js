@@ -154,7 +154,7 @@ class Login extends Component {
   _saveUserData = token => {
     localStorage.setItem(AUTH_TOKEN, token)
   }
-}
+}//end component
 
 const LOGIN_MUTATION = gql`
   mutation LoginMutation($email: String!, $password: String!) {
