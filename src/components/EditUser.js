@@ -15,6 +15,8 @@ import ImageUpload from '../components/ImageUpload'
 // EditUser Component
 // ===================
 
+var firstName = '';
+
 class EditUser extends Component {
 
     constructor(props) {
@@ -49,7 +51,7 @@ class EditUser extends Component {
     componentWillRecieveProps(nextProps){
         if (!nextProps.data.loading && this.props.data.loading) {
           this.setState({
-              
+
           })
         }
       }
@@ -107,6 +109,7 @@ class EditUser extends Component {
                             )
                         } else {
                             if (data['user'].id === cookieuser) {
+
                                 return (
                                     <div className="">
                                         <form onSubmit={this.onSubmit}>
@@ -160,6 +163,9 @@ class EditUser extends Component {
                                         </form>
                                     </div>
                                 )
+                                this.setState({
+                                  firstName: data['user'].firstName
+                                })
                             } else {
                                 return (
                                     <div> </div>
@@ -174,13 +180,9 @@ class EditUser extends Component {
     }
 
    _confirm = async data => {
-        var UserID = data['user'].id
-        /*this.setState({
-            firstName: data['user'].firstName
-        })*/
-            
+
       }
-      
+
 }// End Edit Component
 
 const getUser = gql`
@@ -231,6 +233,3 @@ export default compose(
   graphql(editUserMutation, { name: 'editUserMutation' }),
   withRouter
 )(EditUser);
-
-
-
