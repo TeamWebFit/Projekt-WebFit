@@ -31,7 +31,7 @@ class UserProfileHeader extends Component {
 
   onClickPen(){
     console.log("onClickPen");
-    $('.inp').removeAttr("disabled");
+    $('.inp').removeAttr("disabled","disabled");
     $('#pen').hide();
     $('#check').show();
 
@@ -50,6 +50,8 @@ class UserProfileHeader extends Component {
     var n = this.props.user.name;
     var g = this.props.user.gender;
     var d = this.props.user.dateOfBirth;
+    var dOb = d.getDate() + '.' + (d.getMonth() + 1) + '.' +  d.getFullYear();
+    console.log("Neu dateOfBirth: "+dOb);
     var h = 172;
 
     this.props.editUserMutation({
@@ -58,7 +60,7 @@ class UserProfileHeader extends Component {
         firstName: fn,
         name: n,
         gender: g,
-        dateOfBirth: d,
+        dateOfBirth: dOb,
         height: h
       }
     })
@@ -74,18 +76,24 @@ class UserProfileHeader extends Component {
   render() {
     const cookies = new Cookies();
     var id = cookies.get('webfit_user');
-    var height = 175;
-    const { firstName, name, gender, dateOfBirth } = this.props.user
+
+    const { firstName, name, gender, dateOfBirth, height } = this.props.user
     var gen = parseInt(gender);
-    console.log(gender);
+    var hei = parseInt(height);
+    var date = this.props.user.dateOfBirth;
+    var dOb = "";
+    if(date){
+      dOb = date.getDate() + '.' + (date.getMonth() + 1) + '.' +  date.getFullYear();
+        console.log(dOb);
+    }
 
     return (
-      <div>
+      <div id="user-header">
         <i id="arrow" onClick={this.handlePageChange} className="fa fa-arrow-left"></i>
         <i id="pen" onClick={this.onClickPen} className="fa fa-pencil"></i>
         <Mutation
           mutation={EDIT_USER}
-          variables={{ id, firstName, name, gen, dateOfBirth, height }}
+          variables={{ id, firstName, name, gen, dOb, hei }}
           onCompleted={data => this._confirm(data)}
         >
           {mutation => (
@@ -107,14 +115,14 @@ class UserProfileHeader extends Component {
 
 
 const EDIT_USER = gql`
-  mutation EditUserMutation($id: ID!, $firstName: String, $name: String, $gen: Int, $dateOfBirth: String, $height: Int)
+  mutation EditUserMutation($id: ID!, $firstName: String, $name: String, $gen: Int, $dOb: String, $hei: Int)
   {  editUser (
       id: $id,
       firstName: $firstName,
       name: $name,
       gender: $gen,
-      dateOfBirth: $dateOfBirth,
-      height: $height
+      dateOfBirth: $dOb,
+      height: $hei
     )
     {
       id
