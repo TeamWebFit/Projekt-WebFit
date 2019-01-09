@@ -149,7 +149,6 @@ const createTrackerMutation = gql`
           token_type: $token_type,
           expires_in: $expires_in,
           refreshtoken: $refreshtoken
-          lastSync : "9999"
         )
         {
           id
