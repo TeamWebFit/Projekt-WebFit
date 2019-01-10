@@ -45,69 +45,75 @@ class Home extends Component {
     render() {
         return (
             <div className="Home">
+                <div className="karte2">
+                    <section className="karteHome">
 
-                <CheckLogin />
-                <div className="container">
-                    <Row className="row">
-                        <Col xs={12} sm={6} md={6}>
-                            <Carousel>
-                                <Carousel.Item>
-                                    <BarChart />
-                                </Carousel.Item>
-                                <Carousel.Item>
-                                    <AreaChart />
-                                </Carousel.Item>
-                                <Carousel.Item>
-                                    <BarChart />
-                                </Carousel.Item>
-                            </Carousel>
-                        </Col>
+                        <div className="login_body">
+                            <CheckLogin />
+                            <div className="container">
+                                <Row className="row">
+                                    <Col xs={12} sm={6} md={6}>
+                                        <Carousel>
+                                            <Carousel.Item>
+                                                <BarChart />
+                                            </Carousel.Item>
+                                            <Carousel.Item>
+                                                <AreaChart />
+                                            </Carousel.Item>
+                                            <Carousel.Item>
+                                                <BarChart />
+                                            </Carousel.Item>
+                                        </Carousel>
+                                    </Col>
 
-                        <br />
-                        <br />
-                        <br />
+                                    <br />
+                                    <br />
+                                    <br />
 
-                        <Col sm={6} md={6} className="col">
-                            <Calendar
-                                onChange={this.onChange}
-                                value={this.state.date}
-                            />
-                        </Col>
-                    </Row>
+                                    <Col sm={6} md={6} className="col">
+                                        <Calendar
+                                            onChange={this.onChange}
+                                            value={this.state.date}
+                                        />
+                                    </Col>
+                                </Row>
 
-                    <br />
-                    <br />
-                    <br />
+                                <br />
+                                <br />
+                                <br />
 
-                    <Row className="row rmobile">
-                        <Col xs={12} sm={6} md={6} className="col kSquare">
-                            <div className="kachelnSquare">
-                                <img src={kachelsquare} width="20%" height="auto" alt="Card" />
-                                <img src={kachelsquare} width="20%" height="auto" alt="Card" />
-                                <img src={kachelsquare} width="20%" height="auto" alt="Card" />
-                                <img src={kachelsquare} width="20%" height="auto" alt="Card" />
+                                <Row className="row rmobile">
+                                    <Col xs={12} sm={6} md={6} className="col kSquare">
+                                        <div className="kachelnSquare">
+                                            <img src={kachelsquare} width="20%" height="auto" alt="Card" />
+                                            <img src={kachelsquare} width="20%" height="auto" alt="Card" />
+                                            <img src={kachelsquare} width="20%" height="auto" alt="Card" />
+                                            <img src={kachelsquare} width="20%" height="auto" alt="Card" />
+                                        </div>
+
+                                        <div className="kacheln">
+                                            <img src={kachel} width="35%" height="auto" alt="Card" />
+                                            <img src={kachel} width="35%" height="auto" alt="Card" />
+                                            <img src={kachel} width="35%" height="auto" alt="Card" />
+                                            <img src={kachel} width="35%" height="auto" alt="Card" />
+                                        </div>
+                                    </Col>
+
+                                    <Col sm={6} md={6} className="col">
+                                        <form className="calendar_form" id="myform">
+                                            {this.createUI()}
+                                            <p>
+                                                <button type="button" className="btn_calendar" onClick={this.addClick.bind(this)} data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                                    <i className="fa fa-plus-circle addWorkout"></i>
+                                                </button>
+                                            </p>
+                                            <output id="datum" size="30" />
+                                        </form>
+                                    </Col>
+                                </Row>
                             </div>
-
-                            <div className="kacheln">
-                                <img src={kachel} width="35%" height="auto" alt="Card" />
-                                <img src={kachel} width="35%" height="auto" alt="Card" />
-                                <img src={kachel} width="35%" height="auto" alt="Card" />
-                                <img src={kachel} width="35%" height="auto" alt="Card" />
-                            </div>
-                        </Col>
-
-                        <Col sm={6} md={6} className="col">
-                            <form className="calendar_form" id="myform">
-                                {this.createUI()}
-                                <p>
-                                    <button type="button" className="btn_calendar" onClick={this.addClick.bind(this)} data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                        <i className="fa fa-plus-circle addWorkout"></i>
-                                    </button>
-                                </p>
-                                <output id="datum" size="30" />
-                            </form>
-                        </Col>
-                    </Row>
+                        </div>
+                    </section>
                 </div>
             </div>
         );
