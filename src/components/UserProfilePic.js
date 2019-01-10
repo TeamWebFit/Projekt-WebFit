@@ -71,7 +71,7 @@ class UserProfilePic extends Component {
       const data = new FormData()
       data.append('file', this.state.selectedFile, cookieuser + "_" + uploadDate + "_" + this.state.selectedFile.name )
 
-      axios.post('http://localhost:4000/upload', data, {
+      axios.post('https://server.webfit.app:4009/upload', data, {
           onUploadProgress: ProgressEvent => {
             this.setState({
               loaded: (ProgressEvent.loaded / ProgressEvent.total*100),
@@ -90,7 +90,7 @@ class UserProfilePic extends Component {
     render() {
       var picName = this.props.user;
       console.log(picName);
-      var url = "http://localhost:4000/public/files/"+picName;
+      var url = "https://server.webfit.app:4009/public/files/"+picName;
         return (
           <div>
             <div className="overlay" onClick={this.off}></div>
