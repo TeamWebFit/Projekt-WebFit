@@ -48,7 +48,8 @@ const getUser = gql`
             email,
             dateOfBirth,
             gender,
-            height
+            height,
+            profilePic
           }
         }
         `
