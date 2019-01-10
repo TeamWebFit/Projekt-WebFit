@@ -14,6 +14,7 @@ import $ from 'jquery';
 import UserProfileHeader from '../components/UserProfileHeader'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import KAT_1727 from '../assets/img/KAT_1727.jpg';
 
 // ===================
 // User Page
@@ -94,6 +95,10 @@ class UserProfile extends Component {
               <div className="karte2">
                   <section className="karteUser">
                       <div className="userPic"></div>
+                      <img id="profilePic" src={KAT_1727}></img>
+                      <div id="camPicIconDiv">
+                        <i className="fa fa-camera"></i>
+                      </div>
                       <div className="login_body">
                           <div className="">
                               <br /><br /><br />
