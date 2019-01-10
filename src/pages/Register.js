@@ -75,7 +75,7 @@ class Register extends Component {
         authToken: token
       }
     }).then(() => {
-      return axios.post('/api/form', {
+      return axios.post('https://server.webfit.app:4009/api/form', {
         firstName,
         email,
         authToken: token
