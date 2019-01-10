@@ -109,7 +109,6 @@ class Home extends Component {
                         </Col>
                     </Row>
                 </div>
-                <Footer />
             </div>
         );
     }
