@@ -2,22 +2,38 @@ import React, { Component } from 'react';
 import {} from 'react-bootstrap';
 import {withCookies, Cookies} from 'react-cookie';
 import {Row, Col, Grid, Well} from 'react-bootstrap';
-import { Mutation, compose, graphql, gql } from 'react-apollo';
+import { Mutation, compose, graphql } from 'react-apollo';
 import ReactLoading from 'react-loading';
 import axios from 'axios';
+
+import gql from 'graphql-tag';
+
 const queryString = require('query-string');
+
+
 
 // ===================
 // Trackermanager - Add Page
 // Add a new Tracker & Account to Webfit
 // ===================
 
+var access_t = '';
+var token_t = '';
+var expires_i = '';
+var refresh = '';
+
 class TrackerManagerConnectorGoogle extends Component{
 
     constructor(props){
         super(props);
         this.state = {
-         error: 'false'
+         error: 'false',
+         trackerModelID: '',
+         userId: '',
+         access_token: 'test',
+         token_type: '',
+         expires_in: '',
+         refreshtoken: ''
       }
     }
 
@@ -28,6 +44,11 @@ class TrackerManagerConnectorGoogle extends Component{
         var userId = cookies.get('webfit_user');
         var auth = window.location.search;
 
+        this.setState({
+          trackerModelID: trackerModelID,
+          userId: userId
+        })
+
         this.checkIfSetupMode(trackerModelID);
         if (this.state.error === "false"){
            // this.checkIfTooken(Hash);
@@ -37,6 +58,7 @@ class TrackerManagerConnectorGoogle extends Component{
             console.log("Hier startet der Add Process")
             this.googleOAuth(auth, trackerModelID, userId)
         }
+
     }
 
     googleOAuth(auth, trackerModelID, userId){
@@ -45,8 +67,8 @@ class TrackerManagerConnectorGoogle extends Component{
         const autharray = queryString.parse(auth)
         const auth_code = autharray.code
         console.log(auth_code)
-        const data_final = "code="+auth_code+"&client_id=1008561982846-6omt5dknbiqv124o2h5g5nrgg27l7o7v.apps.googleusercontent.com&client_secret=qo4YWmhVsTn02kyIQkL-z0a0&grant_type=authorization_code&redirect_uri=http://localhost:3000/trackermanager/connector/google/"
-
+        const data_final = "code="+auth_code+"&client_id=1008561982846-6omt5dknbiqv124o2h5g5nrgg27l7o7v.apps.googleusercontent.com&client_secret=qo4YWmhVsTn02kyIQkL-z0a0&grant_type=authorization_code&redirect_uri=https://dev.webfit.app/trackermanager/connector/google/"
+        console.log("Daten sind da: " + data_final)
         //Get Access-Tooken from Google via Auth2
 
         axios({
@@ -55,19 +77,18 @@ class TrackerManagerConnectorGoogle extends Component{
             headers: {
                 "content-type": "application/x-www-form-urlencoded"
             },
-            data: data_final      
+            data: data_final
           })
-          .then(function (response) {
-            var access_token = response.data.access_token
-            var token_type = response.data.token_type
-            var expires_in = parseInt(response.data.expires_in)
-            var renew_token = response.data.renew_token
-            console.log("Now push to addTracker")
+        .then(function (response) {
+          access_t = response.data.access_token
+          token_t = response.data.token_type
+          expires_i = parseInt(response.data.expires_in)
+          refresh = response.data.renew_token
+          console.log("Now push to addTracker")
+         // document.location.href="/trackermanager/add/success";
 
-//            graphql(AddTrackerMutation, { name: 'CreateTracker' });
-
-          })
-    }
+        })//end .then response
+    }//end googleAuth
 
     checkIfSetupMode(trackerModelID){
         if (trackerModelID === undefined){
@@ -89,9 +110,22 @@ class TrackerManagerConnectorGoogle extends Component{
     }
 
 
-   
+
         render(){
-            return(    
+          this.props.createTrackerMutation({
+             variables: {
+               trackerModelID: this.state.trackerModelID,
+               userId: this.state.userId,
+               access_token: access_t,
+               token_type: token_t,
+               expires_in: expires_i,
+               refreshtoken: refresh,
+             }
+          }).then(({ data }) => {
+            document.location.href="/trackermanager/add/success";
+            console.log("Tracker wurde eingetragen")
+           })
+          return(
                 <div>
                    <Grid>
                        <Row>
@@ -106,7 +140,25 @@ class TrackerManagerConnectorGoogle extends Component{
 
     }
 
+const createTrackerMutation = gql`
+  mutation CreateTrackerMutation($trackerModelID: ID!, $userId: ID!, $access_token: String, $token_type: String, $expires_in: Int, $refreshtoken: String)
+      {  createTracker (
+          trackerModelID: $trackerModelID,
+          userId: $userId,
+          access_token: $access_token,
+          token_type: $token_type,
+          expires_in: $expires_in,
+          refreshtoken: $refreshtoken
+        )
+        {
+          id
+          access_token
+          token_type
+          expires_in
+    }
+  }
+`
 
-    
-
-export default TrackerManagerConnectorGoogle
+export default compose(
+  graphql(createTrackerMutation, { name: 'createTrackerMutation'}),
+)(TrackerManagerConnectorGoogle);

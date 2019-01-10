@@ -17,12 +17,12 @@
 
 body {
   font-family: 'Lato', sans-serif;
-  /*background-color: #9fc9eb; */
+  background-color: #F5F5F5;
   background-repeat: no-repeat;
   background-size: 100%;
   background-attachment: fixed;
   z-index: 0;
-  overflow: scroll; 
+  overflow: scroll;
   margin: 0;
   min-height: 100vh;
   display: flex;
@@ -92,14 +92,14 @@ hr {
 }
 
 .loading-screen{
-  opacity:    1; 
-  background: white; 
+  opacity:    1;
+  background: white;
   width:      100%;
-  height:     100%; 
+  height:     100%;
   z-index:    9990;
-  top:        0; 
-  left:       0; 
-  position:   fixed; 
+  top:        0;
+  left:       0;
+  position:   fixed;
 }
 
 .loading-screen-animation{
@@ -312,7 +312,7 @@ form {
   background-attachment: fixed;
   background-size: 100%;
   background-repeat: no-repeat;
- 
+
 }
 
 /*Register*/
@@ -336,7 +336,7 @@ form {
   border-radius: 15px;
   margin: 20px;
   margin-top: 0px;
-  
+
 }
 
 .karteRegister{
@@ -355,7 +355,7 @@ form {
   border-radius: 15px;
   margin: 20px;
   margin-top: 0px;
-  
+
 }
 
 .karte2{
@@ -407,7 +407,7 @@ form {
   background: #ffffff;
   border-radius: 15px;
   margin: 70px;
-  
+
 }
 
 .karteLogin{
@@ -460,7 +460,7 @@ form {
   background: #ffffff;
   border-radius: 15px;
   margin: 70px;
-  
+
 }
 
 .karteLogin{
@@ -560,7 +560,7 @@ input {
 }
 
 .form-check-input{
-  width: 10px; 
+  width: 10px;
 }
 
 .input-group-text {
@@ -577,7 +577,7 @@ input {
   height: 100%;
   border-radius: 10px;
   padding: 80px 90px;
- 
+
 }
 
 /*Login Formular Icons*/
@@ -836,6 +836,8 @@ input {
   font-size: 25px;
 }
 
+
+
 /*Alerts-Ende*/
 /*4. Add Button*/
 
@@ -850,7 +852,7 @@ input {
 
 
 .fab {
-  
+
   left: 43%;
   top: 90%;
 }
@@ -915,6 +917,43 @@ header {
   /*height: 50px;*/
   z-index: 1;
 }
+
+/*User Header*/
+#user-header {
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  margin-top: -100px;
+  padding-bottom: 2% !important;
+  background-color: #F3F4F5 !important;
+  box-shadow: 2px 2px 8px 1px #d9d9d9 !important;
+  height: 50px !important;
+  z-index: 1 !important;
+}
+
+#pen{
+  font-size: 2.5em;
+  display: inline-block;
+  float: right;
+  margin-right: 0.5em;
+  margin-top: 0.2em;
+}
+
+#check{
+  font-size: 2.5em;
+  display: inline-block;
+  float: right;
+  margin-right: 0.5em;
+  margin-top: 0.2em;
+}
+
+#arrow{
+  font-size: 2.5em;
+  margin-left: 0.5em;
+  margin-top: 0.2em;
+}
+
+/*End User-Header*/
 
 img#logo {
   position: relative;
@@ -1385,6 +1424,63 @@ img.kacheln {
     margin-right: auto;
 }
 
+#div-btn-delete{
+  width: 100%;
+  text-align: center;
+}
+
+#btn-acc-delete{
+  margin-bottom: 100px;
+}
+
+.line{
+  border-bottom: 1px solid #d8d8d8;
+  min-height: 70px;
+  margin-bottom: 1em;
+}
+
+.line-big{
+  border-bottom: 1px solid #d8d8d8;
+  min-height: 110px;
+  margin-bottom: 1em;
+}
+
+.line-i{
+  width: 25px;
+  float: left;
+  display: inline-block;
+  margin-top: 1.5em;
+}
+
+.line-content{
+  margin-left: 0.5em;
+  max-width: 180px;
+  display: inline-block;
+  float: left;
+}
+
+.line-icon{
+  font-size: 2em;
+}
+
+.inp{
+  border-bottom: none !important;
+  padding: 0;
+  padding-top: 0.4em;
+}
+
+#inp-Email{
+  border-bottom: none !important;
+  padding: 0;
+  padding-top: 0.4em;
+}
+
+.react-datepicker-wrapper .react-datepicker__input-container input{
+  border-bottom: none !important;
+  padding: 0;
+  padding-top: 0.4em;
+}
+
 /* End User Profile*/
 
 
@@ -1553,7 +1649,7 @@ img.kacheln {
   border-top-left-radius: 15px;
   border-bottom-left-radius: 0px;
   border-top-right-radius: 15px;
-  
+
 }
 .loginPic{
   height: 20%;
@@ -1612,11 +1708,11 @@ display: block;
   border-top-right-radius: 15px;
   background: url(./assets/img/user2.jpg) top left/cover no-repeat;
 
-  
+
   }
 
   .karteUser{
-    margin-bottom: 100px;
+    margin-bottom: 30px;
   }
 
   .edit_body{
@@ -1660,17 +1756,17 @@ display: block;
       left: 0;
       width: 100%;
       top: 72%;
-    
+
     }
-    
-    
+
+
     .fab {
-      
+
       left: 43%;
       top: 90%;
     }
 
-    
+
 }
 
 /* Small devices (landscape phones, 576px and up)*/
@@ -1719,7 +1815,7 @@ display: block;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 0px;
     border-top-right-radius: 15px;
-    
+
   }
 
   .loginPic{
@@ -1740,7 +1836,7 @@ display: block;
     margin-right: 20px;
     margin-bottom: 100px;
   }
-  
+
   .karte {
   display: block;
   }
@@ -1760,14 +1856,14 @@ display: block;
   }
   .karte2 .register_body {
   display: block;
-  
+
   }
   .register_body {
     display: table-cell;
     padding-left: 30px;
     padding-right: 30px;
 }
-  
+
 .karte2 .userPic {
   width: 100%;
   display: block;
@@ -1797,12 +1893,12 @@ display: block;
     left: 0;
     width: 100%;
     top: 72%;
-  
+
   }
-  
-  
+
+
   .fab {
-    
+
     left: 43%;
     top: 90%;
   }
@@ -1844,7 +1940,7 @@ display: block;
     overflow: scroll;
   }
 
-  
+
   /*5.2 Footer-Menu*/
   footer {
     display: none;
@@ -1878,7 +1974,7 @@ display: block;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 0px;
     border-top-right-radius: 15px;
-    
+
   }
   .loginPic{
     height: 20%;
@@ -1897,7 +1993,7 @@ display: block;
     margin-right: 20px;
     margin-bottom: 100px;
   }
-  
+
   .karte {
   display: block;
   }
@@ -1917,7 +2013,7 @@ display: block;
   }
   .karte2 .register_body {
   display: block;
-  
+
   }
   .register_body {
     display: table-cell;
@@ -1947,19 +2043,19 @@ display: block;
     left: 0;
     width: 100%;
     top: 72%;
-  
+
   }
-  
-  
+
+
   .fab {
-    
+
     left: 43%;
     top: 90%;
   }
 
   }
 
-  
+
 
 /* Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) and (max-width: 1199.98px) {
@@ -1990,7 +2086,7 @@ display: block;
   .kacheln{
     display: none;
   }
-  
+
   .fab {
     left: 97%;
     top: 90%;

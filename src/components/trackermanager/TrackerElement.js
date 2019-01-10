@@ -39,7 +39,7 @@ click() {
 
     // Basics
     this.setState({ isLoading: true });
-    let url = "http://projekt-webfit.de:4009/sync?user=" + this.props.user + "&trackerid=" + this.props.trackerid
+    let url = "https://server.webfit.app:4009/sync?user=" + this.props.user + "&trackerid=" + this.props.trackerid
     //console.log(url)
     
     // HTTP API Request

@@ -17,7 +17,7 @@ import { AUTH_TOKEN } from './constants/constants'
 import {CookiesProvider} from 'react-cookie';
 
 const httpLink = createHttpLink({
-  uri: 'http://projekt-webfit.de:4000/graphql'
+  uri: 'https://server.webfit.app:4009/graphql'
 })
 
 
