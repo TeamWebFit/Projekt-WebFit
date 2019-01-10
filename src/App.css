@@ -1425,10 +1425,92 @@ img.kacheln {
   padding-top: 0.4em;
 }
 
-#profilePic{
+.overlay{
+  position: fixed;
+  display: none;
   width: 100%;
-  margin-top: -120px;
-  clip-path: circle(80px at center);
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1;
+  cursor: pointer;
+}
+
+#uploadFile{
+  display: none;
+  z-index: 30;
+  position: relative;
+  border-bottom: none;
+  padding: 0;
+  margin-bottom: 1em;
+}
+
+#uploadButton{
+  display: none;
+  z-index: 30;
+  position: relative;
+}
+
+
+#uploadFileDiv{
+  display: none;
+  min-height: 100px;
+  padding: 2em;
+}
+
+@media (max-width: 575.98px) {
+  #profilePicDiv{
+    width: 100%;
+    text-align: center;
+  }
+
+  #profilePic{
+    width: 250px;
+    margin-top: -120px;
+    clip-path: circle(80px at center);
+  }
+
+  #camPicIconDiv{
+    width: 100%;
+    text-align: center;
+  }
+
+  #camPicIcon{
+    margin-top: 13px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 18pt;
+  }
+
+  #camCircle{
+    width: 50px;
+    height: 50px;
+    background-color: #F5F5F5;
+    vertical-align: middle;
+    clip-path: circle(25px at center);
+    position: absolute;
+    margin-left: 50%;
+    margin-top: -14%;
+  }
+
+  #upload{
+    clip-path: circle(25px at center);
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+}
+@media (min-width: 1200px) {
+
 }
 
 /* End User Profile*/
@@ -1557,6 +1639,7 @@ img.kacheln {
 /* --------- Media Queries --------- */
 /* Extra small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
+
   body {
     background-repeat: no-repeat;
     background-size: 100%;
@@ -1721,6 +1804,7 @@ display: block;
 
 /* Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) and (max-width: 767.98px) {
+
   body {
     background-repeat: no-repeat;
     background-size: 100%;
@@ -2009,6 +2093,7 @@ display: block;
 
 /* Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) and (max-width: 1199.98px) {
+
 
   body {
     background-repeat: no-repeat;

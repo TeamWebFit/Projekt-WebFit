@@ -30,7 +30,7 @@ async onSubmit(e){
 
     const { email } = this.state;
 
-    const form = await axios.post('/api/resetPassword', {
+    const form = await axios.post('https://server.webfit.app:4009/api/resetPassword', {
       email
     });
 

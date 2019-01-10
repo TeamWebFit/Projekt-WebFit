@@ -12,9 +12,10 @@ import CheckLogin from '../components/CheckLogin'
 import { withCookies, Cookies } from 'react-cookie';
 import $ from 'jquery';
 import UserProfileHeader from '../components/UserProfileHeader'
+import UserProfilePic from './UserProfilePic';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import KAT_1727 from '../assets/img/KAT_1727.jpg';
+
 
 // ===================
 // User Page
@@ -87,7 +88,8 @@ class UserProfile extends Component {
 
         console.log(this.state.height);
 
-
+        var bildName = this.props.user.profilePic;
+        
 
         return (
           <div>
@@ -95,10 +97,7 @@ class UserProfile extends Component {
               <div className="karte2">
                   <section className="karteUser">
                       <div className="userPic"></div>
-                      <img id="profilePic" src={KAT_1727}></img>
-                      <div id="camPicIconDiv">
-                        <i className="fa fa-camera"></i>
-                      </div>
+                      <UserProfilePic user={bildName}/>
                       <div className="login_body">
                           <div className="">
                               <br /><br /><br />
