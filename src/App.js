@@ -30,8 +30,11 @@ import Datenschutz from './pages/Datenschutz';
 import Goals from './pages/Goals';
 import Workouts from './pages/Workouts';
 import Community from './pages/Community';
-import Messages from './pages/Messages';
+import Impressum from './pages/Impressum';
 import AddButton from './components/AddButton';
+
+import HeaderMenu from './components/HeaderMenu';
+import Sidebar from './components/Sidebar'
 
 
 
@@ -60,7 +63,8 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Header />
+        <Sidebar />
+          
           <div className="main">
             {/* React-Router - Route */}
             <Route render={({ location }) => (
@@ -97,7 +101,7 @@ class App extends Component {
                     <Route path="/edit" component={Edit} />
                     <Route path="/datenschutz" component={Datenschutz} />
                     <Route path="/goals" component={Goals} />
-                    <Route path="/messages" component={Messages} />
+                    <Route path="/impressum" component={Impressum} />
                     <Route path="/community" component={Community} />
                     <Route path="/workouts" component={Workouts} />
                     <Route path="/button" component={AddButton} />
@@ -113,7 +117,6 @@ class App extends Component {
               </TransitionGroup>
             )} />
           </div>
-          <Footer />
         </div>
       </Router>
     );

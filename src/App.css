@@ -909,11 +909,12 @@ header {
   margin-top: -100px;
 }
 
+
 #nav-header {
-  padding-bottom: 2% !important;
-  background-color: #F3F4F5;
-  box-shadow: 2px 2px 8px 1px #d9d9d9;
-  height: 50px;
+  padding-bottom: 2%;
+  /*background-color: #F3F4F5;*/
+  /*box-shadow: 2px 2px 8px 1px #d9d9d9;*/
+  /*height: 50px;*/
   z-index: 1;
 }
 
@@ -956,20 +957,75 @@ header {
 
 img#logo {
   position: relative;
-  right: 50%;
-  left: 25%;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
+.menu_font{
+  font-family: 'Lato', sans-serif;
+  font-size: 13px;
+  padding-left: 25px;
+  text-decoration: none;
+  color: #333333;
+  text-decoration: none;
+  padding-bottom: 8%;
+}
 
+a.menu_font{
+  color: #333333;
+}
+
+#sidebar{
+  height: 100%;
+}
+
+#icon_menu{
+  font-size: 17pt !important;
+  text-decoration: none;
+  color: #333333;
+  padding-bottom: 6%;
+}
+
+ul{
+  list-style: none;
+  padding-left: 25px;
+}
+
+header{
+  width: 100%;
+}
 
 #menu-icon {
   font-size: 25pt !important;
   display: inline-block;
   float: right;
   position: relative;
-  margin-top: 1%;
+  margin-top: 2%;
   margin-right: 2%;
   z-index: 20;
+}
+
+
+#toggle-sidebar{
+  display: none;
+  position: fixed;
+  float: right;
+  padding-right: 2%;
+  z-index: 20;
+  background-color: #EFF9FF;
+  width: 220px;
+  height: 100%;
+  top: 0;
+  right: 0;
+}
+
+#close-icon {
+  position: relative;
+  float: right;
+  font-size: 15pt !important;
+  color: #333333;
+  margin-top: 15px;
+  margin-right: 2%;
 }
 
 #toggle-menu {

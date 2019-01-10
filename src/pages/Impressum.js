@@ -9,14 +9,14 @@ import CheckLogin from '../components/CheckLogin'
 // A page for testing all components
 // ===================
 
-class Messages extends Component{
+class Impressum extends Component{
     render(){
         return (
          
             <div>
                <CheckLogin />  
                 <div className="container">
-                <h2>Deine Nachrichten und Abzeichen</h2>
+                <h2>AGB und Impressum</h2>
                 <Alert 
                   title="Es ist ein Fehler aufgetreten :(" 
                   message="Hier entsteht bald eine neue Seite!" 
@@ -29,4 +29,4 @@ class Messages extends Component{
     }
 }
 
-export default Messages;
+export default Impressum;
