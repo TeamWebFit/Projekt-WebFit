@@ -7,13 +7,13 @@ import { BrowserRouter as Link, NavLink } from 'react-router-dom';
 class Sidebar extends Component {
     componentDidMount() {
         //menu_header
-        $('#menu-icon').click(function () {
+        $('#close-icon').click(function () {
             $('#toggle-sidebar').toggle();
-            $('#menu-icon').hide();
+            $('#toggle-slimbar').show();
         })
-        $('.close-round').click(function () {
+        $('.navicon').click(function () {
             $('#toggle-sidebar').toggle();
-            $('#menu-icon').show();
+            $('#toggle-slimbar').hide();
         })
     }
 
@@ -27,13 +27,12 @@ class Sidebar extends Component {
                         <NavLink to="/"><img id="logo" alt="WebFit Application Logo" src={logo} height="50" /></NavLink>
 
                         <div id="toggle-sidebar">
-                            <i id="close-icon" className="close-round fa fa-times"></i>
+                            <i id="close-icon" className=" fa fa-times"></i>
                             <div id="sidebar">
-                                <ul>
+                                <ul className="ul-sidebar">
                                     <div id="">
                                         <div className="">
                                             <div className="user-pic">
-                                                <img className="img-responsive img-runded" src={logo} alt="User picture" height="20%" />
                                             </div>
                                             <br />
                                             <div className="">
@@ -112,7 +111,73 @@ class Sidebar extends Component {
                                 </ul>
                             </div>
                         </div>
-                        <i id="menu-icon" className="fa fa-navicon"></i>
+                        <div id="toggle-slimbar">
+                            <i id="close-icon" className="navicon fa fa-navicon"></i>
+                            <div id="slimbar">
+                                <ul className="ul-slimbar">
+                                    <div id="">
+                                        <div className="">
+                                            <div className="user-pic-slim">
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <hr />
+                                        <li className="sidebar-menu">
+                                            <NavLink to="/user">
+                                                <i id="icon_slim" className="fa fa-user"></i>
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to="/">
+                                                <i id="icon_slim" className="fa fa-tachometer"></i>
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to="/trackermanager">
+                                                <i id="icon_slim" className="fa fa-clock-o"></i>
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to="/">
+                                                <i id="icon_slim" className="fa fa-bar-chart-o"></i>
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to="/goals">
+                                                <i id="icon_slim" className="fa fa-flag-checkered"></i>
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to="/workouts">
+                                                <i id="icon_slim" className="fa fa-bicycle"></i>
+                                            </NavLink>
+                                        </li>
+                                        <hr />
+                                        <li>
+                                            <NavLink to="/">
+                                                <i id="icon_slim" className="fa fa-gear"></i>
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to="/datenschutz">
+                                                <i id="icon_slim" className="fa fa-lock"></i>
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to="/impressum">
+                                                <i id="icon_slim" className="fa fa-info"></i>
+                                            </NavLink>
+                                        </li>
+                                        <hr />
+                                        <li>
+                                            <NavLink to="/logout">
+                                                <i id="icon_slim" className="fa fa-power-off"></i>
+                                            </NavLink>
+                                        </li>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
                     </nav>
                 </header>
             </div>

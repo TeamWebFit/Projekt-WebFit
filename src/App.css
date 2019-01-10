@@ -534,7 +534,7 @@ input::-webkit-input-placeholder {
 }
 
 input {
-  color: #9FC9EB;
+  color: #333333;
   outline: none;
   margin: 0;
   border-top: none;
@@ -895,8 +895,10 @@ input {
 }
 
 /*End Add Button*/
-/*5. Menu*/
-/*5.1 Header-Menu*/
+
+/*--------------------------------5. Menu------------------------------*/
+
+/*-------------------------5.1 Header-Menu------------------------------*/
 .main {
   margin-top: 100px;
   margin-bottom: 80px;
@@ -907,8 +909,9 @@ header {
   position: fixed;
   z-index: 999;
   margin-top: -100px;
+  width: 100%;
+  
 }
-
 
 #nav-header {
   padding-bottom: 2%;
@@ -916,6 +919,12 @@ header {
   /*box-shadow: 2px 2px 8px 1px #d9d9d9;*/
   /*height: 50px;*/
   z-index: 1;
+}
+
+img#logo {
+  position: relative;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 /*User Header*/
@@ -955,11 +964,8 @@ header {
 
 /*End User-Header*/
 
-img#logo {
-  position: relative;
-  margin-top: 10px;
-  margin-left: 10px;
-}
+/*----------------------------------Navigation---------------------------*/
+
 
 .menu_font{
   font-family: 'Lato', sans-serif;
@@ -975,48 +981,15 @@ a.menu_font{
   color: #333333;
 }
 
-#sidebar{
-  height: 100%;
-}
-
-#icon_menu{
-  font-size: 17pt !important;
-  text-decoration: none;
-  color: #333333;
-  padding-bottom: 6%;
-}
-
-ul{
-  list-style: none;
-  padding-left: 25px;
-}
-
-header{
-  width: 100%;
-}
 
 #menu-icon {
   font-size: 25pt !important;
   display: inline-block;
   float: right;
   position: relative;
-  margin-top: 2%;
+  margin-top: 1.5%;
   margin-right: 2%;
   z-index: 20;
-}
-
-
-#toggle-sidebar{
-  display: none;
-  position: fixed;
-  float: right;
-  padding-right: 2%;
-  z-index: 20;
-  background-color: #EFF9FF;
-  width: 220px;
-  height: 100%;
-  top: 0;
-  right: 0;
 }
 
 #close-icon {
@@ -1024,7 +997,7 @@ header{
   float: right;
   font-size: 15pt !important;
   color: #333333;
-  margin-top: 15px;
+  margin-top: 20px;
   margin-right: 2%;
 }
 
@@ -1051,6 +1024,107 @@ header{
   margin-right: 4%;
 }
 
+
+/*----------------------Sidebar----------------------------*/
+
+
+.user-pic{
+  width: 130px;
+  height: 130px;
+  background-color: #FF6666;
+  clip-path: circle(40px at center);
+}
+
+.ul-sidebar{
+  list-style: none;
+  padding-left: 25px;
+}
+
+#sidebar{
+  height: 100%;
+}
+
+#icon_menu{
+  font-size: 17pt !important;
+  text-decoration: none;
+  color: #333333;
+  padding-bottom: 8%;
+}
+
+#toggle-sidebar{
+  display: none;
+  position: fixed;
+  float: right;
+  padding-right: 2%;
+  z-index: 20;
+  background-color: #EFF9FF;
+  width: 220px;
+  height: 100%;
+  top: 0;
+  right: 0;
+}
+
+/*----------------------Ende Sidebar----------------------------*/
+
+/*--------------------------Slimbar-----------------------------*/
+
+.user-pic-slim{
+  width: 40px;
+  height: 40px;
+  background-color: #FF6666;
+  clip-path: circle(20px at center);
+  margin-top: 60px;
+}
+
+#icon_slim{
+  font-size: 17pt !important;
+  text-decoration: none;
+  color: #333333;
+  padding-bottom: 70%;
+  text-align: center;
+  padding-left: 20%;
+}
+
+.ul-slimbar{
+  list-style: none;
+  padding-left: 20%;
+}
+
+#toggle-slimbar{
+ 
+  position: fixed;
+  float: right;
+  padding-right: 2%;
+  z-index: 20;
+  background-color: #EFF9FF;
+  width: 70px;
+  height: 100%;
+  top: 0;
+  right: 0;
+}
+
+.navicon{
+ margin-right: 20%;
+}
+
+/* --------- Media Queries --------- */
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+  #slimbar{
+    display: none;
+    
+  }
+  #toggle-slimbar{
+     background-color: transparent;
+  
+  }
+  
+}
+
+/*-----Ende Slimbar-----*/
+/*--------------------------------------Ende Navigation--------------------------------------*/
+
+/*------------------------------Rundes Menü-----------------------*/
 .btn-toggle {
   width: 3.5em !important;
   height: 3.5em !important;
@@ -1116,8 +1190,12 @@ i.icons-header{
   text-decoration: none;
 }
 
-/*End Header-Menu*/
-/*5.2 Footer-Menu*/
+/*------------------------------Ende Rundes Menü-----------------------*/
+
+/*------------------------------Ende Header-Menu-----------------------*/
+
+/*------------------------------5.2 Footer-Menu-----------------------*/
+
 footer {
   position: fixed;
   left: 0;
@@ -1175,7 +1253,8 @@ i.icons-footer{
 }
 
 /*End Footer-Menu*/
-/*End Menu*/
+
+/*------------------------------Ende Menu-----------------------*/
 
 /*6.WebFit Home*/
 
@@ -1223,6 +1302,13 @@ img.kacheln {
   display: inline;
 }
 
+.karteHome{
+  background: #ffffff;
+  border-radius: 15px;
+  margin: 20px;
+  margin-top: 0px;
+}
+
 /*Kalender*/
 .react-calendar{
   width: 450px !important;
@@ -1233,12 +1319,14 @@ img.kacheln {
   margin-right: auto;
   border: none !important;
   background: transparent !important;
+  font-family: 'Lato', sans-serif !important;
+  font-style: italic !important;
 }
 
 .react-calendar__navigation{
   font-size: 30px;
   text-align: center;
-  color: #F3F4F5;
+  color: #333333;
   text-decoration: none;
   line-height: 1.5;
   margin-bottom: 0px !important;
@@ -1275,13 +1363,13 @@ img.kacheln {
   font-size: 30px;
   text-align: center;
   width: 60px;
-  color: #333333;
+  color: #FF6666;
   line-height: 1.5;
   padding: 0px !important;
 }
 
 .react-calendar__month-view__days__day--weekend, .react-calendar__month-view__days__day--neighboringMonth{
-  color: #F3F4F5 !important;
+  color: #333333 !important;
 }
 
 .react-calendar__tile{
@@ -1290,7 +1378,7 @@ img.kacheln {
   width: 60px;
   max-width: 60px;
   height: 39px;
-  color: #F3F4F5;
+  color: #333333;
   text-decoration: none;
   border: none !important;
   background-color: transparent;
@@ -1300,7 +1388,7 @@ img.kacheln {
 
 .react-calendar__tile--active{
   background: none !important;
-  color: #F3F4F5 !important;
+  color: #333333 !important;
   font-weight: bold !important;
   padding: 0px !important;
 }
@@ -1311,7 +1399,7 @@ img.kacheln {
   width: 35px;
   height: 35px;
   border-radius: 70%;
-  background-color: #F3F4F5 !important;
+  background-color: #333333 !important;
   box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
 }
 
@@ -1453,14 +1541,16 @@ img.kacheln {
 }
 
 .line-content{
-  margin-left: 0.5em;
+  margin-left: 1em;
   max-width: 180px;
   display: inline-block;
   float: left;
+
 }
 
 .line-icon{
   font-size: 2em;
+  color: #9FC9EB;
 }
 
 .inp{
@@ -1570,7 +1660,7 @@ img.kacheln {
 /*8. Page Transitions*/
 
 .container {
-  position: absolute;
+  /*position: absolute;*/
   top: 100px;
   left: 0;
   right: 0;
