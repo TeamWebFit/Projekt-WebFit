@@ -427,8 +427,8 @@ form {
 
 .login_body{
   display: table-cell;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
 
 }
 
@@ -480,8 +480,8 @@ form {
 
 .login_body{
   display: table-cell;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
 
 }
 
@@ -911,7 +911,6 @@ header {
   margin-top: -100px;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.3);
-  
 }
 
 #nav-header {
@@ -1092,7 +1091,7 @@ a.menu_font{
 }
 
 #toggle-slimbar{
- 
+
   position: fixed;
   float: right;
   padding-right: 2%;
@@ -1113,13 +1112,13 @@ a.menu_font{
 @media (max-width: 575.98px) {
   #slimbar{
     display: none;
-    
+
   }
   #toggle-slimbar{
      background-color: transparent;
-  
+
   }
-  
+
 }
 
 /*-----Ende Slimbar-----*/
@@ -1332,6 +1331,16 @@ img.kacheln {
   border-radius: 15px;
   margin: 20px;
   margin-top: 0px;
+}
+
+.kachelStatistik{
+  float: left;
+  display: inline-block;
+  margin: 1.2em;
+  background-color: #dfdfdf;
+  width: 100px;
+  height: 100px;
+  border-radius: 15px;
 }
 
 /*Kalender*/
@@ -1596,14 +1605,256 @@ img.kacheln {
   padding-top: 0.4em;
 }
 
-#profilePic{
+.overlay{
+  position: fixed;
+  display: none;
   width: 100%;
-  margin-top: -120px;
-  clip-path: circle(80px at center);
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1;
+  cursor: pointer;
+}
+
+#uploadFile{
+  display: none;
+  z-index: 30;
+  position: relative;
+  border-bottom: none;
+  padding: 0;
+  margin-bottom: 1em;
+}
+
+#uploadButton{
+  display: none;
+  z-index: 30;
+  position: relative;
+}
+
+
+#uploadFileDiv{
+  display: none;
+  min-height: 100px;
+  padding: 2em;
+}
+
+#percentUpload{
+  z-index: 30;
+}
+
+@media (max-width: 575.98px) {
+  #profilePicDiv{
+    width: 100%;
+    text-align: center;
+  }
+
+  #profilePic{
+    width: 250px;
+    height:175px;
+    margin-top: -120px;
+    clip-path: circle(80px at center);
+  }
+
+  #camPicIconDiv{
+    width: 100%;
+    text-align: center;
+  }
+
+  #camPicIcon{
+    margin-top: 13px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 18pt;
+  }
+
+  #camCircle{
+    width: 50px;
+    height: 50px;
+    background-color: #F5F5F5;
+    vertical-align: middle;
+    clip-path: circle(25px at center);
+    position: absolute;
+    margin-left: 50%;
+    margin-top: -14%;
+  }
+
+  #upload{
+    clip-path: circle(25px at center);
+  }
+
+
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  #profilePicDiv{
+    width: 100%;
+    text-align: center;
+  }
+
+  #profilePic{
+    width: 250px;
+    height:175px;
+    margin-top: -120px;
+    clip-path: circle(80px at center);
+  }
+
+  #camPicIconDiv{
+    width: 100%;
+    text-align: center;
+  }
+
+  #camPicIcon{
+    margin-top: 13px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 18pt;
+  }
+
+  #camCircle{
+    width: 50px;
+    height: 50px;
+    background-color: #F5F5F5;
+    vertical-align: middle;
+    clip-path: circle(25px at center);
+    position: absolute;
+    margin-left: 50%;
+    margin-top: -8%;
+  }
+
+  #upload{
+    clip-path: circle(25px at center);
+  }
+
+
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  #profilePicDiv{
+    width: 100%;
+    text-align: center;
+  }
+
+  #profilePic{
+    width: 250px;
+    height:175px;
+    margin-top: -120px;
+    clip-path: circle(80px at center);
+  }
+
+  #camPicIconDiv{
+    width: 100%;
+    text-align: center;
+  }
+
+  #camPicIcon{
+    margin-top: 13px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 18pt;
+  }
+
+  #camCircle{
+    width: 50px;
+    height: 50px;
+    background-color: #F5F5F5;
+    vertical-align: middle;
+    clip-path: circle(25px at center);
+    position: absolute;
+    margin-left: 50%;
+    margin-top: -7%;
+  }
+
+  #upload{
+    clip-path: circle(25px at center);
+  }
+
+
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  #profilePicDiv{
+    width: 100%;
+    text-align: center;
+  }
+
+  #profilePic{
+    width: 250px;
+    height:175px;
+    margin-top: 0px;
+    clip-path: circle(80px at center);
+  }
+
+  #camPicIconDiv{
+    width: 100%;
+    text-align: center;
+  }
+
+  #camPicIcon{
+    margin-top: 13px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 18pt;
+  }
+
+  #camCircle{
+    width: 50px;
+    height: 50px;
+    background-color: #F5F5F5;
+    vertical-align: middle;
+    clip-path: circle(25px at center);
+    position: absolute;
+    margin-left: 50%;
+    margin-top: -7%;
+  }
+
+  #upload{
+    clip-path: circle(25px at center);
+  }
+
+}
+@media (min-width: 1200px) {
+  #profilePicDiv{
+    width: 100%;
+    text-align: center;
+  }
+
+  #profilePic{
+    width: 250px;
+    height:175px;
+    margin-top: -120px;
+    clip-path: circle(80px at center);
+  }
+
+  #camPicIconDiv{
+    width: 100%;
+    text-align: center;
+  }
+
+  #camPicIcon{
+    margin-top: 13px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 18pt;
+  }
+
+  #camCircle{
+    width: 50px;
+    height: 50px;
+    background-color: #F5F5F5;
+    vertical-align: middle;
+    clip-path: circle(25px at center);
+    position: absolute;
+    margin-left: 50%;
+    margin-top: -7%;
+  }
+
+  #upload{
+    clip-path: circle(25px at center);
+  }
+
 }
 
 /* End User Profile*/
-
 
 
 /*7. Charts*/
