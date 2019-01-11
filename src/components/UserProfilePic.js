@@ -105,7 +105,7 @@ class UserProfilePic extends Component {
             <div id="uploadFileDiv">
               <input type="file" name="uploadFile" id="uploadFile" onChange={this.handleselectedFile} />
               <div className="btn-whiteline" id="uploadButton" onClick={this.handleUpload}>Upload</div>
-              <div> {Math.round(this.state.loaded,2) } %</div>
+              <div id="percentUpload"> {Math.round(this.state.loaded,2) } %</div>
             </div>
         </div>
         )//end return

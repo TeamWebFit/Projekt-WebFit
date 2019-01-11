@@ -10,7 +10,7 @@ import Welcome from './components/Welcome';
 import User from './pages/user';
 import Register from './pages/Register';
 import Login from './pages/Login';
-import Home from './components/Home';
+import Dashboard from './pages/Dashboard';
 import Verify from './pages/Verify';
 import ResetPassword from './pages/ResetPassword';
 import NewPassword from './pages/NewPassword';
@@ -64,7 +64,7 @@ class App extends Component {
       <Router>
         <div className="App">
         <Sidebar />
-          
+
           <div className="main">
             {/* React-Router - Route */}
             <Route render={({ location }) => (
@@ -76,9 +76,9 @@ class App extends Component {
                 >
                   <Switch>
 
-                    <Route exact path="/" component={Home} />
+                    <Route exact path="/" component={Dashboard} />
                     <Route path="/demo" component={Demo} />
-                    <Route path="/home" component={Home} />
+                    <Route path="/home" component={Dashboard} />
                     <Route path="/user" component={User} />
                     <Route path="/login" component={Login} />
                     <Route path="/register" component={Register} />

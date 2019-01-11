@@ -89,11 +89,12 @@ class UserProfile extends Component {
         console.log(this.state.height);
 
         var bildName = this.props.user.profilePic;
-        
+
 
         return (
           <div>
             <UserProfileHeader user={this.state}/>
+            <div className="container">
               <div className="karte2">
                   <section className="karteUser">
                       <div className="userPic"></div>
@@ -191,6 +192,7 @@ class UserProfile extends Component {
               <div id="div-btn-delete">
                 <button id="btn-acc-delete" className="btn btn-ghost col-12 text-center" onClick={this.deleteAccount}>Account löschen</button>
               </div>
+            </div>
         </div>
         )//end return
 
