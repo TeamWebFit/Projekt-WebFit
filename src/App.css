@@ -37,7 +37,7 @@ h3 {
 }
 
 h2 {
-  padding: 20px;
+  padding: 0px;
 }
 
 /*.row{
@@ -52,7 +52,7 @@ h2 {
   background-color: #f2f2f2;
 }
 
-hr {
+hr.hr-sidebar {
   margin: 5%;
 }
 
@@ -1122,6 +1122,30 @@ a.menu_font{
 }
 
 /*-----Ende Slimbar-----*/
+
+#toggle-loggedout{ 
+  display: none;
+  position: fixed;
+  float: right;
+  padding-right: 2%;
+  z-index: 20;
+  background-color: #EFF9FF;
+  width: 220px;
+  height: 100%;
+  top: 0;
+  right: 0;
+}
+
+#navigation-icon{
+  font-size: 25pt !important;
+  display: inline-block;
+  float: right;
+  position: relative;
+  margin-top: 1.5%;
+  margin-right: 2%;
+  z-index: 20;
+}
+
 /*--------------------------------------Ende Navigation--------------------------------------*/
 
 /*------------------------------Rundes Menü-----------------------*/
@@ -1394,7 +1418,7 @@ img.kacheln {
 }
 
 .react-calendar__tile:focus {
-  color: #333333 !important;
+  color: #F3F4F5 !important;
   font-weight: normal !important;
   width: 35px;
   height: 35px;
@@ -1700,7 +1724,99 @@ img.kacheln {
 
 /* END TRACKERMANAGER */
 
-/* --------- Media Queries --------- */
+/*----------------------------Datenschutz----------------------------*/
+
+.toggle-text{
+  display: none;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #7db9e8;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #7db9e8;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+#icon-trash{
+  
+  font-size: 20px;
+}
+
+.datenschutz-switch{
+  display: inline;
+}
+
+.toggle-txt{
+  display: none;
+}
+
+.karteDatenschutz{
+  background: #ffffff;
+  border-radius: 15px;
+  margin: 20px;
+  margin-top: 0px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/*----------------------------Ende Datenschutz----------------------------*/
+
+/* -------------------------------------- Media Queries -------------------------------- */
 /* Extra small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
   body {

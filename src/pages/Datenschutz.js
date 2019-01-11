@@ -1,29 +1,36 @@
 import React, { Component } from 'react';
-import {} from 'react-bootstrap';
-import Alert from '../components/Alert'
-import Button from '../components/Button'
-import CheckLogin from '../components/CheckLogin'
+import { } from 'react-bootstrap';
+import CheckLogin from '../components/CheckLogin';
+import Datenschutzerklaerung from '../components/Datenschutzerklaerung';
+import { BrowserRouter as Link, NavLink } from 'react-router-dom';
+import MeineDaten from '../components/MeineDaten';
 
 // ===================
 // Datenschutz Page
 // A page for testing all components
 // ===================
 
-class Datenschutz extends Component{
-    render(){
+class Datenschutz extends Component {
+    render() {
         return (
-         
+
             <div>
-               <CheckLogin />  
+                <CheckLogin />
                 <div className="container">
-                <h2>Datenschutz und Impressum</h2>
-                <Alert 
-                  title="Es ist ein Fehler aufgetreten :(" 
-                  message="Hier entsteht bald eine neue Seite!" 
-                  type="alertred"
-                ></Alert>
-            </div>
-                
+                    <div className="karte2">
+                        <section className="karteDatenschutz">
+                            <div className="login_body">
+                                <h2>Datenschutz</h2>
+                                <br />
+                                <MeineDaten />
+                                <br />
+                                <hr />
+                                <br />
+                                <Datenschutzerklaerung />
+                            </div>
+                        </section>
+                    </div>
+                </div>
             </div>
         )
     }
