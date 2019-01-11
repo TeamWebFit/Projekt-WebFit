@@ -17,13 +17,11 @@ class MeineDaten extends Component {
                     <div className="datenschutz-switch">
                         <p><strong>Schritte synchronisieren</strong></p>
                         <label className="switch">
-                        
                             <input type="checkbox" />
                             <span className="slider round"></span>
-                            
                         </label>
                         <br />
-                      <p><i id="icon-trash" className="fa fa-trash"></i>Meine Daten aus der Datenbank löschen</p>
+                        <p><i id="icon-trash" className="fa fa-trash"></i>Meine Daten aus der Datenbank löschen</p>
                     </div>
                     <div>
                         <p><strong>Puls synchronisieren</strong></p>
