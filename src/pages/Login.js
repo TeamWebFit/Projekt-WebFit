@@ -8,7 +8,9 @@ import { Link } from 'react-router-dom';
 import { withCookies, Cookies } from 'react-cookie';
 import $ from 'jquery';
 
+
 const queryString = require('query-string');
+
 
 
 class Login extends Component {
@@ -74,6 +76,7 @@ class Login extends Component {
     );
 
     return (
+      
       <div className="container text-center">
         <div className="karte2">
           <section className="karteLogin">
@@ -154,7 +157,7 @@ class Login extends Component {
   _saveUserData = token => {
     localStorage.setItem(AUTH_TOKEN, token)
   }
-}
+}//end component
 
 const LOGIN_MUTATION = gql`
   mutation LoginMutation($email: String!, $password: String!) {

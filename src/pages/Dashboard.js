@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { } from 'react-bootstrap';
 import CheckLogin from '../components/CheckLogin'
-import UserProfile from '../components/UserProfile'
+import Home from '../components/Home';
 import { withCookies, Cookies } from 'react-cookie';
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -12,7 +12,7 @@ import { Query } from 'react-apollo';
 // A page for testing all components
 // ===================
 
-class User extends Component {
+class Dashboard extends Component {
 
   render() {
 
@@ -30,7 +30,7 @@ class User extends Component {
                 return <div>keine Daten</div>
               }
               if (data){
-                return <UserProfile user={data.user}/>
+                return <Home user={data.user}/>
               }
             }}
         </Query>
@@ -42,16 +42,13 @@ class User extends Component {
 const getUser = gql`
         query Cookieuser($cookieuser: ID){
           user(id: $cookieuser){
-            id,
-            name,
-            firstName,
-            email,
-            dateOfBirth,
-            gender,
-            height,
-            profilePic
+            id
+            tracker{
+              id 
+            }
+            height
           }
         }
         `
 
-export default User;
+export default Dashboard;

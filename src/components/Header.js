@@ -6,15 +6,23 @@ import { BrowserRouter as Link, NavLink } from 'react-router-dom';
 
 class Header extends Component {
   componentDidMount() {
+    var url = window.location.pathname;
+    var user = "/user"
+    console.log(url);
     //menu_header
-    $('#menu-icon').click(function () {
-      $('#toggle-menu').toggle();
-      $('#menu-icon').hide();
-    })
-    $('.close-round').click(function () {
-      $('#toggle-menu').toggle();
-      $('#menu-icon').show();
-    })
+    if(url === user){
+      $('#nav-header').hide();
+    }else{
+      $('#menu-icon').click(function () {
+        $('#toggle-menu').toggle();
+        $('#menu-icon').hide();
+      })
+      $('.close-round').click(function () {
+        $('#toggle-menu').toggle();
+        $('#menu-icon').show();
+      })
+    }
+
   }
 
   render() {

@@ -56,6 +56,7 @@ class Register extends Component {
     var monat = this.state.monat;
     var jahr = this.state.jahr;
     var gebDat = tag + "." + monat + "." + jahr;
+    console.log(gebDat);
     var birthDay = new Date(jahr, monat - 1, tag);
     var birthDayString = birthDay.toString();
 
@@ -74,7 +75,7 @@ class Register extends Component {
         authToken: token
       }
     }).then(() => {
-      return axios.post('/api/form', {
+      return axios.post('https://server.webfit.app:4009/api/form', {
         firstName,
         email,
         authToken: token

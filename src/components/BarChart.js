@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Chart1 from 'react-chartist';
 import { graphql, compose } from 'react-apollo';
 import { withRouter, Link } from 'react-router-dom';
-import gql from 'graphql-tag';
+
 
 
 class BarChart extends Component {
@@ -15,8 +15,8 @@ class BarChart extends Component {
   }
 
   render() {
-
-    const steps = this.props.allStepsQuery.allSteps;
+    
+    const steps = this.props.steps.stepsViaUser;
     const time = [];
     const value = [];
     if(steps){
@@ -62,16 +62,5 @@ class BarChart extends Component {
   }
 }
 
-const ALL_STEPS_QUERY = gql`
-  query AllStepsQuery {
-    allSteps {
-      time
-      value      
-    }
-  }
-`
 
-export default compose(
-  graphql(ALL_STEPS_QUERY, { name: 'allStepsQuery' }),
-  withRouter
-)(BarChart);
+export default BarChart;

@@ -10,7 +10,7 @@ import Welcome from './components/Welcome';
 import User from './pages/user';
 import Register from './pages/Register';
 import Login from './pages/Login';
-import Home from './components/Home';
+import Dashboard from './pages/Dashboard';
 import Verify from './pages/Verify';
 import ResetPassword from './pages/ResetPassword';
 import NewPassword from './pages/NewPassword';
@@ -30,13 +30,17 @@ import Datenschutz from './pages/Datenschutz';
 import Goals from './pages/Goals';
 import Workouts from './pages/Workouts';
 import Community from './pages/Community';
-import Messages from './pages/Messages';
+import Impressum from './pages/Impressum';
 import AddButton from './components/AddButton';
+
+//Statistiken
 import Statistiken from './pages/Statistiken';
 import Schritte from './pages/Schritte';
 import Puls from './pages/Puls';
 import Gewicht from './pages/Gewicht';
 
+import HeaderMenu from './components/HeaderMenu';
+import Sidebar from './components/Sidebar'
 
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import LastWorkout from './components/LastWorkout';
@@ -64,7 +68,8 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Header />
+        <Sidebar />
+
           <div className="main">
             {/* React-Router - Route */}
             <Route render={({ location }) => (
@@ -76,9 +81,9 @@ class App extends Component {
                 >
                   <Switch>
 
-                    <Route exact path="/" component={Home} />
+                    <Route exact path="/" component={Dashboard} />
                     <Route path="/demo" component={Demo} />
-                    <Route path="/home" component={Home} />
+                    <Route path="/home" component={Dashboard} />
                     <Route path="/user" component={User} />
                     <Route path="/login" component={Login} />
                     <Route path="/register" component={Register} />
@@ -102,7 +107,7 @@ class App extends Component {
                     <Route path="/edit" component={Edit} />
                     <Route path="/datenschutz" component={Datenschutz} />
                     <Route path="/goals" component={Goals} />
-                    <Route path="/messages" component={Messages} />
+                    <Route path="/impressum" component={Impressum} />
                     <Route path="/community" component={Community} />
                     <Route path="/workouts" component={Workouts} />
                     <Route path="/button" component={AddButton} />
@@ -119,7 +124,6 @@ class App extends Component {
               </TransitionGroup>
             )} />
           </div>
-          <Footer />
         </div>
       </Router>
     );
