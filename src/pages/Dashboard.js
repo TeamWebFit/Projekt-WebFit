@@ -44,8 +44,9 @@ const getUser = gql`
           user(id: $cookieuser){
             id
             tracker{
-              id
+              id 
             }
+            height
           }
         }
         `

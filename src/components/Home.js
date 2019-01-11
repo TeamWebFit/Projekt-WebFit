@@ -11,6 +11,9 @@ import CheckLogin from '../components/CheckLogin'
 import BarChart from './BarChart';
 import AreaChart from './AreaChart';
 import KachelBMI from './KachelBMI';
+import KachelWeight from './KachelWeight';
+import KachelHeartRate from './KachelHeartRate';
+import KachelSteps from './KachelSteps';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 
@@ -46,9 +49,8 @@ class Home extends Component {
     }
 
     render() {
-      if(this.props.user.tracker[0].id){
-        var trackerID = this.props.user.tracker[0].id;
-      }
+      var user = this.props.user
+      console.log(user);
       var userId = this.props.user.id;
 
         return (
@@ -100,13 +102,16 @@ class Home extends Component {
                                                   <Col xs={12} sm={6} md={6} className="col kSquare">
                                                       <div className="kachelnSquare">
                                                           <div className="kachelStatistik">
-                                                            <KachelBMI />
+                                                            <KachelBMI user={user}/>
                                                           </div>
                                                           <div className="kachelStatistik">
+                                                            <KachelWeight user={user} />
                                                           </div>
                                                           <div className="kachelStatistik">
+                                                            <KachelHeartRate user={user} />
                                                           </div>
                                                           <div className="kachelStatistik">
+                                                            <KachelSteps user={user} />
                                                           </div>
                                                       </div>
                                                   </Col>

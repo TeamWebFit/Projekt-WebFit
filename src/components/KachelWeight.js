@@ -11,11 +11,10 @@ import { Query } from 'react-apollo';
 // A page for testing all components
 // ===================
 
-class KachelBMI extends Component {
+class KachelWeight extends Component {
 
   render() {
     var userId = this.props.user.id;
-    var height = this.props.user.height;
 
     return (
       <div>
@@ -26,15 +25,20 @@ class KachelBMI extends Component {
             if (data['user'] === null) {
               return <div>keine Daten</div>
             }
-            if (data){
             var weightValue = data.weight[data.weight.length - 1].value;
-            var bmi = weightValue / Math.pow((height/100), 2);
-            var bmiRound = Math.round(bmi);
-            console.log(bmiRound);
+
+            if (weightValue){
               return (
                 <div>
-                  <p>aktueller BMI</p>
-                  <h3 className="kachelNumber">{bmiRound}</h3>
+                  <p>aktuelles Gewicht</p>
+                  <h3 className="kachelNumber">{weightValue}</h3>
+                </div>
+              )
+            }else{
+              return (
+                <div>
+                  <p>Dein aktuelles Gewicht</p>
+                  <h3 className="kachelNumber">-</h3>
                 </div>
               )
             }
@@ -55,4 +59,4 @@ const getWeight = gql`
         }
         `
 
-export default KachelBMI;
+export default KachelWeight;
