@@ -28,11 +28,13 @@ class Sidebar extends Component {
                 $('#toggle-sidebar').toggle();
                 // $('#toggle-slimbar').show();
                 $('#toggle-slimbar').show();
+                $('.overlay').hide();
 
             })
             $('.navicon').click(function () {
                 $('#toggle-sidebar').toggle();
                 $('#toggle-slimbar').hide();
+                $('.overlay').show();
 
             })
         }
@@ -42,12 +44,13 @@ class Sidebar extends Component {
 
         return (
             <div>
+                {/* <div className="overlay"></div> */}
                 <header>
-
                     <nav id="nav-header">
                         <NavLink to="/"><img id="logo" alt="WebFit Application Logo" src={logo} height="50" /></NavLink>
-
-                        <div id="toggle-sidebar">
+                        
+                        <div id="toggle-sidebar" >
+                        
                             <i id="close-icon" className=" fa fa-times"></i>
                             <div id="sidebar">
                                 <ul className="ul-sidebar">
