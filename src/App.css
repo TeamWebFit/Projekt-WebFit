@@ -131,7 +131,7 @@ hr {
   bottom: -4px;
   left: -4px;
   right: -4px;
-  background: linear-gradient(to right, #9FC9EB, #FF6666, #FFCC66) !u;
+  background: linear-gradient(to right, #9FC9EB, #FF6666, #FFCC66);
   content: '';
   z-index: -1;
   border-radius: 25px;
@@ -1352,6 +1352,19 @@ img.kacheln {
   margin-right: auto;
 }
 
+.chartboxweekly{
+  width: 100%;
+  height: 280px;
+  padding: 5px;
+  margin: 10px;
+  float: left;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 .headlinecharts {
   margin: 15px !important;
 }
@@ -1360,28 +1373,15 @@ img.kacheln {
   margin-top: 20px;
 }
 
-.ct-chart1 {
-  font-family: Lato;
-  margin: 5px;
-}
-.ct-chart2 {
-  font-family: Lato;
-  margin: 5px;
-}
-.ct-chart3 {
-  font-family: Lato;
-  margin: 5px;
-}
-
 .headlinecharts{
-  font-size: 15px;
+  font-size: 20px;
   text-align: center;
   margin: 5px;
 }
 
 .ct-series-a .ct-bar {
   stroke: #FFCC66;
-  stroke-width: 30px;
+  stroke-width: 2px;
 }
 
 .ct-series-a .ct-area {
@@ -1389,6 +1389,7 @@ img.kacheln {
   stroke: none;
   fill-opacity: .7;
 }
+
 .ct-series-b .ct-area {
   fill: #ffcc66;
   stroke: none;
@@ -1407,6 +1408,88 @@ img.kacheln {
 .midtextpie {
   text-align: center;
   padding: 50%;
+}
+
+.area1 {
+  float: left;
+  height: auto;
+  width: 100%;
+}
+
+.area2 {
+  visibility: hidden;
+}
+
+
+.herzfrequenz, .ideal, .hoehepunkt, .tiefpunkt {
+  margin-top: 30px;
+}
+
+@media (min-width: 650px) {
+  .area1 {
+    float: left;
+    height: auto;
+    width: 60%;
+  }
+  
+  .area2 {
+    visibility: visible;
+    float: left;
+    height: auto;
+    width: 40%;
+    text-align: left;
+  }
+}
+
+.fa-fire {
+  font-size: 50px;
+  color: #333333;
+}
+
+.fa-heartbeat {
+  font-size: 50px;
+  color: #333333;
+}
+
+.fa-route {
+  font-size: 50px;
+  color: #333333;
+}
+
+.wobox{
+  float: left;
+  width: 50%;
+}
+
+.wobox1, .wobox2, .wobox3, .wobox4, .wobox5, .wobox6{
+  margin-top: 30px;
+  float: left;
+  width: 33%;
+}
+
+@media (max-width: 640px) {
+
+ .wobox {
+   float: none;
+   width: 100%;
+ }
+
+ .wobox1, .wobox2, .wobox3, .wobox4, .wobox5, .wobox6{
+  margin-top: 5px;
+  float: left;
+  width: 33%;
+}
+
+}
+
+.woboxp{
+  margin: 2px;
+}
+
+.goalChart {
+  float: left;
+  width: 50%;
+  height: 160px;
 }
 
 /* Charts End */
@@ -1615,9 +1698,175 @@ display: block;
       left: 43%;
       top: 90%;
     }
+  }
 
+/*----------------------------------------------------- Statistiken ----------------------------------------------------- */
+
+.statistikenbox {
+  height: 140px;
+  width: 335px;
+  margin: 20px;
+  background-color: white;
+  border: 2px solid #FFCC66;
+  border-radius: 10px;
+  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
+}
+
+.heartbeaticon, .fa-balance-scale{
+  font-size: 100px;
+  color: #FFCC66;
+  margin: 15px 15px 15px 25px;
+}
+
+.textstatistikenicon2 {
+  width: 85px;
+  height: 33px;
+  float: right;
+  margin: 50px 50px 0px 0px;
+}
+
+.textstatistikenicon {
+  font-size: 23px;
+  color: #333333
+}
+
+/*--------------------------------------------------- Statistiken Ende --------------------------------------------------- */
+
+/*----------------------------------------------------- Schritte ----------------------------------------------------- */
+
+.container.statistiken {
+  height: 95%;
+  width: 95%;
+  margin: 0px auto;
+  background-color: white;
+  border: 0,5px solid #333333;
+  border-radius: 10px;
+  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
+}
+
+.backstatistiken{
+  float: left;
+  margin: 5px;
+  color: #333333;
+  font-size: 25px;
+}
+
+.grafikbox {
+  width: 100%;
+  height: 320px;
+  margin: 0px auto;
+  margin-top: 20px;
+  background-color: white;
+  border: 1px solid #333333;
+  border-bottom: 30px solid #333333;
+  border-radius: 10px;
+  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
+}
+
+.midtextbox {
+  margin-top: 300px;
+  height: 30px;
+  color: #FFF;
+  background-color: #333333;
+}
+
+.boxstatistiken {
+  width: 100%;
+  height: auto;
+  margin: 0px auto;
+  margin-top: 20px;
+  background-color: white;
+  border: 1px solid #333333;
+  border-radius: 10px;
+  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
+}
+.boxstatistiken2 {
+  height: 50px;
+  color: #FFF;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #333333;
+  margin-top: -1px; 
+}
+
+.gewichtbox {
+  width: 100%;
+  height: 650px;
+  margin: 0px auto;
+  margin-top: 20px;
+  background-color: white;
+  border: 1px solid #333333;
+  border-radius: 10px;
+  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
+}
+
+.gewichtbox2 {
+  height: 50px;
+  color: #FFF;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #333333;
+  margin-top: -1px; 
+}
+
+.gewichtsabzu1 {
+  text-align: center;
+  font-size: 15px;
+  margin-top: 20px;
+}
+
+.gewichtsabzu2 {
+  text-align: center;
+  font-size: 40px;
+  margin-top: 10px;
+}
+
+
+.h4statistiken {
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 20px;
+  padding-right: 30px;
+}
+
+.boxstatistiken2headline {
+  padding-top: 13px;
+  padding-left: 25px; 
+  font-size: 18px;
+  color: #FFF;
+}
+
+
+.nav-tabs {
+  margin: 0px auto;
+}
+
+.nav-tabs li {
+  width: 67px;
+  height: 30px;
+  text-align: center;
+  border-right: 1px solid #333333;
+  margin: 0px;  
 
 }
+.nav-tabs li a{
+  padding: 0px;
+  margin-top: 5px;
+  border: 0px;
+  color: #333333;
+}
+
+.nav-tabs li:last-child{
+  border: none;
+}
+
+.nav-tabs {
+  width: 270px;
+  border: 1px solid #333333;
+  border-radius: 30px;
+}
+
+/*--------------------------------------------------- Schritte Ende --------------------------------------------------- */
 
 /* Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) and (max-width: 767.98px) {

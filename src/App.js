@@ -32,10 +32,14 @@ import Workouts from './pages/Workouts';
 import Community from './pages/Community';
 import Messages from './pages/Messages';
 import AddButton from './components/AddButton';
-
+import Statistiken from './pages/Statistiken';
+import Schritte from './pages/Schritte';
+import Puls from './pages/Puls';
+import Gewicht from './pages/Gewicht';
 
 
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import LastWorkout from './components/LastWorkout';
 
 
 // Don't link any component (except Header & Footer)
@@ -94,6 +98,7 @@ class App extends Component {
                     <Route path="/BarChart" component={BarChart} />
                     <Route path="/AreaChart" component={AreaChart} />
                     <Route path="/PieChart" component={PieChart} />
+                    <Route path="/LastWorkout" component={LastWorkout} />
                     <Route path="/edit" component={Edit} />
                     <Route path="/datenschutz" component={Datenschutz} />
                     <Route path="/goals" component={Goals} />
@@ -102,10 +107,11 @@ class App extends Component {
                     <Route path="/workouts" component={Workouts} />
                     <Route path="/button" component={AddButton} />
 
-
-
-
-
+                    {/* Statistiken */}
+                    <Route path="/Statistiken" component={Statistiken} />
+                    <Route path="/puls" component={Puls} />
+                    <Route path="/schritte" component={Schritte} />
+                    <Route path="/gewicht" component={Gewicht} />
                     {/*<div id="registrationTrue"></div>*/}
                     {/* React-Router - Route End */}
                   </Switch>
