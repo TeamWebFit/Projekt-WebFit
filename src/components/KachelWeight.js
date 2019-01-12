@@ -22,12 +22,9 @@ class KachelWeight extends Component {
           {({ loading, error, data }) => {
             if (loading) return <div>Fetching</div>
             if (error) return <div>Error</div>
-            if (data['user'] === null) {
-              return <div>keine Daten</div>
-            }
-            var weightValue = data.weight[data.weight.length - 1].value;
-
-            if (weightValue){
+            console.log(data);
+            if (typeof data !== 'undefined' && data.length > 0){
+              var weightValue = data.weight[data.weight.length - 1].value;
               return (
                 <div>
                   <p>aktuelles Gewicht</p>
@@ -37,7 +34,7 @@ class KachelWeight extends Component {
             }else{
               return (
                 <div>
-                  <p>Dein aktuelles Gewicht</p>
+                  <p>aktuelles Gewicht</p>
                   <h3 className="kachelNumber">-</h3>
                 </div>
               )

@@ -15,7 +15,7 @@ class KachelBMI extends Component {
 
   render() {
     var userId = this.props.user.id;
-    var height = this.props.user.height;
+
 
     return (
       <div>
@@ -23,10 +23,9 @@ class KachelBMI extends Component {
           {({ loading, error, data }) => {
             if (loading) return <div>Fetching</div>
             if (error) return <div>Error</div>
-            if (data['user'] === null) {
-              return <div>keine Daten</div>
-            }
-            if (data){
+
+            if (typeof data !== 'undefined' && data.length > 0 && this.props.user.height){
+            var height = this.props.user.height;
             var weightValue = data.weight[data.weight.length - 1].value;
             var bmi = weightValue / Math.pow((height/100), 2);
             var bmiRound = Math.round(bmi);
@@ -37,7 +36,15 @@ class KachelBMI extends Component {
                   <h3 className="kachelNumber">{bmiRound}</h3>
                 </div>
               )
+            }else{
+              return (
+                <div>
+                  <p>aktueller BMI</p>
+                  <h3 className="kachelNumber">-</h3>
+                </div>
+              )
             }
+
           }}
         </Query>
       </div>
