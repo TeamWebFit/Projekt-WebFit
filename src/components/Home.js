@@ -55,15 +55,8 @@ class Home extends Component {
 
         return (
             <div className="Home">
-              <Query query={GET_STEPS} variables={{ userId }}>
-                  {({ loading, error, data }) => {
-                    if (loading) return <div>Fetching</div>
-                    if (error) return <div>Error</div>
-                    if (typeof data !== 'undefined' && data.length > 0){
-                      return (
                               <div className="karte2">
                                   <section className="karteHome">
-
                                       <div className="login_body">
                                           <CheckLogin />
                                           <div className="container">
@@ -71,13 +64,13 @@ class Home extends Component {
                                                   <Col xs={12} sm={6} md={6}>
                                                       <Carousel>
                                                           <Carousel.Item>
-                                                              <BarChart steps={data}/>
+                                                              <BarChart user={user}/>
                                                           </Carousel.Item>
                                                           <Carousel.Item>
-                                                              <AreaChart />
+                                                              <AreaChart user={user} />
                                                           </Carousel.Item>
                                                           <Carousel.Item>
-                                                              <BarChart steps={data}/>
+                                                              <BarChart user={user}/>
                                                           </Carousel.Item>
                                                       </Carousel>
                                                   </Col>
@@ -132,23 +125,10 @@ class Home extends Component {
                                       </div>
                                   </section>
                               </div>
-                            )
-                          }
-                        }}
-                    </Query>
             </div>
         );
     }
 }
 
-
-const GET_STEPS = gql`
-        query GetSteps($userId: ID){
-          stepsViaUser(userId: $userId){
-            time
-            value
-          }
-        }
-        `
 
 export default Home;

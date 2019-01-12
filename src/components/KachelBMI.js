@@ -24,7 +24,7 @@ class KachelBMI extends Component {
             if (loading) return <div>Fetching</div>
             if (error) return <div>Error</div>
 
-            if (typeof data !== 'undefined' && data.length > 0 && this.props.user.height){
+            if (data.weight.length > 0 && this.props.user.height){
             var height = this.props.user.height;
             var weightValue = data.weight[data.weight.length - 1].value;
             var bmi = weightValue / Math.pow((height/100), 2);
