@@ -15,50 +15,51 @@ class BarChart extends Component {
   }
 
   render() {
-
-    const steps = this.props.steps.stepsViaUser;
-    const time = [];
-    const value = [];
-    if(steps){
-      steps.forEach(function(element){
-        time.push(element.time);
-        value.push(element.value);
-      })
-    }
-    const timeArray = [];
-    for(var i = 0; i < 7; i++){
-      timeArray.push(time[i]);
-    }
-
-    const valueArray = [];
-    for(var i = 0; i < 7; i++){
-      valueArray.push(value[i]);
-    }
-
-    var data = {
-      labels: timeArray,
-      series: [
-        valueArray
-      ]
-    };
-
-    var options = {
-      height:'220px',
-      axisX: {
-        labelInterpolationFnc: function (value, index) {
-          return value;
-        }
+    if(this.props.steps.stepsViaUser){
+      const steps = this.props.steps.stepsViaUser;
+      const time = [];
+      const value = [];
+      if(steps){
+        steps.forEach(function(element){
+          time.push(element.time);
+          value.push(element.value);
+        })
       }
-    };
+      const timeArray = [];
+      for(var i = 0; i < 7; i++){
+        timeArray.push(time[i]);
+      }
 
-    var type = 'Bar';
+      const valueArray = [];
+      for(var i = 0; i < 7; i++){
+        valueArray.push(value[i]);
+      }
 
-    return (
-        <div className="chartbox">
-          <h6 className="headlinecharts">Wöchentliche Schrittanzahl</h6>
-          <Chart1 data={data} options={options} type={type} />
-        </div>
-    )
+      var data = {
+        labels: timeArray,
+        series: [
+          valueArray
+        ]
+      };
+
+      var options = {
+        height:'220px',
+        axisX: {
+          labelInterpolationFnc: function (value, index) {
+            return value;
+          }
+        }
+      };
+
+      var type = 'Bar';
+
+      return (
+          <div className="chartbox">
+            <h6 className="headlinecharts">Wöchentliche Schrittanzahl</h6>
+            <Chart1 data={data} options={options} type={type} />
+          </div>
+      )
+    }
   }
 }
 
