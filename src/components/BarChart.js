@@ -16,6 +16,7 @@ class BarChart extends Component {
 
   render() {
     if(this.props.steps.stepsViaUser){
+         
       const steps = this.props.steps.stepsViaUser;
       const time = [];
       const value = [];
@@ -53,13 +54,13 @@ class BarChart extends Component {
 
       var type = 'Bar';
 
-      return (
-          <div className="chartbox">
-            <h6 className="headlinecharts">Wöchentliche Schrittanzahl</h6>
-            <Chart1 data={data} options={options} type={type} />
-          </div>
-      )
-    }
+    return (
+        <div className="chartboxweekly">
+          <h6 className="headlinecharts">Wöchentliche Schrittanzahl</h6>
+          <Chart1 data={data} options={options} type={type} />
+        </div>
+    )
+
   }
 }
 
