@@ -22,8 +22,8 @@ class KachelWeight extends Component {
           {({ loading, error, data }) => {
             if (loading) return <div>Fetching</div>
             if (error) return <div>Error</div>
-            console.log(data);
-            if (typeof data !== 'undefined' && data.length > 0){
+            console.log(data.weight.length);
+            if (data.weight.length > 0){
               var weightValue = data.weight[data.weight.length - 1].value;
               return (
                 <div>

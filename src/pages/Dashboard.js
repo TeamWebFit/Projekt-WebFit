@@ -26,10 +26,8 @@ class Dashboard extends Component {
             {({ loading, error, data }) => {
               if (loading) return <div>Fetching</div>
               if (error) return <div>Error</div>
-              if (data['user'] === null) {
-                return <div>keine Daten</div>
-              }
               if (data){
+                console.log(data.user);
                 return <Home user={data.user}/>
               }
             }}
@@ -44,7 +42,7 @@ const getUser = gql`
           user(id: $cookieuser){
             id
             tracker{
-              id 
+              id
             }
             height
           }
