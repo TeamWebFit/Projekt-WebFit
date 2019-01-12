@@ -59,7 +59,7 @@ class Home extends Component {
                   {({ loading, error, data }) => {
                     if (loading) return <div>Fetching</div>
                     if (error) return <div>Error</div>
-                    if (data){
+                    if (typeof data !== 'undefined' && data.length > 0){
                       return (
                               <div className="karte2">
                                   <section className="karteHome">
