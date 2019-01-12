@@ -1590,8 +1590,9 @@ img.kacheln {
 }
 
 .line-icon{
-  font-size: 2em;
-  color: #9FC9EB;
+  font-size: 2em !important;
+  color: #9FC9EB !important;
+  margin: 0 !important;
 }
 
 .inp{
@@ -1960,7 +1961,7 @@ img.kacheln {
     height: auto;
     width: 60%;
   }
-  
+
   .area2 {
     visibility: visible;
     float: left;
@@ -2407,7 +2408,7 @@ display: block;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: #333333;
-  margin-top: -1px; 
+  margin-top: -1px;
 }
 
 .gewichtbox {
@@ -2427,7 +2428,7 @@ display: block;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: #333333;
-  margin-top: -1px; 
+  margin-top: -1px;
 }
 
 .gewichtsabzu1 {
@@ -2452,7 +2453,7 @@ display: block;
 
 .boxstatistiken2headline {
   padding-top: 13px;
-  padding-left: 25px; 
+  padding-left: 25px;
   font-size: 18px;
   color: #FFF;
 }
@@ -2467,7 +2468,7 @@ display: block;
   height: 30px;
   text-align: center;
   border-right: 1px solid #333333;
-  margin: 0px;  
+  margin: 0px;
 
 }
 .nav-tabs li a{

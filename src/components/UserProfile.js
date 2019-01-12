@@ -3,6 +3,7 @@ import { } from 'react-bootstrap';
 import Alert from '../components/Alert'
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
+import { Mutation } from 'react-apollo'
 import { graphql, compose } from 'react-apollo';
 import { Link } from 'react-router-dom';
 import { AUTH_TOKEN } from '../constants/constants'
@@ -13,8 +14,6 @@ import { withCookies, Cookies } from 'react-cookie';
 import $ from 'jquery';
 import UserProfileHeader from '../components/UserProfileHeader'
 import UserProfilePic from './UserProfilePic';
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 
 
 // ===================
@@ -32,14 +31,12 @@ class UserProfile extends Component {
             name: props.user.name,
             email: props.user.email,
             gender: props.user.gender,
-            dateOfBirth: '',
+            dateOfBirth: props.user.dateOfBirth,
             height: props.user.height,
-            weight: props.user.weight,
-
+            weight: '',
         }
         this.onChange = this.onChange.bind(this);
         this.deleteAccount = this.deleteAccount.bind(this);
-        this.handleChange = this.handleChange.bind(this);
     }
 
     componentDidMount(){
@@ -53,23 +50,16 @@ class UserProfile extends Component {
       if(this.state.gender===2){
         $('#divers').attr("checked","checked");
       }
-      var birthString = this.props.user.dateOfBirth;
-      var birthSplit = birthString.split(".");
-      var birthDayUser = new Date(birthSplit[2], birthSplit[1]-1, birthSplit[0])
-      console.log(birthDayUser);
-      this.setState({
-        dateOfBirth: birthDayUser
-      })
+      if(this.props.weight){
+        this.setState({
+          weight: this.props.weight[this.props.weight.length -1].value
+        });
+      }
+
     }
 
     onChange(e) {
         this.setState({ [e.target.name]: e.target.value });
-    }
-
-    handleChange(date) {
-      this.setState({
-       dateOfBirth: date
-      });
     }
 
     deleteAccount() {
@@ -77,7 +67,6 @@ class UserProfile extends Component {
     }
 
     render() {
-        console.log(this.state.dateOfBirth);
         console.log(this.props.user.id);
         const authToken = localStorage.getItem(AUTH_TOKEN)
 
@@ -86,10 +75,9 @@ class UserProfile extends Component {
         var divers = "divers";
         var gen = '';
 
-        console.log(this.state.height);
 
         var bildName = this.props.user.profilePic;
-
+        var userId = this.props.user.id;
 
         return (
           <div>
@@ -126,7 +114,7 @@ class UserProfile extends Component {
                                   </div>
                                   <div className="line-content">
                                     <label>Email</label>
-                                    <input id="inp-Email" disabled type="text" name="email"onChange={this.onChange} value={this.state.email}/>
+                                    <input id="inp-Email" disabled type="text" name="email" onChange={this.onChange} value={this.state.email}/>
                                   </div>
                               </div>
                               <div className="line">
@@ -135,12 +123,8 @@ class UserProfile extends Component {
                                   </div>
                                   <div className="line-content">
                                     <label>Geburtstag</label>
+                                    <input className="inp" disabled type="date" name="bday" onChange={event => this.setState({dateOfBirth: event.target.value})} value={this.state.dateOfBirth} />
                                     <br />
-                                    <DatePicker
-                                      selected={this.state.dateOfBirth}
-                                      onChange={this.handleChange}
-                                      dateFormat="dd.MM.YYYY"
-                                    />
                                   </div>
                               </div>
                               <div className="line-big">
@@ -171,7 +155,7 @@ class UserProfile extends Component {
                                   </div>
                                   <div className="line-content">
                                     <label>Größe in cm</label>
-                                    <input className="inp" disabled type="text" name="height" onChange={this.onChange} value={this.state.height}/>
+                                    <input className="inp" disabled type="text" placeholder="Größe eintragen" name="height" onChange={this.onChange} value={this.state.height}/>
                                   </div>
                               </div>
                               <div className="line">
@@ -180,7 +164,7 @@ class UserProfile extends Component {
                                   </div>
                                   <div className="line-content">
                                     <label>Gewicht in kg</label>
-                                    <input className="inp" disabled type="text" name="weight" onChange={this.onChange} value={this.state.weight}/>
+                                    <input className="inp" disabled type="number" placeholder="Gewicht eintragen" step="0.01" min="1" max="5" name="weight" onChange={this.onChange} value={this.state.weight}/>
                                   </div>
                               </div>
                               <br />
@@ -190,7 +174,14 @@ class UserProfile extends Component {
                   </section>
               </div>
               <div id="div-btn-delete">
-                <button id="btn-acc-delete" className="btn btn-ghost col-12 text-center" onClick={this.deleteAccount}>Account löschen</button>
+                  <Mutation
+                    mutation={DELETE_USER_MUTATION}
+                    variables={{ userId }}
+                  >
+                    {mutation => (
+                      <button id="btn-acc-delete" className="btn btn-ghost col-12 text-center" onClick={mutation}>Account löschen</button>
+                    )}
+                  </Mutation>
               </div>
             </div>
         </div>
@@ -199,5 +190,14 @@ class UserProfile extends Component {
     }
 
 } //End User Component
+
+const DELETE_USER_MUTATION = gql`
+  mutation DeleteUserMutation($userId: ID) {
+    deleteUser(id: $userId)
+    {
+      id
+    }
+  }
+`
 
 export default UserProfile;

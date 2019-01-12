@@ -21,7 +21,6 @@ class UserProfileHeader extends Component {
       constructor(props) {
           super(props);
           this.onClickPen = this.onClickPen.bind(this);
-          this.onClickCheck = this.onClickCheck.bind(this);
           this.handlePageChange = this.handlePageChange.bind(this);
       }
 
@@ -37,38 +36,6 @@ class UserProfileHeader extends Component {
 
   }
 
-  onClickCheck(e){
-    e.preventDefault
-
-    $('#check').hide();
-
-
-    const cookies = new Cookies();
-    var cookieuser = cookies.get('webfit_user');
-
-    var fn = this.props.user.firstName;
-    var n = this.props.user.name;
-    var g = this.props.user.gender;
-    var d = this.props.user.dateOfBirth;
-    var dOb = d.getDate() + '.' + (d.getMonth() + 1) + '.' +  d.getFullYear();
-    console.log("Neu dateOfBirth: "+dOb);
-    var h = 172;
-
-    this.props.editUserMutation({
-      variables: {
-        id: cookieuser,
-        firstName: fn,
-        name: n,
-        gender: g,
-        dateOfBirth: dOb,
-        height: h
-      }
-    })
-    console.log("Daten gespeichert");
-
-
-  }
-
   handlePageChange(){
     window.location = "/home";
   }
@@ -77,15 +44,16 @@ class UserProfileHeader extends Component {
     const cookies = new Cookies();
     var id = cookies.get('webfit_user');
 
-    const { firstName, name, gender, dateOfBirth, height } = this.props.user
+    const { firstName, name, gender, dateOfBirth, height, weight } = this.props.user;
+    var ti = new Date();
+    var time = ti.getTime();
+    console.log(time);
     var gen = parseInt(gender);
     var hei = parseInt(height);
+    var wei = parseInt(weight);
+    console.log(weight);
     var date = this.props.user.dateOfBirth;
     var dOb = "";
-    if(date){
-      dOb = date.getDate() + '.' + (date.getMonth() + 1) + '.' +  date.getFullYear();
-        console.log(dOb);
-    }
 
     return (
       <div id="user-header">
@@ -93,7 +61,7 @@ class UserProfileHeader extends Component {
         <i id="pen" onClick={this.onClickPen} className="fa fa-pencil"></i>
         <Mutation
           mutation={EDIT_USER}
-          variables={{ id, firstName, name, gen, dOb, hei }}
+          variables={{ id, firstName, name, gen, dOb, hei, wei, time }}
           onCompleted={data => this._confirm(data)}
         >
           {mutation => (
@@ -115,7 +83,7 @@ class UserProfileHeader extends Component {
 
 
 const EDIT_USER = gql`
-  mutation EditUserMutation($id: ID!, $firstName: String, $name: String, $gen: Int, $dOb: String, $hei: Int)
+  mutation EditUserMutation($id: ID!, $firstName: String, $name: String, $gen: Int, $dOb: String, $hei: Int, $wei: Float, $time: Int)
   {  editUser (
       id: $id,
       firstName: $firstName,
@@ -123,6 +91,8 @@ const EDIT_USER = gql`
       gender: $gen,
       dateOfBirth: $dOb,
       height: $hei
+      weight: $wei
+      time: $time
     )
     {
       id
@@ -131,6 +101,8 @@ const EDIT_USER = gql`
       gender
       dateOfBirth
       height
+      weight
+      time
     }
   }
 `

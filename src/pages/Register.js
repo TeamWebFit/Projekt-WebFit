@@ -71,7 +71,7 @@ class Register extends Component {
         email: this.state.email,
         password: this.state.password,
         gender: gen,
-        dateOfBirth: birthDayString,
+        dateOfBirth: this.state.dateOfBirth,
         authToken: token
       }
     }).then(() => {
@@ -109,18 +109,7 @@ class Register extends Component {
               <div>
                 <label>Geburtstag</label>
               </div>
-              <select className="selectBoxDate" onChange={this.onChange} value={date} name="tag">
-                <option>Tag</option>
-                {getOptions(1, 31)}
-              </select>
-              <select className="selectBoxDate" onChange={this.onChange} value={month} name="monat">
-                <option>Monat</option>
-                {getOptions(1, 12)}
-              </select>
-              <select className="selectBoxDate" onChange={this.onChange} value={year} name="jahr">
-                <option>Jahr</option>
-                {getOptions(thisYear - 60, thisYear - 12)}
-              </select>
+              <input type="date" name="bday" onChange={event => this.setState({dateOfBirth: event.target.value})} value={this.state.dateOfBirth} />
               <div>
                 <label>Geschlecht</label>
               </div>

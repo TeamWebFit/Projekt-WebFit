@@ -7,6 +7,7 @@ import { BrowserRouter as Link, NavLink } from 'react-router-dom';
 class Sidebar extends Component {
     componentDidMount() {
         var url = window.location.pathname;
+        console.log(url);
         var user = "/user";
         var login = "/login";
         var register = "/register";
@@ -48,9 +49,9 @@ class Sidebar extends Component {
                 <header>
                     <nav id="nav-header">
                         <NavLink to="/"><img id="logo" alt="WebFit Application Logo" src={logo} height="50" /></NavLink>
-                        
+
                         <div id="toggle-sidebar" >
-                        
+
                             <i id="close-icon" className=" fa fa-times"></i>
                             <div id="sidebar">
                                 <ul className="ul-sidebar">

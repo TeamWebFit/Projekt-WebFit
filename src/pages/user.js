@@ -26,12 +26,24 @@ class User extends Component {
             {({ loading, error, data }) => {
               if (loading) return <div>Fetching</div>
               if (error) return <div>Error</div>
-              if (data['user'] === null) {
-                return <div>keine Daten</div>
-              }
-              if (data){
-                return <UserProfile user={data.user}/>
-              }
+              var user = data.user;
+              console.log(user);
+                //return <UserProfile user={data.user}/>
+                return (
+                  <Query query={getWeight} variables={{ cookieuser }}>
+                      {({ loading, error, data }) => {
+                        if (loading) return <div>Fetching</div>
+                        if (error) return <div>Error</div>
+                        if (data.weight.length > 0){
+                          var weight = data.weight;
+                          console.log(weight);
+                          return <UserProfile user={user} weight={weight}/>
+                        }else{
+                          return <UserProfile user={user} />
+                        }
+                      }}
+                  </Query>
+                )
             }}
         </Query>
       </div>
@@ -53,5 +65,14 @@ const getUser = gql`
           }
         }
         `
+const getWeight = gql`
+      query getWeight($cookieuser: ID){
+            weight(userId: $cookieuser)
+              {
+                time
+                value
+              }
+            }
+            `
 
 export default User;
