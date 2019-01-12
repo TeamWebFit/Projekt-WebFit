@@ -23,7 +23,7 @@ class BarChart extends Component {
             {({ loading, error, data }) => {
               if (loading) return <div>Fetching</div>
               if (error) return <div>Error</div>
-              if(data.stepsViaUser){
+              if(data.stepsViaUser.length > 0){
 
                 const steps = data.stepsViaUser;
                 const time = [];
@@ -66,6 +66,13 @@ class BarChart extends Component {
                     <div className="chartboxweekly">
                       <h6 className="headlinecharts">Wöchentliche Schrittanzahl</h6>
                       <Chart1 data={data} options={options} type={type} />
+                    </div>
+                )
+              }else {
+                return (
+                    <div className="chartboxweekly">
+                      <h6 className="headlinecharts">Wöchentliche Schrittanzahl</h6>
+                      
                     </div>
                 )
               }

@@ -12,8 +12,6 @@ import CheckLogin from '../components/CheckLogin'
 import { withCookies, Cookies } from 'react-cookie';
 import $ from 'jquery';
 import UserProfileHeader from '../components/UserProfileHeader'
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import KAT_1727 from '../assets/img/KAT_1727.jpg';
 import axios from 'axios';
 
