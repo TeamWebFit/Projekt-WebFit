@@ -88,7 +88,7 @@ class Sidebar extends Component {
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink to="/">
+                                            <NavLink to="/Statistiken">
                                                 <i id="icon_menu" className="fa fa-bar-chart-o"></i>
                                                 <span className="menu_font">Statistiken</span>
                                             </NavLink>
@@ -163,7 +163,7 @@ class Sidebar extends Component {
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink to="/">
+                                            <NavLink to="/statistiken">
                                                 <i id="icon_slim" className="fa fa-bar-chart-o"></i>
                                             </NavLink>
                                         </li>

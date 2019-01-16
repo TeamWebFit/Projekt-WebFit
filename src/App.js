@@ -117,6 +117,7 @@ class App extends Component {
                     <Route path="/puls" component={Puls} />
                     <Route path="/schritte" component={Schritte} />
                     <Route path="/gewicht" component={Gewicht} />
+
                     {/*<div id="registrationTrue"></div>*/}
                     {/* React-Router - Route End */}
                   </Switch>
