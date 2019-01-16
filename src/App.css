@@ -2394,7 +2394,7 @@ display: block;
 
 .boxstatistiken {
   width: 100%;
-  height: auto;
+  height: 220px;
   margin: 0px auto;
   margin-top: 20px;
   background-color: white;
@@ -2410,6 +2410,28 @@ display: block;
   background-color: #333333;
   margin-top: -1px;
 }
+
+.StepBadgesWeekly{
+  margin: 20px;
+}
+
+.badgesStatistiken {
+  color: #333333;
+  float: left;
+  font-size: 30px;
+  width: 50%;
+  text-align: center;
+}
+
+.badgesStatistikentext {
+  font-size: 20px;
+}
+
+.fa-trophy {
+  font-size: 100px;
+
+}
+
 
 .gewichtbox {
   width: 100%;

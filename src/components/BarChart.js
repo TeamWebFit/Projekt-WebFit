@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Chart1 from 'react-chartist';
 import { graphql, compose } from 'react-apollo';
 import { withRouter, Link } from 'react-router-dom';
+import { withCookies, Cookies } from 'react-cookie';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 
@@ -10,20 +11,25 @@ class BarChart extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
+    this.state = { 
       steps: '',
     }
   }
 
+  
   render() {
-    var userId = this.props.user.id;
+
+    const cookies = new Cookies();
+    var cookieuser = cookies.get('webfit_user');
+    console.log(cookieuser);
+    
     return(
       <div>
-        <Query query={GET_STEPS} variables={{ userId }}>
+        <Query query={GET_STEPS} variables={{ cookieuser }}>
             {({ loading, error, data }) => {
               if (loading) return <div>Fetching</div>
               if (error) return <div>Error</div>
-              if(data.stepsViaUser.length > 0){
+              if(data.stepsViaUser.length){
 
                 const steps = data.stepsViaUser;
                 const time = [];
@@ -68,11 +74,10 @@ class BarChart extends Component {
                       <Chart1 data={data} options={options} type={type} />
                     </div>
                 )
-              }else {
+              } else {
                 return (
                     <div className="chartboxweekly">
                       <h6 className="headlinecharts">Wöchentliche Schrittanzahl</h6>
-                      
                     </div>
                 )
               }
