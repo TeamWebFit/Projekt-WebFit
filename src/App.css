@@ -17,7 +17,7 @@
 
 body {
   font-family: 'Lato', sans-serif;
-  background-color: #F5F5F5;
+  background-color: #FAFAFA;
   background-repeat: no-repeat;
   background-size: 100%;
   background-attachment: fixed;
@@ -38,6 +38,11 @@ h3 {
 
 h2 {
   padding: 0px;
+
+}
+
+.card-headline{
+  margin-top: 80px;
 }
 
 /*.row{
@@ -386,7 +391,7 @@ form {
 }
 
 
-/*login*/
+/*-----------------------------------------login--------------------------------*/
 
 .loginPic{
   background: url(./assets/img/login.jpg) top left/cover no-repeat;
@@ -429,7 +434,6 @@ form {
   display: table-cell;
   padding-left: 20px;
   padding-right: 20px;
-
 }
 
 .edit_body{
@@ -437,6 +441,28 @@ form {
   padding-left: 100px;
   padding-right: 190px;
 }
+/*----------------------------------Ende Login-------------------------------------*/
+
+/*----------------------------------Logout-------------------------------------*/
+.karteLogout{
+  background: #ffffff;
+  border-radius: 15px;
+  margin: 20px;
+  margin-top: 0px;
+  /* margin-left: 200px;
+  margin-right: 200px; */
+
+}
+
+.logout_body{
+  display: table-cell;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+
+/*----------------------------------Ende Logout-------------------------------------*/
+
 
 
 /*User Profile*/
@@ -1135,15 +1161,9 @@ a.menu_font{
 
 #toggle-loggedout{
   display: none;
-  position: fixed;
-  float: right;
-  padding-right: 2%;
-  z-index: 20;
-  background-color: #EFF9FF;
-  width: 220px;
-  height: 100%;
-  top: 0;
-  right: 0;
+ float: right;
+ margin-top: 25px;
+ margin-right: 2%;
 }
 
 #navigation-icon{
@@ -1290,7 +1310,7 @@ i.icons-footer{
 
 /*------------------------------Ende Menu-----------------------*/
 
-/*6.WebFit Home*/
+/*------------------------------6.WebFit Home-----------------------*/
 
 .main{
   margin-bottom: 0;
@@ -1310,6 +1330,12 @@ i.icons-footer{
   margin-right: auto;
 }
 
+.home_body{
+  display: table-cell;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .carousel-control.right, .carousel-control.left{
   background: none;
 }
@@ -1323,6 +1349,13 @@ i.icons-footer{
   height: 6px;
   background-color: #333;
 }
+
+.carousel-indicators .active{
+  width: 6px;
+  height: 6px;
+  background-color: #333;
+}
+
 
 
 
@@ -1339,20 +1372,45 @@ img.kacheln {
 .karteHome{
   background: #ffffff;
   border-radius: 15px;
-  margin: 20px;
+  margin: 10px;
   margin-top: 0px;
+  margin-bottom: 70px;
+
 }
 
 .kachelStatistik{
   float: left;
   display: inline-block;
   margin: 1.2em;
-  background-color: #dfdfdf;
+  background-color: #ffffff;
   width: 100px;
   height: 100px;
   border-radius: 15px;
   text-align: center;
   padding: 1em;
+  
+  
+}
+
+.kachelstat1{
+  box-shadow: 2px 2px 15px 1px #BBBDD5;
+  margin: 15px;
+}
+
+.kachelstat2{
+  box-shadow: 2px 2px 15px 1px #D0A7B8;
+  margin: 15px;
+}
+
+.kachelstat3{
+  box-shadow: 2px 2px 15px 1px #ED868D;
+  margin: 15px;
+}
+
+.kachelstat4{
+  box-shadow: 2px 2px 15px 1px #FD9C76;
+  margin: 15px;
+  
 }
 
 .kachelNumber{
@@ -1360,7 +1418,7 @@ img.kacheln {
   margin: 5px;
 }
 
-/*Kalender*/
+/*------------------------------------React Kalender---------------------------------*/
 .react-calendar{
   width: 450px !important;
   max-width: 450px;
@@ -1371,7 +1429,6 @@ img.kacheln {
   border: none !important;
   background: transparent !important;
   font-family: 'Lato', sans-serif !important;
-  font-style: italic !important;
 }
 
 .react-calendar__navigation{
@@ -1414,9 +1471,10 @@ img.kacheln {
   font-size: 30px;
   text-align: center;
   width: 60px;
-  color: #FF6666;
+  color: #ED868D;
   line-height: 1.5;
   padding: 0px !important;
+  font-weight: 300;
 }
 
 .react-calendar__month-view__days__day--weekend, .react-calendar__month-view__days__day--neighboringMonth{
@@ -1435,6 +1493,8 @@ img.kacheln {
   background-color: transparent;
   line-height: 1.5;
   padding: 0px !important;
+  font-style: italic !important;
+
 }
 
 .react-calendar__tile--active{
@@ -1466,8 +1526,8 @@ img.kacheln {
   width: 80%;
   height: 180px;
   border-radius: 10px;
-  background-color: rgba(243, 244, 245, 0.5);
-  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
+  background-color: #ffffff;
+  box-shadow: 2px 2px 15px 1px #BBBDD5;  
   text-align: center;
   float: center;
   display: block;
@@ -1478,6 +1538,7 @@ img.kacheln {
   padding-left: 0;
   padding-right: 0;
   overflow-y: scroll;
+
 }
 
 .btn_calendar{
@@ -1491,6 +1552,40 @@ img.kacheln {
   float: right;
   margin-right: 2%;
   margin-top: 1%;
+}
+
+/*-------------------------------Ende React Kalender------------------------------*/
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+  .react-calendar{
+    width: 300px !important;
+    max-width: 450px;
+    float: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: none !important;
+    background: transparent !important;
+    font-family: 'Lato', sans-serif !important;
+  }
+
+  .react-calendar__tile{
+    font-size: 20px;
+  }
+
+  .react-calendar__month-view__weekdays__weekday{
+    font-size: 20px;
+  }
+
+  .react-calendar__navigation{
+    font-size: 25px;
+    text-align: center;
+    color: #333333;
+    text-decoration: none;
+    line-height: 1.5;
+    margin-bottom: 0px !important;
+  }
 }
 
 /*9. User Profile*/
@@ -1885,8 +1980,6 @@ img.kacheln {
 .chartbox{
   width: 100%;
   height: 280px;
-  background-color: rgba(243, 244, 245, 0.5);
-  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
   padding: 5px;
   margin: 10px;
   border-radius: 10px;
@@ -2306,16 +2399,6 @@ display: block;
       margin-right: auto;
     }
 
-
-
-    .react-calendar {
-      display: none;
-    }
-
-    .kachelnSquare {
-      display: none;
-    }
-
     #myform.calendar_form{
      display: none;
     }
@@ -2504,7 +2587,7 @@ display: block;
   width: 67px;
   height: 30px;
   text-align: center;
-  border-right: 1px solid #333333;
+  border-right: 1px solid #BBBDD5;
   margin: 0px;
 
 }
@@ -2519,10 +2602,47 @@ display: block;
   border: none;
 }
 
+.nav-tabs li.active{
+  background-color: #BBBDD5 !important;
+  
+}
+
+ li.active{
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+
 .nav-tabs {
   width: 270px;
-  border: 1px solid #333333;
+  border: 1px solid #BBBDD5;
   border-radius: 30px;
+}
+
+#uncontrolled-tab-example{
+  margin-top: 30px;
+}
+
+a#uncontrolled-tab-example-tab-1{
+    background-color: transparent;
+    border: none;
+
+
+}
+a#uncontrolled-tab-example-tab-2{
+  background-color: transparent;
+  border: none;
+
+}
+a#uncontrolled-tab-example-tab-3{
+  background-color: transparent;
+  border: none;
+
+}
+a#uncontrolled-tab-example-tab-4{
+  background-color: transparent;
+  border: none;
+
 }
 
 /*--------------------------------------------------- Schritte Ende --------------------------------------------------- */
@@ -2674,13 +2794,6 @@ display: block;
     margin-right: auto;
   }
 
-  .react-calendar {
-    display: none;
-  }
-
-  .kachelnSquare {
-    display: none;
-  }
 
   #myform.calendar_form{
     display: none;
