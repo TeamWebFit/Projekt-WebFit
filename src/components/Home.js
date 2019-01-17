@@ -14,8 +14,10 @@ import KachelBMI from './KachelBMI';
 import KachelWeight from './KachelWeight';
 import KachelHeartRate from './KachelHeartRate';
 import KachelSteps from './KachelSteps';
+import AddWorkout from './AddWorkout';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
+import { Tabs, Tab } from 'react-bootstrap';
 
 class Home extends Component {
     state = {
@@ -48,83 +50,95 @@ class Home extends Component {
         this.setState(prevState => ({ values: [...prevState.values, ''] }))
     }
 
+
     render() {
-      var user = this.props.user
-      console.log(user);
-      var userId = this.props.user.id;
+        var userId = "";
+        if(this.props.user){
+          var user = this.props.user
+          console.log(user);
+          userId = this.props.user.id;
+        }
+
 
         return (
             <div className="Home">
-                              <div className="karte2">
-                                  <section className="karteHome">
-                                      <div className="login_body">
-                                          <CheckLogin />
-                                          <div className="container">
-                                              <Row className="row">
-                                                  <Col xs={12} sm={6} md={6}>
-                                                      <Carousel>
-                                                          <Carousel.Item>
-                                                              <BarChart user={user}/>
-                                                          </Carousel.Item>
-                                                          <Carousel.Item>
-                                                              <AreaChart user={user} />
-                                                          </Carousel.Item>
-                                                          <Carousel.Item>
-                                                              <BarChart user={user}/>
-                                                          </Carousel.Item>
-                                                      </Carousel>
-                                                  </Col>
+                <div className="karte2">
+                    <section className="karteHome">
+                        <div className="home_body">
+                            <CheckLogin />
+                            <div className="container">
+                                <Row className="row">
+                                    <Col xs={12} sm={6} md={6}>
+                                        <Col xs={12} sm={12} md={12}>
+                                            <Tabs className="tabsschritte" defaultActiveKey={1} id="uncontrolled-tab-example">
+                                                <Tab eventKey={1} title="Schritte">
+                                                    <BarChart user={user} />
+                                                </Tab>
+                                                <Tab eventKey={2} title="Puls">
+                                                    <AreaChart user={user} />
+                                                </Tab>
+                                                <Tab eventKey={3} title="Ziele">
+                                                    <BarChart user={user} />
+                                                </Tab>
+                                                <Tab eventKey={4} title="Ziele">
+                                                    <BarChart user={user} />
+                                                </Tab>
+                                            </Tabs>
 
-                                                  <br />
-                                                  <br />
-                                                  <br />
+                                        </Col>
 
-                                                  <Col sm={6} md={6} className="col">
-                                                      <Calendar
-                                                          onChange={this.onChange}
-                                                          value={this.state.date}
-                                                      />
-                                                  </Col>
-                                              </Row>
+                                        <Col xs={12} sm={12} md={12} className="col kSquare">
+                                            <div className="kachelnSquare">
+                                                <div className="kachelStatistik kachelstat1">
+                                                    <KachelBMI user={user} />
+                                                </div>
+                                                <div className="kachelStatistik kachelstat2">
+                                                    <KachelWeight user={user} />
+                                                </div>
+                                                <div className="kachelStatistik kachelstat3">
+                                                    <KachelHeartRate user={user} />
+                                                </div>
+                                                <div className="kachelStatistik kachelstat4">
+                                                    <KachelSteps user={user} />
+                                                </div>
+                                            </div>
+                                        </Col>
+                                    </Col>
+                                    <br />
+                                    <br />
+                                    <br />
 
-                                              <br />
-                                              <br />
-                                              <br />
+                                    <Col sm={6} md={6} className="col">
+                                        <Calendar
+                                            onChange={this.onChange}
+                                            value={this.state.date}
+                                        />
+                                        <br />
+                                          <AddWorkout />
+                                    </Col>
+                                </Row>
 
-                                              <Row className="row rmobile">
-                                                  <Col xs={12} sm={6} md={6} className="col kSquare">
-                                                      <div className="kachelnSquare">
-                                                          <div className="kachelStatistik">
-                                                            <KachelBMI user={user}/>
-                                                          </div>
-                                                          <div className="kachelStatistik">
-                                                            <KachelWeight user={user} />
-                                                          </div>
-                                                          <div className="kachelStatistik">
-                                                            <KachelHeartRate user={user} />
-                                                          </div>
-                                                          <div className="kachelStatistik">
-                                                            <KachelSteps user={user} />
-                                                          </div>
-                                                      </div>
-                                                  </Col>
+                                <br />
+                                <br />
+                                <br />
 
-                                                  <Col sm={6} md={6} className="col">
-                                                      <form className="calendar_form" id="myform">
-                                                          {this.createUI()}
-                                                          <p>
-                                                              <button type="button" className="btn_calendar" onClick={this.addClick.bind(this)} data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                                                  <i className="fa fa-plus-circle addWorkout"></i>
-                                                              </button>
-                                                          </p>
-                                                          <output id="datum" size="30" />
-                                                      </form>
-                                                  </Col>
-                                              </Row>
-                                          </div>
-                                      </div>
-                                  </section>
-                              </div>
+                                {/* <Row className="row">
+                                    <Col sm={6} md={6} className="col">
+                                         <form className="calendar_form" id="myform">
+                                            {this.createUI()}
+                                            <p>
+                                                <button type="button" className="btn_calendar" onClick={this.addClick.bind(this)} data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                                    <i className="fa fa-plus-circle addWorkout"></i>
+                                              </button>
+                                            </p>
+                                            <output id="datum" size="30" />
+                                        </form>
+                                    </Col>
+                                </Row> */}
+                            </div>
+                        </div>
+                    </section>
+                </div>
             </div>
         );
     }

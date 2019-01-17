@@ -4,7 +4,8 @@ import {withCookies, Cookies} from 'react-cookie';
 import gql from "graphql-tag";
 import { Query } from 'react-apollo';
 import ReactLoading from 'react-loading';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
+import SetDatenschutz from './SetDatenschutz';
 
 // ===================
 // CheckLogin Component
@@ -21,7 +22,10 @@ class CheckLogin extends Component{
 query cookieuser($cookieuser: ID){
     user(id: $cookieuser){
         id,
-        name
+        name,
+        allowweight,
+        allowheart,
+        allowsteps
     }
   }
 `;
@@ -37,6 +41,7 @@ var cookieuser = cookies.get('webfit_user');
                             {({ loading, error, data }) => {
                             if (loading) return (
                                 <div className="loading-screen">
+                                
                                     <div className="container top-abstand">
                                         <div className="row">
                                             <div className="col-md-12 text-center ">
@@ -66,7 +71,9 @@ var cookieuser = cookies.get('webfit_user');
                                
                             }else{
                                 if (data['user'].id === cookieuser){
-                                    return(<div> </div>)
+                                    return(<div>
+                                        <SetDatenschutz weight={data['user'].allowweight} steps={data['user'].allowsteps} heart={data['user'].allowheart} />
+                                         </div>)
                                 }else{
                                     return(
                                         <div>
