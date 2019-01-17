@@ -7,19 +7,25 @@ import { BrowserRouter as Link, NavLink } from 'react-router-dom';
 class Sidebar extends Component {
     componentDidMount() {
         var url = window.location.pathname;
-        console.log(url);
         var user = "/user";
         var login = "/login";
         var register = "/register";
-        console.log(url);
+        var logout = "/logout";
         //menu_header
         if (url === login) {
-            $('#nav-header').hide();
-
+            $('#toggle-loggedout').show();
+            $('#toggle-sidebar').hide();
+            $('#toggle-slimbar').hide();
+        };
+        if (url === logout) {
+            $('#toggle-loggedout').show();
+            $('#toggle-sidebar').hide();
+            $('#toggle-slimbar').hide();
         };
         if (url === register) {
-            $('#nav-header').hide();
-
+            $('#toggle-loggedout').show();
+            $('#toggle-sidebar').hide();
+            $('#toggle-slimbar').hide();
         };
         if (url === user) {
             $('#nav-header').hide();
@@ -30,13 +36,13 @@ class Sidebar extends Component {
                 // $('#toggle-slimbar').show();
                 $('#toggle-slimbar').show();
                 $('.overlay').hide();
-
+                $('#toggle-loggedout').hide();
             })
             $('.navicon').click(function () {
                 $('#toggle-sidebar').toggle();
                 $('#toggle-slimbar').hide();
                 $('.overlay').show();
-
+                $('#toggle-loggedout').hide();
             })
         }
     }
@@ -68,7 +74,7 @@ class Sidebar extends Component {
                                             </div>
                                         </div>
                                         <br />
-                                        <hr className="hr-sidebar"/>
+                                        <hr className="hr-sidebar" />
                                         <li className="sidebar-menu">
                                             <NavLink to="/user">
                                                 <i id="icon_menu" className="fa fa-user"></i>
@@ -106,7 +112,7 @@ class Sidebar extends Component {
                                                 <span className="menu_font">Workouts</span>
                                             </NavLink>
                                         </li>
-                                        <hr className="hr-sidebar"/>
+                                        <hr className="hr-sidebar" />
                                         <li>
                                             <NavLink to="/">
                                                 <i id="icon_menu" className="fa fa-gear"></i>
@@ -125,7 +131,7 @@ class Sidebar extends Component {
                                                 <span className="menu_font">AGB & Impressum</span>
                                             </NavLink>
                                         </li>
-                                        <hr  className="hr-sidebar"/>
+                                        <hr className="hr-sidebar" />
                                         <li>
                                             <NavLink to="/logout">
                                                 <i id="icon_menu" className="fa fa-power-off"></i>
@@ -146,7 +152,7 @@ class Sidebar extends Component {
                                             </div>
                                         </div>
                                         <br />
-                                        <hr className="hr-sidebar"/>
+                                        <hr className="hr-sidebar" />
                                         <li className="sidebar-menu">
                                             <NavLink to="/user">
                                                 <i id="icon_slim" className="fa fa-user"></i>
@@ -177,7 +183,7 @@ class Sidebar extends Component {
                                                 <i id="icon_slim" className="fa fa-bicycle"></i>
                                             </NavLink>
                                         </li>
-                                        <hr className="hr-sidebar"/>
+                                        <hr className="hr-sidebar" />
                                         <li>
                                             <NavLink to="/">
                                                 <i id="icon_slim" className="fa fa-gear"></i>
@@ -193,7 +199,7 @@ class Sidebar extends Component {
                                                 <i id="icon_slim" className="fa fa-info"></i>
                                             </NavLink>
                                         </li>
-                                        <hr className="hr-sidebar"/>
+                                        <hr className="hr-sidebar" />
                                         <li>
                                             <NavLink to="/logout">
                                                 <i id="icon_slim" className="fa fa-power-off"></i>
@@ -204,43 +210,14 @@ class Sidebar extends Component {
                             </div>
                         </div>
 
-
                         <div id="toggle-loggedout">
-                            <i id="close-icon" className="close-round fa fa-times"></i>
-                            <div id="sidebar">
-                                <ul>
-                                    <div id="">
-                                        <div className="">
-                                            <div className="user-pic">
-                                                <img className="img-responsive img-rounded" src={logo} alt="User picture" />
-                                            </div>
-                                        </div>
-                                        <hr className="hr-sidebar"/>
-
-                                        <li>
-                                            <NavLink to="/">
-                                                <i id="icon_menu" className="fa fa-lock"></i>
-                                                <span className="menu_font">Datenschutz</span>
-                                            </NavLink>
-                                        </li>
-                                        <li>
-                                            <NavLink to="/">
-                                                <i id="icon_menu" className="fa fa-info"></i>
-                                                <span className="menu_font">AGB & Impressum</span>
-                                            </NavLink>
-                                        </li>
-                                        <hr className="hr-sidebar" />
-                                        <li>
-                                            <NavLink to="/">
-                                                <i id="icon_menu" className="fa fa-power-off"></i>
-                                                <span className="menu_font">Ausloggen</span>
-                                            </NavLink>
-                                        </li>
-                                    </div>
-                                </ul>
-                            </div>
+                            <NavLink to="/">
+                                <span className="menu_font">Datenschutz</span>
+                            </NavLink>
+                            <NavLink to="/">
+                                <span className="menu_font">AGB & Impressum</span>
+                            </NavLink>
                         </div>
-
 
                     </nav>
                 </header>

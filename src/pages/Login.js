@@ -84,7 +84,7 @@ class Login extends Component {
             <div className="login_body">
               <div className="">
                 {alertError}
-                <h2>Login</h2>
+                <h2 className="card-headline">Login</h2>
                 <p>Willkommen bei WebFit! <br /> Bitte logge Dich ein um Deine Daten zu sehen.</p>
                 <br />
                 <div className="">
