@@ -51,9 +51,13 @@ class Home extends Component {
 
 
     render() {
-        var user = this.props.user
-        console.log(user);
-        var userId = this.props.user.id;
+        var userId = "";
+        if(this.props.user){
+          var user = this.props.user
+          console.log(user);
+          userId = this.props.user.id;
+        }
+
 
         return (
             <div className="Home">
@@ -109,6 +113,33 @@ class Home extends Component {
                                             value={this.state.date}
                                         />
                                         <br />
+                                          <div className="line">
+                                              <div className="line-i">
+                                                <i className="fa fa-bicycle line-icon"></i>
+                                              </div>
+                                              <div className="line-content">
+                                                <label>Titel</label>
+                                                <input className="inp" disabled type="text" placeholder="Größe eintragen" name="height" onChange={this.onChange} value={this.state.height}/>
+                                              </div>
+                                          </div>
+                                          <div className="line">
+                                              <div className="line-i">
+                                                <i className="fa fa-calendar line-icon"></i>
+                                              </div>
+                                              <div className="line-content">
+                                                <label>Datum</label>
+                                                <input className="inp" disabled type="number" placeholder="Gewicht eintragen" step="0.01" min="1" max="5" name="weight" onChange={this.onChange} value={this.state.weight}/>
+                                              </div>
+                                          </div>
+                                          <div className="line">
+                                              <div className="line-i">
+                                                <i className="fa fa-history line-icon"></i>
+                                              </div>
+                                              <div className="line-content">
+                                                <label>Dauer</label>
+                                                <input className="inp" disabled type="number" placeholder="Gewicht eintragen" step="0.01" min="1" max="5" name="weight" onChange={this.onChange} value={this.state.weight}/>
+                                              </div>
+                                          </div>
                                     </Col>
                                 </Row>
 
@@ -116,7 +147,7 @@ class Home extends Component {
                                 <br />
                                 <br />
 
-                                {/* <Row className="row">                                    
+                                {/* <Row className="row">
                                     <Col sm={6} md={6} className="col">
                                          <form className="calendar_form" id="myform">
                                             {this.createUI()}
