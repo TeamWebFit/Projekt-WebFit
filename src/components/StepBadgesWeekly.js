@@ -5,11 +5,11 @@ class StepBadgesWeekly extends Component {
         return (
             <div className="container StepBadgesWeekly">
                 <div className="badgesStatistiken">
-                    <i class="fa fa-trophy"></i>
+                    <i className="fa fa-trophy"></i>
                     <div className="badgesStatistikentext">5.000 Schritte</div>
                 </div>
                 <div className="badgesStatistiken">
-                    <i class="fa fa-trophy"></i>
+                    <i className="fa fa-trophy"></i>
                     <div className="badgesStatistikentext">10.000 Schritte</div>
                 </div>
             </div>
