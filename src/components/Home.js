@@ -14,6 +14,7 @@ import KachelBMI from './KachelBMI';
 import KachelWeight from './KachelWeight';
 import KachelHeartRate from './KachelHeartRate';
 import KachelSteps from './KachelSteps';
+import AddWorkout from './AddWorkout';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import { Tabs, Tab } from 'react-bootstrap';
@@ -113,33 +114,7 @@ class Home extends Component {
                                             value={this.state.date}
                                         />
                                         <br />
-                                          <div className="line">
-                                              <div className="line-i">
-                                                <i className="fa fa-bicycle line-icon"></i>
-                                              </div>
-                                              <div className="line-content">
-                                                <label>Titel</label>
-                                                <input className="inp" disabled type="text" placeholder="Größe eintragen" name="height" onChange={this.onChange} value={this.state.height}/>
-                                              </div>
-                                          </div>
-                                          <div className="line">
-                                              <div className="line-i">
-                                                <i className="fa fa-calendar line-icon"></i>
-                                              </div>
-                                              <div className="line-content">
-                                                <label>Datum</label>
-                                                <input className="inp" disabled type="number" placeholder="Gewicht eintragen" step="0.01" min="1" max="5" name="weight" onChange={this.onChange} value={this.state.weight}/>
-                                              </div>
-                                          </div>
-                                          <div className="line">
-                                              <div className="line-i">
-                                                <i className="fa fa-history line-icon"></i>
-                                              </div>
-                                              <div className="line-content">
-                                                <label>Dauer</label>
-                                                <input className="inp" disabled type="number" placeholder="Gewicht eintragen" step="0.01" min="1" max="5" name="weight" onChange={this.onChange} value={this.state.weight}/>
-                                              </div>
-                                          </div>
+                                          <AddWorkout />
                                     </Col>
                                 </Row>
 
