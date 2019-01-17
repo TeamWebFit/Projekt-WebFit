@@ -25,7 +25,6 @@ class BarChartMonthlySteps extends Component {
         //console.log(element.time);
         time.push(element.time);
         value.push(element.value);
-        console.log(time);
       })
     }
     const timeArray = [];

@@ -9,13 +9,13 @@ import { BrowserRouter as Link, NavLink } from 'react-router-dom';
 class Schritte extends Component {
     render() {
         return (
+            <div className="container">
             <div className="container statistiken">
             <NavLink className="backstatistiken" to="/statistiken"><i class="fa fa-angle-left"></i></NavLink>
                 <h4 className="h4statistiken">Schritte</h4>
                 <Tabs className="tabsschritte" defaultActiveKey={1} id="uncontrolled-tab-example">
                     <Tab eventKey={1} title="T">
                         <div className="grafikbox">
-
                         </div>
                         <div className="boxstatistiken">
                             <div className="boxstatistiken2"><div className="boxstatistiken2headline">Schrittanzahl</div></div>
@@ -28,12 +28,12 @@ class Schritte extends Component {
                         <div className="grafikbox">
                             <BarChart />
                         </div>
-                        <div className="boxstatistiken">
+                        <div className="boxstatistikenValues">
                             <div className="boxstatistiken2"><div className="boxstatistiken2headline">Schrittanzahl</div>
-                                <StepValuesWeekly />
                             </div>
+                            <StepValuesWeekly />
                         </div>
-                        <div className="boxstatistiken">
+                        <div className="boxstatistikenBadges">
                             <div className="boxstatistiken2"><div className="boxstatistiken2headline">Badges</div></div>
                             <StepBadgesWeekly />
                         </div>
@@ -63,6 +63,7 @@ class Schritte extends Component {
                         </div>
                     </Tab>
                 </Tabs>
+            </div>
             </div>
         )
     }

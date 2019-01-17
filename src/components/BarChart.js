@@ -50,10 +50,16 @@ class BarChart extends Component {
                   valueArray.push(value[i]);
                 }
 
+                const valueArraylastweek = [];
+                for(var i = 7; i < 14; i++){
+                  valueArraylastweek.push(value[i]);
+                }
+
                 var data = {
                   labels: timeArray,
                   series: [
-                    valueArray
+                    valueArray,
+                    valueArraylastweek
                   ]
                 };
 
@@ -89,8 +95,8 @@ class BarChart extends Component {
 }//end component
 
 const GET_STEPS = gql`
-        query GetSteps($userId: ID){
-          stepsViaUser(userId: $userId){
+        query GetSteps($cookieuser: ID){
+          stepsViaUser(userId: $cookieuser){
             time
             value
           }
