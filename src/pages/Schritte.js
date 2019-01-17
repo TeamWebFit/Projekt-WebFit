@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
-import BarChart from '../components/BarChart'
-import BarChartMonthlySteps from '../components/BarChartMonthlySteps'
+import BarChart from '../components/BarChart';
+import BarChartMonthlySteps from '../components/BarChartMonthlySteps';
+import StepBadgesWeekly from '../components/StepBadgesWeekly';
+import StepValuesWeekly from '../components/StepValuesWeekly';
 import { BrowserRouter as Link, NavLink } from 'react-router-dom';
 
 class Schritte extends Component {
@@ -16,10 +18,10 @@ class Schritte extends Component {
 
                         </div>
                         <div className="boxstatistiken">
-                            <h5 className="boxstatistiken2"><div className="boxstatistiken2headline">Schrittanzahl</div></h5>
+                            <div className="boxstatistiken2"><div className="boxstatistiken2headline">Schrittanzahl</div></div>
                         </div>
                         <div className="boxstatistiken">
-                            <h5 className="boxstatistiken2"><div className="boxstatistiken2headline">Badges</div></h5>
+                            <div className="boxstatistiken2"><div className="boxstatistiken2headline">Badges</div></div>
                         </div>
                     </Tab>
                     <Tab eventKey={2} title="W">
@@ -27,10 +29,13 @@ class Schritte extends Component {
                             <BarChart />
                         </div>
                         <div className="boxstatistiken">
-                            <h5 className="boxstatistiken2"><div className="boxstatistiken2headline">Schrittanzahl</div></h5>
+                            <div className="boxstatistiken2"><div className="boxstatistiken2headline">Schrittanzahl</div>
+                                <StepValuesWeekly />
+                            </div>
                         </div>
                         <div className="boxstatistiken">
-                            <h5 className="boxstatistiken2"><div className="boxstatistiken2headline">Badges</div></h5>
+                            <div className="boxstatistiken2"><div className="boxstatistiken2headline">Badges</div></div>
+                            <StepBadgesWeekly />
                         </div>
                     </Tab>
                     <Tab eventKey={3} title="M">
@@ -38,11 +43,11 @@ class Schritte extends Component {
                             <BarChartMonthlySteps />
                         </div>
                         <div className="boxstatistiken">
-                            <h5 className="boxstatistiken2"><div className="boxstatistiken2headline">Schrittanzahl</div></h5>
+                            <div className="boxstatistiken2"><div className="boxstatistiken2headline">Schrittanzahl</div></div>
 
                         </div>
                         <div className="boxstatistiken">
-                            <h5 className="boxstatistiken2"><div className="boxstatistiken2headline">Badges</div></h5>
+                            <div className="boxstatistiken2"><div className="boxstatistiken2headline">Badges</div></div>
 
                         </div>
                     </Tab>
@@ -51,10 +56,10 @@ class Schritte extends Component {
 
                         </div>
                         <div className="boxstatistiken">
-                            <h5 className="boxstatistiken2"><div className="boxstatistiken2headline">Schrittanzahl</div></h5>
+                            <div className="boxstatistiken2"><div className="boxstatistiken2headline">Schrittanzahl</div></div>
                         </div>
                         <div className="boxstatistiken">
-                            <h5 className="boxstatistiken2"><div className="boxstatistiken2headline">Badges</div></h5>
+                            <div className="boxstatistiken2"><div className="boxstatistiken2headline">Badges</div></div>
                         </div>
                     </Tab>
                 </Tabs>

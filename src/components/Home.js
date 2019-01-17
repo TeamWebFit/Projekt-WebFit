@@ -14,6 +14,7 @@ import KachelBMI from './KachelBMI';
 import KachelWeight from './KachelWeight';
 import KachelHeartRate from './KachelHeartRate';
 import KachelSteps from './KachelSteps';
+import AddWorkout from './AddWorkout';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import { Tabs, Tab } from 'react-bootstrap';
@@ -51,9 +52,13 @@ class Home extends Component {
 
 
     render() {
-        var user = this.props.user
-        console.log(user);
-        var userId = this.props.user.id;
+        var userId = "";
+        if(this.props.user){
+          var user = this.props.user
+          console.log(user);
+          userId = this.props.user.id;
+        }
+
 
         return (
             <div className="Home">
@@ -109,6 +114,7 @@ class Home extends Component {
                                             value={this.state.date}
                                         />
                                         <br />
+                                          <AddWorkout />
                                     </Col>
                                 </Row>
 
@@ -116,7 +122,7 @@ class Home extends Component {
                                 <br />
                                 <br />
 
-                                {/* <Row className="row">                                    
+                                {/* <Row className="row">
                                     <Col sm={6} md={6} className="col">
                                          <form className="calendar_form" id="myform">
                                             {this.createUI()}

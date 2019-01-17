@@ -102,8 +102,9 @@ class UserProfilePic extends Component {
             </div>
             <div id="uploadFileDiv">
               <input type="file" name="uploadFile" id="uploadFile" onChange={this.handleselectedFile} />
+              <p className="overlayTypo">Bitte verwende nur quadratische Bilder!</p>
               <div className="btn-whiteline" id="uploadButton" onClick={this.handleUpload}>Upload</div>
-              <div id="percentUpload"> {Math.round(this.state.loaded,2) } %</div>
+              <div id="percentUpload"> {Math.round(this.state.loaded,2) } % hochgeladen</div>
             </div>
         </div>
         )//end return

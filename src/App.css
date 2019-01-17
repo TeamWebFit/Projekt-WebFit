@@ -1057,8 +1057,14 @@ a.menu_font{
 .user-pic{
   width: 130px;
   height: 130px;
-  background-color: #FF6666;
   clip-path: circle(40px at center);
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 10px;
+}
+
+#userPicSidebar{
+  width: 110px;
 }
 
 .ul-sidebar{
@@ -1097,9 +1103,13 @@ a.menu_font{
 .user-pic-slim{
   width: 40px;
   height: 40px;
-  background-color: #FF6666;
   clip-path: circle(20px at center);
   margin-top: 60px;
+  text-align: center;
+}
+
+#userPicSidebarSlim{
+  width: 40px;
 }
 
 #icon_slim{
@@ -1721,6 +1731,12 @@ img.kacheln {
   cursor: pointer;
 }
 
+.overlayTypo{
+  color: #fff;
+  z-index: 10;
+  position: relative;
+}
+
 #uploadFile{
   display: none;
   z-index: 30;
@@ -1728,6 +1744,7 @@ img.kacheln {
   border-bottom: none;
   padding: 0;
   margin-bottom: 1em;
+  color: #fff;
 }
 
 #uploadButton{
@@ -1744,7 +1761,10 @@ img.kacheln {
 }
 
 #percentUpload{
-  z-index: 30;
+  z-index: 10;
+  position: relative;
+  color: #fff;
+  margin-top: 1em;
 }
 
 @media (max-width: 575.98px) {
@@ -1754,8 +1774,7 @@ img.kacheln {
   }
 
   #profilePic{
-    width: 250px;
-    height:175px;
+    width: 170px;
     margin-top: -120px;
     clip-path: circle(80px at center);
   }
@@ -1796,8 +1815,7 @@ img.kacheln {
   }
 
   #profilePic{
-    width: 250px;
-    height:175px;
+    width: 170px;
     margin-top: -120px;
     clip-path: circle(80px at center);
   }
@@ -1838,8 +1856,7 @@ img.kacheln {
   }
 
   #profilePic{
-    width: 250px;
-    height:175px;
+    width: 170px;
     margin-top: -120px;
     clip-path: circle(80px at center);
   }
@@ -1880,8 +1897,7 @@ img.kacheln {
   }
 
   #profilePic{
-    width: 250px;
-    height:175px;
+    width: 170px;
     margin-top: 0px;
     clip-path: circle(80px at center);
   }
@@ -1921,8 +1937,7 @@ img.kacheln {
   }
 
   #profilePic{
-    width: 250px;
-    height:175px;
+    width: 170px;
     margin-top: -120px;
     clip-path: circle(80px at center);
   }
@@ -2514,7 +2529,7 @@ display: block;
 
 .boxstatistiken {
   width: 100%;
-  height: auto;
+  height: 220px;
   margin: 0px auto;
   margin-top: 20px;
   background-color: white;
@@ -2549,6 +2564,27 @@ display: block;
   border-top-right-radius: 10px;
   background-color: #ED868D;
   margin-top: -1px;
+}
+
+.StepBadgesWeekly{
+  margin: 20px;
+}
+
+.badgesStatistiken {
+  color: #333333;
+  float: left;
+  font-size: 30px;
+  width: 50%;
+  text-align: center;
+}
+
+.badgesStatistikentext {
+  font-size: 20px;
+}
+
+.fa-trophy {
+  font-size: 100px;
+
 }
 
 .gewichtbox {

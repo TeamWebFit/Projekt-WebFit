@@ -3,6 +3,10 @@ import logo from '../assets/img/logo.png';
 import CheckLogin from './CheckLogin';
 import $ from 'jquery';
 import { BrowserRouter as Link, NavLink } from 'react-router-dom';
+import gql from 'graphql-tag';
+import { Query } from 'react-apollo';
+import { withCookies, Cookies } from 'react-cookie';
+import ReactLoading from 'react-loading';
 
 class Sidebar extends Component {
     componentDidMount() {
@@ -48,7 +52,9 @@ class Sidebar extends Component {
     }
 
     render() {
-
+        const cookies = new Cookies();
+        var cookieuser = cookies.get('webfit_user');
+        console.log(cookieuser);
         return (
             <div>
                 {/* <div className="overlay"></div> */}
@@ -62,17 +68,49 @@ class Sidebar extends Component {
                             <div id="sidebar">
                                 <ul className="ul-sidebar">
                                     <div id="">
-                                        <div className="">
-                                            <div className="user-pic">
-                                            </div>
-                                            <br />
-                                            <div className="">
-                                                <span className="">John
-                                                    <strong> Doe</strong>
-                                                </span>
-                                                <br />
-                                            </div>
-                                        </div>
+                                        <Query query={getUser} variables={{ cookieuser }}>
+                                          {({ loading, error, data }) => {
+                                            if (loading) return <ReactLoading className="loading-screen-animation" type="spinningBubbles" color="#000000" height={'50%'} width={'50%'} />
+                                            if (error) return <div>Error</div>
+
+                                            if(data.user !== null && data.user.length > 0)
+                                              {
+                                                var url = "https://server.webfit.app:4009/public/files/"+data.user.profilePic;
+                                                var vorname = data.user.firstName;
+                                                var nachname = data.user.name;
+                                                return(
+                                                  <div className="">
+                                                      <div className="user-pic">
+                                                        <img id="userPicSidebar" src={url}></img>
+                                                      </div>
+                                                      <br />
+                                                      <div className="">
+                                                          <span className="">{vorname}
+                                                              <strong> {nachname}</strong>
+                                                          </span>
+                                                          <br />
+                                                      </div>
+                                                  </div>
+                                                )}else {
+                                                  var url = "https://server.webfit.app:4009/public/files/5c3a79821410f30a6dec7e78_1547730951406_profilePic_dummy_quad.jpg";
+                                                  return(
+                                                    <div className="">
+                                                        <div className="user-pic">
+                                                          <img id="userPicSidebar" src={url}></img>
+                                                        </div>
+                                                        <br />
+                                                        <div className="">
+                                                            <span className="">Vorname
+                                                                <strong> Nachname</strong>
+                                                            </span>
+                                                            <br />
+                                                        </div>
+                                                    </div>
+                                                  )
+                                                }
+
+                                              }}
+                                        </Query>
                                         <br />
                                         <hr className="hr-sidebar" />
                                         <li className="sidebar-menu">
@@ -94,7 +132,9 @@ class Sidebar extends Component {
                                             </NavLink>
                                         </li>
                                         <li>
+
                                             <NavLink to="/statistiken">
+
                                                 <i id="icon_menu" className="fa fa-bar-chart-o"></i>
                                                 <span className="menu_font">Statistiken</span>
                                             </NavLink>
@@ -147,10 +187,34 @@ class Sidebar extends Component {
                             <div id="slimbar">
                                 <ul className="ul-slimbar">
                                     <div id="">
-                                        <div className="">
-                                            <div className="user-pic-slim">
-                                            </div>
-                                        </div>
+                                      <Query query={getUser} variables={{ cookieuser }}>
+                                        {({ loading, error, data }) => {
+                                          if (loading) return <ReactLoading className="loading-screen-animation" type="spinningBubbles" color="#000000" height={'50%'} width={'50%'} />
+                                          if (error) return <div>Error</div>
+                                          if(data.user !== null && data.user.length > 0)
+                                          {
+                                            var url = "https://server.webfit.app:4009/public/files/"+data.user.profilePic;
+                                            var vorname = data.user.firstName;
+                                            var nachname = data.user.name;
+                                            return(
+                                              <div className="">
+                                                  <div className="user-pic-slim">
+                                                    <img id="userPicSidebarSlim" src={url}></img>
+                                                  </div>
+                                              </div>
+                                            )
+                                          }else {
+                                            var url = "https://server.webfit.app:4009/public/files/5c3a79821410f30a6dec7e78_1547730951406_profilePic_dummy_quad.jpg";
+                                            return(
+                                              <div className="">
+                                                  <div className="user-pic-slim">
+                                                    <img id="userPicSidebarSlim" src={url}></img>
+                                                  </div>
+                                              </div>
+                                            )
+                                          }
+                                        }}
+                                      </Query>
                                         <br />
                                         <hr className="hr-sidebar" />
                                         <li className="sidebar-menu">
@@ -169,7 +233,7 @@ class Sidebar extends Component {
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink to="/">
+                                            <NavLink to="/statistiken">
                                                 <i id="icon_slim" className="fa fa-bar-chart-o"></i>
                                             </NavLink>
                                         </li>
@@ -227,5 +291,20 @@ class Sidebar extends Component {
         )//End return
     }//End render
 }//End Header
+
+const getUser = gql`
+        query Cookieuser($cookieuser: ID){
+          user(id: $cookieuser){
+            id,
+            name,
+            firstName,
+            email,
+            dateOfBirth,
+            gender,
+            height,
+            profilePic
+          }
+        }
+        `
 
 export default Sidebar
