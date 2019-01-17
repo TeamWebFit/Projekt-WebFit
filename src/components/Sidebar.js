@@ -60,7 +60,7 @@ class Sidebar extends Component {
                 {/* <div className="overlay"></div> */}
                 <header>
                     <nav id="nav-header">
-                        <NavLink to="/"><img id="logo" alt="WebFit Application Logo" src={logo} height="50" /></NavLink>
+                        <NavLink to="/"><img id="logo" alt="WebFit Application Logo" src={logo} height="50" width="auto" /></NavLink>
 
                         <div id="toggle-sidebar" >
 
@@ -132,7 +132,9 @@ class Sidebar extends Component {
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink to="/Statistiken">
+
+                                            <NavLink to="/statistiken">
+
                                                 <i id="icon_menu" className="fa fa-bar-chart-o"></i>
                                                 <span className="menu_font">Statistiken</span>
                                             </NavLink>

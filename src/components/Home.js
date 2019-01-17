@@ -69,7 +69,7 @@ class Home extends Component {
                             <div className="container">
                                 <Row className="row">
                                     <Col xs={12} sm={6} md={6}>
-                                        <Col xs={12} sm={6} md={12}>
+                                        <Col xs={12} sm={12} md={12}>
                                             <Tabs className="tabsschritte" defaultActiveKey={1} id="uncontrolled-tab-example">
                                                 <Tab eventKey={1} title="Schritte">
                                                     <BarChart user={user} />
@@ -87,7 +87,7 @@ class Home extends Component {
 
                                         </Col>
 
-                                        <Col xs={12} sm={6} md={12} className="col kSquare">
+                                        <Col xs={12} sm={12} md={12} className="col kSquare">
                                             <div className="kachelnSquare">
                                                 <div className="kachelStatistik kachelstat1">
                                                     <KachelBMI user={user} />

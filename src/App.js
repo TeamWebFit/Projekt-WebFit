@@ -113,7 +113,7 @@ class App extends Component {
                     <Route path="/button" component={AddButton} />
 
                     {/* Statistiken */}
-                    <Route path="/Statistiken" component={Statistiken} />
+                    <Route path="/statistiken" component={Statistiken} />
                     <Route path="/puls" component={Puls} />
                     <Route path="/schritte" component={Schritte} />
                     <Route path="/gewicht" component={Gewicht} />
