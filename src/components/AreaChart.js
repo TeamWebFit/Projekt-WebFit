@@ -15,7 +15,12 @@ class AreaChart extends Component {
   }
 
   render() {
-    var userId = this.props.user.id;
+    if (this.props.user.id) {
+      var userId = this.props.user.id;
+    }else {
+      var userId = "";
+    }
+
     return(
       <div>
         <Query query={HEARTRATE_QUERY} variables={{ userId }}>
