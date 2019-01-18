@@ -67,7 +67,7 @@ class TrackerManagerConnectorGoogle extends Component{
         const autharray = queryString.parse(auth)
         const auth_code = autharray.code
         console.log(auth_code)
-        const data_final = "code="+auth_code+"&client_id=1008561982846-6omt5dknbiqv124o2h5g5nrgg27l7o7v.apps.googleusercontent.com&client_secret=qo4YWmhVsTn02kyIQkL-z0a0&grant_type=authorization_code&redirect_uri=https://dev.webfit.app/trackermanager/connector/google/"
+        const data_final = "code="+auth_code+"&client_id=1008561982846-6omt5dknbiqv124o2h5g5nrgg27l7o7v.apps.googleusercontent.com&client_secret=qo4YWmhVsTn02kyIQkL-z0a0&grant_type=authorization_code&redirect_uri=http://localhost:3000/trackermanager/connector/google/"
         console.log("Daten sind da: " + data_final)
         //Get Access-Tooken from Google via Auth2
 
@@ -80,11 +80,12 @@ class TrackerManagerConnectorGoogle extends Component{
             data: data_final
           })
         .then(function (response) {
+        console.log(response.data)
           access_t = response.data.access_token
           token_t = response.data.token_type
           expires_i = parseInt(response.data.expires_in)
-          refresh = response.data.renew_token
-          console.log("Now push to addTracker")
+          refresh = response.data.refresh_token
+          console.log("Now push to addTracker" + refresh)
          // document.location.href="/trackermanager/add/success";
 
         })//end .then response
@@ -112,6 +113,7 @@ class TrackerManagerConnectorGoogle extends Component{
 
 
         render(){
+            console.log(refresh)
           this.props.createTrackerMutation({
              variables: {
                trackerModelID: this.state.trackerModelID,

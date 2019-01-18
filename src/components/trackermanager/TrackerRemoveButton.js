@@ -31,8 +31,12 @@ const RemoveButton = ({id}) => {
               variables: {
                 id
               }
+            }).then(function(){
+              setTimeout(function(){
+                window.location.reload(1);
+             }, 200);
             });
-          window.location.reload()}}
+         }}
         >Ja, Tracker entfernen</Button>            
       )}
     </Mutation>
