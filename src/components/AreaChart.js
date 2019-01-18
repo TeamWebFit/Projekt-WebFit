@@ -16,6 +16,7 @@ class AreaChart extends Component {
   }
 
   render() {
+
     const cookies = new Cookies();
     var cookieuser = cookies.get('webfit_user');
     

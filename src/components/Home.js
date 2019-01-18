@@ -59,26 +59,6 @@ class Home extends Component {
           userId = this.props.user.id;
         }
 
-        var d = new Date();
-        var tag = d.getDate();
-        var monat = d.getMonth()+1;
-        if(monat >= 1 || monat <= 9){
-          monat = "0"+monat
-          console.log(monat);
-        }
-        var jahr = d.getFullYear();
-        var dT = jahr + "-" + monat + "-" + tag;
-        console.log(dT);
-
-        var test = new Date(2019,1-1,18);
-        var testMillisec = test.getTime();
-
-        var test2 = new Date(2019,1-1,17);
-        var test2Millisec = test2.getTime();
-
-        var dif = testMillisec - test2Millisec;
-        console.log(dif);
-
         return (
             <div className="Home">
                 <div className="karte2">
@@ -133,7 +113,7 @@ class Home extends Component {
                                             value={this.state.date}
                                         />
                                         <br />
-                                          <AddWorkout date={dT}/>
+                                          <AddWorkout />
                                     </Col>
                                 </Row>
 

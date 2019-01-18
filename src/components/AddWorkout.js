@@ -14,10 +14,25 @@ class AddWorkout extends Component {
     super(props);
     this.state = {
       title: '',
-      date: props.date,
+      date: '',
       time: ''
     }
     this.onChange = this.onChange.bind(this);
+  }
+
+  componentDidMount(){
+    var today = new Date();
+    var day = today.getDate();
+    var month = today.getMonth()+1;
+    if(month >=1 || month <=9){
+      month = "0"+month;
+    }
+    var year = today.getFullYear();
+    var todayDate = year + "-" + month + "-" + day;
+    console.log(todayDate);
+    this.setState({
+      date: todayDate
+    })
   }
 
   onChange(e) {
