@@ -67,7 +67,7 @@ class UserProfile extends Component {
     }
 
     render() {
-        console.log(this.props.user.id);
+        console.log(this.props.user.dateOfBirth);
         const authToken = localStorage.getItem(AUTH_TOKEN)
 
         var man = "männlich";

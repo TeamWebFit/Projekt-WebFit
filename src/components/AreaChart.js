@@ -4,6 +4,7 @@ import { withRouter, Link } from 'react-router-dom';
 import gql from 'graphql-tag';
 import { Tabs, Tab } from 'react-bootstrap';
 import { Query } from 'react-apollo';
+import { withCookies, Cookies } from 'react-cookie';
 
 class AreaChart extends Component {
 
@@ -15,32 +16,34 @@ class AreaChart extends Component {
   }
 
   render() {
-    if (this.props.user.id) {
-      var userId = this.props.user.id;
-    }else {
-      var userId = "";
-    }
 
+    const cookies = new Cookies();
+    var cookieuser = cookies.get('webfit_user');
+    
     return(
       <div>
-        <Query query={HEARTRATE_QUERY} variables={{ userId }}>
+        <Query query={HEARTRATE_QUERY} variables={{ cookieuser }}>
             {({ loading, error, data }) => {
               if (loading) return <div>Fetching</div>
               if (error) return <div>Error</div>
-              console.log(data.heartRateViaUser);
-              if(data.heartRateViaUser){
+              if(data.heartRateViaUser !== null || data.heartRateViaUser.length > 0){
 
-                  const heartrate = '';
+                  const heartrate = data.heartRateViaUser;
                   console.log(heartrate);
-                  const time = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
-                  const value = [100, 80, 44, 50, 60, 88, 69, 100, 111, 66, 77, 55, 50, 60, 70, 66, 64, 55, 44, 46, 55, 60, 44, 53];
+                  
+                  const time = [];
+                  const value = [];
+                  const tid = [];
+                  
                   if (heartrate) {
                     heartrate.forEach(function (element) {
                       time.push(element.time);
                       value.push(element.value);
-                      console.log(time);
+                      tid.push(element.trackerId);
                     })
                   }
+                  console.log(tid);
+                  
                   const timeArray = [];
                   for (var i = 0; i < 7; i++) {
                     timeArray.push(time[i]);
@@ -84,6 +87,10 @@ class AreaChart extends Component {
                       </div>
                     </div>
                   )
+              } else {
+                return (
+                <div>error</div>
+                )
               }
           }}
         </Query>
@@ -93,10 +100,11 @@ class AreaChart extends Component {
 }//end component
 
 const HEARTRATE_QUERY = gql`
-  query HeartrateQuery($userId: ID) {
-      heartRateViaUser(userId: $userId) {
+  query HeartrateQuery($cookieuser: ID) {
+      heartRateViaUser(userId: $cookieuser) {
           time
           value
+          trackerId
         }
       }
     `

@@ -60,7 +60,7 @@ class Sidebar extends Component {
                 {/* <div className="overlay"></div> */}
                 <header>
                     <nav id="nav-header">
-                        <NavLink to="/"><img id="logo" alt="WebFit Application Logo" src={logo} height="50" /></NavLink>
+                        <NavLink to="/"><img id="logo" alt="WebFit Application Logo" src={logo} height="50" width="auto" /></NavLink>
 
                         <div id="toggle-sidebar" >
 
@@ -72,7 +72,6 @@ class Sidebar extends Component {
                                           {({ loading, error, data }) => {
                                             if (loading) return <ReactLoading className="loading-screen-animation" type="spinningBubbles" color="#000000" height={'50%'} width={'50%'} />
                                             if (error) return <div>Error</div>
-                                            console.log(data.user);
                                             if(data.user.length = 0)
                                               {
                                                 var url = "https://server.webfit.app:4009/public/files/5c3a79821410f30a6dec7e78_1547730951406_profilePic_dummy_quad.jpg";
@@ -133,7 +132,9 @@ class Sidebar extends Component {
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink to="/Statistiken">
+
+                                            <NavLink to="/statistiken">
+
                                                 <i id="icon_menu" className="fa fa-bar-chart-o"></i>
                                                 <span className="menu_font">Statistiken</span>
                                             </NavLink>
