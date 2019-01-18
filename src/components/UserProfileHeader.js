@@ -46,7 +46,8 @@ class UserProfileHeader extends Component {
 
     const { firstName, name, gender, dateOfBirth, height, weight } = this.props.user;
     var ti = new Date();
-    var time = ti.getTime();
+    var tim = ti.getTime();
+    var time = tim.toString();
     console.log(time);
     var gen = parseInt(gender);
     var hei = parseInt(height);
@@ -83,7 +84,7 @@ class UserProfileHeader extends Component {
 
 
 const EDIT_USER = gql`
-  mutation EditUserMutation($id: ID!, $firstName: String, $name: String, $gen: Int, $dOb: String, $hei: Int, $wei: Float, $time: Int)
+  mutation EditUserMutation($id: ID!, $firstName: String, $name: String, $gen: Int, $dOb: String, $hei: Int, $wei: Float, $time: String)
   {  editUser (
       id: $id,
       firstName: $firstName,
@@ -101,8 +102,6 @@ const EDIT_USER = gql`
       gender
       dateOfBirth
       height
-      weight
-      time
     }
   }
 `

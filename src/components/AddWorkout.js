@@ -14,19 +14,10 @@ class AddWorkout extends Component {
     super(props);
     this.state = {
       title: '',
-      date: '',
+      date: props.date,
       time: ''
     }
     this.onChange = this.onChange.bind(this);
-  }
-
-  componentDidMount(){
-    var d = new Date();
-    var dT = d.getFullYear() + "-" + (d.getMonth() +1) + "-" + d.getDate();
-    this.setState({
-      date: dT
-    })
-    console.log(dT);
   }
 
   onChange(e) {
@@ -34,10 +25,11 @@ class AddWorkout extends Component {
   }
 
   render() {
-    console.log(this.state.date);
     const cookies = new Cookies();
     var userId = cookies.get('webfit_user');
     console.log(userId);
+
+    console.log(this.state.date);
 
     const { date, title, time } = this.state;
 
