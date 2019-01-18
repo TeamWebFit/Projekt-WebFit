@@ -11,6 +11,7 @@
     "axios": "^0.18.0",
     "bootstrap": "^3.3.7",
     "chartist": "^0.11.0",
+    "date-and-time": "^0.6.3",
     "dateformat": "^3.0.3",
     "decode-uri-component": "^0.2.0",
     "graphql": "^14.0.2",
