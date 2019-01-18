@@ -19,7 +19,7 @@ class AreaChart extends Component {
 
     const cookies = new Cookies();
     var cookieuser = cookies.get('webfit_user');
-    
+
     return(
       <div>
         <Query query={HEARTRATE_QUERY} variables={{ cookieuser }}>
@@ -29,12 +29,11 @@ class AreaChart extends Component {
               if(data.heartRateViaUser !== null || data.heartRateViaUser.length > 0){
 
                   const heartrate = data.heartRateViaUser;
-                  console.log(heartrate);
-                  
+
                   const time = [];
                   const value = [];
                   const tid = [];
-                  
+
                   if (heartrate) {
                     heartrate.forEach(function (element) {
                       time.push(element.time);
@@ -42,8 +41,7 @@ class AreaChart extends Component {
                       tid.push(element.trackerId);
                     })
                   }
-                  console.log(tid);
-                  
+
                   const timeArray = [];
                   for (var i = 0; i < 7; i++) {
                     timeArray.push(time[i]);

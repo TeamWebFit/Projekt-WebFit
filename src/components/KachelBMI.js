@@ -14,7 +14,9 @@ import { Query } from 'react-apollo';
 class KachelBMI extends Component {
 
   render() {
-    var userId = this.props.user.id;
+    if(this.props.user){
+      var userId = this.props.user.id;
+    }
 
 
     return (
