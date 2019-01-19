@@ -31,7 +31,8 @@ class BarChart extends Component {
             {({ loading, error, data }) => {
               if (loading) return <ReactLoading className="loading-screen-animation" type="spinningBubbles" color="#000000" height={'50%'} width={'50%'} />
               if (error) return <div>Error</div>
-              if(data.stepsViaUser !== null){
+              console.log(data.stepsViaUser);
+              if(data.stepsViaUser !== null && data.stepsViaUser.length > 0){
 
                 const steps = data.stepsViaUser;
 
