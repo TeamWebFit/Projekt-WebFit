@@ -1405,8 +1405,8 @@ img.kacheln {
   border-radius: 15px;
   text-align: center;
   padding: 1em;
-  
-  
+
+
 }
 
 .kachelstat1{
@@ -1427,7 +1427,7 @@ img.kacheln {
 .kachelstat4{
   box-shadow: 2px 2px 15px 1px #FD9C76;
   margin: 15px;
-  
+
 }
 
 .kachelNumber{
@@ -1436,7 +1436,7 @@ img.kacheln {
 }
 
 .kSquare{
-  margin-top: 30px;
+  margin-top: 100px;
 }
 
 /*------------------------------------React Kalender---------------------------------*/
@@ -1549,7 +1549,7 @@ img.kacheln {
   height: 180px;
   border-radius: 10px;
   background-color: #ffffff;
-  box-shadow: 2px 2px 15px 1px #BBBDD5;  
+  box-shadow: 2px 2px 15px 1px #BBBDD5;
   text-align: center;
   float: center;
   display: block;
@@ -2151,6 +2151,25 @@ div.line-content input{
   height: 160px;
 }
 
+.Bluepill{
+  width: 50px;
+  height: 50px;
+  background-color: #00f;
+}
+
+.Redpill{
+  width: 50px;
+  height: 50px;
+  background-color: #f00;
+}
+
+.Greenpill{
+  width: 50px;
+  height: 50px;
+  background-color: #0f0;
+}
+
+
 /* Charts End */
 
 /*8. Page Transitions*/
@@ -2731,7 +2750,7 @@ input:checked + .slider:before {
 
 .nav-tabs li.active{
   background-color: #BBBDD5 !important;
-  
+
 }
 
  li.active{
