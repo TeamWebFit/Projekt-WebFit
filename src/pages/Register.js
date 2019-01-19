@@ -96,7 +96,7 @@ class Register extends Component {
 
     return (
       <div className="register-main">
-      <div className="karte2">
+      <div className="karte2-loggedout">
         <section className="karteRegister">
           <div className="registerPic"></div>
           <div className="register_body">
