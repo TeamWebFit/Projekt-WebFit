@@ -1710,10 +1710,15 @@ img.kacheln {
 
 }
 
+div.line-content input{
+  border-bottom: none;
+}
+
 .line-icon{
   font-size: 2em !important;
   color: #9FC9EB !important;
   margin: 0 !important;
+  padding-right: 25px;
 }
 
 .inp{
@@ -1856,7 +1861,7 @@ img.kacheln {
     vertical-align: middle;
     clip-path: circle(25px at center);
     position: absolute;
-    margin-left: 50%;
+    margin-left: 45%;
     margin-top: -8%;
   }
 
@@ -1897,7 +1902,7 @@ img.kacheln {
     vertical-align: middle;
     clip-path: circle(25px at center);
     position: absolute;
-    margin-left: 50%;
+    margin-left: 37%;
     margin-top: -7%;
   }
 
@@ -1915,7 +1920,7 @@ img.kacheln {
 
   #profilePic{
     width: 170px;
-    margin-top: 0px;
+    margin-top: -100px;
     clip-path: circle(80px at center);
   }
 
@@ -1938,7 +1943,7 @@ img.kacheln {
     vertical-align: middle;
     clip-path: circle(25px at center);
     position: absolute;
-    margin-left: 50%;
+    margin-left: 40%;
     margin-top: -7%;
   }
 
@@ -1978,8 +1983,8 @@ img.kacheln {
     vertical-align: middle;
     clip-path: circle(25px at center);
     position: absolute;
-    margin-left: 50%;
-    margin-top: -7%;
+    margin-left: 42%;
+    margin-top: -4%;
   }
 
   #upload{
@@ -2195,6 +2200,7 @@ img.kacheln {
   margin: 20px;
   margin-top: 0px;
   margin-bottom: 20px;
+  width: 90%
 }
 
 .karte2{
@@ -2463,7 +2469,7 @@ input:checked + .slider:before {
   margin: 20px;
   background-color: white;
   border-radius: 15px;
-  box-shadow: 2px 2px 15px 1px #BBBDD5;
+  box-shadow: 2px 2px 15px 1px #D0A7B8;
 }
 
 .statistikenbox3 {
@@ -2484,7 +2490,7 @@ input:checked + .slider:before {
 
 .fa-balance-scale{
   font-size: 100px;
-  color: #BBBDD5;
+  color: #D0A7B8;
   margin: 15px 15px 15px 25px;
 }
 
