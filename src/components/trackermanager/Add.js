@@ -49,6 +49,10 @@ class TrackerManagerAdd extends Component{
 
         return (
          <div>
+             <div className="container">
+                    <div className="karte2">
+                        <section className="karteDatenschutz">
+                            <div className="datenschutz_body">
              <Grid>
                 <Row>
                     <Col xs={12}>
@@ -66,7 +70,7 @@ class TrackerManagerAdd extends Component{
                                 <Col>
                                 
                                      {trackermodell.map(trackermodell => (
-                                    <Col sm={3} xs={12}>
+                                    <Col sm={3} xs={11}>
                                         <Well key={trackermodell.id} onClick={() => { 
                                                                                     const cookies = new Cookies();
                                                                                     cookies.set('webfit_setup', trackermodell.id, {
@@ -97,6 +101,10 @@ class TrackerManagerAdd extends Component{
                     </Col>
                 </Row>
             </Grid>
+            </div>
+            </section>
+            </div>
+            </div>
          </div>
         )
     }

@@ -9,32 +9,39 @@ import { Link } from 'react-router-dom';
 // Trackermanager Add / Remove / Sync Trackers
 // ===================
 
-class Trackermanager extends Component{
+class Trackermanager extends Component {
     nextPath(path) {
         this.props.history.push(path);
-      }
-    render(){
+    }
+    render() {
         return (
             <div>
-              <CheckLogin />
+                <CheckLogin />
                 <div className="container">
-                    <div className="row">
-                        <div className="col-md-10">
-                            <h1>Tracker-Manager</h1>
-                            <h5>Alle Tracker einfach und schnell verwalten.</h5>
-                        </div>
-                        <div className="col-md-2">
-                            <br />
-                            <Button type="btn btn-basic" message="Tracker hinzufügen" onClick={() => this.nextPath('/trackermanager/add') }>
-                                Tracker hinzufügen
+                    <div className="karte2">
+                        <section className="karteTm">
+                            <div className="TrackerPic"></div>
+                            <div className="Tm_body">
+                                <div className="row">
+                                    <div className="col-md-10">
+                                        <h1>Tracker-Manager</h1>
+                                        <h5>Alle Tracker einfach und schnell verwalten.</h5>
+                                    </div>
+                                    <div className="col-md-2">
+                                        <br />
+                                        <Button type="btn btn-basic" message="Tracker hinzufügen" onClick={() => this.nextPath('/trackermanager/add')}>
+                                            Tracker hinzufügen
                             </Button>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <Trackerlist />
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <Trackerlist />
+                                </div>
+
+                            </div>
+                        </section>
                     </div>
                 </div>
-                
             </div>
         )
     }

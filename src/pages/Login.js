@@ -78,7 +78,7 @@ class Login extends Component {
     return (
       
       <div className="container text-center">
-        <div className="karte2">
+        <div className="karte2-loggedout">
           <section className="karteLogin">
             <div className="loginPic"></div>
             <div className="login_body">
