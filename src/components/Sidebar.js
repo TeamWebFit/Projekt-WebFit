@@ -132,30 +132,8 @@ class Sidebar extends Component {
                             <i id="close-icon" className=" fa fa-times"></i>
                             <div id="sidebar">
                                 <ul className="ul-sidebar">
-                                    <div id="">
+                                <div id="">
                                         <Query query={getUser} variables={{ cookieuser }}>
-
-                                            {({ loading, error, data }) => {
-                                                if (loading) return <ReactLoading className="loading-screen-animation" type="spinningBubbles" color="#000000" height={'50%'} width={'50%'} />
-                                                if (error) return <div>Error</div>
-
-                                                if (data.user !== null && data.user.length > 0) {
-                                                    var url = "https://server.webfit.app:4009/public/files/" + data.user.profilePic;
-                                                    var vorname = data.user.firstName;
-                                                    var nachname = data.user.name;
-                                                    return (
-                                                        <div className="">
-                                                            <div className="user-pic">
-                                                                <img id="userPicSidebar" src={url}></img>
-                                                            </div>
-                                                            <br />
-                                                            <div className="">
-                                                                <span className="">{vorname}
-                                                                    <strong> {nachname}</strong>
-                                                                </span>
-                                                                <br />
-                                                            </div>
-
                                           {({ loading, error, data }) => {
                                             if (loading) return <ReactLoading className="loading-screen-animation" type="spinningBubbles" color="#000000" height={'50%'} width={'50%'} />
                                             if (error) return <div>Error</div>
@@ -186,34 +164,19 @@ class Sidebar extends Component {
                                                     <div className="">
                                                         <div className="user-pic">
                                                           <img id="userPicSidebar" src={url}></img>
-
                                                         </div>
-                                                    )
-                                                } else {
-                                                    var url = "https://server.webfit.app:4009/public/files/5c3a79821410f30a6dec7e78_1547730951406_profilePic_dummy_quad.jpg";
-                                                    return (
+                                                        <br />
                                                         <div className="">
-
-                                                            <div className="user-pic">
-                                                                <img id="userPicSidebar" src={url}></img>
-                                                            </div>
-
                                                             <span className="">{vorname}
                                                                 <strong> {nachname}</strong>
                                                             </span>
-
                                                             <br />
-                                                            <div className="">
-                                                                <span className="">Vorname
-                                                                <strong> Nachname</strong>
-                                                                </span>
-                                                                <br />
-                                                            </div>
                                                         </div>
-                                                    )
+                                                    </div>
+                                                  )
                                                 }
 
-                                            }}
+                                              }}
                                         </Query>
                                         <br />
                                         <hr className="hr-sidebar" />
@@ -286,6 +249,7 @@ class Sidebar extends Component {
                                 </ul>
                             </div>
                         </div>
+
                         <div id="toggle-slimbar">
                             <i id="close-icon" className="navicon fa fa-navicon"></i>
                             <div id="slimbar">
@@ -462,4 +426,4 @@ const getUser = gql`
         }
         `
 
-export default Sidebar
+export default Sidebar;
