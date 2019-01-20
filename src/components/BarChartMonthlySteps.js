@@ -17,7 +17,7 @@ class BarChartMonthlySteps extends Component {
   render() {
 
     const steps = this.props.allStepsQuery.allSteps;
-    console.log(steps);
+    //console.log(steps);
     const time = [];
     const value = [];
     if(steps){
@@ -31,13 +31,13 @@ class BarChartMonthlySteps extends Component {
     for(var i = 0; i < 30; i++){
       timeArray.push(time[i]);
     }
-    console.log(timeArray);
+    //console.log(timeArray);
 
     const valueArray = [];
     for(var i = 0; i < 30; i++){
       valueArray.push(value[i]);
     }
-    console.log(valueArray);
+    //console.log(valueArray);
 
     var data = {
       labels: timeArray,

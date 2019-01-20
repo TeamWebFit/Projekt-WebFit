@@ -70,16 +70,13 @@ class Home extends Component {
                                     <Col xs={12} sm={6} md={6}>
                                         <Col xs={12} sm={12} md={12}>
                                             <Tabs className="tabsschritte" defaultActiveKey={1} id="uncontrolled-tab-example">
-                                                <Tab eventKey={1} className="tab1" title="Schritte">
+                                                <Tab eventKey={1} className="tabHome" title="Schritte">
                                                     <BarChart user={user} />
                                                 </Tab>
-                                                <Tab eventKey={2} title="Puls">
+                                                <Tab eventKey={2} className="tabHome" title="Puls">
                                                     <AreaChart user={user} />
                                                 </Tab>
-                                                <Tab eventKey={3} title="Ziele">
-                                                    <BarChart user={user} />
-                                                </Tab>
-                                                <Tab eventKey={4} title="Gewicht">
+                                                <Tab eventKey={3} className="tabHome" title="Ziele">
                                                     <BarChart user={user} />
                                                 </Tab>
                                             </Tabs>
@@ -120,20 +117,6 @@ class Home extends Component {
                                 <br />
                                 <br />
                                 <br />
-
-                                {/* <Row className="row">
-                                    <Col sm={6} md={6} className="col">
-                                         <form className="calendar_form" id="myform">
-                                            {this.createUI()}
-                                            <p>
-                                                <button type="button" className="btn_calendar" onClick={this.addClick.bind(this)} data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                                    <i className="fa fa-plus-circle addWorkout"></i>
-                                              </button>
-                                            </p>
-                                            <output id="datum" size="30" />
-                                        </form>
-                                    </Col>
-                                </Row> */}
                             </div>
                         </div>
                     </section>

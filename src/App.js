@@ -50,6 +50,8 @@ import LoggedoutImpressum from './pages/Loggedout_Impressum';
 
 import BarChartWeeklyStatistiken from './components/BarChartWeeklyStatistiken';
 
+import Stepslist from './components/Stepslist';
+
 
 // Don't link any component (except Header & Footer)
 // Please include new pages through react-router here
@@ -126,7 +128,7 @@ class App extends Component {
                     <Route path="/schritte" component={Schritte} />
                     <Route path="/gewicht" component={Gewicht} />
                     <Route path="/BarChartWeeklyStatistiken" component={BarChartWeeklyStatistiken} />
-
+                    <Route path="/schritteliste" component={Stepslist} />
                     {/*<div id="registrationTrue"></div>*/}
                     {/* React-Router - Route End */}
                   </Switch>

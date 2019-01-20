@@ -11,7 +11,7 @@ class Schritte extends Component {
         return (
             <div className="container">
             <div className="container statistiken">
-            <NavLink className="backstatistiken" to="/statistiken"><i class="fa fa-angle-left"></i></NavLink>
+            <NavLink className="backstatistiken" to="/statistiken"><i className="fa fa-angle-left"></i></NavLink>
                 <h4 className="h4statistiken">Schritte</h4>
                 <Tabs className="tabsschritte" defaultActiveKey={1} id="uncontrolled-tab-example">
                     <Tab eventKey={1} title="T">
@@ -26,7 +26,7 @@ class Schritte extends Component {
                     </Tab>
                     <Tab eventKey={2} title="W">
                         <div className="grafikbox">
-                            <BarChart />
+                            {/*<BarChart />*/}
                         </div>
                         <div className="boxstatistikenValues">
                             <div className="boxstatistiken2"><div className="boxstatistiken2headline">Schrittanzahl</div>
