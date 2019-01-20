@@ -5,6 +5,7 @@ import { withCookies, Cookies } from 'react-cookie';
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
+import ReactLoading from 'react-loading';
 
 // ===================
 // User Page
@@ -14,27 +15,49 @@ import { Query } from 'react-apollo';
 class KachelHeartRate extends Component {
 
   render() {
-    var userId = '';
+    var trackerId = '';
 
     if(this.props.user){
-      userId = this.props.user.id;
+      trackerId = this.props.user.tracker[0].id;
     }
-
 
     return (
       <div>
-        <Query query={getWeight} variables={{ userId }}>
+        <Query query={HEARTRATE_QUERY} variables={{ trackerId }}>
           {({ loading, error, data }) => {
-            if (loading) return <div>Fetching</div>
+            if (loading) return <ReactLoading className="loading-screen-animation" type="spinningBubbles" color="#000000" height={'50%'} width={'50%'} />
             if (error) return <div>Error</div>
-            if (data['user'] === null) {
-              return <div>keine Daten</div>
-            }
-            if (data){
+            
+            if (data.heartRateViaTracker === null || data.heartRateViaTracker.length <= 0) {
               return (
                 <div>
-                  <p>aktueller Ruhepuls</p>
+                  <p>durchschnittl. Puls</p>
                   <h3 className="kachelNumber">-</h3>
+                </div>
+              )
+            } else {
+              const heartrate = data.heartRateViaTracker;
+              const value = [];
+              if (heartrate) {
+                heartrate.forEach(function (element) {
+                  value.push(element.value);
+                })
+              }
+              var valueLength = value.length;
+              var valueAverage = 0;
+
+              for (var i = 0; i < valueLength; i++) {
+                valueAverage = valueAverage + value[i];
+              }
+
+              valueAverage = valueAverage / valueLength;
+
+              var valueAverage = Math.round(valueAverage);
+
+              return (
+                <div>
+                  <p>durchschnittl. Puls</p>
+                  <h3 className="kachelNumber">{valueAverage} bmi</h3>
                 </div>
               )
             }
@@ -45,14 +68,14 @@ class KachelHeartRate extends Component {
   }
 }
 
-const getWeight = gql`
-        query getWeight($userId: ID){
-          weight(userId: $userId)
-          {
-            time
-            value
-          }
+const HEARTRATE_QUERY = gql`
+  query HeartrateQuery($trackerId: ID) {
+      heartRateViaTracker(trackerId: $trackerId) {
+          time
+          value
+          trackerId
         }
-        `
+      }
+    `
 
 export default KachelHeartRate;
