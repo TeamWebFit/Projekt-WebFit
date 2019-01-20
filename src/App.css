@@ -2301,7 +2301,8 @@ div.line-content input{
   background: #ffffff;
   border-radius: 15px;
   margin: 20px;
-  margin-top: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
   margin-bottom: 20px;
   width: 90%
 }
@@ -2370,7 +2371,7 @@ border-radius: 10px;
   .karteTm{
     background: #ffffff;
     border-radius: 15px;
-    margin: 0px;
+    
     margin-top: 0px;
     margin-bottom: 20px;
   }
