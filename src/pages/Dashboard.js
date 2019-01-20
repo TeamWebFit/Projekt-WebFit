@@ -14,6 +14,10 @@ import { Query } from 'react-apollo';
 
 class Dashboard extends Component {
 
+  UNSAFE_componentWillReceiveProps(){
+    window.location.reload();
+  }
+
   render() {
 
     const cookies = new Cookies();
