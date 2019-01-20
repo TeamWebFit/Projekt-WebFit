@@ -44,6 +44,10 @@ import Sidebar from './components/Sidebar'
 
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import LastWorkout from './components/LastWorkout';
+
+import LoggedoutDatenschutz from './pages/Loggedout_Datenschutz';
+import LoggedoutImpressum from './pages/Loggedout_Impressum';
+
 import BarChartWeeklyStatistiken from './components/BarChartWeeklyStatistiken';
 
 
@@ -112,6 +116,9 @@ class App extends Component {
                     <Route path="/community" component={Community} />
                     <Route path="/workouts" component={Workouts} />
                     <Route path="/button" component={AddButton} />
+                    <Route path="/datenschutzl" component={LoggedoutDatenschutz} />
+                    <Route path="/impressuml" component={LoggedoutImpressum} />
+
 
                     {/* Statistiken */}
                     <Route path="/statistiken" component={Statistiken} />

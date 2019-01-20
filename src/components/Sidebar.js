@@ -7,15 +7,18 @@ import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import { withCookies, Cookies } from 'react-cookie';
 import ReactLoading from 'react-loading';
+import { Tooltip, OverlayTrigger } from "react-bootstrap";
 
 class Sidebar extends Component {
     componentDidMount() {
-        
+
         var url = window.location.pathname;
         var user = "/user";
         var login = "/login";
         var register = "/register";
         var logout = "/logout";
+        var impressum = "/impressuml";
+        var datenschutz = "/datenschutzl";
         //menu_header
         if (url === login) {
             $('#toggle-loggedout').show();
@@ -32,9 +35,19 @@ class Sidebar extends Component {
             $('#toggle-sidebar').hide();
             $('#toggle-slimbar').hide();
         };
+        if (url === impressum) {
+            $('#toggle-loggedout').show();
+            $('#toggle-sidebar').hide();
+            $('#toggle-slimbar').hide();
+        };
+        if (url === datenschutz) {
+            $('#toggle-loggedout').show();
+            $('#toggle-sidebar').hide();
+            $('#toggle-slimbar').hide();
+        };
         if (url === user) {
             $('#nav-header').hide();
-            
+
         } else {
             //menu_header
             $('#close-icon').click(function () {
@@ -51,11 +64,59 @@ class Sidebar extends Component {
                 $('#toggle-loggedout').hide();
             })
         }
-        
+
     }
 
+
     render() {
-        
+
+
+        const tooltip_profile = (
+            <Tooltip id="tooltip">
+                Profil
+            </Tooltip>
+        );
+        const tooltip_dashboard = (
+            <Tooltip id="tooltip">
+                Dashboard
+            </Tooltip>
+        );
+        const tooltip_tm = (
+            <Tooltip id="tooltip">
+                Trackermanager
+            </Tooltip>
+        );
+        const tooltip_goals = (
+            <Tooltip id="tooltip">
+                Ziele
+            </Tooltip>
+        );
+        const tooltip_workout = (
+            <Tooltip id="tooltip">
+                Workouts
+            </Tooltip>
+        );
+        const tooltip_stats = (
+            <Tooltip id="tooltip">
+                Statistiken
+            </Tooltip>
+        );
+        const tooltip_data = (
+            <Tooltip id="tooltip">
+                Datenschutz
+            </Tooltip>
+        );
+        const tooltip_agb = (
+            <Tooltip id="tooltip">
+                AGB & Impressum
+            </Tooltip>
+        );
+        const tooltip_logout = (
+            <Tooltip id="tooltip">
+                Ausloggen
+            </Tooltip>
+        );
+
         const cookies = new Cookies();
         var cookieuser = cookies.get('webfit_user');
         console.log(cookieuser);
@@ -71,17 +132,15 @@ class Sidebar extends Component {
                             <i id="close-icon" className=" fa fa-times"></i>
                             <div id="sidebar">
                                 <ul className="ul-sidebar">
-                                    <div id="">
+                                <div id="">
                                         <Query query={getUser} variables={{ cookieuser }}>
                                           {({ loading, error, data }) => {
                                             if (loading) return <ReactLoading className="loading-screen-animation" type="spinningBubbles" color="#000000" height={'50%'} width={'50%'} />
                                             if (error) return <div>Error</div>
-
-                                            if(data.user !== null && data.user.length > 0)
+                                            console.log(data.user);
+                                            if(data.user === null || data.user.length <= 0)
                                               {
-                                                var url = "https://server.webfit.app:4009/public/files/"+data.user.profilePic;
-                                                var vorname = data.user.firstName;
-                                                var nachname = data.user.name;
+                                                var url = "https://server.webfit.app:4009/public/files/5c3a79821410f30a6dec7e78_1547730951406_profilePic_dummy_quad.jpg";
                                                 return(
                                                   <div className="">
                                                       <div className="user-pic">
@@ -89,14 +148,18 @@ class Sidebar extends Component {
                                                       </div>
                                                       <br />
                                                       <div className="">
-                                                          <span className="">{vorname}
-                                                              <strong> {nachname}</strong>
+                                                          <span className="">Vorname
+                                                              <strong> Nachname</strong>
                                                           </span>
                                                           <br />
                                                       </div>
                                                   </div>
-                                                )}else {
-                                                  var url = "https://server.webfit.app:4009/public/files/5c3a79821410f30a6dec7e78_1547730951406_profilePic_dummy_quad.jpg";
+                                                )
+                                                }else {
+                                                  var url = "https://server.webfit.app:4009/public/files/"+data.user.profilePic;
+                                                  var vorname = data.user.firstName;
+                                                  var nachname = data.user.name;
+
                                                   return(
                                                     <div className="">
                                                         <div className="user-pic">
@@ -104,8 +167,8 @@ class Sidebar extends Component {
                                                         </div>
                                                         <br />
                                                         <div className="">
-                                                            <span className="">Vorname
-                                                                <strong> Nachname</strong>
+                                                            <span className="">{vorname}
+                                                                <strong> {nachname}</strong>
                                                             </span>
                                                             <br />
                                                         </div>
@@ -186,17 +249,56 @@ class Sidebar extends Component {
                                 </ul>
                             </div>
                         </div>
+
                         <div id="toggle-slimbar">
                             <i id="close-icon" className="navicon fa fa-navicon"></i>
                             <div id="slimbar">
                                 <ul className="ul-slimbar">
                                     <div id="">
+
+                                        <Query query={getUser} variables={{ cookieuser }}>
+                                            {({ loading, error, data }) => {
+                                                if (loading) return <ReactLoading className="loading-screen-animation" type="spinningBubbles" color="#000000" height={'50%'} width={'50%'} />
+                                                if (error) return <div>Error</div>
+                                                if (data.user !== null && data.user.length > 0) {
+                                                    var url = "https://server.webfit.app:4009/public/files/" + data.user.profilePic;
+                                                    var vorname = data.user.firstName;
+                                                    var nachname = data.user.name;
+                                                    return (
+                                                        <div className="">
+                                                            <div className="user-pic-slim">
+                                                                <img id="userPicSidebarSlim" src={url}></img>
+                                                            </div>
+                                                        </div>
+                                                    )
+                                                } else {
+                                                    var url = "https://server.webfit.app:4009/public/files/5c3a79821410f30a6dec7e78_1547730951406_profilePic_dummy_quad.jpg";
+                                                    return (
+                                                        <div className="">
+                                                            <div className="user-pic-slim">
+                                                                <img id="userPicSidebarSlim" src={url}></img>
+                                                            </div>
+                                                        </div>
+                                                    )
+                                                }
+                                            }}
+                                        </Query>
+
                                       <Query query={getUser} variables={{ cookieuser }}>
                                         {({ loading, error, data }) => {
                                           if (loading) return <ReactLoading className="loading-screen-animation" type="spinningBubbles" color="#000000" height={'50%'} width={'50%'} />
                                           if (error) return <div>Error</div>
-                                          if(data.user !== null && data.user.length > 0)
+                                          if(data.user === null || data.user.length <= 0)
                                           {
+                                            var url = "https://server.webfit.app:4009/public/files/5c3a79821410f30a6dec7e78_1547730951406_profilePic_dummy_quad.jpg";
+                                            return(
+                                              <div className="">
+                                                  <div className="user-pic-slim">
+                                                    <img id="userPicSidebarSlim" src={url}></img>
+                                                  </div>
+                                              </div>
+                                            )
+                                          }else {
                                             var url = "https://server.webfit.app:4009/public/files/"+data.user.profilePic;
                                             var vorname = data.user.firstName;
                                             var nachname = data.user.name;
@@ -207,49 +309,56 @@ class Sidebar extends Component {
                                                   </div>
                                               </div>
                                             )
-                                          }else {
-                                            var url = "https://server.webfit.app:4009/public/files/5c3a79821410f30a6dec7e78_1547730951406_profilePic_dummy_quad.jpg";
-                                            return(
-                                              <div className="">
-                                                  <div className="user-pic-slim">
-                                                    <img id="userPicSidebarSlim" src={url}></img>
-                                                  </div>
-                                              </div>
-                                            )
                                           }
                                         }}
                                       </Query>
+
                                         <br />
                                         <hr className="hr-sidebar" />
+
                                         <li className="sidebar-menu">
-                                            <NavLink to="/user">
-                                                <i id="icon_slim" className="fa fa-user"></i>
-                                            </NavLink>
+                                            <OverlayTrigger placement="left" overlay={tooltip_profile}>
+                                                <NavLink to="/user">
+
+                                                    <i id="icon_slim" className="fa fa-user"></i>
+
+                                                </NavLink>
+                                            </OverlayTrigger>
                                         </li>
                                         <li>
-                                            <NavLink to="/">
-                                                <i id="icon_slim" className="fa fa-tachometer"></i>
-                                            </NavLink>
+                                            <OverlayTrigger placement="left" overlay={tooltip_dashboard}>
+                                                <NavLink to="/">
+                                                    <i id="icon_slim" className="fa fa-tachometer"></i>
+                                                </NavLink>
+                                            </OverlayTrigger>
                                         </li>
                                         <li>
-                                            <NavLink to="/trackermanager">
-                                                <i id="icon_slim" className="fa fa-clock-o"></i>
-                                            </NavLink>
+                                            <OverlayTrigger placement="left" overlay={tooltip_tm}>
+                                                <NavLink to="/trackermanager">
+                                                    <i id="icon_slim" className="fa fa-clock-o"></i>
+                                                </NavLink>
+                                            </OverlayTrigger>
                                         </li>
                                         <li>
-                                            <NavLink to="/statistiken">
-                                                <i id="icon_slim" className="fa fa-bar-chart-o"></i>
-                                            </NavLink>
+                                            <OverlayTrigger placement="left" overlay={tooltip_stats}>
+                                                <NavLink to="/statistiken">
+                                                    <i id="icon_slim" className="fa fa-bar-chart-o"></i>
+                                                </NavLink>
+                                            </OverlayTrigger>
                                         </li>
                                         <li>
-                                            <NavLink to="/goals">
-                                                <i id="icon_slim" className="fa fa-flag-checkered"></i>
-                                            </NavLink>
+                                            <OverlayTrigger placement="left" overlay={tooltip_goals}>
+                                                <NavLink to="/goals">
+                                                    <i id="icon_slim" className="fa fa-flag-checkered"></i>
+                                                </NavLink>
+                                            </OverlayTrigger>
                                         </li>
                                         <li>
-                                            <NavLink to="/workouts">
-                                                <i id="icon_slim" className="fa fa-bicycle"></i>
-                                            </NavLink>
+                                            <OverlayTrigger placement="left" overlay={tooltip_workout}>
+                                                <NavLink to="/workouts">
+                                                    <i id="icon_slim" className="fa fa-bicycle"></i>
+                                                </NavLink>
+                                            </OverlayTrigger>
                                         </li>
                                         <hr className="hr-sidebar" />
                                         {/* <li>
@@ -258,20 +367,26 @@ class Sidebar extends Component {
                                             </NavLink>
                                         </li> */}
                                         <li>
-                                            <NavLink to="/datenschutz">
-                                                <i id="icon_slim" className="fa fa-lock"></i>
-                                            </NavLink>
+                                            <OverlayTrigger placement="left" overlay={tooltip_data}>
+                                                <NavLink to="/datenschutz">
+                                                    <i id="icon_slim" className="fa fa-lock"></i>
+                                                </NavLink>
+                                            </OverlayTrigger>
                                         </li>
                                         <li>
-                                            <NavLink to="/impressum">
-                                                <i id="icon_slim" className="fa fa-info"></i>
-                                            </NavLink>
+                                            <OverlayTrigger placement="left" overlay={tooltip_agb}>
+                                                <NavLink to="/impressum">
+                                                    <i id="icon_slim" className="fa fa-info"></i>
+                                                </NavLink>
+                                            </OverlayTrigger>
                                         </li>
                                         <hr className="hr-sidebar" />
                                         <li>
-                                            <NavLink to="/logout">
-                                                <i id="icon_slim" className="fa fa-power-off"></i>
-                                            </NavLink>
+                                            <OverlayTrigger placement="left" overlay={tooltip_logout}>
+                                                <NavLink to="/logout">
+                                                    <i id="icon_slim" className="fa fa-power-off"></i>
+                                                </NavLink>
+                                            </OverlayTrigger>
                                         </li>
                                     </div>
                                 </ul>
@@ -279,10 +394,10 @@ class Sidebar extends Component {
                         </div>
 
                         <div id="toggle-loggedout">
-                            <NavLink to="/">
+                            <NavLink to="/datenschutzl">
                                 <span className="menu_font">Datenschutz</span>
                             </NavLink>
-                            <NavLink to="/">
+                            <NavLink to="/impressuml">
                                 <span className="menu_font">AGB & Impressum</span>
                             </NavLink>
                         </div>
@@ -311,4 +426,4 @@ const getUser = gql`
         }
         `
 
-export default Sidebar
+export default Sidebar;

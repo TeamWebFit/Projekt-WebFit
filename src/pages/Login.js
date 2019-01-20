@@ -26,6 +26,10 @@ class Login extends Component {
     }
   }
 
+  UNSAFE_componentWillReceiveProps(){
+    window.location.reload();
+  }
+
   componentDidMount(){
     
     const parsed = queryString.parse(window.location.search);

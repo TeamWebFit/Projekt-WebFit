@@ -6,15 +6,22 @@ import { withCookies, Cookies } from 'react-cookie';
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
+import ReactLoading from 'react-loading';
 
 // ===================
 // User Page
 // A page for testing all components
 // ===================
 
+
 class User extends Component {
 
+  UNSAFE_componentWillReceiveProps(){
+    window.location.reload();
+  }
+
   render() {
+
 
     const cookies = new Cookies();
     var cookieuser = cookies.get('webfit_user');
@@ -24,10 +31,11 @@ class User extends Component {
         <CheckLogin />
         <Query query={getUser} variables={{ cookieuser }}>
             {({ loading, error, data }) => {
-              if (loading) return <div>Fetching</div>
+              if (loading) return <ReactLoading type="spinningBubbles" color="#000000" height={'10%'} width={'10%'} />
               if (error) return <div>Error</div>
               var user = data.user;
               console.log(user);
+              
                 //return <UserProfile user={data.user}/>
                 return (
                   <Query query={getWeight} variables={{ cookieuser }}>
@@ -48,6 +56,7 @@ class User extends Component {
         </Query>
       </div>
     )
+
   }
 }
 
