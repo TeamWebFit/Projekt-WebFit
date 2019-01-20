@@ -1435,6 +1435,10 @@ img.kacheln {
   margin: 5px;
 }
 
+h3.kachelNumber {
+  font-size: 20px;
+}
+
 .kSquare{
   margin-top: 100px;
 }
@@ -2180,22 +2184,6 @@ div.line-content input{
   margin-top: 30px;
 }
 
-@media (min-width: 650px) {
-  .area1 {
-    float: left;
-    height: auto;
-    width: 60%;
-  }
-
-  .area2 {
-    visibility: visible;
-    float: left;
-    height: auto;
-    width: 40%;
-    text-align: left;
-  }
-}
-
 .fa-fire {
   font-size: 50px;
   color: #333333;
@@ -2662,9 +2650,6 @@ input:checked + .slider:before {
   color: #ff855a;
 }
 
-.chartist-tooltip {
-  border: 1px solid #333333;
-}
 
 /*--------------------------------------------------- Statistiken Ende --------------------------------------------------- */
 

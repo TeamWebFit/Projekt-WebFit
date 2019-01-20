@@ -13,7 +13,7 @@ import AreaChart from './AreaChart';
 import KachelBMI from './KachelBMI';
 import KachelWeight from './KachelWeight';
 import KachelHeartRate from './KachelHeartRate';
-import KachelSteps from './KachelSteps';
+import KachelDistance from './KachelDistance';
 import AddWorkout from './AddWorkout';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
@@ -98,7 +98,7 @@ class Home extends Component {
                                                     <KachelHeartRate user={user} />
                                                 </div>
                                                 <div className="kachelStatistik kachelstat4">
-                                                    <KachelSteps user={user} />
+                                                    <KachelDistance user={user} />
                                                 </div>
                                             </div>
                                         </Col>
