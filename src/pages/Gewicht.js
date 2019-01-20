@@ -23,8 +23,8 @@ class Gewicht extends Component {
                             <div className="gewichtsabzu2">2000 g</div>
                             {/* chart */}
                         </div>
-                        <div className="boxstatistiken">
-                            <h5 className="boxstatistiken2"><div className="boxstatistiken2headline">BMI</div></h5>
+                        <div className="bmistats">
+                            <h5 className="bmistats2"><div className="boxstatistiken2headline">BMI</div></h5>
                         </div>
                     </Tab>
                     <Tab eventKey={2} title="W">
@@ -40,8 +40,8 @@ class Gewicht extends Component {
                             <div className="gewichtsabzu2">2000 g</div>
                             {/* chart */}
                         </div>
-                        <div className="boxstatistiken">
-                            <h5 className="boxstatistiken2"><div className="boxstatistiken2headline">BMI</div></h5>
+                        <div className="bmistats">
+                            <h5 className="bmistats2"><div className="boxstatistiken2headline">BMI</div></h5>
                         </div>
                     </Tab>
                     <Tab eventKey={3} title="M">
@@ -57,8 +57,8 @@ class Gewicht extends Component {
                             <div className="gewichtsabzu2">2000 g</div>
                             {/* chart */}
                         </div>
-                        <div className="boxstatistiken">
-                            <h5 className="boxstatistiken2"><div className="boxstatistiken2headline">BMI</div></h5>
+                        <div className="bmistats">
+                            <h5 className="bmistats2"><div className="boxstatistiken2headline">BMI</div></h5>
                         </div>
                     </Tab>
                     <Tab eventKey={4} title="J">
@@ -74,8 +74,8 @@ class Gewicht extends Component {
                             <div className="gewichtsabzu2">2000 g</div>
                             {/* chart */}
                         </div>
-                        <div className="boxstatistiken">
-                            <h5 className="boxstatistiken2"><div className="boxstatistiken2headline">BMI</div></h5>
+                        <div className="bmistats">
+                            <h5 className="bmistats2"><div className="boxstatistiken2headline">BMI</div></h5>
                         </div>
                     </Tab>
                 </Tabs>

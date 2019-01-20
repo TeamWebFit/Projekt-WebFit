@@ -365,6 +365,12 @@ form {
 
 .karte2{
   border-radius: 10px;
+  width: 90%;
+  display: table;
+}
+
+.karte2-loggedout{
+  border-radius: 10px;
   width: 100%;
   display: table;
 }
@@ -426,7 +432,13 @@ form {
 
 .karte2{
   border-radius: 10px;
-  width: 100%;
+  width: 90%;
+  display: table;
+}
+
+.karte2-loggedout{
+  border-radius: 10px;
+  width: 90%;
   display: table;
 }
 
@@ -500,7 +512,13 @@ form {
 
 .karte2{
   border-radius: 10px;
-  width: 100%;
+  width: 90%;
+  display: table;
+}
+
+.karte2-loggedout{
+border-radius: 10px;
+  width: 90%;
   display: table;
 }
 
@@ -1358,7 +1376,6 @@ i.icons-footer{
 
 
 
-
 img.kacheln {
   display: block;
   margin-left: auto;
@@ -1388,8 +1405,8 @@ img.kacheln {
   border-radius: 15px;
   text-align: center;
   padding: 1em;
-  
-  
+
+
 }
 
 .kachelstat1{
@@ -1410,7 +1427,7 @@ img.kacheln {
 .kachelstat4{
   box-shadow: 2px 2px 15px 1px #FD9C76;
   margin: 15px;
-  
+
 }
 
 .kachelNumber{
@@ -1419,7 +1436,7 @@ img.kacheln {
 }
 
 .kSquare{
-  margin-top: 30px;
+  margin-top: 100px;
 }
 
 /*------------------------------------React Kalender---------------------------------*/
@@ -1532,7 +1549,7 @@ img.kacheln {
   height: 180px;
   border-radius: 10px;
   background-color: #ffffff;
-  box-shadow: 2px 2px 15px 1px #BBBDD5;  
+  box-shadow: 2px 2px 15px 1px #BBBDD5;
   text-align: center;
   float: center;
   display: block;
@@ -1586,6 +1603,97 @@ img.kacheln {
     margin-bottom: 0px !important;
   }
 }
+
+.workoutPic{
+  background: url(./assets/img/workout.jpg) top left/cover no-repeat;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  width: 40%;
+  display: table-cell;
+  height: 100%;
+}
+
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+  .karte2 .workoutPic {
+    width: 100%;
+    display: block;
+    padding-top: 150px;
+    background-position: left center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 15px;
+    background: url(./assets/img/workout.jpg) top left/cover no-repeat;
+  
+  
+    }
+  
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .karte2 .workoutPic {
+    width: 100%;
+    display: block;
+    padding-top: 150px;
+    background-position: left center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 15px;
+    background: url(./assets/img/workout2.jpg) top left/cover no-repeat;  
+    }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .karte2 .workoutPic {
+    width: 100%;
+    display: block;
+    padding-top: 150px;
+    background-position: left center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 15px;
+    background: url(./assets/img/workout2.jpg) top left/cover no-repeat;
+  
+  
+    }
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .karte2 .workoutPic {
+    width: 100%;
+    display: block;
+    padding-top: 200px;
+    background-position: left center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 15px;
+    background: url(./assets/img/workout2.jpg) top left/cover no-repeat;
+  
+  
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  .karte2 .workoutPic {
+    width: 100%;
+    display: block;
+    padding-top: 200px;
+    background-position: left center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 15px;
+    background: url(./assets/img/workout2.jpg) top left/cover no-repeat;
+  
+  
+    }
+    
+}
+
 
 /*9. User Profile*/
 
@@ -1693,10 +1801,15 @@ img.kacheln {
 
 }
 
+div.line-content input{
+  border-bottom: none;
+}
+
 .line-icon{
   font-size: 2em !important;
   color: #9FC9EB !important;
   margin: 0 !important;
+  padding-right: 25px;
 }
 
 .inp{
@@ -1839,7 +1952,7 @@ img.kacheln {
     vertical-align: middle;
     clip-path: circle(25px at center);
     position: absolute;
-    margin-left: 50%;
+    margin-left: 45%;
     margin-top: -8%;
   }
 
@@ -1880,7 +1993,7 @@ img.kacheln {
     vertical-align: middle;
     clip-path: circle(25px at center);
     position: absolute;
-    margin-left: 50%;
+    margin-left: 37%;
     margin-top: -7%;
   }
 
@@ -1898,7 +2011,7 @@ img.kacheln {
 
   #profilePic{
     width: 170px;
-    margin-top: 0px;
+    margin-top: -100px;
     clip-path: circle(80px at center);
   }
 
@@ -1921,7 +2034,7 @@ img.kacheln {
     vertical-align: middle;
     clip-path: circle(25px at center);
     position: absolute;
-    margin-left: 50%;
+    margin-left: 40%;
     margin-top: -7%;
   }
 
@@ -1961,8 +2074,8 @@ img.kacheln {
     vertical-align: middle;
     clip-path: circle(25px at center);
     position: absolute;
-    margin-left: 50%;
-    margin-top: -7%;
+    margin-left: 42%;
+    margin-top: -4%;
   }
 
   #upload{
@@ -2134,6 +2247,25 @@ img.kacheln {
   height: 160px;
 }
 
+.Bluepill{
+  width: 50px;
+  height: 50px;
+  background-color: #00f;
+}
+
+.Redpill{
+  width: 50px;
+  height: 50px;
+  background-color: #f00;
+}
+
+.Greenpill{
+  width: 50px;
+  height: 50px;
+  background-color: #0f0;
+}
+
+
 /* Charts End */
 
 /*8. Page Transitions*/
@@ -2176,6 +2308,163 @@ img.kacheln {
 .trackermanager-back-button{
   margin-top: 5%;
 }
+
+.karteTm{
+  background: #ffffff;
+  border-radius: 15px;
+  margin: 20px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  width: 90%
+}
+
+.karte2{
+  border-radius: 10px;
+  width: 90%;
+  display: table;
+}
+
+.karte2-loggedout{
+border-radius: 10px;
+  width: 100%;
+  display: table;
+}
+
+.Tm_body{
+  display: table-cell;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.TrackerPic{
+  background: url(./assets/img/tracker.jpg) top left/cover no-repeat;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  width: 40%;
+  display: table-cell;
+  height: 100%;
+}
+
+
+.panel{
+  box-shadow: 2px 2px 15px 1px #BBBDD5;
+  border-radius: 15px;
+}
+
+.panel-footer{
+  background-color: transparent;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.btn-default {
+ background-image: none;
+  background-repeat: repeat-x;
+  border-color: #dbdbdb;
+  border-color: transparent;
+  box-shadow: 0px 1px 1px 0px #BBBDD5;
+  /* box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 1px rgba(0, 0, 0, .075); */
+}
+
+.well{
+  box-shadow: 0px 1px 1px 0px #BBBDD5;
+  background-image: none;
+  background-color: #ffffff;
+  border: none;
+}
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+  .tracker-element{
+    min-width: 24em;
+  }
+
+  .karteTm{
+    background: #ffffff;
+    border-radius: 15px;
+    margin: 0px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+
+  .karte2 .TrackerPic {
+    width: 100%;
+    display: block;
+    padding-top: 150px;
+    background-position: left center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 15px;
+    background: url(./assets/img/tracker.jpg) top left/cover no-repeat;
+  
+  
+    }
+  
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .karte2 .TrackerPic {
+    width: 100%;
+    display: block;
+    padding-top: 150px;
+    background-position: left center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 15px;
+    background: url(./assets/img/tracker2.jpg) top left/cover no-repeat;  
+    }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .karte2 .TrackerPic {
+    width: 100%;
+    display: block;
+    padding-top: 150px;
+    background-position: left center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 15px;
+    background: url(./assets/img/tracker2.jpg) top left/cover no-repeat;
+  
+  
+    }
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .karte2 .TrackerPic {
+    width: 100%;
+    display: block;
+    padding-top: 200px;
+    background-position: left center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 15px;
+    background: url(./assets/img/tracker2.jpg) top left/cover no-repeat;
+  
+  
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  .karte2 .TrackerPic {
+    width: 100%;
+    display: block;
+    padding-top: 200px;
+    background-position: left center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 15px;
+    background: url(./assets/img/tracker2.jpg) top left/cover no-repeat;
+  
+  
+    }
+    
+}
+
 
 /* END TRACKERMANAGER */
 
@@ -2236,6 +2525,12 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
+.datenschutz_body{
+  display: table-cell;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 /* Rounded sliders */
 .slider.round {
   border-radius: 34px;
@@ -2261,7 +2556,7 @@ input:checked + .slider:before {
 .karteDatenschutz{
   background: #ffffff;
   border-radius: 15px;
-  margin: 20px;
+  margin-bottom: 20px;
   margin-top: 0px;
 }
 
@@ -2271,158 +2566,6 @@ input:checked + .slider:before {
 
 /*----------------------------Ende Datenschutz----------------------------*/
 
-/* -------------------------------------- Media Queries -------------------------------- */
-/* Extra small devices (portrait phones, less than 576px)*/
-@media (max-width: 575.98px) {
-  body {
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-attachment: fixed;
-    z-index: 0;
-    overflow: scroll;
-  }
-
-   /*5.1. Home-Menu*/
-   #ul-left-header {
-    display: none;
-  }
-
-  img#logo {
-    position: static;
-    float: left;
-    margin-left: 2%;
-    margin-top: 1.5%;
-    width: 20%;
-  }
-
-  .karteLogin {
-    background: #ffffff;
-    border-radius: 15px;
-    margin: 20px;
-    margin-top: 0px;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 100px;
-}
-
-.karte {
-  display: block;
-}
-.karte2 .loginPic {
-  width: 100%;
-  display: block;
-  padding-top: 150px;
-  background-position: left center;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 0px;
-  border-top-right-radius: 15px;
-
-}
-.loginPic{
-  height: 20%;
-}
-.karte2 .login_body {
-  display: block;
-  margin-top: -60px;
-}
-
-.karteRegister {
-  background: #ffffff;
-  border-radius: 15px;
-  margin: 20px;
-  margin-top: 0px;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 100px;
-}
-
-.karte {
-display: block;
-}
-.karte2 .registerPic {
-width: 100%;
-display: block;
-padding-top: 150px;
-background-position: left center;
-border-top-left-radius: 15px;
-border-bottom-left-radius: 0px;
-border-top-right-radius: 15px;
-background: url(./assets/img/register2.jpg) top left/cover no-repeat;
-
-}
-.registerPic{
-height: 20%;
-}
-.karte2 .register_body {
-display: block;
-
-}
-
-
-.register_body {
-    display: table-cell;
-    padding-left: 30px;
-    padding-right: 30px;
-}
-
-.karte2 .userPic {
-  width: 100%;
-  display: block;
-  padding-top: 150px;
-  background-position: left center;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 0px;
-  border-top-right-radius: 15px;
-  background: url(./assets/img/user2.jpg) top left/cover no-repeat;
-
-
-  }
-
-  .karteUser{
-    margin-bottom: 30px;
-  }
-
-  .edit_body{
-    display: table-cell;
-    padding-left: 50px;
-    padding-right: 30px;
-  }
-
-  /*6. Home*/
-
-
-    .card {
-      width: 90%;
-      height: 200px;
-      border-radius: 10px;
-      background-color: rgba(243, 244, 245, 0.5);
-      box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
-      text-align: center;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    #myform.calendar_form{
-     display: none;
-    }
-
-    .addbutton{
-      position: fixed;
-      z-index: 2;
-      left: 0;
-      width: 100%;
-      top: 72%;
-
-    }
-
-
-    .fab {
-
-      left: 43%;
-      top: 90%;
-    }
-  }
 
 /*----------------------------------------------------- Statistiken ----------------------------------------------------- */
 
@@ -2441,7 +2584,7 @@ display: block;
   margin: 20px;
   background-color: white;
   border-radius: 15px;
-  box-shadow: 2px 2px 15px 1px #BBBDD5;
+  box-shadow: 2px 2px 15px 1px #D0A7B8;
 }
 
 .statistikenbox3 {
@@ -2462,7 +2605,7 @@ display: block;
 
 .fa-balance-scale{
   font-size: 100px;
-  color: #BBBDD5;
+  color: #D0A7B8;
   margin: 15px 15px 15px 25px;
 }
 
@@ -2551,7 +2694,7 @@ display: block;
   margin-top: 20px;
   background-color: white;
   border-radius: 15px;
-  box-shadow: 2px 2px 15px 1px #FD9C76;
+  box-shadow: 2px 2px 15px 1px #D0A7B8;
 }
 
 .grafikbox_puls{
@@ -2568,7 +2711,7 @@ display: block;
   margin-top: 300px;
   height: 30px;
   color: #FFF;
-  background-color: #333333;
+  background-color: #FD9C76;
 }
 
 .boxstatistiken {
@@ -2576,18 +2719,41 @@ display: block;
   height: 240px;
   margin: 0px auto;
   margin-top: 20px;
+  margin-bottom: 20px;
   background-color: white;
-  border: 1px solid #333333;
   border-radius: 10px;
-  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 15px 1px #D0A7B8;
 }
 
+.bmistats {
+  width: 100%;
+  height: 220px;
+  margin: 0px auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 15px 1px #FD9C76;
+}
+
+.bmistats2 {
+  height: 50px;
+  color: #FFF;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #FD9C76;
+  margin-top: -1px;
+}
+
+.container .statistiken{
+  margin-bottom: 40px;
+}
 .boxstatistiken2 {
   height: 50px;
   color: #FFF;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  background-color: #333333;
+  background-color: #D0A7B8;
   margin-top: -1px;
 }
 
@@ -2637,9 +2803,8 @@ display: block;
   margin: 0px auto;
   margin-top: 20px;
   background-color: white;
-  border: 1px solid #333333;
-  border-radius: 10px;
-  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  box-shadow: 2px 2px 15px 1px #FD9C76;
 }
 
 .gewichtbox2 {
@@ -2647,7 +2812,7 @@ display: block;
   color: #FFF;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  background-color: #333333;
+  background-color: #FD9C76;
   margin-top: -1px;
 }
 
@@ -2655,6 +2820,7 @@ display: block;
   text-align: center;
   font-size: 15px;
   margin-top: 20px;
+  background-color: #FD9C76;
 }
 
 .gewichtsabzu2 {
@@ -2719,7 +2885,7 @@ display: block;
 
 .nav-tabs li.active{
   background-color: #BBBDD5 !important;
-  
+
 }
 
  li.active:first-child{
@@ -2767,6 +2933,166 @@ a#uncontrolled-tab-example-tab-4{
 
 /*--------------------------------------------------- Schritte Ende --------------------------------------------------- */
 
+
+/* -------------------------------------- Media Queries -------------------------------- */
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+  body {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+    z-index: 0;
+    overflow: scroll;
+  }
+
+   /*5.1. Home-Menu*/
+   #ul-left-header {
+    display: none;
+  }
+
+  img#logo {
+    position: static;
+    float: left;
+    margin-left: 2%;
+    margin-top: 1.5%;
+    width: 20%;
+  }
+
+  .karteLogin {
+    background: #ffffff;
+    border-radius: 15px;
+    margin: 20px;
+    margin-top: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 100px;
+}
+
+.karte {
+  display: block;
+}
+.karte2-loggedout .loginPic {
+  width: 100%;
+  display: block;
+  padding-top: 150px;
+  background-position: left center;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 15px;
+}
+
+.karte2 {
+
+  width: 100%;
+}
+
+.loginPic{
+  height: 20%;
+}
+
+.karte2 .login_body {
+  display: block;
+  margin-top: -60px;
+}
+
+.karteRegister {
+  background: #ffffff;
+  border-radius: 15px;
+  margin: 20px;
+  margin-top: 0px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 100px;
+}
+
+.karte {
+display: block;
+}
+.karte2-loggedout .registerPic {
+width: 100%;
+display: block;
+padding-top: 150px;
+background-position: left center;
+border-top-left-radius: 15px;
+border-bottom-left-radius: 0px;
+border-top-right-radius: 15px;
+background: url(./assets/img/register2.jpg) top left/cover no-repeat;
+
+}
+.registerPic{
+height: 20%;
+}
+.karte2 .register_body {
+display: block;
+
+}
+
+
+.register_body {
+    display: table-cell;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.karte2 .userPic {
+  width: 100%;
+  display: block;
+  padding-top: 150px;
+  background-position: left center;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 15px;
+  background: url(./assets/img/user2.jpg) top left/cover no-repeat;
+
+
+  }
+
+  .karteUser{
+    margin-bottom: 30px;
+  }
+
+  .edit_body{
+    display: table-cell;
+    padding-left: 50px;
+    padding-right: 30px;
+  }
+
+  /*6. Home*/
+
+
+    .card {
+      width: 90%;
+      height: 200px;
+      border-radius: 10px;
+      background-color: rgba(243, 244, 245, 0.5);
+      box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #myform.calendar_form{
+     display: none;
+    }
+
+    .addbutton{
+      position: fixed;
+      z-index: 2;
+      left: 0;
+      width: 100%;
+      top: 72%;
+
+    }
+
+
+    .fab {
+
+      left: 43%;
+      top: 90%;
+    }
+  }
+
 /* Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) and (max-width: 767.98px) {
   body {
@@ -2804,6 +3130,7 @@ a#uncontrolled-tab-example-tab-4{
   .karte {
     display: block;
   }
+
 
   .karte2 .loginPic {
     width: 100%;
@@ -3082,6 +3409,18 @@ a#uncontrolled-tab-example-tab-4{
     left: 97%;
     top: 90%;
 }
+.karte2 .userPic {
+  width: 100%;
+  display: block;
+  padding-top: 150px;
+  background-position: left center;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 15px;
+  background: url(./assets/img/user2.jpg) top left/cover no-repeat;
+
+
+  }
 }
 
 /* Extra large devices (large desktops, 1200px and up)*/
@@ -3121,4 +3460,17 @@ a#uncontrolled-tab-example-tab-4{
     left: 97%;
     top: 90%;
 }
+
+.karte2 .userPic {
+  width: 100%;
+  display: block;
+  padding-top: 150px;
+  background-position: left center;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 15px;
+  background: url(./assets/img/user2.jpg) top left/cover no-repeat;
+
+  }
+
 }

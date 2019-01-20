@@ -11,6 +11,10 @@ class TrackerManagerAddSuccess extends Component{
     render(){
         return (
          <div>
+             <div className="container">
+                    <div className="karte2">
+                        <section className="karteDatenschutz">
+                            <div className="datenschutz_body">
              <Grid>
                  <Row>
                      <Col md={12} className="text-center">
@@ -20,6 +24,10 @@ class TrackerManagerAddSuccess extends Component{
                      </Col>
                  </Row>
              </Grid>
+             </div>
+             </section>
+             </div>
+             </div>
          </div>
         )
     }

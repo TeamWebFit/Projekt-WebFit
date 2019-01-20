@@ -19,7 +19,7 @@ class Impressum extends Component{
                 <div className="container">
                     <div className="karte2">
                         <section className="karteDatenschutz">
-                            <div className="login_body">
+                            <div className="datenschutz_body">
                                 <h2>Impressum</h2>
                                 <br />
                                 <UnserImpressum />

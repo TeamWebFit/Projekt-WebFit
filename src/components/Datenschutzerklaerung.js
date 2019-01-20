@@ -46,13 +46,13 @@ class Data extends Component {
                     <p className="" ><strong>Benennung der verantwortlichen Stelle </strong></p>
 
                         <p >Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
-                        <p><span id="s3-t-firma">Name der Firma</span>
+                        <p><span id="s3-t-firma">Projekt WebFit</span>
                             <br />
-                            <span id="s3-t-ansprechpartner">Ansprechpartner</span>
+                            <span id="s3-t-ansprechpartner">Katharina Dachs</span>
                             <br />
-                            <span id="s3-t-strasse">Straße und Hausnummer</span>
-                            <br /><span id="s3-t-plz">PLZ</span>
-                            <span id="s3-t-ort">Ort</span>
+                            <span id="s3-t-strasse">Robert-Gerwig-Platz 1</span>
+                            <br /><span id="s3-t-plz">78120</span>
+                            <span id="s3-t-ort">Furtwangen im Schwarzwald</span>
                         </p>
                         <p></p>
                         <p>
