@@ -2124,7 +2124,7 @@ div.line-content input{
 }
 
 .ct-chart {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .headlinecharts{
@@ -2623,7 +2623,7 @@ input:checked + .slider:before {
   float: left;
   width: 100px;
   list-style-type: none;
-  margin: 10px;
+  margin-right: 10px;
 }
 
 .ct-legend li.ct-series-1 {
@@ -2840,11 +2840,11 @@ input:checked + .slider:before {
 }
 
 
-.nav-tabs {
+.tabsschritte .nav-tabs {
   margin: 0px auto;
 }
 
-.nav-tabs li {
+.tabsschritte .nav-tabs li {
   width: 67px;
   height: 30px;
   text-align: center;
@@ -2853,7 +2853,7 @@ input:checked + .slider:before {
 }
 
 
-.nav-tabs li.active {
+.tabsschritte .nav-tabs li.active {
   width: 67px;
   height: 30px;
   text-align: center;
@@ -2863,68 +2863,157 @@ input:checked + .slider:before {
   color: #FFF;
 }
 
-#uncontrolled-tab-example-tab-2 {
+.tabsschritte #uncontrolled-tab-example-tab-2 {
   border: none;
 }
 
-.nav-tabs li a{
+.tabsschritte .nav-tabs li a{
   padding: 0px;
   margin-top: 5px;
   border: 0px;
   color: #333333;
 }
 
-.nav-tabs li:last-child{
+.tabsschritte .nav-tabs li:last-child{
   border: none;
 }
 
-.nav-tabs li.active{
+.tabsschritte .nav-tabs li.active{
   background-color: #BBBDD5 !important;
 
 }
 
- li.active:first-child{
+.tabsschritte li.active:first-child{
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
 }
 
-li.active:last-child{
+.tabsschritte li.active:last-child{
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
 }
 
 
-.nav-tabs {
+.tabsschritte .nav-tabs {
   width: 270px;
   border: 1px solid #BBBDD5;
   border-radius: 30px;
 }
 
-#uncontrolled-tab-example{
+.tabsschritte #uncontrolled-tab-example{
   margin-top: 30px;
 }
 
-a#uncontrolled-tab-example-tab-1{
+.tabsschritte a#uncontrolled-tab-example-tab-1{
     background-color: transparent;
     border: none;
 
 
 }
-a#uncontrolled-tab-example-tab-2{
+.tabsschritte a#uncontrolled-tab-example-tab-2{
   background-color: transparent;
   border: none;
 
 }
-a#uncontrolled-tab-example-tab-3{
+.tabsschritte a#uncontrolled-tab-example-tab-3{
   background-color: transparent;
   border: none;
 
 }
-a#uncontrolled-tab-example-tab-4{
+.tabsschritte a#uncontrolled-tab-example-tab-4{
   background-color: transparent;
   border: none;
 
 }
+
+/* tabshome */
+
+.hometab .nav-tabs {
+  margin: 0px auto;
+  margin-top: 20px;
+}
+
+.hometab .nav-tabs li {
+  width: 67px;
+  height: 30px;
+  text-align: center;
+  border-right: 1px solid #BBBDD5;
+  margin: 0px;
+}
+
+
+.hometab .nav-tabs li.active {
+  width: 67px;
+  height: 30px;
+  text-align: center;
+  border-right: 1px solid #BBBDD5;
+  margin: 0px;
+  background: #333333 !important;
+  color: #FFF;
+}
+
+.hometab #uncontrolled-tab-example-tab-2 {
+  border: none;
+}
+
+.hometab .nav-tabs li a{
+  padding: 0px;
+  margin-top: 5px;
+  border: 0px;
+  color: #333333;
+}
+
+.hometab .nav-tabs li:last-child{
+  border: none;
+}
+
+.hometab .nav-tabs li.active{
+  background-color: #BBBDD5 !important;
+
+}
+
+.hometab li.active:first-child{
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.hometab li.active:last-child{
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.hometab .nav-tabs {
+  width: 203px;
+  border: 1px solid #BBBDD5;
+  border-radius: 30px;
+}
+
+.hometab #uncontrolled-tab-example{
+  margin-top: 30px;
+}
+
+.hometab a#uncontrolled-tab-example-tab-1{
+    background-color: transparent;
+    border: none;
+
+
+}
+.hometab a#uncontrolled-tab-example-tab-2{
+  background-color: transparent;
+  border: none;
+
+}
+.hometab a#uncontrolled-tab-example-tab-3{
+  background-color: transparent;
+  border: none;
+
+}
+.hometab a#uncontrolled-tab-example-tab-4{
+  background-color: transparent;
+  border: none;
+}
+
+
 
 /*--------------------------------------------------- Schritte Ende --------------------------------------------------- */
 
