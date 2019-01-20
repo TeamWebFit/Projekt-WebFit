@@ -14,7 +14,12 @@ import { Query } from 'react-apollo';
 class KachelHeartRate extends Component {
 
   render() {
-    var userId = this.props.user.id;
+    var userId = '';
+
+    if(this.props.user){
+      userId = this.props.user.id;
+    }
+
 
     return (
       <div>
