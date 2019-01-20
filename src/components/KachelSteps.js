@@ -12,7 +12,7 @@ import { Query } from 'react-apollo';
 // A page for testing all components
 // ===================
 
-class KachelDistance extends Component {
+class KachelSteps extends Component {
 
   render() {
     var trackerId = '';
@@ -84,4 +84,4 @@ const GET_STEPS = gql`
         }
         `
 
-export default KachelDistance;
+export default KachelSteps;
