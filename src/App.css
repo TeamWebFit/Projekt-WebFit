@@ -11,6 +11,8 @@
 8. Page Transitions
 9. User Profile
 10. TrackerManager
+11. Statistiken
+11.1 Schritte
 --------- Media Queries ---------
 */
 
@@ -1442,6 +1444,7 @@ h3.kachelNumber {
 .kSquare{
   margin-top: 100px;
 }
+
 
 /*------------------------------------React Kalender---------------------------------*/
 .react-calendar{
@@ -3015,6 +3018,15 @@ input:checked + .slider:before {
 }
 
 
+
+.stepsinfo{
+  padding: 5px;
+  border-bottom: 0.5px solid rgb(180, 180, 180);
+}
+
+.stepsArrowIcon{
+  float: right;
+}
 
 /*--------------------------------------------------- Schritte Ende --------------------------------------------------- */
 

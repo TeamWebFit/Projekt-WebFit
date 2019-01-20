@@ -29,7 +29,7 @@ class Statistiken extends Component {
                     </NavLink>
                     <NavLink to="/gewicht">
                         <div className=".col-md-2 statistikenbox3">
-                            <i class="fa fa-balance-scale waageicon"></i>
+                            <i className="fa fa-balance-scale waageicon"></i>
                             <div className="textstatistikenicon2">
                                 <p className="textstatistikenicon">Gewicht</p>
                             </div>

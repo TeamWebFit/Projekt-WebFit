@@ -255,8 +255,7 @@ class Sidebar extends Component {
                             <div id="slimbar">
                                 <ul className="ul-slimbar">
                                     <div id="">
-
-                                
+                        
                                     <Query query={getUser} variables={{ cookieuser }}>
                                         {({ loading, error, data }) => {
                                           if (loading) return <ReactLoading className="loading-screen-animation" type="spinningBubbles" color="#000000" height={'50%'} width={'50%'} />
