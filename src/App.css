@@ -1159,8 +1159,8 @@ a.menu_font{
 
 .navicon{
  margin-right: 20%;
-}
-
+}			
+      
 /* --------- Media Queries --------- */
 /* Extra small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
