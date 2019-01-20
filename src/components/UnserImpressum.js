@@ -19,32 +19,31 @@ class UnserImpressum extends Component {
                     
                     <p>Angaben gemäß § 5 TMG</p>
                     <p>
-                        Max Muster <br />
-                        Musterweg<br />
-                        12345 Musterstadt <br />
+                        Projekt WebFit <br />
+                        Robert-Gerwig-Platz 1 <br />
+                        78120 Furtwangen im Schwarzwald <br />
                     </p>
                     <p> <strong>Vertreten durch: </strong><br />
-                        Max Muster<br />
+                        Katharina Dachs<br />
                     </p>
                     <p>
                         <strong>Kontakt:</strong> <br />
-                        Telefon: 01234-789456<br />
-                        Fax: 1234-56789<br />
-                        E-Mail: <a href='mailto:max@muster.de'>max@muster.de</a>
+                        Telefon: -<br />
+                        E-Mail: <a href='mailto:max@muster.de'>team@webfit.app</a>
                         <br />
                         </p>
                         <p>
-                            <strong>Umsatzsteuer-ID: </strong> <br />
-                        Umsatzsteuer-Identifikationsnummer gemäß §27a Umsatzsteuergesetz: Musterustid.<br /><br />
-                        <strong>Wirtschafts-ID: </strong><br />
-                        Musterwirtschaftsid<br />
+                            <strong>Umsatzsteuer-ID: -</strong> <br />
+                        
+                        <strong>Wirtschafts-ID: -</strong><br />
+                        <br />
                     </p>
                     <p>
                         <strong>Aufsichtsbehörde:</strong><br />
-                        Musteraufsicht Musterstadt<br />
+                        -<br />
                         </p>
                         <p>
-                            <strong>Haftungsausschluss: </strong>
+                            <strong>Haftungsausschluss: -</strong>
                             <br /><br />
                             <strong>Haftung für Inhalte</strong>
                             <br /><br />

@@ -20,7 +20,7 @@
       "density": "2"
     }
   ],
-  "start_url": "./index.html",
+  "start_url": "./login",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
