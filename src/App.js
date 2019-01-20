@@ -44,6 +44,7 @@ import Sidebar from './components/Sidebar'
 
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import LastWorkout from './components/LastWorkout';
+import BarChartWeeklyStatistiken from './components/BarChartWeeklyStatistiken';
 
 
 // Don't link any component (except Header & Footer)
@@ -117,6 +118,7 @@ class App extends Component {
                     <Route path="/puls" component={Puls} />
                     <Route path="/schritte" component={Schritte} />
                     <Route path="/gewicht" component={Gewicht} />
+                    <Route path="/BarChartWeeklyStatistiken" component={BarChartWeeklyStatistiken} />
 
                     {/*<div id="registrationTrue"></div>*/}
                     {/* React-Router - Route End */}

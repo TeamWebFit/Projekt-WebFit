@@ -2018,7 +2018,12 @@ img.kacheln {
 
 .ct-series-a .ct-bar {
   stroke: #FFCC66;
-  stroke-width: 2px;
+  stroke-width: 10px;
+}
+
+.ct-series-b .ct-bar {
+  stroke: #ff855a;
+  stroke-width: 10px;
 }
 
 .ct-series-a .ct-area {
@@ -2479,6 +2484,45 @@ display: block;
   color: #333333
 }
 
+.ct-legend{
+  text-align: center;
+}
+
+.ct-legend li{
+  float: left;
+  width: 100px;
+  list-style-type: none;
+  margin: 10px;
+}
+
+.ct-legend li.ct-series-1 {
+  border: 1px solid #ff855a;
+  border-radius: 20px;
+  background: #ff855a;
+  color: #FFF;
+}
+
+.ct-legend li.ct-series-0 {
+  border: 1px solid #FFCC66;
+  border-radius: 20px;
+  background: #FFCC66;
+  color: #FFF;
+}
+
+.ct-legend li.ct-series-0.inactive {
+  background: transparent;
+  color: #FFCC66;
+}
+
+.ct-legend li.ct-series-1.inactive {
+  background: transparent;
+  color: #ff855a;
+}
+
+.chartist-tooltip {
+  border: 1px solid #333333;
+}
+
 /*--------------------------------------------------- Statistiken Ende --------------------------------------------------- */
 
 /*----------------------------------------------------- Schritte ----------------------------------------------------- */
@@ -2652,7 +2696,7 @@ display: block;
   width: 67px;
   height: 30px;
   text-align: center;
-  border-right: 1px solid #333333;
+  border-right: 1px solid #BBBDD5;
   margin: 0px;
   background: #333333 !important;
   color: #FFF;
@@ -2678,9 +2722,14 @@ display: block;
   
 }
 
- li.active{
+ li.active:first-child{
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
+}
+
+li.active:last-child{
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 
 

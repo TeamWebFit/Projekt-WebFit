@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Chartist from 'chartist';
 import Chart1 from 'react-chartist';
 import { graphql, compose } from 'react-apollo';
 import { withRouter, Link } from 'react-router-dom';
@@ -8,8 +7,6 @@ import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import ReactLoading from 'react-loading';
 import date from 'date-and-time';
-import { } from 'chartist-plugin-legend';
-import { } from 'chartist-plugin-tooltips';
 
 
 class BarChart extends Component {
@@ -142,8 +139,6 @@ class BarChart extends Component {
                   labels: timeArray,
                   series: [
                     valueArray,
-                    [10000, 6000, 3000, 4000, 5000, 6000, 7000],
-                    []
                   ]
                 };
 
@@ -154,17 +149,6 @@ class BarChart extends Component {
                       return value;
                     }
                   },
-                  plugins: [
-                    Chartist.plugins.legend({
-                      legendNames: ['FITBIT', 'GOOGLE', ''],
-                    }),
-                    Chartist.plugins.tooltip({
-                      onClick: function ()
-                      {
-                        
-                      }
-                      })
-                  ]
                 };
 
                 var type = 'Bar';
