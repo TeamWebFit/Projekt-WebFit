@@ -5,6 +5,7 @@ import gql from 'graphql-tag';
 import { Tabs, Tab } from 'react-bootstrap';
 import { Query } from 'react-apollo';
 import { withCookies, Cookies } from 'react-cookie';
+import date from 'date-and-time';
 
 class AreaChart extends Component {
 
@@ -30,27 +31,115 @@ class AreaChart extends Component {
 
                   const heartrate = data.heartRateViaUser;
 
-                  const time = [];
-                  const value = [];
-                  const tid = [];
-
-                  if (heartrate) {
-                    heartrate.forEach(function (element) {
-                      time.push(element.time);
-                      value.push(element.value);
-                      tid.push(element.trackerId);
-                    })
+                  function compare(a,b) {
+                    if (a.time < b.time)
+                      return -1;
+                    if (a.time > b.time)
+                      return 1;
+                    return 0;
                   }
+                  const sortedHeartrate= heartrate.sort(compare);
+                  const dayValue = [];
+                  const dayChart = [];
+                  const counterArray = [];
+                  var counter = 0;
+                  var valueHeartrate = 0;
+  
+                  var start = sortedHeartrate[sortedHeartrate.length-1].time //aktuellster Zeitpunkt
+                  var startDate = new Date(parseInt(start)); //aktuellster Zeitpunkt als DateObjekt
+                  console.log("Startdatum: "+startDate);
+                  var startDateTemp = new Date(parseInt(start));
+  
+                  var startDate0000 = startDateTemp.setHours(0,0,0,0);
+                  var startDate0000Test = new Date(startDate0000);
+                  console.log("Startdatum 0000: "+startDate0000Test);
+  
+  
+                  for (var j = 1; j < sortedHeartrate.length; j++) {
+                    var elementTime = sortedHeartrate[sortedHeartrate.length-j].time; //Jedes Elemt des Arrays
+                    var elementValue = sortedHeartrate[sortedHeartrate.length-j].value;
+  
+                      if(elementTime <= startDate && elementTime > startDate0000Test){
+                        var valueElem = parseInt(elementValue);
+                        valueHeartrate = valueHeartrate + valueElem;
+                        counter++;
+                      }
+                  }
+                  counterArray.push(counter);
+                  counter = 0;
+                  dayValue.push(valueHeartrate);
+                  dayChart.push(startDate.getDay());
+                  valueHeartrate = 0;
 
+                  for (var i = 0; i < 6; i++) {
+  
+                    let tagXanfang = date.addDays(startDate0000Test, -i);
+  
+                    let tagXende = date.addDays(startDate0000Test, -i-1); //ein Tag vor aktuellster Zeitpunkt
+  
+                    for (var j = 1; j < sortedHeartrate.length; j++) {
+                      var elementTime = sortedHeartrate[sortedHeartrate.length-j].time; //Jedes Elemt des Arrays
+                      var elementValue = sortedHeartrate[sortedHeartrate.length-j].value;
+  
+                        if(elementTime <= tagXanfang && elementTime > tagXende){
+                          var valueElem = parseInt(elementValue);
+                          valueHeartrate = valueHeartrate + valueElem;
+                          counter++;
+                        }
+
+                    }
+
+
+                    dayValue.push(valueHeartrate);
+                    dayChart.push(tagXende.getDay());
+                    valueHeartrate = 0;
+                    counterArray.push(counter);
+                    counter = 0;
+                  }
+                  
+                  // Durchschnitts Berechnung 
+                  for (var i = 0; i < dayValue.length; i++){
+                     dayValue[i] = dayValue[i] / counterArray[i];
+                  }
+                  
+  
                   const timeArray = [];
-                  for (var i = 0; i < 7; i++) {
-                    timeArray.push(time[i]);
-                  }
-
                   const valueArray = [];
-                  for (var i = 0; i < 7; i++) {
-                    valueArray.push(value[i]);
+  
+                  for (var i = 1; i <= dayValue.length; i++) {
+                    valueArray.push(dayValue[dayValue.length-i]);
                   }
+  
+                  for (var i = 1; i < dayChart.length+1; i++) {
+                    switch (dayChart[dayChart.length-i]) {
+                      case 0:
+                        timeArray.push("So");
+                        break;
+                      case 1:
+                        timeArray.push("Mo");
+                      break;
+                      case 2:
+                        timeArray.push("Di");
+                      break;
+                      case 3:
+                        timeArray.push("Mi");
+                      break;
+                      case 4:
+                        timeArray.push("Do");
+                      break;
+                      case 5:
+                        timeArray.push("Fr");
+                      break;
+                      case 6:
+                        timeArray.push("Sa");
+                      break;
+                      default:
+                        console.log("switch fail");
+  
+                    }
+  
+                  }
+                  console.log(timeArray);
 
                   var data = {
                     labels: timeArray,
@@ -66,8 +155,8 @@ class AreaChart extends Component {
                     fullWidth: true,
                     height: '220px',
                     axisX: {
-                      showLabel: false,
-                      showGrid: false
+                      showLabel: true,
+                      showGrid: true
                     }
                   };
 

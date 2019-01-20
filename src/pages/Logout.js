@@ -10,6 +10,9 @@ import { Panel, Grid, Row, Col, Button, ButtonToolbar, Label } from 'react-boots
 // ===================
 
 class Logout extends Component {
+    UNSAFE_componentWillReceiveProps(){
+        window.location.reload();
+      }
     render() {
         const cookies = new Cookies();
         cookies.remove('webfit_user');

@@ -1405,8 +1405,8 @@ img.kacheln {
   border-radius: 15px;
   text-align: center;
   padding: 1em;
-  
-  
+
+
 }
 
 .kachelstat1{
@@ -1427,7 +1427,7 @@ img.kacheln {
 .kachelstat4{
   box-shadow: 2px 2px 15px 1px #FD9C76;
   margin: 15px;
-  
+
 }
 
 .kachelNumber{
@@ -1436,7 +1436,7 @@ img.kacheln {
 }
 
 .kSquare{
-  margin-top: 30px;
+  margin-top: 100px;
 }
 
 /*------------------------------------React Kalender---------------------------------*/
@@ -1549,7 +1549,7 @@ img.kacheln {
   height: 180px;
   border-radius: 10px;
   background-color: #ffffff;
-  box-shadow: 2px 2px 15px 1px #BBBDD5;  
+  box-shadow: 2px 2px 15px 1px #BBBDD5;
   text-align: center;
   float: center;
   display: block;
@@ -2131,7 +2131,12 @@ div.line-content input{
 
 .ct-series-a .ct-bar {
   stroke: #FFCC66;
-  stroke-width: 2px;
+  stroke-width: 10px;
+}
+
+.ct-series-b .ct-bar {
+  stroke: #ff855a;
+  stroke-width: 10px;
 }
 
 .ct-series-a .ct-area {
@@ -2241,6 +2246,25 @@ div.line-content input{
   width: 50%;
   height: 160px;
 }
+
+.Bluepill{
+  width: 50px;
+  height: 50px;
+  background-color: #00f;
+}
+
+.Redpill{
+  width: 50px;
+  height: 50px;
+  background-color: #f00;
+}
+
+.Greenpill{
+  width: 50px;
+  height: 50px;
+  background-color: #0f0;
+}
+
 
 /* Charts End */
 
@@ -2603,6 +2627,45 @@ input:checked + .slider:before {
   color: #333333
 }
 
+.ct-legend{
+  text-align: center;
+}
+
+.ct-legend li{
+  float: left;
+  width: 100px;
+  list-style-type: none;
+  margin: 10px;
+}
+
+.ct-legend li.ct-series-1 {
+  border: 1px solid #ff855a;
+  border-radius: 20px;
+  background: #ff855a;
+  color: #FFF;
+}
+
+.ct-legend li.ct-series-0 {
+  border: 1px solid #FFCC66;
+  border-radius: 20px;
+  background: #FFCC66;
+  color: #FFF;
+}
+
+.ct-legend li.ct-series-0.inactive {
+  background: transparent;
+  color: #FFCC66;
+}
+
+.ct-legend li.ct-series-1.inactive {
+  background: transparent;
+  color: #ff855a;
+}
+
+.chartist-tooltip {
+  border: 1px solid #333333;
+}
+
 /*--------------------------------------------------- Statistiken Ende --------------------------------------------------- */
 
 /*----------------------------------------------------- Schritte ----------------------------------------------------- */
@@ -2799,7 +2862,7 @@ input:checked + .slider:before {
   width: 67px;
   height: 30px;
   text-align: center;
-  border-right: 1px solid #333333;
+  border-right: 1px solid #BBBDD5;
   margin: 0px;
   background: #333333 !important;
   color: #FFF;
@@ -2822,12 +2885,17 @@ input:checked + .slider:before {
 
 .nav-tabs li.active{
   background-color: #BBBDD5 !important;
-  
+
 }
 
- li.active{
+ li.active:first-child{
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
+}
+
+li.active:last-child{
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 
 

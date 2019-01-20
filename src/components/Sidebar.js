@@ -70,6 +70,7 @@ class Sidebar extends Component {
 
     render() {
 
+
         const tooltip_profile = (
             <Tooltip id="tooltip">
                 Profil
@@ -133,6 +134,7 @@ class Sidebar extends Component {
                                 <ul className="ul-sidebar">
                                     <div id="">
                                         <Query query={getUser} variables={{ cookieuser }}>
+
                                             {({ loading, error, data }) => {
                                                 if (loading) return <ReactLoading className="loading-screen-animation" type="spinningBubbles" color="#000000" height={'50%'} width={'50%'} />
                                                 if (error) return <div>Error</div>
@@ -153,15 +155,53 @@ class Sidebar extends Component {
                                                                 </span>
                                                                 <br />
                                                             </div>
+
+                                          {({ loading, error, data }) => {
+                                            if (loading) return <ReactLoading className="loading-screen-animation" type="spinningBubbles" color="#000000" height={'50%'} width={'50%'} />
+                                            if (error) return <div>Error</div>
+                                            console.log(data.user);
+                                            if(data.user === null || data.user.length <= 0)
+                                              {
+                                                var url = "https://server.webfit.app:4009/public/files/5c3a79821410f30a6dec7e78_1547730951406_profilePic_dummy_quad.jpg";
+                                                return(
+                                                  <div className="">
+                                                      <div className="user-pic">
+                                                        <img id="userPicSidebar" src={url}></img>
+                                                      </div>
+                                                      <br />
+                                                      <div className="">
+                                                          <span className="">Vorname
+                                                              <strong> Nachname</strong>
+                                                          </span>
+                                                          <br />
+                                                      </div>
+                                                  </div>
+                                                )
+                                                }else {
+                                                  var url = "https://server.webfit.app:4009/public/files/"+data.user.profilePic;
+                                                  var vorname = data.user.firstName;
+                                                  var nachname = data.user.name;
+
+                                                  return(
+                                                    <div className="">
+                                                        <div className="user-pic">
+                                                          <img id="userPicSidebar" src={url}></img>
+
                                                         </div>
                                                     )
                                                 } else {
                                                     var url = "https://server.webfit.app:4009/public/files/5c3a79821410f30a6dec7e78_1547730951406_profilePic_dummy_quad.jpg";
                                                     return (
                                                         <div className="">
+
                                                             <div className="user-pic">
                                                                 <img id="userPicSidebar" src={url}></img>
                                                             </div>
+
+                                                            <span className="">{vorname}
+                                                                <strong> {nachname}</strong>
+                                                            </span>
+
                                                             <br />
                                                             <div className="">
                                                                 <span className="">Vorname
@@ -251,6 +291,7 @@ class Sidebar extends Component {
                             <div id="slimbar">
                                 <ul className="ul-slimbar">
                                     <div id="">
+
                                         <Query query={getUser} variables={{ cookieuser }}>
                                             {({ loading, error, data }) => {
                                                 if (loading) return <ReactLoading className="loading-screen-animation" type="spinningBubbles" color="#000000" height={'50%'} width={'50%'} />
@@ -278,6 +319,36 @@ class Sidebar extends Component {
                                                 }
                                             }}
                                         </Query>
+
+                                      <Query query={getUser} variables={{ cookieuser }}>
+                                        {({ loading, error, data }) => {
+                                          if (loading) return <ReactLoading className="loading-screen-animation" type="spinningBubbles" color="#000000" height={'50%'} width={'50%'} />
+                                          if (error) return <div>Error</div>
+                                          if(data.user === null || data.user.length <= 0)
+                                          {
+                                            var url = "https://server.webfit.app:4009/public/files/5c3a79821410f30a6dec7e78_1547730951406_profilePic_dummy_quad.jpg";
+                                            return(
+                                              <div className="">
+                                                  <div className="user-pic-slim">
+                                                    <img id="userPicSidebarSlim" src={url}></img>
+                                                  </div>
+                                              </div>
+                                            )
+                                          }else {
+                                            var url = "https://server.webfit.app:4009/public/files/"+data.user.profilePic;
+                                            var vorname = data.user.firstName;
+                                            var nachname = data.user.name;
+                                            return(
+                                              <div className="">
+                                                  <div className="user-pic-slim">
+                                                    <img id="userPicSidebarSlim" src={url}></img>
+                                                  </div>
+                                              </div>
+                                            )
+                                          }
+                                        }}
+                                      </Query>
+
                                         <br />
                                         <hr className="hr-sidebar" />
 
