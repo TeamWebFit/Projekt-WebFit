@@ -8,8 +8,9 @@ import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import ReactLoading from 'react-loading';
 import date from 'date-and-time';
-import StepsSortWeekly from './StepsSortWeekly';
 import { } from 'chartist-plugin-legend';
+import { } from 'chartist-plugin-tooltips';
+import StepsSortWeekly from './StepsSortWeekly';
 
 
 class BarChart extends Component {
@@ -197,7 +198,8 @@ class BarChart extends Component {
                   labels: timeArrayTracker1,
                   series: [
                     valueArrayTracker1,
-                    valueArrayTracker2
+                    valueArrayTracker2,
+                    []
                   ]
                 };
 
@@ -208,6 +210,17 @@ class BarChart extends Component {
                       return value;
                     }
                   },
+                  plugins: [
+                    Chartist.plugins.legend({
+                      legendNames: ['FITBIT', 'GOOGLE', ''],
+                    }),
+                    Chartist.plugins.tooltip({
+                      onClick: function ()
+                      {
+                        
+                      }
+                      })
+                  ]
                 };
 
                 var type = 'Bar';
