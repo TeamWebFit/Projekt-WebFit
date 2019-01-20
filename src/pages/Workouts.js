@@ -35,10 +35,10 @@ class Workouts extends Component {
                             return (<div>
                                 <CheckLogin />
                                 <div className="container">
-                                    <div className="karte2-loggedout">
-                                        <section className="karteLogin">
-                                            <div className="loginPic"></div>
-                                            <div className="login_body">
+                                    <div className="karte2">
+                                        <section className="karteTm">
+                                            <div className="workoutPic"></div>
+                                            <div className="Tm_body">
                                                 <h2>Deine Workouts</h2>
                                                 <hr />
                                                 <p>Es sind noch keine Workouts eingetragen</p>

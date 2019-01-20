@@ -27,6 +27,7 @@ class Login extends Component {
   }
 
   componentDidMount(){
+    
     const parsed = queryString.parse(window.location.search);
     if(parsed.registration === "true"){
       console.log("Registration true");
@@ -50,6 +51,7 @@ class Login extends Component {
         active: true
       })
     }
+  
   }
 
   render() {

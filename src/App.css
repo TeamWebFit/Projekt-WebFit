@@ -1604,6 +1604,97 @@ img.kacheln {
   }
 }
 
+.workoutPic{
+  background: url(./assets/img/workout.jpg) top left/cover no-repeat;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  width: 40%;
+  display: table-cell;
+  height: 100%;
+}
+
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+  .karte2 .workoutPic {
+    width: 100%;
+    display: block;
+    padding-top: 150px;
+    background-position: left center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 15px;
+    background: url(./assets/img/workout.jpg) top left/cover no-repeat;
+  
+  
+    }
+  
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .karte2 .workoutPic {
+    width: 100%;
+    display: block;
+    padding-top: 150px;
+    background-position: left center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 15px;
+    background: url(./assets/img/workout2.jpg) top left/cover no-repeat;  
+    }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .karte2 .workoutPic {
+    width: 100%;
+    display: block;
+    padding-top: 150px;
+    background-position: left center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 15px;
+    background: url(./assets/img/workout2.jpg) top left/cover no-repeat;
+  
+  
+    }
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .karte2 .workoutPic {
+    width: 100%;
+    display: block;
+    padding-top: 200px;
+    background-position: left center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 15px;
+    background: url(./assets/img/workout2.jpg) top left/cover no-repeat;
+  
+  
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  .karte2 .workoutPic {
+    width: 100%;
+    display: block;
+    padding-top: 200px;
+    background-position: left center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 15px;
+    background: url(./assets/img/workout2.jpg) top left/cover no-repeat;
+  
+  
+    }
+    
+}
+
+
 /*9. User Profile*/
 
 .kachel1{
