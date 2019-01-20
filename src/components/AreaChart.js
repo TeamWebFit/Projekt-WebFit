@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import Chartist from 'chartist';
 import Chart2 from 'react-chartist';
 import { withRouter, Link } from 'react-router-dom';
 import gql from 'graphql-tag';
 import { Tabs, Tab } from 'react-bootstrap';
 import { Query } from 'react-apollo';
 import { withCookies, Cookies } from 'react-cookie';
+import { } from 'chartist-plugin-tooltips';
 import date from 'date-and-time';
 
 class AreaChart extends Component {
@@ -89,7 +91,6 @@ class AreaChart extends Component {
 
                     }
 
-
                     dayValue.push(valueHeartrate);
                     dayChart.push(tagXende.getDay());
                     valueHeartrate = 0;
@@ -105,7 +106,7 @@ class AreaChart extends Component {
   
                   const timeArray = [];
                   const valueArray = [];
-  
+                  
                   for (var i = 1; i <= dayValue.length; i++) {
                     valueArray.push(dayValue[dayValue.length-i]);
                   }
@@ -151,27 +152,24 @@ class AreaChart extends Component {
                   var options = {
                     showArea: false,
                     showLine: true,
-                    showPoint: false,
+                    showPoint: true,
                     fullWidth: true,
                     height: '220px',
                     axisX: {
                       showLabel: true,
                       showGrid: true
-                    }
+                    },
+                    plugins: [
+                      Chartist.plugins.tooltip()
+                    ]
                   };
 
                   var type = 'Line'
 
                   return (
                     <div className="container chartbox">
-                      <h6 className="headlinecharts">Herzfrequenz</h6>
+                      <h6 className="headlinecharts">Puls der<br />letzten 7 Tage</h6>
                       <div className="area1"><Chart2 data={data} options={options} type={type} /></div>
-                      <div className="area2">
-                        <div className="herzfrequenz">Durchschnittsfrequenz:</div>
-                        <div className="ideal">Dein Idealwert:</div>
-                        <div className="hoehepunkt">Höhepunkt:</div>
-                        <div className="tiefpunkt">Tiefpunkt:</div>
-                      </div>
                     </div>
                   )
               } else {

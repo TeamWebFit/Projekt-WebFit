@@ -81,7 +81,7 @@ class BarChart extends Component {
       dayChart.push(tagXende.getDay());
       valueSteps = 0;
     }
-    console.log(dayValue);
+    //console.log(dayValue);
     //console.log(dayChart);
 
     const timeArray = [];
@@ -95,25 +95,25 @@ class BarChart extends Component {
     for (var i = 1; i < dayChart.length+1; i++) {
       switch (dayChart[dayChart.length-i]) {
         case 0:
-          timeArray.push("Sonntag");
+          timeArray.push("So");
           break;
         case 1:
-          timeArray.push("Montag");
+          timeArray.push("Mo");
         break;
         case 2:
-          timeArray.push("Dienstag");
+          timeArray.push("Di");
         break;
         case 3:
-          timeArray.push("Mittwoch");
+          timeArray.push("Mi");
         break;
         case 4:
-          timeArray.push("Donnerstag");
+          timeArray.push("Do");
         break;
         case 5:
-          timeArray.push("Freitag");
+          timeArray.push("Fr");
         break;
         case 6:
-          timeArray.push("Samstag");
+          timeArray.push("Sa");
         break;
         default:
           console.log("switch fail");
@@ -135,12 +135,12 @@ class BarChart extends Component {
 
     const cookies = new Cookies();
     var cookieuser = cookies.get('webfit_user');
-    console.log(cookieuser);
+    //console.log(cookieuser);
 
     const tracker = [];
 
     if(this.props.user){
-      console.log("TrackerAnzahl: "+this.props.user.tracker.length);
+      //console.log("TrackerAnzahl: "+this.props.user.tracker.length);
 
     }
 
@@ -153,9 +153,9 @@ class BarChart extends Component {
               if(data.stepsViaUser !== null && data.stepsViaUser.length > 0){
 
                 const steps = data.stepsViaUser;
-                console.log(steps);
+                //console.log(steps);
                 const tracker = this.props.user.tracker;
-                console.log(tracker);
+                //console.log(tracker);
 
                 //Array splitten in mehrere Arrays für TrackerArrays
                 const tracker1 = [];
@@ -165,25 +165,25 @@ class BarChart extends Component {
 
                   for (var j = 0; j < tracker.length-1; j++) {
                     if(steps[i].trackerId === tracker[j].id){
-                      console.log("Zu tracker1: "+steps[i].trackerId);
+                      //console.log("Zu tracker1: "+steps[i].trackerId);
                       tracker1.push(steps[i]);
                     }
                     if(steps[i].trackerId === tracker[j+1].id){
-                      console.log("Zu tracker2: "+steps[i].trackerId);
+                      //console.log("Zu tracker2: "+steps[i].trackerId);
                       tracker2.push(steps[i]);
                     }
                   }
                 }
 
-                console.log(tracker1);
-                console.log(tracker2);
+                //console.log(tracker1);
+                //console.log(tracker2);
 
                 const funct = this.sortAndSplit(steps);
                 const functTracker1 = this.sortAndSplit(tracker1);
                 const functTracker2 = this.sortAndSplit(tracker2);
 
-                console.log(funct.timeArray);
-                console.log(funct.valueArray);
+                //console.log(funct.timeArray);
+                //console.log(funct.valueArray);
 
                 const timeArray = funct.timeArray;
                 const valueArray = funct.valueArray;
@@ -214,12 +214,7 @@ class BarChart extends Component {
                     Chartist.plugins.legend({
                       legendNames: ['FITBIT', 'GOOGLE', ''],
                     }),
-                    Chartist.plugins.tooltip({
-                      onClick: function ()
-                      {
-                        
-                      }
-                      })
+                    Chartist.plugins.tooltip()
                   ]
                 };
 

@@ -69,15 +69,17 @@ class Home extends Component {
                                 <Row className="row">
                                     <Col xs={12} sm={6} md={6}>
                                         <Col xs={12} sm={12} md={12}>
-                                            <Tabs className="tabsschritte" defaultActiveKey={1} id="uncontrolled-tab-example">
-                                                <Tab eventKey={1} className="tabHome" title="Schritte">
+                                            <Tabs className="hometab" defaultActiveKey={1} id="uncontrolled-tab-example">
+                                                <Tab eventKey={1} className="tab1" title="Schritte">
+
                                                     <BarChart user={user} />
                                                 </Tab>
                                                 <Tab eventKey={2} className="tabHome" title="Puls">
                                                     <AreaChart user={user} />
                                                 </Tab>
-                                                <Tab eventKey={3} className="tabHome" title="Ziele">
-                                                    <BarChart user={user} />
+                                                <Tab eventKey={3} title="Ziele">
+                                                    <BarChart suser={user} />
+
                                                 </Tab>
                                             </Tabs>
 
