@@ -2349,9 +2349,10 @@ border-radius: 10px;
 }
 
 .Tm_body{
-  display: table-cell;
+  display: grid;
   padding-left: 20px;
   padding-right: 20px;
+  padding-bottom: 10%;
 }
 
 .TrackerPic{

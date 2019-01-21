@@ -24,6 +24,7 @@ import TrackerManagerAdd from './components/trackermanager/Add'
 import TrackerManagerAddSuccess from './components/trackermanager/Add-Success'
 import TrackerManagerConnectorFitbit from './components/trackermanager/connector/fitbit'
 import TrackerManagerConnectorGoogle from './components/trackermanager/connector/google'
+import TrackerManagerConnectorSamsung from './components/trackermanager/connector/samsung'
 
 import Edit from './pages/Edit';
 import Datenschutz from './pages/Datenschutz';
@@ -103,6 +104,7 @@ class App extends Component {
                     <Route exact path="/trackermanager/add" component={TrackerManagerAdd} />
                     <Route exact path="/trackermanager/connector/fitbit" component={TrackerManagerConnectorFitbit} />
                     <Route exact path="/trackermanager/connector/google" component={TrackerManagerConnectorGoogle} />
+                    <Route exact path="/trackermanager/connector/samsung" component={TrackerManagerConnectorSamsung} />
                     <Route exact path="/trackermanager/add/success" component={TrackerManagerAddSuccess} />
 
                     {/* Tracker-Manager ENDE */}

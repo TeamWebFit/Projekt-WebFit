@@ -23,12 +23,12 @@ class Trackermanager extends Component {
                             <div className="TrackerPic"></div>
                             <div className="Tm_body">
                                 <div className="row">
-                                    <div className="col-md-6">
+                                    <div className="col-md-8">
                                         <h1>Tracker-Manager</h1>
                                         <h5>Alle Tracker einfach und schnell verwalten.</h5>
                                     </div>
-                                    <div className="col-md-6">
-                                        <br />
+                                    <div className="col-md-4">
+                                        <br /><br />
                                         <Button type="btn btn-basic" message="Tracker hinzufügen" onClick={() => this.nextPath('/trackermanager/add')}>
                                             Tracker hinzufügen
                             </Button>
