@@ -33,25 +33,28 @@ class User extends Component {
             {({ loading, error, data }) => {
               if (loading) return <ReactLoading type="spinningBubbles" color="#000000" height={'10%'} width={'10%'} />
               if (error) return <div>Error</div>
-              var user = data.user;
-              console.log(user);
-              
-                //return <UserProfile user={data.user}/>
-                return (
-                  <Query query={getWeight} variables={{ cookieuser }}>
-                      {({ loading, error, data }) => {
-                        if (loading) return <div>Fetching</div>
-                        if (error) return <div>Error</div>
-                        if (data.weight.length > 0){
-                          var weight = data.weight;
-                          console.log(weight);
-                          return <UserProfile user={user} weight={weight}/>
-                        }else{
-                          return <UserProfile user={user} />
-                        }
-                      }}
-                  </Query>
-                )
+              if (data.user === null || data.user.length < 0 ){
+                return <UserProfile />
+              }else{
+                var user = data.user;
+                console.log(user);
+                  //return <UserProfile user={data.user}/>
+                  return (
+                    <Query query={getWeight} variables={{ cookieuser }}>
+                        {({ loading, error, data }) => {
+                          if (loading) return <div>Fetching</div>
+                          if (error) return <div>Error</div>
+                          if (data.weight === null || data.weight.length < 0){
+                            return <UserProfile user={user} />
+                          }else{
+                            var weight = data.weight;
+                            console.log(weight);
+                            return <UserProfile user={user} weight={weight}/>
+                          }
+                        }}
+                    </Query>
+                  )
+              }              
             }}
         </Query>
       </div>

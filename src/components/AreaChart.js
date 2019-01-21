@@ -22,15 +22,24 @@ class AreaChart extends Component {
 
     const cookies = new Cookies();
     var cookieuser = cookies.get('webfit_user');
-
+    console.log(cookieuser);
+    
     return(
       <div>
         <Query query={HEARTRATE_QUERY} variables={{ cookieuser }}>
             {({ loading, error, data }) => {
               if (loading) return <div>Fetching</div>
               if (error) return <div>Error</div>
-              if(data.heartRateViaUser !== null || data.heartRateViaUser.length > 0){
-
+              console.log(data.heartRateViaUser);
+              
+              if(data.heartRateViaUser === null || data.heartRateViaUser.length === 0) {
+                return (
+                  <div className="container chartbox">
+                   <h6 className="headlinecharts">Puls der<br />letzten 7 Tage</h6>
+                    <div className="area1"></div>
+                  </div>
+                )
+              }else{
                   const heartrate = data.heartRateViaUser;
 
                   function compare(a,b) {
@@ -172,11 +181,7 @@ class AreaChart extends Component {
                       <div className="area1"><Chart2 data={data} options={options} type={type} /></div>
                     </div>
                   )
-              } else {
-                return (
-                <div>error</div>
-                )
-              }
+              } 
           }}
         </Query>
       </div>

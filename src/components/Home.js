@@ -54,8 +54,9 @@ class Home extends Component {
 
     render() {
         var userId = "";
+        var user = "";
         if(this.props.user){
-          var user = this.props.user
+          user = this.props.user
           console.log(user);
           userId = this.props.user.id;
         }

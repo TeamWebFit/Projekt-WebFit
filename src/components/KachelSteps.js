@@ -15,9 +15,11 @@ import { Query } from 'react-apollo';
 class KachelSteps extends Component {
 
   render() {
-    var trackerId = '5c43175387259107e4419cb5';
+    var trackerId = '';
 
-    if(this.props.user){
+    if(this.props.user.tracker === null || this.props.user.tracker === 0){
+      trackerId = '';
+    }else{
       trackerId = this.props.user.tracker[0].id;
     }
 

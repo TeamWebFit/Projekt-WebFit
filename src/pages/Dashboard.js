@@ -30,7 +30,9 @@ class Dashboard extends Component {
             {({ loading, error, data }) => {
               if (loading) return <div>Fetching</div>
               if (error) return <div>Error</div>
-              if (data){
+              if (data.user === null || data.user < 0){
+                return <Home />
+              }else{
                 console.log(data.user);
                 return <Home user={data.user}/>
               }

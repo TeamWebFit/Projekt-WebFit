@@ -215,7 +215,6 @@ class BarChart extends Component {
                 return(
                   <div className="chartboxweekly">
                     <h6 className="headlinecharts">Schrittanzahl der<br />letzten 7 Tage</h6>
-                    <Chart1 />
                   </div>
                 )
               }else {
