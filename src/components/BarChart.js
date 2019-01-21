@@ -137,11 +137,12 @@ class BarChart extends Component {
     var cookieuser = cookies.get('webfit_user');
     //console.log(cookieuser);
 
-    const tracker = [];
+    let tracker = [];
 
     if(this.props.user){
       //console.log("TrackerAnzahl: "+this.props.user.tracker.length);
-
+      console.log(this.props.user.tracker);
+      tracker = this.props.user.tracker;
     }
 
     return(
@@ -150,8 +151,14 @@ class BarChart extends Component {
             {({ loading, error, data }) => {
               if (loading) return <ReactLoading className="loading-screen-animation" type="spinningBubbles" color="#000000" height={'50%'} width={'50%'} />
               if (error) return <div>Error</div>
-              if(data.stepsViaUser !== null && data.stepsViaUser.length > 0){
-
+              if(data.stepsViaUser === null || data.stepsViaUser.length <= 0){
+                return(
+                  <div className="chartboxweekly">
+                    <h6 className="headlinecharts">Schrittanzahl der<br />letzten 7 Tage</h6>
+                    <Chart1 />
+                  </div>
+                )
+              }else {
                 const steps = data.stepsViaUser;
                 //console.log(steps);
                 const tracker = this.props.user.tracker;
@@ -226,11 +233,6 @@ class BarChart extends Component {
                     <Chart1 data={data} options={options} type={type} />
                   </div>
                 )
-              }else {
-                <div className="chartboxweekly">
-                  <h6 className="headlinecharts">Schrittanzahl der<br />letzten 7 Tage</h6>
-                  <Chart1 />
-                </div>
               }
             }}
           </Query>
