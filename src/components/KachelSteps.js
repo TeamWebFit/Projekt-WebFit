@@ -20,7 +20,7 @@ class KachelSteps extends Component {
     if(this.props.user.tracker === null || this.props.user.tracker === 0){
       trackerId = '';
     }else{
-      trackerId = this.props.user.tracker[0].id;
+      trackerId = this.props.user.tracker;
     }
 
     return (
