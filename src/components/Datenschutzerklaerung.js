@@ -48,7 +48,7 @@ class Data extends Component {
                         <p >Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
                         <p><span id="s3-t-firma">Projekt WebFit</span>
                             <br />
-                            <span id="s3-t-ansprechpartner">Katharina Dachs</span>
+                            <span id="s3-t-ansprechpartner">Katharina Dachs, Christian Weisenburger</span>
                             <br />
                             <span id="s3-t-strasse">Robert-Gerwig-Platz 1</span>
                             <br /><span id="s3-t-plz">78120</span>
