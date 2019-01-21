@@ -105,7 +105,7 @@ class App extends Component {
                     <Route exact path="/trackermanager/connector/fitbit" component={TrackerManagerConnectorFitbit} />
                     <Route exact path="/trackermanager/connector/google" component={TrackerManagerConnectorGoogle} />
                     <Route exact path="/trackermanager/connector/samsung" component={TrackerManagerConnectorSamsung} />
-                    <Route exact path="/trackermanager/add/success" component={TrackerManagerAddSuccess} />
+                   {/* <Route exact path="/trackermanager/add/success" component={TrackerManagerAddSuccess} /> */}
 
                     {/* Tracker-Manager ENDE */}
                     <Route path="/logout" component={Logout} />
