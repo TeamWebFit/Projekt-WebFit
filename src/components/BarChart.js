@@ -35,7 +35,9 @@ class BarChart extends Component {
     const dayValue = [];
     const dayChart = [];
     var valueSteps = 0;
-
+    console.log(sortedSteps);
+    console.log(array);
+    
     var start = sortedSteps[sortedSteps.length-1].time //aktuellster Zeitpunkt
     var startDate = new Date(parseInt(start)); //aktuellster Zeitpunkt als DateObjekt
     //console.log("Startdatum: "+startDate);
@@ -128,7 +130,6 @@ class BarChart extends Component {
       valueArray: valueArray
     };
 
-
   }//end sortAndSplit
 
   render() {
@@ -151,6 +152,8 @@ class BarChart extends Component {
             {({ loading, error, data }) => {
               if (loading) return <ReactLoading className="loading-screen-animation" type="spinningBubbles" color="#000000" height={'50%'} width={'50%'} />
               if (error) return <div>Error</div>
+              console.log(data.stepsViaUser);
+              
               if(data.stepsViaUser === null || data.stepsViaUser.length <= 0){
                 return(
                   <div className="chartboxweekly">
@@ -162,7 +165,7 @@ class BarChart extends Component {
                 const steps = data.stepsViaUser;
                 //console.log(steps);
                 const tracker = this.props.user.tracker;
-                //console.log(tracker);
+                console.log(tracker.length);
 
                 //Array splitten in mehrere Arrays für TrackerArrays
                 const tracker1 = [];
@@ -170,42 +173,42 @@ class BarChart extends Component {
 
                 for (var i = 0; i < steps.length; i++) {
 
-                  for (var j = 0; j < tracker.length-1; j++) {
+                  for (var j = 0; j <= tracker.length-1; j++) {
                     if(steps[i].trackerId === tracker[j].id){
                       //console.log("Zu tracker1: "+steps[i].trackerId);
                       tracker1.push(steps[i]);
                     }
                     if(steps[i].trackerId === tracker[j+1].id){
                       //console.log("Zu tracker2: "+steps[i].trackerId);
-                      tracker2.push(steps[i]);
+                    tracker2.push(steps[i]);
                     }
                   }
                 }
 
-                //console.log(tracker1);
+                console.log(tracker1);
                 //console.log(tracker2);
 
-                const funct = this.sortAndSplit(steps);
+                //const funct = this.sortAndSplit(steps);
                 const functTracker1 = this.sortAndSplit(tracker1);
-                const functTracker2 = this.sortAndSplit(tracker2);
+                //const functTracker2 = this.sortAndSplit(tracker2);
 
                 //console.log(funct.timeArray);
                 //console.log(funct.valueArray);
 
-                const timeArray = funct.timeArray;
-                const valueArray = funct.valueArray;
+                //const timeArray = funct.timeArray;
+                //const valueArray = funct.valueArray;
 
                 const timeArrayTracker1 = functTracker1.timeArray;
-                const timeArrayTracker2 = functTracker2.timeArray;
+                //const timeArrayTracker2 = functTracker2.timeArray;
 
                 const valueArrayTracker1 =  functTracker1.valueArray;
-                const valueArrayTracker2 =  functTracker2.valueArray;
+                //const valueArrayTracker2 =  functTracker2.valueArray;
 
                 var data = {
                   labels: timeArrayTracker1,
                   series: [
                     valueArrayTracker1,
-                    valueArrayTracker2,
+                    //valueArrayTracker2,
                     []
                   ]
                 };
