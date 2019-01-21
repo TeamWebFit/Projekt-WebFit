@@ -132,6 +132,63 @@ class BarChart extends Component {
 
   }//end sortAndSplit
 
+  splitTracker(array){
+    const tracker = this.props.user.tracker;
+    console.log(tracker.length);
+
+    //Array splitten in mehrere Arrays für TrackerArrays
+    const tracker1 = [];
+    const tracker2 = [];
+    const tracker3 = [];
+
+    for (var i = 0; i < array.length; i++) {
+        switch (tracker.length) {
+          case 1:
+          console.log("case 1");
+            tracker1.push(array[i]);
+            break;
+          case 2:
+          console.log("case 2");
+            if(array[i].trackerId === tracker[0].id){
+              //console.log("Zu tracker1: "+steps[i].trackerId);
+              tracker1.push(array[i]);
+            }
+            if(array[i].trackerId === tracker[1].id){
+              //console.log("Zu tracker2: "+steps[i].trackerId);
+              tracker2.push(array[i]);
+            }
+          break;
+          case 3:
+          console.log("case 3");
+            if(array[i].trackerId === tracker[0].id){
+              //console.log("Zu tracker1: "+steps[i].trackerId);
+              tracker1.push(array[i]);
+            }
+            if(array[i].trackerId === tracker[1].id){
+              //console.log("Zu tracker2: "+steps[i].trackerId);
+              tracker2.push(array[i]);
+            }
+            if(array[i].trackerId === tracker[2].id){
+              //console.log("Zu tracker2: "+steps[i].trackerId);
+              tracker3.push(array[i]);
+            }
+          break;
+          default:
+            console.log("switch fail: tracker");
+        }
+      }
+    
+    console.log(tracker1);
+    console.log(tracker2);
+    console.log(tracker3);
+
+    return{
+      tracker1: tracker1,
+      tracker2: tracker2,
+      tracker3: tracker3
+    };
+  }
+
   render() {
 
     const cookies = new Cookies();
@@ -163,53 +220,61 @@ class BarChart extends Component {
                 )
               }else {
                 const steps = data.stepsViaUser;
-                //console.log(steps);
-                const tracker = this.props.user.tracker;
-                console.log(tracker.length);
+                console.log(steps);
+                
 
-                //Array splitten in mehrere Arrays für TrackerArrays
-                const tracker1 = [];
-                const tracker2 = [];
+                /**********Funktion nach Tracker aufteilen***********/
+                
+                const trackerSplit = this.splitTracker(steps);//in Funktion
+                const tracker1 = trackerSplit.tracker1;//return aus Funktion
+                const tracker2 = trackerSplit.tracker2;//return aus Funktion
+                const tracker3 = trackerSplit.tracker3;//return aus Funktion
 
-                for (var i = 0; i < steps.length; i++) {
+                /**********Tracker nach Woche sortieren***********/
+                let functTracker1 = '';
+                let functTracker2 = '';
+                let functTracker3 = '';
+                if( tracker1.length > 0 && tracker2.length === 0 && tracker3.length === 0 ){
+                  functTracker1 = this.sortAndSplit(tracker1);
+                }
+                if(tracker1.length > 0 && tracker2.length > 0 && tracker3.length === 0 ){
+                  functTracker1 = this.sortAndSplit(tracker1);
+                  functTracker2 = this.sortAndSplit(tracker2);
+                }
+                if(tracker1.length > 0 && tracker2.length > 0 && tracker3.length > 0 ){
+                  functTracker1 = this.sortAndSplit(tracker1);
+                  functTracker2 = this.sortAndSplit(tracker2);
+                  functTracker3 = this.sortAndSplit(tracker3);
+                }
+                console.log(functTracker1);
+                let timeArrayTracker1 = functTracker1.timeArray;
+                let valueArrayTracker1 =  functTracker1.valueArray;
+                let timeArrayTracker2 = '';
+                let valueArrayTracker2 = '';
+                let timeArrayTracker3 = '';
+                let valueArrayTracker3 = '';
 
-                  for (var j = 0; j <= tracker.length-1; j++) {
-                    if(steps[i].trackerId === tracker[j].id){
-                      //console.log("Zu tracker1: "+steps[i].trackerId);
-                      tracker1.push(steps[i]);
-                    }
-                    if(steps[i].trackerId === tracker[j+1].id){
-                      //console.log("Zu tracker2: "+steps[i].trackerId);
-                    tracker2.push(steps[i]);
-                    }
-                  }
+                
+                if(functTracker2.length === 0){
+                  console.log("Tracker leer");
+                }else{
+                  timeArrayTracker2 = functTracker2.timeArray;
+                  valueArrayTracker2 =  functTracker2.valueArray;
                 }
 
-                console.log(tracker1);
-                //console.log(tracker2);
-
-                //const funct = this.sortAndSplit(steps);
-                const functTracker1 = this.sortAndSplit(tracker1);
-                //const functTracker2 = this.sortAndSplit(tracker2);
-
-                //console.log(funct.timeArray);
-                //console.log(funct.valueArray);
-
-                //const timeArray = funct.timeArray;
-                //const valueArray = funct.valueArray;
-
-                const timeArrayTracker1 = functTracker1.timeArray;
-                //const timeArrayTracker2 = functTracker2.timeArray;
-
-                const valueArrayTracker1 =  functTracker1.valueArray;
-                //const valueArrayTracker2 =  functTracker2.valueArray;
+                if(functTracker3.length === 0){
+                  console.log("Tracker leer");
+                }else{
+                  timeArrayTracker3 = functTracker3.timeArray;
+                  valueArrayTracker3 =  functTracker3.valueArray;
+                }
 
                 var data = {
                   labels: timeArrayTracker1,
                   series: [
                     valueArrayTracker1,
-                    //valueArrayTracker2,
-                    []
+                    valueArrayTracker2,
+                    valueArrayTracker3,
                   ]
                 };
 
@@ -236,6 +301,7 @@ class BarChart extends Component {
                     <Chart1 data={data} options={options} type={type} />
                   </div>
                 )
+                
               }
             }}
           </Query>
