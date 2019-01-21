@@ -2126,6 +2126,22 @@ div.line-content input{
   margin: 15px !important;
 }
 
+.headlinechartspie {
+  margin-top: 15px !important;
+  font-size: 20px;
+  text-align: center;
+}
+
+.piechartp {
+  text-align: center;
+  font-size: 17px;
+}
+
+.ct-label {
+  font-size: 15px;
+  color: #333333
+}
+
 .ct-chart {
   margin-top: 10px;
 }
@@ -2162,11 +2178,15 @@ div.line-content input{
   stroke: #FFCC66;
 }
 .ct-series-a .ct-slice-donut {
-  stroke: #ffcc66;
+    stroke-width: 20px !important;
+    stroke: rgb(121, 140, 156) !important;
 }
+
 .ct-series-b .ct-slice-donut {
-  stroke: #333333;
+  stroke: #9FC9EB !important;
+  stroke-width: 20px !important;
 }
+
 .midtextpie {
   text-align: center;
   padding: 50%;
@@ -2233,9 +2253,11 @@ div.line-content input{
 }
 
 .goalChart {
-  float: left;
-  width: 50%;
-  height: 160px;
+  width: 100%;
+}
+
+.ct-slice-donut{
+  stroke-width: 20px;
 }
 
 .Bluepill{

@@ -168,9 +168,13 @@ class StepValuesWeekly extends Component {
                                 stepsvalueweekly = stepsvalueweekly + step;
                             }
 
+                            console.log(stepsvalueweekly);
+                            
+
                             //in Kilometer umwandeln
                             var distance = Math.round((stepsvalueweekly * 0.65)/1000);  
                             var distanceRound = distance.toFixed(1); 
+
 
                             //Differenz zum vorherigen Tag
                             var lastDay = parseInt(valueArrayTracker1[valueArrayTracker1.length-1]); //"heute"/letzter gesyncte Tag

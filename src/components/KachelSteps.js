@@ -15,7 +15,7 @@ import { Query } from 'react-apollo';
 class KachelSteps extends Component {
 
   render() {
-    var trackerId = '';
+    var trackerId = '5c43175387259107e4419cb5';
 
     if(this.props.user){
       trackerId = this.props.user.tracker[0].id;
@@ -51,6 +51,9 @@ class KachelSteps extends Component {
               var distance = valueAverage * 0.65;
               var mkm = "";
 
+              console.log(distance);
+              
+
               if (distance > 1000){
                 distance = distance / 1000;
                 mkm = "km"
@@ -59,11 +62,12 @@ class KachelSteps extends Component {
               }
 
               var distanceRound = Math.round(distance);
+              distanceRound = distance.toFixed(1); 
 
             return (
                 <div>
-                  <p>durchschnittl. Schritte</p>
-                  <h3 className="kachelNumber">{distanceRound} {mkm}</h3>
+                  <p>Ø Schritte in {mkm}</p>
+                  <h3 className="kachelNumber">{distanceRound}</h3>
                 </div>
               )
             }

@@ -56,8 +56,8 @@ class KachelHeartRate extends Component {
 
               return (
                 <div>
-                  <p>durchschnittl. Puls</p>
-                  <h3 className="kachelNumber">{valueAverage} bmi</h3>
+                  <p>Ø Puls</p>
+                  <h3 className="kachelNumber">{valueAverage}</h3>
                 </div>
               )
             }
