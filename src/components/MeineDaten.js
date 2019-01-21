@@ -5,7 +5,7 @@ import { BrowserRouter as Link, NavLink } from 'react-router-dom';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import {withCookies, Cookies} from 'react-cookie';
-
+import ReactLoading from 'react-loading';
 // ===================
 // Datenschutz Page
 // A page for testing all components
@@ -20,6 +20,12 @@ class MeineDaten extends Component {
             weight: "",
             heart: ""
         }
+    }
+
+    onChange(){
+        console.log(this.state.
+            
+            )
     }
 
      render() {
@@ -39,11 +45,28 @@ class MeineDaten extends Component {
 
         return (
             <div>
-                
-                                <div className="datenschutz-switch">
+                <Query query={getUser} variables={{ cookieuser }}>
+                            {({ loading, error, data }) => {
+                            if (loading) return (
+                                <ReactLoading type="spinningBubbles" color="#000000" height={'10%'} width={'10%'} />
+                            );
+                            if (error) return `GRAPHQL FEHLER! ${error.message}`;
+                           if (data){
+
+                           console.log(data)
+                           console.log(data.user.allowheart)
+                           console.log(data.user.allowsteps)
+                           console.log(data.user.allowweight)
+                           this.setState.steps = data.user.allowsteps
+                           this.setState.heart = data.user.allowheart
+                           this.setState.weight = data.user.allowweight
+                           return(
+                                    
+                                    <div>
+                                        <div className="datenschutz-switch">
                                     <p><strong>Schritte synchronisieren</strong></p>
                                     <label className="switch">
-                                        <input type="checkbox" defaultChecked={this.state.steps} />
+                                        <input type="checkbox" defaultChecked={this.state.steps} onChange={this.onChange} />
                                         <span className="slider round"></span>
                                     </label>
                                     <br />
@@ -65,6 +88,13 @@ class MeineDaten extends Component {
                                     </label>
                                     <p><i id="icon-trash" className="fa fa-trash"></i>Meine Daten aus der Datenbank löschen</p>
                                 </div>
+                                </div>
+                                );
+                            }
+                            }}
+                    </Query>
+                
+                              
                 </div>
                     
                         
