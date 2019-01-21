@@ -59,13 +59,13 @@ var cookieuser = cookies.get('webfit_user');
                             );
                             if (error) return (
                                 <div>
-                                    <Redirect to='/login' />
+                                 {/*<Redirect to='/login' /> */}
                                </div>);
 
                             if (data['user'] === null){
                                 return(
                                     <div>
-                                     <Redirect to='/login' />
+                                     {/*<Redirect to='/login' /> */}
                                     </div>
                                 )
                                
@@ -77,7 +77,7 @@ var cookieuser = cookies.get('webfit_user');
                                 }else{
                                     return(
                                         <div>
-                                        <Redirect to='/login' />
+                                        {/*<Redirect to='/login' /> */}
                                        </div>
                                     )
                                    
