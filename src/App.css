@@ -1442,7 +1442,8 @@ h3.kachelNumber {
 }
 
 .kSquare{
-  margin-top: 100px;
+  margin-top: 40px;
+  margin-left: 2.5em;
 }
 
 
@@ -2112,13 +2113,16 @@ div.line-content input{
 .chartboxweekly{
   width: 100%;
   height: 280px;
-  padding: 5px;
   margin: 10px;
   float: left;
   text-align: center;
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.col-md-12, .col-sm-12, .col-xs-12{
+  padding: 0;
 }
 
 
@@ -2137,12 +2141,12 @@ div.line-content input{
 }
 
 .ct-series-a .ct-bar {
-  stroke: #FFCC66;
+  stroke: #ffb066;
   stroke-width: 10px;
 }
 
 .ct-series-b .ct-bar {
-  stroke: #ff855a;
+  stroke: #9FC9EB;
   stroke-width: 10px;
 }
 
@@ -2631,27 +2635,27 @@ input:checked + .slider:before {
 }
 
 .ct-legend li.ct-series-1 {
-  border: 1px solid #ff855a;
+  border: 1px solid #9FC9EB;
   border-radius: 20px;
-  background: #ff855a;
+  background: #9FC9EB;
   color: #FFF;
 }
 
 .ct-legend li.ct-series-0 {
-  border: 1px solid #FFCC66;
+  border: 1px solid #ffb066;
   border-radius: 20px;
-  background: #FFCC66;
+  background: #ffb066;
   color: #FFF;
 }
 
 .ct-legend li.ct-series-0.inactive {
   background: transparent;
-  color: #FFCC66;
+  color: #ffb066;
 }
 
 .ct-legend li.ct-series-1.inactive {
   background: transparent;
-  color: #ff855a;
+  color: #9FC9EB;
 }
 
 .chartist-tooltip {
@@ -2663,6 +2667,10 @@ input:checked + .slider:before {
   margin-left: 20px;
   margin-top: 150px;
   padding: 1em;
+}
+
+.ct-series-0{
+  margin-left: 2em;
 }
 
 /*--------------------------------------------------- Statistiken Ende --------------------------------------------------- */
@@ -2941,7 +2949,7 @@ input:checked + .slider:before {
   width: 67px;
   height: 30px;
   text-align: center;
-  border-right: 1px solid #BBBDD5;
+  border-right: 1px solid rgb(192, 192, 192);
   margin: 0px;
 }
 
@@ -2950,7 +2958,7 @@ input:checked + .slider:before {
   width: 67px;
   height: 30px;
   text-align: center;
-  border-right: 1px solid #BBBDD5;
+  border-right: 1px solid rgb(192, 192, 192);
   margin: 0px;
   background: #333333 !important;
   color: #FFF;
@@ -2972,7 +2980,8 @@ input:checked + .slider:before {
 }
 
 .hometab .nav-tabs li.active{
-  background-color: #BBBDD5 !important;
+  background-color: rgb(192, 192, 192) !important;
+  color: #fff !important;
 
 }
 
@@ -2986,9 +2995,13 @@ input:checked + .slider:before {
   border-bottom-right-radius: 30px;
 }
 
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+  color: white;
+}
+
 .hometab .nav-tabs {
   width: 203px;
-  border: 1px solid #BBBDD5;
+  border: 1px solid rgb(192, 192, 192);
   border-radius: 30px;
 }
 
