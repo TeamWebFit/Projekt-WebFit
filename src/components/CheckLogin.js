@@ -59,25 +59,26 @@ var cookieuser = cookies.get('webfit_user');
                             );
                             if (error) return (
                                 <div>
+                                    Fehler
                                  {/*<Redirect to='/login' /> */}
                                </div>);
 
                             if (data['user'] === null){
                                 return(
                                     <div>
-                                     {/*<Redirect to='/login' /> */}
+                                     <Redirect to='/login' />
                                     </div>
                                 )
                                
                             }else{
                                 if (data['user'].id === cookieuser){
                                     return(<div>
-                                        <SetDatenschutz weight={data['user'].allowweight} steps={data['user'].allowsteps} heart={data['user'].allowheart} />
+                                        
                                          </div>)
                                 }else{
                                     return(
                                         <div>
-                                        {/*<Redirect to='/login' /> */}
+                                        <Redirect to='/login' />
                                        </div>
                                     )
                                    
