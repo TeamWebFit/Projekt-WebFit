@@ -78,7 +78,7 @@ class Home extends Component {
                                                     <AreaChart user={user} />
                                                 </Tab>
                                                 <Tab eventKey={3} title="Ziele">
-                                                    <BarChart suser={user} />
+                                                    <BarChart user={user} />
 
                                                 </Tab>
                                             </Tabs>
