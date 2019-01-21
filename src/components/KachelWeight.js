@@ -31,14 +31,14 @@ class KachelWeight extends Component {
               var weightValue = data.weight[data.weight.length - 1].value;
               return (
                 <div>
-                  <p>aktuelles Gewicht</p>
+                  <p>Gewicht in kg </p>
                   <h3 className="kachelNumber">{weightValue}</h3>
                 </div>
               )
             }else{
               return (
                 <div>
-                  <p>aktuelles Gewicht</p>
+                  <p>Gewicht in kg</p>
                   <h3 className="kachelNumber">-</h3>
                 </div>
               )

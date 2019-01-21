@@ -18,6 +18,7 @@ import AddWorkout from './AddWorkout';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import { Tabs, Tab } from 'react-bootstrap';
+import PieChart from './PieChart';
 
 class Home extends Component {
     state = {
@@ -78,7 +79,7 @@ class Home extends Component {
                                                     <AreaChart user={user} />
                                                 </Tab>
                                                 <Tab eventKey={3} title="Ziele">
-                                                    <BarChart user={user} />
+                                                    <PieChart />
 
                                                 </Tab>
                                             </Tabs>
