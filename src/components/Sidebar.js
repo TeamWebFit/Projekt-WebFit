@@ -125,7 +125,7 @@ class Sidebar extends Component {
                 {/* <div className="overlay"></div> */}
                 <header>
                     <nav id="nav-header">
-                        <NavLink to="/"><img id="logo" alt="WebFit Application Logo" src={logo} height="50" width="auto" /></NavLink>
+                        <NavLink to="/"><img id="logo" alt="WebFit Application Logo" src={logo} height="20%" width="auto" /></NavLink>
 
                         <div id="toggle-sidebar" >
 

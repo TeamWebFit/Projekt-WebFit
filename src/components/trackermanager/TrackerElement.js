@@ -81,7 +81,7 @@ click() {
         }
         // Rendering 
         return (
-                    <Col xs={12} md={6} className="tracker-element">
+                    <Col xs={12} md={5} className="tracker-element">
                         <Panel>
                             <Panel.Body>
                             {MessageBox}

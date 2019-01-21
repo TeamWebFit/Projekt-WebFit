@@ -16,7 +16,6 @@
 --------- Media Queries ---------
 */
 
-
 body {
   font-family: 'Lato', sans-serif;
   background-color: #FAFAFA;
@@ -2322,6 +2321,7 @@ div.line-content input{
   min-width: 30em;
 }
 
+
 .trackermanager-back-button{
   margin-top: 5%;
 }
@@ -2333,8 +2333,13 @@ div.line-content input{
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 20px;
-  width: 90%
+  width: 90%;
+  min-height: 400px;
 }
+
+/* .text-center, .col-md-12{
+  margin-top: 120px;
+} */
 
 .karte2{
   border-radius: 10px;
@@ -2368,6 +2373,11 @@ border-radius: 10px;
 .panel{
   box-shadow: 2px 2px 15px 1px #BBBDD5;
   border-radius: 15px;
+  margin-right: 20px !important;
+}
+
+.panel.panel-default{
+margin-right: 20px !important
 }
 
 .panel-footer{
@@ -2577,6 +2587,7 @@ input:checked + .slider:before {
   border-radius: 15px;
   margin-bottom: 20px;
   margin-top: 0px;
+  min-height: 400px;
 }
 
 .pointer {
