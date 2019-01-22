@@ -273,7 +273,6 @@ class BarChart extends Component {
                   series: [
                     valueArrayTracker1,
                     valueArrayTracker2,
-                    valueArrayTracker3,
                   ]
                 };
 
