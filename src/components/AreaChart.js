@@ -109,7 +109,8 @@ class AreaChart extends Component {
                   
                   // Durchschnitts Berechnung 
                   for (var i = 0; i < dayValue.length; i++){
-                     dayValue[i] = dayValue[i] / counterArray[i];
+                      var x = Math.round(dayValue[i] / counterArray[i]);
+                     dayValue[i] = x;
                   }
                   
   
